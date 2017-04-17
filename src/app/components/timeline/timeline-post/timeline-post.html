@@ -1,0 +1,20 @@
+<div class="panel">
+  <div class="panel-heading">
+    <div class="media">
+      <div class="media-left media-middle">
+        <a href="#">
+          <img class="media-object img-rounded author-image" src="http://i.imgur.com/hA67T1c.png" alt="...">
+        </a>
+      </div>
+      <div class="media-body">
+        <p>{{post.author}} <small style="float:right;">Likes: {{post.likes}}</small></p>
+        <p>{{post.body}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <timeline-comment *ngFor="let comment of post.comments" [comment]="comment"></timeline-comment>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+li {
+  background:transparent;
+  border: 0;
+  border-left:1px;
+  border-style:solid;
+  border-color:#32577a;
+  border-radius:0 !important;
+  margin-left:35px;
+}

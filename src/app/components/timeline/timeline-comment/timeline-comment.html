@@ -1,0 +1,7 @@
+<li class="list-group-item">
+  <img src="https://pbs.twimg.com/profile_images/837692425116123136/qdt6u4KF.jpg" style="max-height:40px; width:auto;" class="img-rounded" alt="">
+  <span><b style="color:#3a6692; margin-right:10px;">Geek</b>{{comment.body}}</span>
+</li>
+<timeline-reply *ngFor="let reply of comment.replies" [reply]="reply">
+
+</timeline-reply>

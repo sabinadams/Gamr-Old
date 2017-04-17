@@ -1,0 +1,119 @@
+.profile-pic {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 1em auto;
+  margin-bottom:5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 99em;
+  -moz-border-radius: 99em;
+  border: 5px solid rgba(0,0,0,0.4);
+  box-shadow: 0 0 10px rgba(66, 111, 146, 0.79);
+  border-radius:50%;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+  box-shadow: 0 0 20px rgb(63, 99, 130);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  position: fixed;
+  /*background: rgba(83, 95, 113, 0.81);*/
+  /*background:rgba(16, 17, 19, 0.81);*/
+  /*background:rgba(38, 52, 91, 0.28);*/
+    background: rgba(38, 52, 91, 0.28); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* Standard syntax */
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  /*border-radius:9px;*/
+  box-shadow:0 0 5px rgba(22, 22, 25, 0.69);
+  margin-left:5px;
+}
+
+data {
+  margin-top: .6em;
+  color: #81878b;
+}
+.data ul {
+  padding:0;
+}
+
+.data li {
+  padding:5px;
+  width: 32%;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.2em;
+  border-right: solid 1px #2a2a2f;
+  transition:background-color 200ms ease-in;
+}
+
+.data li:hover {
+  background-color: rgba(27, 39, 58, 0.48);
+  border-radius: 6px;
+}
+
+.data li:last-child {
+  border: none;
+}
+
+.data li span {
+  display: block;
+  text-transform: uppercase;
+  font-size: .5em;
+  margin-top: .6em;
+  font-weight:700;
+}
+.list-group-item {
+  background:transparent;
+  border-color:rgba(38, 52, 91, 0.18);
+}
+
+@media(min-width:700px) {
+
+  #sidebar-wrapper {
+    width: 250px;
+    height:275px;
+  }
+
+  #wrapper #sidebar-wrapper {
+    width: 0;
+  }
+
+  #sidebar-wrapper.bottom-wrapper {
+    top:345px;
+    background:rgba(31, 39, 62, 0.18);
+  }
+
+}
+
+/*.btn {*/
+  /*position:absolute;*/
+  /*right:10px;*/
+  /*color:#2e3e54;*/
+  /*vertical-align:middle;*/
+
+/*}*/
+
+.label{
+  position:absolute;
+  right:10px;
+  top:20px;
+}
+
+.label-info {
+  background-color:#2c4461;
+}
+
