@@ -1,0 +1,28 @@
+.login-page {
+	padding-left:10px;
+}
+
+.login-container {
+	background-color:#252424;
+	height:100%;
+	position:absolute;
+	right:0;
+	-webkit-box-shadow: -5px 0px 5px -3px rgba(0,0,0,0.6);
+    box-shadow: -5px 0px 5px -3px rgba(0,0,0,0.6);
+}
+
+.login-form {
+	width:80%;
+	margin:auto;
+	margin-top:60px;
+}
+
+.form-input {
+	-moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -webkit-background-clip: padding-box;
+    border-radius: 15px;
+    border:0;
+	background-image:#0e0e0e;
+	height:40px;
+}

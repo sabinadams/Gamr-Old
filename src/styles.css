@@ -1,6 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background-color:#2a2a2f;
+  /*background-color:#2a2a2f;*/
+  background-color: #0e0e0e;
   color:#fff;
   /* logo color: #8662d0*/
 }
+
+input {
+	-webkit-background-clip: padding-box;
+}
+
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
+    -webkit-text-fill-color: #516b94 !important;
+    border:2px solid #0e0e0e !important;
+}
+
+ input:-webkit-autofill:hover {
+	-webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
+    -webkit-text-fill-color: #516b94 !important;
+ }
+
+ input:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0px 2000px #000 inset;
+    -webkit-text-fill-color: #516b94 !important;
+ }

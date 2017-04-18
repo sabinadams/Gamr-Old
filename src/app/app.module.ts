@@ -6,25 +6,28 @@ import { AppComponent } from './app.component';
 
 //Page Imports
 import { Pages } from './bundles/page.exports';
-let pages = new Pages();
+let pagesBundle = new Pages();
+let pages = pagesBundle.getPages();
 
 //Component Imports
 import { Components } from './bundles/component.exports'
-let components = new Components();
+let componentsBundle = new Components();
+let components = componentsBundle.getComponents();
 
 //Service Imports
 import { Services } from './bundles/service.exports';
-let services = new Services();
+let servicesBundle = new Services();
+let services = servicesBundle.getServices();
 
 //Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
-  declarations: [...pages.getPages(), ...components.getComponents()],
+  declarations: [...pages, ...components],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing
   ],
-  providers: [appRoutingProviders, ...services.getServices()],
+  providers: [appRoutingProviders, ...services],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

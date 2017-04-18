@@ -1,6 +1,5 @@
 //Component Imports
 import { AppComponent } from '../app.component';
-import { LoginComponent } from '../pages/login/login-component/login-component';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { ProfileSidePanelComponent } from '../components/profile-side-panel/profile-side-panel';
 import { TimelinePostComponent } from '../components/timeline/timeline-post/timeline-post';
@@ -14,7 +13,6 @@ export class Components {
 	getComponents(){
 		return [
 			AppComponent,
-			LoginComponent,
 			NavbarComponent,
 			TimelineComponent,
 			TimelinePostComponent,
