@@ -2,6 +2,10 @@
 	padding-left:10px;
 }
 
+.login-page-container, .login-container {
+	padding-top:65px;
+}
+
 .login-container {
 	background-color:#252424;
 	height:100%;
@@ -14,7 +18,7 @@
 .login-form {
 	width:80%;
 	margin:auto;
-	margin-top:60px;
+	margin-top:20px;
 }
 
 .form-input {
@@ -26,3 +30,4 @@
 	background-color:#0e0e0e;
 	height:40px;
 }
+
