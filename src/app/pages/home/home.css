@@ -1,10 +1,20 @@
 #home-page {
     padding-top:60px;
-    /*background:*/
-      /*-webkit-gradient(linear, left top, left bottom, from(rgba(38, 55, 74, 0.8)), to(rgba(0, 0, 0, 0.8))) fixed,*/
-      /*url('http://www.wallpaperup.com/uploads/wallpapers/2015/03/31/651204/60c472ccb8558fa3fec66e9dcd395b60.jpg') no-repeat center center fixed;*/
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    color:;
 }
+
+.widgets {
+	height:100%;
+	background:transparent;
+	overflow-y:scroll;
+	width:280px;
+	margin-left:20px;
+}
+.box {
+  color:#000;
+}
+

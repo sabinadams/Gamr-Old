@@ -25,21 +25,16 @@ body {
 
 #sidebar-wrapper {
   position: fixed;
-  /*background: rgba(83, 95, 113, 0.81);*/
-  /*background:rgba(16, 17, 19, 0.81);*/
-  /*background:rgba(38, 52, 91, 0.28);*/
-    background: rgba(38, 52, 91, 0.28); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(45deg, rgba(38, 52, 91, 0.38), rgba(38, 52, 91, 0.18)); /* Standard syntax */
+  padding-top:45px;
+  background: rgb(43, 43, 47);
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  /*border-radius:9px;*/
   box-shadow:0 0 5px rgba(22, 22, 25, 0.69);
-  margin-left:5px;
+  height:100%;
+  left:0;
+  top:0;
 }
 
 data {
@@ -51,7 +46,6 @@ data {
 }
 
 .data li {
-  padding:5px;
   width: 32%;
   text-align: center;
   display: inline-block;
@@ -78,14 +72,13 @@ data {
 }
 .list-group-item {
   background:transparent;
-  border-color:rgba(38, 52, 91, 0.18);
+  border-color:transparent;
 }
 
 @media(min-width:700px) {
 
   #sidebar-wrapper {
     width: 250px;
-    height:275px;
   }
 
   #wrapper #sidebar-wrapper {
@@ -94,18 +87,14 @@ data {
 
   #sidebar-wrapper.bottom-wrapper {
     top:345px;
-    background:rgba(31, 39, 62, 0.18);
+    background:rgba(31, 62, 38, 0.18);
   }
 
 }
 
-/*.btn {*/
-  /*position:absolute;*/
-  /*right:10px;*/
-  /*color:#2e3e54;*/
-  /*vertical-align:middle;*/
-
-/*}*/
+.discover {
+  width:100%;
+}
 
 .label{
   position:absolute;
@@ -117,3 +106,38 @@ data {
   background-color:#2c4461;
 }
 
+.data-container {
+  padding: 0px 10px 10px 10px;
+  background: #28282b;
+}
+
+.nav-tabs {
+    border-top: 1px solid #35353a;
+    border-bottom:0;
+    background-color: #28282b;
+}
+
+.nav-tabs>.active>a {
+  background-color:#6bbf6b;
+}
+
+.profile-tabs>a {
+  border:0;
+  border-radius:0;
+  color:#fff;
+}
+
+.profile-footer {
+  margin:0;
+  position:absolute;
+  max-height:100px;
+  bottom:0;
+  background-color:#28282b;
+  padding:10px;
+  bottom:0;
+  width:100%;
+}
+
+.list-group {
+  margin:0;
+}

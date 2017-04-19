@@ -16,7 +16,7 @@
 
 .navbar {
 	background-color:#6bbf6b;
-	/*height:65px;*/
+	height:45px;
 }
 
 .nav>li>a {
@@ -25,5 +25,5 @@
 }
 
 .options {
-	margin-top:5px;
+	/*margin-top:5px;*/
 }
