@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-
 //Page Imports
 import { Pages } from './bundles/page.exports';
 let pagesBundle = new Pages();
@@ -19,13 +18,18 @@ import { Services } from './bundles/service.exports';
 let servicesBundle = new Services();
 let services = servicesBundle.getServices();
 
+//Imports Imports
+import { Imports } from './bundles/imports.exports';
+let importsBundle = new Imports();
+let imports = importsBundle.getImports();
+
 //Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [...pages, ...components],
   imports: [
-    BrowserModule, FormsModule, HttpModule, routing
+    BrowserModule, FormsModule, HttpModule, routing, ...imports
   ],
   providers: [appRoutingProviders, ...services],
   bootstrap: [AppComponent]

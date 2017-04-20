@@ -6,6 +6,7 @@ import { TimelinePostComponent } from '../components/timeline/timeline-post/time
 import { NavbarComponent } from '../components/navbar/navbar';
 import { TimelineCommentComponent } from '../components/timeline/timeline-comment/timeline-comment';
 import { TimelineReplyComponent } from '../components/timeline/timeline-reply/timeline-reply';
+import { WidgetsComponent } from '../components/widgets/widgets';
 
 export class Components {
 	constructor(){}
@@ -18,7 +19,8 @@ export class Components {
 			TimelinePostComponent,
 			TimelineCommentComponent,
 			TimelineReplyComponent,
-			ProfileSidePanelComponent
+			ProfileSidePanelComponent,
+			WidgetsComponent
 		];	
 	}
 }
