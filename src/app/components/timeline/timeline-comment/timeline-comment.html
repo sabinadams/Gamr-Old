@@ -1,6 +1,19 @@
 <li class="list-group-item">
-  <img src="https://pbs.twimg.com/profile_images/837692425116123136/qdt6u4KF.jpg" style="max-height:40px; width:auto;" class="img-rounded" alt="">
-  <span><b style="color:#3a6692; margin-right:10px;">Geek</b>{{comment.body}}</span>
+
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img src="https://pbs.twimg.com/profile_images/837692425116123136/qdt6u4KF.jpg" style="max-height:40px; width:auto;" class="img-rounded" alt="">
+      </a>
+    </div>
+    <div class="media-body">
+      <span style="margin-right:5px;">
+    	<b style="color:rgb(190, 192, 193);">Geek</b>
+    	<p>{{comment.body}}</p>
+    </span>
+    </div>
+  </div>
+
 </li>
 <timeline-reply *ngFor="let reply of comment.replies" [reply]="reply">
 
