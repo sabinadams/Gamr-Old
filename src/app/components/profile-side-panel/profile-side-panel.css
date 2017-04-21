@@ -26,7 +26,8 @@ body {
 #sidebar-wrapper {
   position: fixed;
   padding-top:45px;
-  background: rgb(43, 43, 47);
+  /*background: rgb(43, 43, 47);*/
+  background:rgba(107, 191, 107, 0.16);
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -109,12 +110,14 @@ data {
 .data-container {
   padding: 0px 10px 10px 10px;
   background: #28282b;
+  /*background:#111111;*/
 }
 
 .nav-tabs {
     border-top: 1px solid #35353a;
     border-bottom:0;
     background-color: #28282b;
+    /*background:#111111;*/
 }
 
 .nav-tabs>.active>a {
@@ -133,6 +136,7 @@ data {
   max-height:100px;
   bottom:0;
   background-color:#28282b;
+  /*background:#111111;*/
   padding:10px;
   bottom:0;
   width:100%;
