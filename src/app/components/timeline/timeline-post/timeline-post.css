@@ -20,3 +20,35 @@
 	background-color:#2b2b2f;
 	/*background-color:#111111;*/
 }
+
+.actions {
+  margin-top:5px;
+}
+
+.action-button {
+  background:transparent;
+  border:0;
+}
+
+.action-button > i {
+  font-size:16px;
+}
+
+.action-text {
+  margin-left:5px;
+}
+
+.post-form> input{
+  margin:5px;
+  border-radius:7px;
+  color:#c3c3c3;
+  border: 0;
+  background-color:rgb(53, 53, 58);
+}
+.user-image {
+  max-height:30px;
+  width:auto;
+}
+.comment-form {
+  margin-bottom:10px;
+}

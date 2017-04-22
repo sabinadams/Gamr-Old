@@ -1,4 +1,6 @@
 <div class="panel">
+
+
   <div class="panel-heading">
     <div class="media">
       <div class="media-left media-middle">
@@ -7,12 +9,38 @@
         </a>
       </div>
       <div class="media-body">
-        <p>{{post.author}} <!-- <small style="float:right;">Likes: {{post.likes}}</small> --></p>
+        <p>{{post.author}} </p>
         <p>{{post.body}}</p>
       </div>
     </div>
+    <div class="actions">
+      <button class="action-button">
+        <i class="fa fa-heart"></i> <span class="action-text">0</span> 
+      </button>
+      <button class="action-button">
+        <i class="fa fa-comment"></i> <span class="action-text">0</span>
+      </button>
+      <button class="action-button">
+        <i class="fa fa-mail-reply"></i> <span class="action-text">0</span>
+      </button>
+    </div>
   </div>
+
   <div class="panel-body">
+    <div class="comment-form">
+      <div class="media">
+        <div class="media-left media-middle">
+          <a href="#">
+            <img class="media-object img-rounded user-image" src="http://i.imgur.com/hA67T1c.png" alt="...">
+          </a>
+        </div>
+        <div class="media-body">
+          <input [(ngModel)]="postText" class="form-control input-box" aria-describedby="basic-addon2" id="text-post" placeholder="What do you have to say?"/>
+        </div>
+      </div>
+    </div>
+    
+
     <ul class="list-group">
       <timeline-comment *ngFor="let comment of post.comments" [comment]="comment"></timeline-comment>
     </ul>

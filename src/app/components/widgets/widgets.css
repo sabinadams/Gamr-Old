@@ -57,10 +57,18 @@
 
 .open-btn {
 	position:fixed;
-	bottom:10px;
-	right:10px;
+	bottom:15px;
+	right:15px;
 	font-size:25px;
   color:#6bbf6b;
+  cursor:pointer;
+  transition: font-size 450ms ease-in;
+}
+
+.open-btn:hover {
+  transform: rotate( -180deg );            
+  transition: transform 450ms ease;
+  font-size: 30px;
 }
 
 .list-group-item {
