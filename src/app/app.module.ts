@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar';
 import { TimelineCommentComponent } from './components/timeline/timeline-comment/timeline-comment';
 import { TimelineReplyComponent } from './components/timeline/timeline-reply/timeline-reply';
 import { WidgetsComponent } from './components/widgets/widgets';
+import { ProfileBannerComponent } from './components/profile-banner/profile-banner';
 
 //Service Imports
 
@@ -32,7 +33,7 @@ import { routing, appRoutingProviders } from './app.routing';
   declarations: [
   	AppComponent,LoginPage, HomePage, ProfilePage, TimelineComponent, 
   	ProfileSidePanelComponent, TimelinePostComponent, TimelineCommentComponent, NavbarComponent,
-  	TimelineReplyComponent, WidgetsComponent
+  	TimelineReplyComponent, WidgetsComponent, ProfileBannerComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, DragulaModule
