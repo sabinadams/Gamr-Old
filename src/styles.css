@@ -25,9 +25,12 @@ input:-webkit-autofill{
     -webkit-text-fill-color: #516b94 !important;
  }
 
-
 .input-box {
   color:#c3c3c3;
   border-color:transparent;
   background-color:rgb(53, 53, 58) !important;
+}
+
+.no-padding {
+  padding:0;
 }

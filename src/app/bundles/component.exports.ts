@@ -7,7 +7,7 @@ import { NavbarComponent } from '../components/navbar/navbar';
 import { TimelineCommentComponent } from '../components/timeline/timeline-comment/timeline-comment';
 import { TimelineReplyComponent } from '../components/timeline/timeline-reply/timeline-reply';
 import { WidgetsComponent } from '../components/widgets/widgets';
-
+import { ProfileBannerComponent } from '../components/profile-banner/profile-banner';
 export class Components {
 	constructor(){}
 	
@@ -20,7 +20,8 @@ export class Components {
 			TimelineCommentComponent,
 			TimelineReplyComponent,
 			ProfileSidePanelComponent,
-			WidgetsComponent
+			WidgetsComponent,
+			ProfileBannerComponent
 		];	
 	}
 }
