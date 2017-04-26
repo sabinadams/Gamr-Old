@@ -2,37 +2,42 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
+
 //Page Imports
-import { Pages } from './bundles/page.exports';
-let pagesBundle = new Pages();
-let pages = pagesBundle.getPages();
+import { LoginPage } from './pages/login/login';
+import { HomePage } from './pages/home/home';
+import { ProfilePage } from './pages/profile/profile';
 
 //Component Imports
-import { Components } from './bundles/component.exports'
-let componentsBundle = new Components();
-let components = componentsBundle.getComponents();
+import { TimelineComponent } from './components/timeline/timeline';
+import { ProfileSidePanelComponent } from './components/profile-side-panel/profile-side-panel';
+import { TimelinePostComponent } from './components/timeline/timeline-post/timeline-post';
+import { NavbarComponent } from './components/navbar/navbar';
+import { TimelineCommentComponent } from './components/timeline/timeline-comment/timeline-comment';
+import { TimelineReplyComponent } from './components/timeline/timeline-reply/timeline-reply';
+import { WidgetsComponent } from './components/widgets/widgets';
 
 //Service Imports
-import { Services } from './bundles/service.exports';
-let servicesBundle = new Services();
-let services = servicesBundle.getServices();
 
 //Imports Imports
-import { Imports } from './bundles/imports.exports';
-let importsBundle = new Imports();
-let imports = importsBundle.getImports();
+import { DragulaModule } from 'ng2-dragula';
+
+
 
 //Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
-  declarations: [...pages, ...components],
-  imports: [
-    BrowserModule, FormsModule, HttpModule, routing, ...imports
+  declarations: [
+  	AppComponent,LoginPage, HomePage, ProfilePage, TimelineComponent, 
+  	ProfileSidePanelComponent, TimelinePostComponent, TimelineCommentComponent, NavbarComponent,
+  	TimelineReplyComponent, WidgetsComponent
   ],
-  providers: [appRoutingProviders, ...services],
+  imports: [
+    BrowserModule, FormsModule, HttpModule, routing, DragulaModule
+  ],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
