@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" [routerLink]="['']">
+      <a class="navbar-brand">
         <img alt="Brand" src="http://i.imgur.com/oA6bxDs.png">
       </a>
     </div>
@@ -19,7 +19,6 @@
         <button type="submit" class="btn sign-up-button">Sign Up</button>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <img class="img-responsive profile" src="http://i.imgur.com/hA67T1c.png" alt="">
@@ -36,16 +35,16 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li [routerLinkActive]="['active']"><a [routerLink]="['/profile']" >Profile</a></li>
+        <li id="profile" [routerLinkActive]="['active']"><a routerLink="profile" >Profile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a [routerLink]="['home']" >Log In</a></li>
+        <li id="home" [routerLinkActive]="['active']"><a routerLink="home" >Home</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li [routerLinkActive]="['active']"><a>Games</a></li>
+        <li><a>Games</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li [routerLinkActive]="['active']"><a>Social</a></li>
+        <li><a>Social</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

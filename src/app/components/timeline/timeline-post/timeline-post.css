@@ -9,7 +9,8 @@
 .panel {
   /*border-radius:3px;*/
   border-radius:0;
-  background-color:rgb(48, 48, 53);
+  /*background-color:rgb(48, 48, 53);*/
+  background-color:#252a42;
   /*background-color:#151515;*/
   border: 1px solid rgba(0,0,0,0.2);
   margin-bottom:10px;
@@ -17,8 +18,9 @@
 }
 
 .panel-body {
-	background-color:#2b2b2f;
+	/*background-color:#2b2b2f;*/
 	/*background-color:#111111;*/
+  background-color:#252a42;
 }
 
 .actions {
@@ -38,12 +40,12 @@
   margin-left:5px;
 }
 
-.post-form> input{
+.post-form> input, .input-box {
   margin:5px;
   border-radius:7px;
   color:#c3c3c3;
   border: 0;
-  background-color:rgb(53, 53, 58);
+  background-color:#1e2335;
 }
 .user-image {
   max-height:30px;

@@ -1,8 +1,12 @@
 #home-page {
-    padding-top:60px;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    color:;
+    padding-top:48px;
+}
+
+.panel-container {
+	border:2px solid rgba(0,0,0,0.2);
+	height:100%;
+}
+
+.timeline-container, .widgets-container {
+	margin-top:10px;
 }

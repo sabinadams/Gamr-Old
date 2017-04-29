@@ -19,6 +19,26 @@
   box-shadow: 0 0 20px #6bbf6b;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  position: fixed;
+  padding-top:50px;
+  /*background: rgb(43, 43, 47);*/
+  /*background:rgba(0,0,0, 0.16);*/
+  background:transparent;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  height:100%;
+  left:0;
+  top:0;
+  border:2px solid rgba(0,0,0,0.16);
+}
+
 data {
   margin-top: .6em;
   color: #81878b;
@@ -128,6 +148,17 @@ data {
   border-left:2px solid rgba(0,0,0,0.2);
 }
 
+.profile-footer {
+  margin:0;
+  position:absolute;
+  max-height:100px;
+  bottom:0;
+  /*background-color:#28282b;*/
+  /*background:#111111;*/
+  padding:10px;
+  bottom:0;
+  width:100%;
+}
 
 .list-group {
   margin:0;

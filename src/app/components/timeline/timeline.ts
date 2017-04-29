@@ -65,6 +65,125 @@ export class TimelineComponent {
       ]},
       {body: "test comment"},
       {body: "test comment"}
+    ]},
+    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
+      {body: "test comment"},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment"}
+    ]},
+    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
+      {body: "test comment"},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment"}
+    ]},
+    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
+      {body: "test comment"},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment"}
+    ]},
+    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
+      {body: "test comment"},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment"}
+    ]},
+    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
+      {body: "test comment"},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment"}
+    ]},
+    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
+      {body: "test comment"},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment"}
+    ]},
+    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
+      {body: "test comment"},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment", replies:[
+        {body: "test reply"},
+        {body: "test reply"},
+        {body: "test reply"}
+      ]},
+      {body: "test comment"},
+      {body: "test comment"}
     ]}
   ];
 
