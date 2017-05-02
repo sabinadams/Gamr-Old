@@ -5,8 +5,10 @@
 }
 
 .panel-container {
-	border:$thicc-border;
+	border:$thicc-border-dark;
 	height:100%;
+	max-width:260px;
+	padding-right:0;
 }
 
 .timeline-container, .widgets-container {

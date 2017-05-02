@@ -20,7 +20,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="options collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div class="navbar-form navbar-right">
-        <button type="submit" class="btn sign-up-button">Sign Up</button>
+        <!-- <button type="submit" class="btn sign-up-button">Sign Up</button> -->
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -38,18 +38,13 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-middle">
         <li id="profile" [routerLinkActive]="['active']"><a routerLink="profile" >Profile</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <li id="home" [routerLinkActive]="['active']"><a routerLink="home" >Home</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <li><a>Games</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <li><a>Social</a></li>
       </ul>
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

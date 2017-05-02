@@ -1,32 +1,19 @@
 @import '../../../styles.scss';
-.login-page {
-	padding-left:10px;
-}
-
-.login-page-container, .login-container {
-	padding-top:65px;
-}
-
 .login-container {
-	background-color:#252424;
+	padding-top:5%;
+	background-color:$secondary-background;
 	height:100%;
 	position:absolute;
 	right:0;
     box-shadow: inset 8px 4px 9px -6px rgba(0,0,0,0.4);
 }
 
+.login-page-container {
+	padding-top:60px;
+}
+
 .login-form {
 	width:80%;
 	margin:auto;
-	margin-top:20px;
+	padding-top:20px;
 }
-
-.form-input {
-	-moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 15px;
-    border:0;
-	background-color:#0e0e0e;
-	height:40px;
-}
-

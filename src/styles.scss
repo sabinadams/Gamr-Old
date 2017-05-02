@@ -2,16 +2,23 @@
 
 $cloud: #98878F;
 $sunset: #985E6D;
+$evening: #192231;
+$stormy: #494E6B;
+$emerald-transparent: rgba(94, 152, 133, 0.52);
+$emerald: rgb(94, 152, 133);
+$smoky-green: -webkit-radial-gradient(top center, ellipse cover, $emerald-transparent 0%, $stormy 100%);
 
 //********************** Main Colors ************************//
 
-$primary-background: #202335;
+$primary-background: rgb(32, 35, 53);
+$primary-background-transparent: rgba(32, 35, 53, 0.8);
 $secondary-background: #252a42;
-
 //************************ Borders **************************//
 
-$thicc-border: 2px solid rgba(0,0,0,0.2);
-$thin-border: 1px solid rgba(0,0,0,0.2);
+$thicc-border-dark: 2px solid rgba(0,0,0,0.2);
+$thin-border-dark: 1px solid rgba(0,0,0,0.2);
+$thicc-border-light: 2px solid rgba(197, 197, 197, 0.08);
+$thin-border-light: 1px solid rgba(197, 197, 197, 0.08);
 
 //********************** Font Colors ************************//
 
@@ -51,15 +58,29 @@ input:-webkit-autofill{
  }
 
 .input-box {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius:2px;
   color:$default-font-color;
-  border-color:transparent;
+  border:$thicc-border-light;
   background-color:$primary-background;
   width:100%;
+}
+
+.form-input {
+  border-radius:2px;
+  color:$default-font-color;
+  border:$thicc-border-light;
+  background-color:$primary-background;
+  width:100%;
+  height:40px;
 }
 
 //********************** Text Areas ************************//
 
 .post-form> textarea{
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
   border-radius:2px;
   color:$default-font-color;
   border: 0;
