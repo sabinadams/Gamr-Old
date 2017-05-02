@@ -1,19 +1,5 @@
-.panel-heading {
-  background-color:#252a42;
-  /*background:#111111;*/
-  border-radius:0;
-  border:1px solid rgba(0,0,0,0.2);
-}
+@import '../../../styles.scss';
 
-.panel {
-  /*border-top-left-radius:7px;*/
-  /*border-top-right-radius:7px;*/
-  /*border-bottom-left-radius:0;*/
-  /*border-bottom-right-radius:0;*/
-  border-radius:0;
-  border:0;
-  margin-bottom:5px;
-}
 .author-image {
   max-height:40px;
   width:auto;
@@ -21,11 +7,4 @@
 
 .post-form.input-group {
   width:100%;
-}
-.post-form> textarea{
-  border-radius:7px;
-  color:#c3c3c3;
-  border: 0;
-  /*background-color:rgb(53, 53, 58);*/
-  background-color:#252a42;
 }
