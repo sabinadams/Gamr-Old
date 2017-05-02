@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',
-  styleUrls: ['./timeline.css'],
+  styleUrls: ['./timeline.scss'],
 })
 export class TimelineComponent {
   rows: number = 1;

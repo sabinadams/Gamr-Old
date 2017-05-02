@@ -1,0 +1,47 @@
+//Accent Colors
+$cloud: #98878F;
+$sunset: #985E6D;
+
+//Main Colors
+$primary-background: #202335;
+$secondary-background: #252a42;
+
+//You can add global styles to this file, and also import other style files
+body {
+  background-color:$primary-background;
+  color:#c3c3c3;
+}
+
+input {
+	-webkit-background-clip: padding-box;
+}
+
+input:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
+  -webkit-text-fill-color: #516b94 !important;
+  border:2px solid #0e0e0e !important;
+}
+
+ input:-webkit-autofill:hover {
+	-webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
+  -webkit-text-fill-color: #516b94 !important;
+ }
+
+ input:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0px 2000px #000 inset;
+  -webkit-text-fill-color: #516b94 !important;
+ }
+
+.input-box {
+  color:#c3c3c3;
+  border-color:transparent;
+  background-color:#1e2335;
+}
+
+.no-padding {
+  padding:0;
+}
+
+.auto-margin {
+  margin:auto;
+}

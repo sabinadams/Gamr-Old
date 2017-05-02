@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'timeline-post',
   templateUrl: './timeline-post.html',
-  styleUrls: ['./timeline-post.css'],
+  styleUrls: ['./timeline-post.scss'],
 })
 export class TimelinePostComponent {
 

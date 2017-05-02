@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'widgets',
   templateUrl: './widgets.html',
-  styleUrls: ['./widgets.css'],
+  styleUrls: ['./widgets.scss'],
 })
 export class WidgetsComponent implements OnInit{
 

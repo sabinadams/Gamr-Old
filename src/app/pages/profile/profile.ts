@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
   templateUrl: './profile.html',
-  styleUrls: ['./profile.css'],
+  styleUrls: ['./profile.scss'],
 })
 export class ProfilePage implements OnInit{
 
