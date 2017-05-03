@@ -9,7 +9,22 @@
 }
 
 .login-page-container {
+	position:fixed;
 	padding-top:60px;
+	height:100%;
+	background: url('https://community.activision.com/eikmo72643/attachments/eikmo72643/more-games/20/1/ChivBlogHeader.jpg') center center;
+	background-size: cover;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index:-1;
+		background-image: linear-gradient(to bottom right,$evening, $stormy );
+		opacity: .9; 
+	}
 }
 
 .login-form {

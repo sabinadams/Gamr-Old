@@ -20,6 +20,8 @@ import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-b
 //Service Imports
 import { HttpClient } from './services/http-interceptor-service';
 import { AuthService } from './services/auth-service';
+import { AuthGuard } from './services/auth-guard';
+
 //Imports Imports
 import { DragulaModule } from 'ng2-dragula';
 
@@ -38,7 +40,7 @@ import { routing, appRoutingProviders } from './app.routing';
     BrowserModule, FormsModule, HttpModule, routing, DragulaModule
   ],
   providers: [
-      appRoutingProviders, HttpClient, AuthService
+      appRoutingProviders, HttpClient, AuthService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })

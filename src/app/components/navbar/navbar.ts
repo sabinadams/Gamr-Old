@@ -8,12 +8,9 @@ import { AuthService } from '../../services/auth-service';
 })
 export class NavbarComponent implements OnInit{
   constructor( private _authService: AuthService ){}
-  
-  user: Object;
   @Input() Authorized: any;
 
   ngOnInit() {
-    this.user = localStorage.getItem('user') || [];
     /*
     // This is to change the icon into other colors
     // Variables
