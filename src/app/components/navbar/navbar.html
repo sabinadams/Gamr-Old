@@ -19,11 +19,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="options collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <div class="navbar-form navbar-right">
-        <!-- <button type="submit" class="btn sign-up-button">Sign Up</button> -->
+      <div class="navbar-form navbar-right" *ngIf="Authorized">
+        <button type="submit" class="btn sign-up-button" (click)="logout()">Sign Out</button>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
+        <li class="dropdown" *ngIf="Authorized">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <img class="img-responsive profile" src="http://i.imgur.com/hA67T1c.png" alt="">
           </a>
@@ -38,7 +38,7 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-middle">
+      <ul class="nav navbar-nav navbar-middle" *ngIf="Authorized">
         <li id="profile" [routerLinkActive]="['active']"><a routerLink="profile" >Profile</a></li>
         <li id="home" [routerLinkActive]="['active']"><a routerLink="home" >Home</a></li>
         <li><a>Games</a></li>

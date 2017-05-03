@@ -18,7 +18,8 @@ import { WidgetsComponent } from './components/widgets/widgets';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
 
 //Service Imports
-
+import { HttpClient } from './services/http-interceptor-service';
+import { AuthService } from './services/auth-service';
 //Imports Imports
 import { DragulaModule } from 'ng2-dragula';
 
@@ -36,7 +37,9 @@ import { routing, appRoutingProviders } from './app.routing';
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, DragulaModule
   ],
-  providers: [appRoutingProviders],
+  providers: [
+      appRoutingProviders, HttpClient, AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

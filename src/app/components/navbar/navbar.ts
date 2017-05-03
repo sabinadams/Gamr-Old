@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../../services/auth-service';
+
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.scss'],
 })
 export class NavbarComponent implements OnInit{
-
-  constructor(){}
+  constructor( private _authService: AuthService ){}
+  
+  user: Object;
+  @Input() Authorized: any;
 
   ngOnInit() {
-    
+    this.user = localStorage.getItem('user') || [];
     /*
     // This is to change the icon into other colors
     // Variables
@@ -25,4 +29,7 @@ export class NavbarComponent implements OnInit{
     */
   }
 
+  logout() {
+    this._authService.logout();
+  }
 }
