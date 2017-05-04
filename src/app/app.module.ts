@@ -17,6 +17,7 @@ import { TimelinePostComponent } from './components/timeline/timeline-post/timel
 import { NavbarComponent } from './components/navbar/navbar';
 import { WidgetsComponent } from './components/widgets/widgets';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
+import { LoginInfoComponent } from './pages/signup/login-info/login-info';
 
 //Service Imports
 import { HttpClient } from './services/http-interceptor-service';
@@ -26,16 +27,17 @@ import { AuthGuard } from './services/auth-guard';
 //Imports Imports
 import { DragulaModule } from 'ng2-dragula';
 
-
+//Pipe Imports
+import { PasswordStrengthPipe } from './pipes/password-strength-pipe';
 
 //Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
-  	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage, TimelineComponent, 
+  	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage,
   	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, WidgetsComponent, 
-    ProfileBannerComponent
+    ProfileBannerComponent, TimelineComponent, LoginInfoComponent, PasswordStrengthPipe
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, DragulaModule
