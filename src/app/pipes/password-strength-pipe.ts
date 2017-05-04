@@ -5,51 +5,28 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'passwordStrength'})
 export class PasswordStrengthPipe implements PipeTransform {
   
-  // Variables
-  passwordStrInfo =  {
-    textlen:  0,
-    hasUppercase: false,
-    hasLowercase: false,
-    hasNumbers: false,
-    hasSpecials: false
-  }; 
-
+  criteria = { uppercase: 1, lowercase: 2, numerical: 4, special: 8 };
 
   transform(password: string, action: string): string {
-  	if(!password) return action == 'color' ? 'dimgray' : 'None';
-
   	// Variables
-    let regex =  password.match(/([A-Z]+|[a-z]+|[0-9]+|[\!\@\#\$\%\^\&\*\(\)]+)/g);
+    let strength = !password ? 0 : password.length;
+    let regex =  password.match(/([A-Z]+|[a-z]+|[0-9]+|[\!\@\#\$\%\^\&\*\(\)]+)/g) || [];
     let flags =  0;
-    let correctFlags= (
-      1 | // Uppercase flag
-      2 | // Lowercase flag
-      4 | // Numerical flag
-      8 // Special flag
-    );
-    
+    let multiplier = 1;
+
     for(var i= 0; i< regex.length; i++) {
-      if(regex[i].match(/[A-Z]+/g))  flags|= 1;
-      if(regex[i].match(/[a-z]+/g))  flags|= 2;
-      if(regex[i].match(/[0-9]+/g))  flags|= 4;
-      // Need better checking for the special characters
-      if(regex[i].match(/[\!\@\#\$\%\^\&\*\(\)]+/g))  flags|= 8;
+      if(regex[i].match(/[A-Z]+/g)) flags += this.criteria.uppercase;
+      if(regex[i].match(/[a-z]+/g)) flags += this.criteria.lowercase;
+      if(regex[i].match(/[0-9]+/g)) flags += this.criteria.numerical;
+      if(regex[i].match(/[\!\@\#\$\%\^\&\*\(\)]+/g)) flags += this.criteria.special; 
+      //Need better special char matching
     }
     
-    this.passwordStrInfo.textlen = password.length;
-    this.passwordStrInfo.hasUppercase = ((flags&1)!= 0);
-    this.passwordStrInfo.hasLowercase = ((flags&2)!= 0);
-    this.passwordStrInfo.hasNumbers = ((flags&4)!= 0);
-    this.passwordStrInfo.hasSpecials = ((flags&8)!= 0);
+    if((flags&1)!= 0) multiplier++;
+    if((flags&2)!= 0) multiplier++;
+    if((flags&4)!= 0) multiplier++;
+    if((flags&8)!= 0) multiplier++;
 
-    let strength = this.passwordStrInfo.textlen;
-    let multiplier = 1;
-    
-    if(this.passwordStrInfo.hasLowercase) multiplier++;
-    if(this.passwordStrInfo.hasUppercase) multiplier++;
-    if(this.passwordStrInfo.hasNumbers) multiplier++;
-    if(this.passwordStrInfo.hasSpecials)  multiplier++;
-    
     strength *= multiplier;
         
     // Mess with the strength values to tweak how strong you want the user
@@ -59,5 +36,6 @@ export class PasswordStrengthPipe implements PipeTransform {
     else if( strength < 36 ) return action == 'color' ? 'yellowgreen' : 'Mild'
     else if( strength < 48 ) return action == 'color' ? 'green' : 'Mildly String'
     else return action == 'color' ? 'lime' : 'Strong'
+      
   }
 }
