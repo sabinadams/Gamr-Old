@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ProfileSidePanelComponent {
 
+	user = JSON.parse( localStorage.getItem( 'user' ) );
 
 }

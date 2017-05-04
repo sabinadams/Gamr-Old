@@ -2,21 +2,21 @@
     <div class="container" class="data-container">
       <div class="row text-center">
         <img class="img-rounded img-responsive profile-pic" src="http://i.imgur.com/hA67T1c.png" style="" alt="">
-        <p>@myname</p>
+        <p>{{'@' + user.tag || "No Tag"}}</p>
       </div>
       <div class="row">
         <div class="data">
           <ul>
             <li>
-              2,934
+              {{user.post_count || 0}}
               <span>Posts</span>
             </li>
             <li>
-              1,119
+              {{user.follower_count || 0}}
               <span>Followers</span>
             </li>
             <li>
-              530
+              {{user.following_count || 0}}
               <span>Following</span>
             </li>
           </ul>
