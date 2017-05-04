@@ -15,10 +15,10 @@ export class PasswordStrengthPipe implements PipeTransform {
     let multiplier = 1;
 
     for(var i= 0; i< regex.length; i++) {
-      if(regex[i].match(/[A-Z]+/g)) flags += this.criteria.uppercase;
-      if(regex[i].match(/[a-z]+/g)) flags += this.criteria.lowercase;
-      if(regex[i].match(/[0-9]+/g)) flags += this.criteria.numerical;
-      if(regex[i].match(/[\!\@\#\$\%\^\&\*\(\)]+/g)) flags += this.criteria.special; 
+      if(regex[i].match(/[A-Z]+/g)) flags |= this.criteria.uppercase;
+      if(regex[i].match(/[a-z]+/g)) flags |= this.criteria.lowercase;
+      if(regex[i].match(/[0-9]+/g)) flags |= this.criteria.numerical;
+      if(regex[i].match(/[\!\@\#\$\%\^\&\*\(\)]+/g)) flags |= this.criteria.special; 
       //Need better special char matching
     }
     
