@@ -6,6 +6,7 @@ import { AuthGuard } from './services/auth-guard';
 //Page Imports....
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login';
+import { SignupPage } from "./pages/signup/signup";
 import { HomePage } from './pages/home/home';
 import { ProfilePage } from './pages/profile/profile';
 
@@ -13,6 +14,7 @@ import { ProfilePage } from './pages/profile/profile';
 //App Routes....
 const appRoutes: Routes = [
 	{ path: '', component: LoginPage },
+	{ path: "signup", component: SignupPage },
 	{ path: 'home', component: HomePage, canActivate: [AuthGuard]},
 	{ path: 'profile', component: ProfilePage, canActivate: [AuthGuard]}
 ]; 

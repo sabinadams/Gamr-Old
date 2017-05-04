@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 //Page Imports
 import { LoginPage } from './pages/login/login';
+import { SignupPage } from "./pages/signup/signup";
 import { HomePage } from './pages/home/home';
 import { ProfilePage } from './pages/profile/profile';
 
@@ -32,7 +33,7 @@ import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
-  	AppComponent,LoginPage, HomePage, ProfilePage, TimelineComponent, 
+  	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage, TimelineComponent, 
   	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, WidgetsComponent, 
     ProfileBannerComponent
   ],
