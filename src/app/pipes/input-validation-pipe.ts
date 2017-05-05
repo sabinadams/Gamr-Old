@@ -26,10 +26,10 @@ export class InputValidationPipe implements PipeTransform {
 		
 		// Variables
 		var	regex=	input.match(
-			/[a-zA-Z0-9]+(\.?[a-zA-Z0-9]+)*\@[a-zA-Z0-9]+(\.?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,3}/g
+			/[a-zA-Z0-9]+(\.?[a-zA-Z0-9]+)*\@[a-zA-Z0-9]+(\.?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,3}/
 		);
 		
-		return ((regex) ?
+		return ((regex && regex[0]=== regex.input) ?
 			this.valid_color :
 			this.invalid_color
 		);
