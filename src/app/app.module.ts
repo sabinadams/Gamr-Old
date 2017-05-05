@@ -31,6 +31,7 @@ import { DragulaModule } from 'ng2-dragula';
 
 //Pipe Imports
 import { PasswordStrengthPipe } from './pipes/password-strength-pipe';
+import { InputValidationPipe } from "./pipes/input-validation-pipe";
 
 //Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
@@ -39,7 +40,8 @@ import { routing, appRoutingProviders } from './app.routing';
   declarations: [
   	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage,
   	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, WidgetsComponent, 
-    ProfileBannerComponent, TimelineComponent, LoginInfoComponent, PasswordStrengthPipe,
+    ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
+    PasswordStrengthPipe, InputValidationPipe,
     AccountImagesComponent, AccountLinkComponent
   ],
   imports: [

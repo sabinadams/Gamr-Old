@@ -1,11 +1,32 @@
 <div class="form-group">
-	<input (input)="updateForm()" [(ngModel)]="personal_info.email" type="email" class="form-control form-input" placeholder="Email" />
+	<input
+		(input)="updateForm()"
+		[(ngModel)]="personal_info.email"
+		type="email"
+		class="form-control form-input"
+		placeholder="Email"
+		[ngStyle]="{'border-color': personal_info.email | inputValidation: 'email' }"
+	/>
 </div>
 <div class="form-group">
-	<input type="password" (input)="updateForm()" [(ngModel)]="personal_info.password" class="form-control form-input" placeholder="Password"/>
+	<input
+		type="password"
+		(input)="updateForm()"
+		[(ngModel)]="personal_info.password"
+		class="form-control form-input"
+		placeholder="Password"
+		[ngStyle]="{'border-color': personal_info.password | inputValidation: 'password' }"
+	/>
 </div>
 <div class="form-group">
-	<input type="password" (input)="updateForm()" [(ngModel)]="personal_info.confirm_password" class="form-control form-input" placeholder="Confirm Password"/>
+	<input
+		type="password"
+		(input)="updateForm()"
+		[(ngModel)]="personal_info.confirm_password"
+		class="form-control form-input"
+		placeholder="Confirm Password"
+		[ngStyle]="{'border-color': personal_info.password+'\n'+personal_info.confirm_password | inputValidation: 'confirm_password' }"
+	/>
 </div>
 <div class="form-group">
 	  <span style="color:#ab3b3b;" *ngIf="!(personal_info.password == personal_info.confirm_password) || personal_info.password == ''" class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -33,7 +54,15 @@
 </div>
 <div class="form-group input-group">
   <span style="background:transparent; border: 0; font-size:20px;" class="input-group-addon" id="basic-addon1">@</span>
-  <input (input)="updateForm()" [(ngModel)]="personal_info.tag" type="text" class="form-control form-input" placeholder="Enter your user tag" aria-describedby="basic-addon1">
+  <input
+		(input)="updateForm()"
+		[(ngModel)]="personal_info.tag"
+		type="text"
+		class="form-control form-input"
+		placeholder="Enter your user tag"
+		aria-describedby="basic-addon1"
+		[ngStyle]="{'border-color': personal_info.tag | inputValidation: 'username' }"
+	/>
 </div>
 <div class="input-group post-form">
   <textarea (input)="updateForm()" [(ngModel)]="personal_info.description" class="form-control post-input" rows="5"  aria-describedby="basic-addon2" id="text-post" placeholder="(Optional) Write a short bio about yourself."></textarea>
