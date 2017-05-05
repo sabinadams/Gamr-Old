@@ -17,7 +17,9 @@ import { TimelinePostComponent } from './components/timeline/timeline-post/timel
 import { NavbarComponent } from './components/navbar/navbar';
 import { WidgetsComponent } from './components/widgets/widgets';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
-import { LoginInfoComponent } from './pages/signup/login-info/login-info';
+import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
+import { AccountImagesComponent } from './pages/signup/account-images-component/account-images-component';
+import { AccountLinkComponent } from './pages/signup/account-link-component/account-link-component';
 
 //Service Imports
 import { HttpClient } from './services/http-interceptor-service';
@@ -37,7 +39,8 @@ import { routing, appRoutingProviders } from './app.routing';
   declarations: [
   	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage,
   	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, WidgetsComponent, 
-    ProfileBannerComponent, TimelineComponent, LoginInfoComponent, PasswordStrengthPipe
+    ProfileBannerComponent, TimelineComponent, LoginInfoComponent, PasswordStrengthPipe,
+    AccountImagesComponent, AccountLinkComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, DragulaModule

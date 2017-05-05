@@ -46,4 +46,9 @@ export class AuthService {
     this._router.navigate( [''] );
   }
   
+  register( data ) {
+    return this._http.post('http://api.gamr.co/register/', {user: data}).map((res:Response) => {
+       return res.json();
+     }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

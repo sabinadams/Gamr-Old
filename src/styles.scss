@@ -40,6 +40,15 @@ body {
   margin:auto;
 }
 
+//********************** Buttons ************************//
+
+button {
+  background: transparent;
+  text-shadow:none;
+  border: $thicc-border-dark !important;
+  color:$default-font-color;
+}
+
 //********************** Input Boxes ************************//
 
 input:-webkit-autofill{
