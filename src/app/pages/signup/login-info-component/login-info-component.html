@@ -1,11 +1,11 @@
 <div class="form-group">
 	<input
-		(input)="updateForm()"
+		(input)="updateForm(); checkEmail()"
 		[(ngModel)]="personal_info.email"
 		type="email"
 		class="form-control form-input"
 		placeholder="Email"
-		[ngStyle]="{'border-color': personal_info.email | inputValidation: 'email' }"
+		[ngStyle]="{'border-color': personal_info.email | inputValidation: 'email', 'border-color': tagTaken ? 'red' : '' }"
 	/>
 </div>
 <div class="form-group">
@@ -55,17 +55,26 @@
 <div class="form-group input-group">
   <span style="background:transparent; border: 0; font-size:20px;" class="input-group-addon" id="basic-addon1">@</span>
   <input
-		(input)="updateForm()"
+		(input)="updateForm(); checkTag()"
+		(keydown.space)="$event.preventDefault()"
 		[(ngModel)]="personal_info.tag"
 		type="text"
 		class="form-control form-input"
 		placeholder="Enter your user tag"
 		aria-describedby="basic-addon1"
-		[ngStyle]="{'border-color': personal_info.tag | inputValidation: 'username' }"
+		[ngStyle]="{'border-color': personal_info.tag | inputValidation: 'username', 'border-color': tagTaken ? 'red' : '' }"
 	/>
+	<span *ngIf="tagTaken">Tag Taken</span>
+
 </div>
 <div class="input-group post-form">
-  <textarea (input)="updateForm()" [(ngModel)]="personal_info.description" class="form-control post-input" rows="5"  aria-describedby="basic-addon2" id="text-post" placeholder="(Optional) Write a short bio about yourself."></textarea>
+  <textarea 
+  	(input)="updateForm()" 
+  	[(ngModel)]="personal_info.description" 
+  	class="form-control post-input" rows="5"  
+  	aria-describedby="basic-addon2" id="text-post" 
+  	placeholder="(Optional) Write a short bio about yourself.">
+  </textarea>
 </div>
 
 <!-- <span style="float:right; margin-top:15px;">

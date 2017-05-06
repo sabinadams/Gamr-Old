@@ -19,6 +19,18 @@ export class AuthService {
     });
   }
 
+  checkTagAvailablity(tag){
+    return this._http.get(`http://api.gamr.co/tagcheck/${tag}/`).map((res:Response) => {
+      return res.json()
+    });
+  }
+
+  checkEmailAvailability(email){
+    return this._http.get(`http://api.gamr.co/emailcheck/${email}/`).map((res:Response) => {
+      return res.json()
+    });
+  }
+
   isLoggedIn(){
     return localStorage.getItem( 'user' ) && localStorage.getItem( 'token' ) ? true : false;
   }
