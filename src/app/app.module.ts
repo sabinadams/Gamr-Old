@@ -15,7 +15,7 @@ import { TimelineComponent } from './components/timeline/timeline';
 import { ProfileSidePanelComponent } from './components/profile-side-panel/profile-side-panel';
 import { TimelinePostComponent } from './components/timeline/timeline-post/timeline-post';
 import { NavbarComponent } from './components/navbar/navbar';
-import { WidgetsComponent } from './components/widgets/widgets';
+import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
 import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
 import { AccountImagesComponent } from './pages/signup/account-images-component/account-images-component';
@@ -39,7 +39,7 @@ import { routing, appRoutingProviders } from './app.routing';
 @NgModule({
   declarations: [
   	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage,
-  	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, WidgetsComponent, 
+  	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, ChatbarComponent, 
     ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
     PasswordStrengthPipe, InputValidationPipe,
     AccountImagesComponent, AccountLinkComponent

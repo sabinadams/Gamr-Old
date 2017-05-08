@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'widgets',
-  templateUrl: './widgets.html',
-  styleUrls: ['./widgets.scss'],
+  selector: 'chatbar',
+  templateUrl: './chatbar.html',
+  styleUrls: ['./chatbar.scss'],
 })
-export class WidgetsComponent implements OnInit{
+export class ChatbarComponent implements OnInit{
 
   constructor(){}
 

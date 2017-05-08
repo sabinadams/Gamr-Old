@@ -42,46 +42,15 @@
   font-weight:700;
 }
 
-.list-group-item {
-  background:transparent;
-  border-color:transparent;
-}
-
-
-.label{
-  position:absolute;
-  right:5px;
-  top:20px;
-}
-
-.label-info {
-  background-color:$sunset;
-}
 
 .data-container {
   padding: 0px 10px 10px 10px;
 }
 
-.nav-tabs {
-  border-top: $thicc-border-dark;
-  background:$smoky-green;
-}
-
-.nav-tabs>.active>a {
-  background-color:$primary-background;
-}
 
 .profile-tabs>a {
   border:0;
   border-radius:0;
   color:#fff;
-}
-
-.first-tab {
-  border-right:$thicc-border-dark;
-}
-
-.third-tab {
-  border-left:$thicc-border-dark;
 }
 
