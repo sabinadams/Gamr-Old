@@ -16,7 +16,7 @@
 			<!-- <account-images *ngIf="view == 'images'"></account-images> -->
 			<!-- <account-link-register *ngIf="view == 'acc-link'"></account-link-register> -->
 			<button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:10px;"
-			[disabled]="!form.email.length || form.password != form.confirm_password || !form.tag.length"
+			[disabled]="checkIfAvailable()"
 			(click)="createAccount()">
 				Create Account
 			</button>
