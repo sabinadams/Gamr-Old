@@ -11,7 +11,7 @@ export class ChatbarComponent implements OnInit{
   ngOnInit() {}
 
   toggleNav(){
-  	if(document.getElementById("mySidenav").style.width == "250px"){
+  	if(document.getElementById("mySidenav").style.width == "224px"){
   		this.closeNav();
   	} else {
   		this.openNav();
@@ -19,10 +19,10 @@ export class ChatbarComponent implements OnInit{
   }
 
   openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginRight = "250px";
-    document.getElementById("toggler").style.marginRight = "250px";
-    document.getElementById("wcontainer").style.right = "225px";
+    document.getElementById("mySidenav").style.width = "224px";
+    document.getElementById("main").style.marginRight = "224px";
+    document.getElementById("toggler").style.marginRight = "224px";
+    document.getElementById("wcontainer").style.right = "224px";
   }
 
   closeNav() {
