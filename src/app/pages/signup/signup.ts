@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
+import { InputValidationPipe } from "../../pipes/input-validation-pipe";
 
 @Component({
   templateUrl: './signup.html',
@@ -28,6 +29,20 @@ export class SignupPage {
 
    handleData($event){
    	this.form = Object.assign( {}, this.form, $event);
+   }
+   
+   checkIfAvailable(): boolean	{
+		// Variables
+		var ivp:InputValidationPipe=	new InputValidationPipe();
+		
+		if(ivp.validateEmail(this.form.email)!= ivp.valid_color)
+			return true;
+		if(ivp.validateConfirmPassword(this.form.password+"\n"+this.form.confirm_password)!= ivp.valid_color)
+			return true;
+		if(ivp.validateUsername(this.form.tag)!= ivp.valid_color)
+			return true;
+		
+	   	return false;
    }
 
    createAccount(){

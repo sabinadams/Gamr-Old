@@ -68,11 +68,9 @@ export class InputValidationPipe implements PipeTransform {
 			return "";
 		
 		// Variables
-		var	isValid=	true;
+		var	isInvalid=	input.match(/[^a-zA-Z0-9\_]/);
 		
-		// Do ninja db majick to figure out if the username is taken or not.
-		
-		return ((isValid) ?
+		return ((!isInvalid) ?
 			this.valid_color :
 			this.invalid_color
 		);
