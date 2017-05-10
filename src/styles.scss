@@ -88,6 +88,10 @@ input:-webkit-autofill{
 
 //********************** Text Areas ************************//
 
+textarea {
+  resize: none;
+}
+
 .post-form> textarea{
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;

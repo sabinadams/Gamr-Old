@@ -1,23 +1,30 @@
 @import '../../../styles.scss';
 
 #home-page {
-    padding-top:48px;
+    // padding-top:48px;
 }
 
 .panel-container {
 	border:$thicc-border-dark;
 	height:100%;
-	max-width:300px;
-	min-width:250px;
-	padding-right:0;
+	padding:5px;
+	padding-top:50px;
+	margin:0;
+	max-width:320px;
 }
 
-.timeline-container, .widgets-container {
-	margin-top:10px;
+.timeline-container, .chatbar-container {
+	padding-top:55px;
 }
 
-.widgets-container {
-	max-width: 300px;
-	min-width: 250px;
+.chatbar-container {
 	right:0;
+}
+
+#wcontainer {
+	height:100%;
+	border:$thicc-border-dark;
+	max-width:320px;
+	min-width:300px;
+	background:$primary-background;
 }
