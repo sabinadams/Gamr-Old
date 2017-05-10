@@ -1,0 +1,113 @@
+@import '../../../../styles.scss';
+
+h3 {
+  margin-bottom:4px;
+}
+
+p {
+  margin:0;
+}
+
+.profile {
+	display:flex;
+	flex-direction:row;	
+	align-items: flex-end;
+}
+.flex-grid {
+	width:300px;
+	height:340px;
+	background:rgba(0,0,0,0.2);
+	position:relative;
+}
+.profile-container {
+	padding:10px 0 0 10px;
+	text-align:center;
+  margin-bottom:10px;
+}
+
+.progress {
+  background: rgba(0,0,0,0.1);
+	border-radius:0;
+	bottom:0;
+	position:absolute;
+	width:100%;
+	margin:0;
+}
+.profile-pic {
+	height:150px;
+	width:auto;	
+	border-radius:50%;
+}
+
+.stats {
+	text-align:center;
+	margin-left:20px;
+  margin-bottom:10px;
+}
+
+.navigation {
+  list-style: none;
+  margin: 0; 
+  height:70px;
+  background: rgba(0,0,0,0.2);
+  justify-content: space-around;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1.5em;
+  color: white;
+  height:70px;
+}
+
+.navigation a:hover {
+  background: darken($primary-background, 2%);
+  box-shadow: inset 2px solid red;
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+  
+  .navigation a { 
+    text-align: center; 
+    padding: 1.5em 10px 0 10px;
+  }
+
+  
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+.progress > span {
+  padding-right: 15px;
+  float: right;
+}
+.progress-bar {
+  background: $emerald;
+}
+
+.description {
+  border-top:$thicc-border-dark;
+  padding-left: 20px;
+  padding-top:10px;
+  max-height:80px;
+  overflow:scroll;
+}
