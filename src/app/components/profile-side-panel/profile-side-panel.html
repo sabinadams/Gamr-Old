@@ -1,26 +1,54 @@
 <div id="profile-side-panel">
-    <div class="container" class="data-container">
-      <div class="row text-center">
-        <img class="img-rounded img-responsive profile-pic" src="http://placehold.it/500x500" style="" alt="">
-        <p>{{'@' + user.tag || "No Tag"}}</p>
-      </div>
-      <div class="row">
-        <div class="data">
-          <ul>
-            <li>
-              {{user.post_count || 0}}
-              <span>Posts</span>
-            </li>
-            <li>
-              {{user.follower_count || 0}}
-              <span>Followers</span>
-            </li>
-            <li>
-              {{user.following_count || 0}}
-              <span>Following</span>
-            </li>
-          </ul>
+  
+  <div class="top-grid">
+     <div class="col-1">
+        <div class="progress-pie-chart" data-percent="43">
+          <div class="ppc-progress">
+            <div class="ppc-progress-fill"></div>
+          </div>
+          <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+              <img class="img-responsive" src="http://www.newsshare.in/wp-content/uploads/2017/04/Miniclip-8-Ball-Pool-Avatar-7.png">
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        <div class="stats text-center">
+          <p>123,456 / 987,654 exp</p>
+          <h4>{{'@' + user.tag || "No Tag"}} <small>lvl. 9</small></h4>
+        </div>
+     </div>
+     <div class="col-2">
+        <div class="item">
+          <h3>99</h3>
+          <p>Followers</p>
+        </div>
+        <div class="item">
+          <h3>99</h3>
+          <p>Following</p>
+        </div>
+        <div class="item">
+          <h3>99</h3>
+          <p>Posts</p>
+        </div>
+     </div>
+  </div>
+  
+  <div class="middle-grid">
+    <ul class="list-group">
+      <li class="list-group-item">Other</li>
+      <li class="list-group-item">Stuff</li>
+      <li class="list-group-item">Idk</li>
+      <li class="list-group-item">Even</li>
+      <li class="list-group-item">Wut</li>
+    </ul>
+  </div>
+  
+  <div class="bottom-grid">
+    <div class="item-50p"><a>About</a></div>
+    <div class="item-50p"><a>Contact</a></div>
+    <div class="item-50p"><a>Legal</a></div>
+    <div class="item-50p"><a>FAQ</a></div>
+    <div class="item-50p"><a>Download</a></div>
+    <div class="item-50p"><a>Design Notes</a></div>
+  </div>
 </div>
