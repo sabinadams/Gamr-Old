@@ -38,14 +38,14 @@ import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
-  	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage,
-  	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, ChatbarComponent, 
-    ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-    PasswordStrengthPipe, InputValidationPipe,
-    AccountImagesComponent, AccountLinkComponent
+  	AppComponent, LoginPage, SignupPage, HomePage, 
+    ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, 
+    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
+    PasswordStrengthPipe, InputValidationPipe, AccountImagesComponent, AccountLinkComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, routing, DragulaModule
+    BrowserModule, FormsModule, HttpModule, routing, 
+    DragulaModule
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard

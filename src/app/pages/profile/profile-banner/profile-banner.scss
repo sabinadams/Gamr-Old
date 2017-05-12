@@ -57,9 +57,10 @@ p {
 }
 
 .navigation a {
+  text-align:center;
   text-decoration: none;
   display: block;
-  padding: 1.5em;
+  padding: 1em;
   color: white;
   height:60px;
 }
@@ -90,6 +91,10 @@ p {
   .navigation li:last-of-type a {
     border-bottom: none;
   }
+}
+
+.glyphicon-nav {
+  font-size:20px;
 }
 
 
