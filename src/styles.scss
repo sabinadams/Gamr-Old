@@ -161,7 +161,7 @@ $size: 150px;
   background:rgba(0,0,0,0.3);
   position: relative;
   &.gt-50 {
-    background:rgba(0,0,0,0.3);
+    background:#81CE97;
   }
 }
 
@@ -178,7 +178,7 @@ $size: 150px;
     clip: rect(0, #{$size/2}, $size, 0);
     .ppc-progress-fill {
       clip: rect(0, $size, $size, #{$size/2});
-      background: #E5E5E5;
+      background: rgba(0,0,0,0.6);
     }
   }
 }
