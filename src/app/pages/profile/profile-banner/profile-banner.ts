@@ -7,6 +7,8 @@ declare var $: any;
 })
 export class ProfileBannerComponent implements OnInit{
 	
+	user= JSON.parse(localStorage.getItem("user"));
+	
 	constructor(){}
 
 	ngOnInit(){
