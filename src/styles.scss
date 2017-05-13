@@ -141,8 +141,6 @@ textarea {
 
 //********************** Exp Profile Image ************************//
 
-$size: 150px;
-
 @mixin circle($size) {
   content: "";
   position: absolute;
@@ -153,18 +151,17 @@ $size: 150px;
   height: $size;
 }
 
+$size: 150px;
 .progress-pie-chart {
-  width: $size;
-  height: $size;
+  width: $size - 2;
+  height: $size - 2;
   border-radius: 50%;
-  margin: 0 auto 0;
-  background:rgba(0,0,0,0.3);
+  background-color: $primary-background;
   position: relative;
   &.gt-50 {
-    background:#81CE97;
+    background-color: #81CE97;
   }
 }
-
 .ppc-progress {
   @include circle($size);
   clip: rect(0, $size, $size, #{$size/2});
@@ -178,14 +175,13 @@ $size: 150px;
     clip: rect(0, #{$size/2}, $size, 0);
     .ppc-progress-fill {
       clip: rect(0, $size, $size, #{$size/2});
-      background: rgba(0,0,0,0.6);
+      background: $primary-background;
     }
   }
 }
-
 .ppc-percents {
   @include circle(#{$size/1.15});
-  background: $secondary-background;
+  background: #fff;
   text-align: center;
   display: table;
   overflow: hidden;
@@ -193,8 +189,11 @@ $size: 150px;
     width: $size/1.15;
   }
 }
-
 .pcc-percents-wrapper {
   display: table-cell;
   vertical-align: middle;
+}
+
+.progress-pie-chart {
+  margin: 50px auto 0;
 }

@@ -11,9 +11,9 @@ export class ProfileBannerComponent implements OnInit{
 
 	ngOnInit(){
 		$(function(){
-		  var $ppc = $('.progress-pie-chart'),
-		    percent = parseInt($ppc.data('percent')),
-		    deg = 360*percent/100;
+		  var $ppc = $('.progress-pie-chart');
+		  var percent = parseInt($ppc.data('percent'));
+		  var deg = 360*percent/100;
 		  if (percent > 50) {
 		    $ppc.addClass('gt-50');
 		  }
