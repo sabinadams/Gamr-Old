@@ -3,18 +3,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({name: 'calcExp'})
 export class ExpCalcPipe implements PipeTransform {
-	dummy_xp=	2000;
+	dummy_xp=	370;
 	
   transform(exp: number, type: string): string	{
-	  exp=	this.dummy_xp;
-	  console.log(Math.trunc(100*(exp/this.getNextXP(this.getLevel(exp)))).toString());
-	  switch(type)	{
-		  case "curr":	return exp.toString();
-		  case "next":	return this.getNextXP(this.getLevel(exp)).toString();
-		  case "getLevel":	return this.getLevel(exp).toString();
-		  case "getPerc":	return Math.trunc(100*(exp/this.getNextXP(this.getLevel(exp)))).toString();
-	  }
-	  return this.dummy_xp.toString();
+		if(!exp)
+			exp=	this.dummy_xp;
+		switch(type)	{
+			case "curr":	return exp.toString();
+			case "next":	return this.getNextXP(this.getLevel(exp)).toLocaleString();
+			case "getLevel":	return this.getLevel(exp).toLocaleString();
+			case "getPerc":
+				var	past=	this.getNextXP(this.getLevel(exp)-1);
+				
+				return Math.trunc(100*((exp-past)/(this.getNextXP(this.getLevel(exp))-past))).toLocaleString();
+		}
   }
   
   getNextXP(lvl:number):number	{
