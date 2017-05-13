@@ -67,16 +67,6 @@
 	<span *ngIf="tagTaken">Tag Taken</span>
 
 </div>
-<div class="form-group">
-	<input
-		(input)="updateForm();"
-		[(ngModel)]="personal_info.display_name"
-		type="text"
-		class="form-control form-input"
-		placeholder="Enter your display name"
-		aria-describedby="basic-addon1"
-	/>
-</div>
 <div class="input-group post-form">
   <textarea 
   	(input)="updateForm()" 

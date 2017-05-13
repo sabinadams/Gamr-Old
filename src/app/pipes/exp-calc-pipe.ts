@@ -6,7 +6,7 @@ export class ExpCalcPipe implements PipeTransform {
 	dummy_xp=	370;
 	
   transform(exp: number, type: string): string	{
-		if(exp=== null || exp=== undefined)
+		if(!exp)
 			exp=	this.dummy_xp;
 		switch(type)	{
 			case "curr":	return exp.toString();

@@ -19,8 +19,7 @@ export class LoginInfoComponent {
 		description: '',
 		tag: '',
 		first_name: '',
-		last_name: '',
-		display_name: ''
+		last_name: ''
 	}
 	tagTaken = false;
 	emailTaken = false;
