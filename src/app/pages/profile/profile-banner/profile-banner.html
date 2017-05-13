@@ -9,7 +9,7 @@
 	<div class="flex-grid">
 		<div class="profile">
 			<div class="profile-container">
-				<div class="progress-pie-chart" [attr.data-percent]="user.exp | calcExp: 'getPerc'">
+				<div class="progress-pie-chart" [attr.data-percent]="user.exp_count | calcExp: 'getPerc'">
 				  <div class="ppc-progress">
 				    <div class="ppc-progress-fill"></div>
 				  </div>
@@ -20,9 +20,9 @@
 				  </div>
 				</div>
 				<small>
-					{{ user.exp | calcExp: "curr" }}
+					{{ user.exp_count | calcExp: "curr" }}
 					/
-					{{ user.exp | calcExp: "next" }} exp
+					{{ user.exp_count | calcExp: "next" }} exp
 				</small>
 				<h3>{{ "@"+user.tag || "missingno." }}</h3>
 				<p class="description">{{ user.description || "No Description." }}</p>
