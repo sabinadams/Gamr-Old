@@ -21,6 +21,7 @@ export class SignupPage {
    	tag: '',
    	profile_picture: '',
    	banner_picture: '',
+      display_name: '',
    	token: this._authService._generateToken()
    	//Connected Account Stuffs
    }
