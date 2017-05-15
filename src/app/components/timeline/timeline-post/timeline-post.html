@@ -14,15 +14,38 @@
       </div>
     </div>
     <div class="actions">
-      <button class="action-button">
-        <i class="fa fa-heart"></i> <span class="action-text">{{post.like_count}}</span> 
+      <!-- Other User -->
+      <button class="action-button" 
+        *ngIf="post.user_ID != user.ID" 
+        (click)="likePost()"
+        [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }"
+      >
+        <i class="fa fa-heart"></i><span class="action-text">{{post.likes}}</span> 
       </button>
-      <button class="action-button">
+      <!-- Current User -->
+      <button class="static-stat" 
+        *ngIf="post.user_ID == user.ID"
+        [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }"
+      >
+        <i class="fa fa-heart" ></i><span class="action-text">{{post.likes}}</span> 
+      </button>
+      <!-- Other User -->
+      <button class="action-button" *ngIf="post.user_ID != user.ID">
         <i class="fa fa-comment"></i> <span class="action-text">{{post.comment_count}}</span><!-- Comments -->
       </button>
-      <button class="action-button">
+      <!-- Current User -->
+      <button class="static-stat" *ngIf="post.user_ID == user.ID">
+        <i class="fa fa-comment"></i> <span class="action-text">{{post.comment_count}}</span><!-- Comments -->
+      </button>
+      <!-- Other User -->
+      <button class="action-button" *ngIf="post.user_ID != user.ID">
         <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
       </button>
+      <!-- Current User -->
+      <button class="static-stat" *ngIf="post.user_ID == user.ID">
+        <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
+      </button>
+
       <button class="action-button" style="float:right;">
         <i class="glyphicon glyphicon-signal"></i> <span class="action-text">{{post.exp_count}}</span>
       </button>
@@ -34,7 +57,7 @@
       <div class="media">
         <div class="media-left media-top">
           <a href="#">
-            <img class="media-object img-rounded input-user-image" src="http://placehold.it/50x50" alt="...">
+            <img class="media-object img-rounded input-user-image" [src]="user.profile_pic" alt="...">
           </a>
         </div>
         <div class="media-body">

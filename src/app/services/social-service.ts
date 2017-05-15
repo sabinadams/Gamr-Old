@@ -16,9 +16,15 @@ export class SocialService {
   }
   
   savePost( data ) {
-	return this._secureHttp.post(`http://api.gamr.co/savepost/`, {data: data}).map((res:Response) => {
-		return res.json();
-	}).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  	return this._secureHttp.post(`http://api.gamr.co/savepost/`, {data: data}).map((res:Response) => {
+  		return res.json();
+  	}).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  likePost( ID ) {
+    return this._secureHttp.post(`http://api.gamr.co/likepost/`, {postID: ID}).map((res:Response) => {
+      return res.json();
+    }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
   
 }

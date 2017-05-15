@@ -27,6 +27,10 @@ $default-font-color: #c3c3c3;
 
 //********************** Other Styles ************************//
 
+button:focus,button:active {
+   outline: none !important;
+}
+
 body {
   background-color:$primary-background;
   color:$default-font-color;

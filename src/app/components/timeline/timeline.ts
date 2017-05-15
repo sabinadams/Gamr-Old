@@ -7,6 +7,7 @@ import { SocialService } from '../../services/social-service';
   styleUrls: ['./timeline.scss'],
 })
 export class TimelineComponent implements OnInit {
+  user = JSON.parse( localStorage.getItem('user') );
   rows: number = 1;
   new_post = {
     text: '',
