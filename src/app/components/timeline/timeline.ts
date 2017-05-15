@@ -1,197 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SocialService } from '../../services/social-service';
 
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',
   styleUrls: ['./timeline.scss'],
 })
-export class TimelineComponent {
+export class TimelineComponent implements OnInit {
   rows: number = 1;
-  postText: string = '';
+  new_post = {
+    text: '',
+    images: [],
+    video: ''
+  };
 
-  //Dummy posts
-  posts: Object = [
-    {name: 1, body: 'This is a post 1', author: 'Monk', likes: 99, comments: [
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]}
-    ]},
-    {name: 2, body: 'This is a post 2', author: 'Monk', likes: 99, comments: [
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 3, body: 'This is a post 3', author: 'Monk', likes: 99, comments: [
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]}
-    ]},
-    {name: 4, body: 'This is a post 4', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]},
-    {name: 5, body: 'This is a post 5', author: 'Monk', likes: 99, comments: [
-      {body: "test comment"},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment", replies:[
-        {body: "test reply"},
-        {body: "test reply"},
-        {body: "test reply"}
-      ]},
-      {body: "test comment"},
-      {body: "test comment"}
-    ]}
-  ];
+  posts = [];
+  
 
-  constructor(){}
+  constructor( private _socialService: SocialService ){}
+
+  ngOnInit() {
+    this._socialService.getPosts( 0 ).subscribe( res => {
+      this.posts = res;
+    });
+  }
 
   checkBlur(){
-    if(this.postText.length < 1){
+    if(this.new_post.text.length < 1){
       this.rows = 1;
     }
   }
+
+  savePost() {
+    if(this.new_post.text.length > 0 || this.new_post.images.length > 0 || this.new_post.video.length > 0){
+      this._socialService.savePost( this.new_post ).subscribe( res => {
+        this.new_post = { text: '', images: [], video: '' };
+      });
+    }
+  }
+
 }

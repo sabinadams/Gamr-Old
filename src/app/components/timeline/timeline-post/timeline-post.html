@@ -3,27 +3,28 @@
     <div class="media">
       <div class="media-left media-top">
         <a href="#">
-          <img class="media-object img-rounded author-image" src="http://www.newsshare.in/wp-content/uploads/2017/04/Miniclip-8-Ball-Pool-Avatar-7.png" alt="...">
+          <img class="media-object img-rounded author-image" [attr.src]="post.profile_pic" alt="...">
         </a>
       </div>
       <div class="media-body">
-        <p>{{post.author}} <small>12:01 am</small><span class="author-stats">Lvl. 9</span> </p>
-        <p>{{post.body}}</p>
+        <p>{{post.display_name}} <small>{{ post.timestamp | amTimeAgo }}</small><span class="author-stats">Lvl. 9</span> </p>
+        <p>{{post.text}}</p>
+        <!-- Deal with images and multiple images here -->
         <img src="http://placehold.it/500x200" class="img-responsive" alt="">
       </div>
     </div>
     <div class="actions">
       <button class="action-button">
-        <i class="fa fa-heart"></i> <span class="action-text">0</span> 
+        <i class="fa fa-heart"></i> <span class="action-text">{{post.like_count}}</span> 
       </button>
       <button class="action-button">
-        <i class="fa fa-comment"></i> <span class="action-text">0</span>
+        <i class="fa fa-comment"></i> <span class="action-text">{{post.comment_count}}</span><!-- Comments -->
       </button>
       <button class="action-button">
-        <i class="fa fa-mail-reply"></i> <span class="action-text">0</span>
+        <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
       </button>
       <button class="action-button" style="float:right;">
-        <i class="glyphicon glyphicon-signal"></i> <span class="action-text">1,400 exp</span>
+        <i class="glyphicon glyphicon-signal"></i> <span class="action-text">{{post.exp_count}}</span>
       </button>
     </div>
   </div>

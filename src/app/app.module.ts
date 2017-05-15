@@ -25,6 +25,8 @@ import { AccountLinkComponent } from './pages/signup/account-link-component/acco
 import { HttpClient } from './services/http-interceptor-service';
 import { AuthService } from './services/auth-service';
 import { AuthGuard } from './services/auth-guard';
+import { SocialService } from './services/social-service';
+import { MomentModule } from 'angular2-moment';
 
 //Imports Imports
 import { DragulaModule } from 'ng2-dragula';
@@ -47,10 +49,10 @@ import { routing, appRoutingProviders } from './app.routing';
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
-    DragulaModule
+    DragulaModule, MomentModule
   ],
   providers: [
-      appRoutingProviders, HttpClient, AuthService, AuthGuard
+      appRoutingProviders, HttpClient, AuthService, AuthGuard, SocialService
   ],
   bootstrap: [AppComponent]
 })

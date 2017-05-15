@@ -8,9 +8,14 @@
       </div>
       <div class="media-body">
         <div class="post-form input-group">
-          <textarea (blur)="checkBlur()" (focus)="rows = 4;" [(ngModel)]="postText" class="form-control post-input" rows="{{rows}}"  aria-describedby="basic-addon2" id="text-post" placeholder="What do you have to say?"></textarea>
+          <textarea (blur)="checkBlur()" (focus)="rows = 4;" [(ngModel)]="new_post.text" class="form-control post-input" rows="{{rows}}"  aria-describedby="basic-addon2" id="text-post" placeholder="What do you have to say?"></textarea>
         </div>
       </div>
+      <button 
+        (click)="savePost()"
+        *ngIf="new_post.text.length > 0 || new_post.images.length > 0 || new_post.video.length > 0" style="float:right; text-align:center;">
+        Post
+      </button>
     </div>
   </div>
 </div>
