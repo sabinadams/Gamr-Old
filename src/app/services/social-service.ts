@@ -14,7 +14,13 @@ export class SocialService {
        return res.json();
     }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
-  
+   
+  postPull( timestamp ) {
+    return this._secureHttp.get(`http://api.gamr.co/postpull/${timestamp}/`).map((res:Response) => {
+       return res.json();
+    }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   savePost( data ) {
   	return this._secureHttp.post(`http://api.gamr.co/savepost/`, {data: data}).map((res:Response) => {
   		return res.json();

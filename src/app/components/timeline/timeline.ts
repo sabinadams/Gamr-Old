@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialService } from '../../services/social-service';
-
+import { EventService } from '../../services/event-service';
+declare var $: any;
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',
@@ -17,12 +18,25 @@ export class TimelineComponent implements OnInit {
 
   posts = [];
   
+  post_cache = [];
 
-  constructor( private _socialService: SocialService ){}
+  constructor( private _socialService: SocialService, private _eventService: EventService ){
+    _eventService.merger$.subscribe( trigger => {
+      if( trigger ) this.mergeCache();
+    });
+  }
 
   ngOnInit() {
     this._socialService.getPosts( 0 ).subscribe( res => {
       this.posts = res;
+      setInterval( () => {
+        this._socialService.postPull( this.convertTimestamp(this.post_cache.length ? this.post_cache[0].timestamp : this.posts[0].timestamp) ).subscribe( res => {
+          if( res.length > 0 ){
+            this.post_cache.unshift(...res);
+            this._eventService.emitUnread(this.post_cache.length);
+          }
+        });
+      }, 15000)
     });
   }
 
@@ -40,4 +54,14 @@ export class TimelineComponent implements OnInit {
     }
   }
 
+  mergeCache() {
+    this.posts.unshift(...this.post_cache);
+    this.post_cache = [];
+    this._eventService.emitUnread(this.post_cache.length);
+  }
+
+  convertTimestamp(timestamp){
+    let date = new Date(timestamp).toISOString();
+    return date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', '');
+  }
 }
