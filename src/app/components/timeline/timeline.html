@@ -6,19 +6,44 @@
           <img class="media-object img-rounded author-image" [src]="user.profile_pic" alt="...">
         </a>
       </div>
+      <!-- Input Box -->
       <div class="media-body">
         <div class="post-form input-group">
           <textarea (blur)="checkBlur()" (focus)="rows = 4;" [(ngModel)]="new_post.text" class="form-control post-input" rows="{{rows}}"  aria-describedby="basic-addon2" id="text-post" placeholder="What do you have to say?"></textarea>
         </div>
       </div>
-      <button 
-        (click)="savePost()"
+  
+      <!-- Post Button -->
+      <button (click)="savePost()"
         *ngIf="new_post.text.length > 0 || new_post.images.length > 0 || new_post.video.length > 0" style="float:right; text-align:center;">
         Post
       </button>
+    
+      <!-- Upload Image Button -->
+      <div class="icons" style="float:right; text-align:center; margin-right:10px;" *ngIf="new_post.images.length < 5">
+        <button class="btn-file">
+          <i class="glyphicon glyphicon-camera input-icon"><input type="file" accept="image/*" (change)="imageHandler($event)"></i>
+        </button>
+      </div>
+      
+      <!-- Uploaded Images -->
+      <div class="uploaded-image text-center" *ngFor="let image of new_post.images; let i = index;" style="float:left; display:inline-block;">
+        <img  src="{{image}}" style="height:50px; width:auto; margin:10px 10px 0px 10px; border-radius:20px;" alt=""><br>
+        <span class="remove-upload" aria-hidden="true" (click)="removeImage(i)" >Remove</span>
+      </div>
+      <!-- Image Upload Status Indicator -->
+      <div class="uploading" style="float:left; margin:10px;" *ngIf="uploading">
+        <div class="load-2">
+          <div class="line" style="background-color:#8961ab;"></div>
+          <div class="line" style="background-color:#a74040;"></div>
+          <div class="line" style="background-color:#0b428f;"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
-<div class="alert alert-success cache-alert" *ngIf="post_cache.length > 0" (click)="mergeCache()" role="alert">Show {{post_cache.length}} new Posts</div>
+
+<div class="alert alert-success buffer-alert" *ngIf="post_buffer.length > 0" (click)="mergeBuffer()" role="alert">Show {{post_buffer.length}} new Posts</div>
 
 <timeline-post id="ngpost-{{post.ID}}" *ngFor="let post of posts" [post]="post"></timeline-post>

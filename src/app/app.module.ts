@@ -28,6 +28,7 @@ import { AuthGuard } from './services/auth-guard';
 import { SocialService } from './services/social-service';
 import { MomentModule } from 'angular2-moment';
 import { EventService } from './services/event-service';
+import { ImageService } from './services/image-service';
 
 //Imports Imports
 import { DragulaModule } from 'ng2-dragula';
@@ -53,7 +54,7 @@ import { routing, appRoutingProviders } from './app.routing';
     DragulaModule, MomentModule
   ],
   providers: [
-      appRoutingProviders, HttpClient, AuthService, AuthGuard, SocialService, EventService
+      appRoutingProviders, HttpClient, AuthService, AuthGuard, SocialService, EventService, ImageService
   ],
   bootstrap: [AppComponent]
 })
