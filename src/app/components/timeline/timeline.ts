@@ -17,7 +17,6 @@ export class TimelineComponent implements OnInit {
   };
 
   posts = [];
-  
   post_cache = [];
 
   constructor( private _socialService: SocialService, private _eventService: EventService ){
@@ -55,6 +54,8 @@ export class TimelineComponent implements OnInit {
   }
 
   mergeCache() {
+    for(let post of this.post_cache)
+        document.getElementById(`ngpost-${post.ID}`).remove();
     this.posts.unshift(...this.post_cache);
     this.post_cache = [];
     this._eventService.emitUnread(this.post_cache.length);
