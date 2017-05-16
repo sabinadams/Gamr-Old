@@ -40,6 +40,11 @@ body {
   margin:auto;
 }
 
+// Temp scrollbar solution (Change to individual elements eventually)
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 //********************** Buttons ************************//
 
 button {
