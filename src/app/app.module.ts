@@ -25,11 +25,14 @@ import { AccountLinkComponent } from './pages/signup/account-link-component/acco
 import { HttpClient } from './services/http-interceptor-service';
 import { AuthService } from './services/auth-service';
 import { AuthGuard } from './services/auth-guard';
+import { SocialService } from './services/social-service';
+import { MomentModule } from 'angular2-moment';
 
 //Imports Imports
 import { DragulaModule } from 'ng2-dragula';
 
 //Pipe Imports
+import { ExpCalcPipe } from "./pipes/exp-calc-pipe";
 import { PasswordStrengthPipe } from './pipes/password-strength-pipe';
 import { InputValidationPipe } from "./pipes/input-validation-pipe";
 
@@ -38,17 +41,18 @@ import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
-  	AppComponent, LoginPage, SignupPage, HomePage, ProfilePage,
-  	ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, ChatbarComponent, 
-    ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-    PasswordStrengthPipe, InputValidationPipe,
+  	AppComponent, LoginPage, SignupPage, HomePage, 
+    ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, 
+    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
+    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe,
     AccountImagesComponent, AccountLinkComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, routing, DragulaModule
+    BrowserModule, FormsModule, HttpModule, routing, 
+    DragulaModule, MomentModule
   ],
   providers: [
-      appRoutingProviders, HttpClient, AuthService, AuthGuard
+      appRoutingProviders, HttpClient, AuthService, AuthGuard, SocialService
   ],
   bootstrap: [AppComponent]
 })

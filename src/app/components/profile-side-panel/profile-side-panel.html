@@ -2,7 +2,7 @@
   
   <div class="top-grid">
      <div class="col-1">
-        <div class="progress-pie-chart" data-percent="43">
+        <div class="progress-pie-chart" [attr.data-percent]="user.exp_count | calcExp: 'getPerc'">
           <div class="ppc-progress">
             <div class="ppc-progress-fill"></div>
           </div>
@@ -13,8 +13,11 @@
           </div>
         </div>
         <div class="stats text-center">
-          <p>123,456 / 987,654 exp</p>
-          <h4>{{'@' + user.tag || "No Tag"}} <small>lvl. 9</small></h4>
+          <p>
+            {{ user.exp_count | calcExp: "curr" }}
+            /
+            {{ user.exp_count | calcExp: "next" }} exp</p>
+          <h4>{{'@' + user.tag || "No Tag"}} <small>Lvl. {{ user.exp_count | calcExp: "getLevel" }}</small></h4>
         </div>
      </div>
      <div class="col-2">

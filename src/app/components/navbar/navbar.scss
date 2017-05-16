@@ -37,14 +37,20 @@
   background:transparent;
 }
 
+
 .profile {
-  border-radius:7px;
+  // border-radius:7px;
   max-height:40px;
+  border-radius:50%;
 }
 
 a.dropdown-toggle{
-  padding:5px 5px 0 5px;
   height:50px;
+}
+
+a.dropdown-toggle.img {
+  padding:5px 5px 0 5px;
+  box-shadow:none;
 }
 
 /*Style for hover navbar option*/
@@ -53,3 +59,8 @@ a.dropdown-toggle{
   box-shadow:inset 0 0 5px rgba(0,0,0,0.3);
   transition: box-shadow 150ms ease-in;
 }
+.notifications {
+  box-shadow:none !important;
+  background-color: transparent !important;
+}
+
