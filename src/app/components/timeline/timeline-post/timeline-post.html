@@ -9,8 +9,9 @@
       <div class="media-body">
         <p>{{post.display_name}} <small>{{ post.post_date | amTimeAgo }}</small><span class="author-stats">Lvl. 9</span> </p>
         <p>{{post.text}}</p>
-        <!-- Deal with images and multiple images here -->
-        <img src="http://placehold.it/500x200" class="img-responsive" alt="">
+      </div>
+      <div class="image-grid">
+        <img *ngFor="let image of post.images" [src]="image" class="grid-image img-responsive" alt="">
       </div>
     </div>
     <div class="actions">

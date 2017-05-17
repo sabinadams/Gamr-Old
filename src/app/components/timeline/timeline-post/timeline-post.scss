@@ -16,3 +16,18 @@
 .static-stat {
 	border:none !important;
 }
+
+.image-grid {
+	margin-top:10px;
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+  	align-item:center;
+  	justify-content:space-around;
+}
+
+.grid-image {
+	max-height:250px;
+	border-radius:2px;
+	margin:3px;
+}
