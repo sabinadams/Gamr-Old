@@ -10,10 +10,14 @@ $smoky-green: -webkit-radial-gradient(top center, ellipse cover, $emerald-transp
 
 //********************** Main Colors ************************//
 
-$primary-background: rgb(32, 35, 53);
+// $primary-background: rgb(32, 35, 53);
+// $primary-background: #1c1f23;
+$secondary-background: #292d3f;
 $primary-background-transparent: rgba(32, 35, 53, 0.8);
-$secondary-background: #252a42;
-
+// $secondary-background: #252a42;
+// $secondary-background:#2C2F33;
+// $secondary-background: #23272A;
+$primary-background: #232635;
 //************************ Borders **************************//
 
 $thicc-border-dark: 2px solid rgba(0,0,0,0.2);
@@ -160,7 +164,7 @@ textarea {
   height: $size;
 }
 
-$size: 150px;
+$size: 120px;
 .progress-pie-chart {
   width: $size - 2;
   height: $size - 2;
@@ -215,16 +219,16 @@ $size: 150px;
 
 
 .line {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
 }
 
 @keyframes loadingB {
-    0 {width: 15px;}
-    50% {width: 35px;}
-    100% {width: 15px;}
+  0 {width: 15px;}
+  50% {width: 35px;}
+  100% {width: 15px;}
 }
 
 //********************** HR ************************//
@@ -238,11 +242,11 @@ hr.full-blue {
 //********************** Lightbox ************************//
 
 .lb-outerContainer {
-    background-color: rgba(0,0,0,0.6) !important;
+  background-color: rgba(0,0,0,0.6) !important;
 }
 
 .lb-image {
-    border:$thin-border-dark !important;
+  border:$thin-border-dark !important;
 }
 
 .grid-image:hover {

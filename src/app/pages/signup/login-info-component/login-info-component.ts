@@ -22,14 +22,16 @@ export class LoginInfoComponent {
 		last_name: '',
 		display_name: ''
 	}
+
 	tagTaken = false;
 	emailTaken = false;
+	
 	updateForm() {
 		this.formEmitter.emit(this.personal_info);
 	}
 
 	checkTag() {
-		if(this.personal_info.tag != ""){
+		if(this.personal_info.tag.trim() != ""){
 			this._authService.checkTagAvailablity( this.personal_info.tag ).subscribe( res => {
 				this.tagTaken = res.available ? false : true;
 			});
@@ -37,7 +39,7 @@ export class LoginInfoComponent {
 	}
 
 	checkEmail() {
-		if(this.personal_info.email != ""){
+		if(this.personal_info.email.trim() != ""){
 			this._authService.checkEmailAvailability( this.personal_info.email ).subscribe( res => {
 				this.emailTaken = res.available ? false : true;
 			});

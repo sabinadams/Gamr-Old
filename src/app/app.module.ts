@@ -18,8 +18,6 @@ import { NavbarComponent } from './components/navbar/navbar';
 import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
 import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
-import { AccountImagesComponent } from './pages/signup/account-images-component/account-images-component';
-import { AccountLinkComponent } from './pages/signup/account-link-component/account-link-component';
 
 //Service Imports
 import { HttpClient } from './services/http-interceptor-service';
@@ -46,15 +44,15 @@ import { routing, appRoutingProviders } from './app.routing';
   	AppComponent, LoginPage, SignupPage, HomePage, 
     ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, 
     ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe,
-    AccountImagesComponent, AccountLinkComponent
+    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe 
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
     DragulaModule, MomentModule
   ],
   providers: [
-      appRoutingProviders, HttpClient, AuthService, AuthGuard, SocialService, EventService, ImageService
+      appRoutingProviders, HttpClient, AuthService, AuthGuard, 
+      SocialService, EventService, ImageService
   ],
   bootstrap: [AppComponent]
 })

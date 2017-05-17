@@ -1,3 +1,9 @@
+<!-- 
+	Don't bother cleaning up anything within the signup folder yet. Will be replacing just about everything once we get around to this piece. 
+
+	Should be able to provide your info, a profile pic, banner, connect accounts, choose a starting class and a few starting items, etc... 
+	- Sabin 05/17/17
+-->
 <div class="signup-page">
 	<div class="text-center signup-page-container container">
 		<p style="position:absolute; top:60px; left:10px;cursor: pointer;" routerLink="">
@@ -6,15 +12,7 @@
 		</p>
 		<h2>Come Join the Fun!</h2>
 		<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
-			<login-info *ngIf="view == 'login-info'" (formEmitter)="handleData($event)"></login-info>
-			
-			<!-- 
-				We will make use of the other sections of the wizards once we get further into development and have a use for profile pics and can actually connect external accounts 
-				- Sabin 05/04/17
-			-->
-
-			<!-- <account-images *ngIf="view == 'images'"></account-images> -->
-			<!-- <account-link-register *ngIf="view == 'acc-link'"></account-link-register> -->
+			<login-info (formEmitter)="handleData($event)"></login-info>
 			<button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:10px;"
 			[disabled]="checkIfAvailable()"
 			(click)="createAccount()">

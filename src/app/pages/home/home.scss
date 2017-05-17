@@ -1,9 +1,5 @@
 @import '../../../styles.scss';
 
-#home-page {
-    // padding-top:48px;
-}
-
 .panel-container {
 	border:$thicc-border-dark;
 	height:100%;
@@ -15,6 +11,7 @@
 
 .timeline-container, .chatbar-container {
 	padding-top:55px;
+	z-index: -1;
 }
 
 .chatbar-container {
@@ -26,5 +23,5 @@
 	border:$thicc-border-dark;
 	max-width:320px;
 	min-width:300px;
-	background:$primary-background;
+	background:$secondary-background;
 }

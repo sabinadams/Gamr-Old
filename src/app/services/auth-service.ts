@@ -35,13 +35,8 @@ export class AuthService {
     return localStorage.getItem( 'user' ) && localStorage.getItem( 'token' ) ? true : false;
   }
 
-  login(email: string, password: string) {
-    let data = {
-      email: email, 
-      password: password, 
-      token: localStorage.getItem('token') || this._generateToken()
-    };
-
+  login( data ) {
+    data['token'] = localStorage.getItem('token') || this._generateToken()
     return this._http.post('http://api.gamr.co/login/', data).map((res:Response) => {
        let res_data = res.json();
        if( res_data.logged_in ) {

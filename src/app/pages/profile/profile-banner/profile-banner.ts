@@ -7,7 +7,7 @@ declare var $: any;
 })
 export class ProfileBannerComponent implements OnInit{
 	
-	user= JSON.parse(localStorage.getItem("user"));
+	user = JSON.parse(localStorage.getItem("user"));
 	
 	constructor(){}
 
@@ -20,7 +20,6 @@ export class ProfileBannerComponent implements OnInit{
 		    $ppc.addClass('gt-50');
 		  }
 		  $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
-		  
 		});
 	}
 	
