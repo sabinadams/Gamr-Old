@@ -14,7 +14,7 @@
         </div>
         <div class="stats text-center">
           <p>
-            {{ user.exp_count | calcExp: "curr" }}
+          <span counto [step]="30" [countTo]="user.exp_count" [countFrom]="0" [duration]="1" (countoChange)="counto = $event">{{ counto | calcExp: "curr" }}</span>
             /
             {{ user.exp_count | calcExp: "next" }} exp</p>
           <h4>{{'@' + user.tag || "No Tag"}} <small>Lvl. {{ user.exp_count | calcExp: "getLevel" }}</small></h4>
@@ -34,22 +34,19 @@
           <p>Posts</p>
         </div>
      </div>
+     <div class="bottom-grid">
+       <ul class="list-group">
+         <li class="list-group-item">
+          <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+         </li>
+         <li class="list-group-item">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+         </li>
+         <li class="list-group-item">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+         </li>
+       </ul>
+     </div>
   </div>
-  
-  <div class="middle-grid">
-    <ul class="list-group">
-      <li class="list-group-item">Items</li>
-      <li class="list-group-item">Classes</li>
-      <li class="list-group-item">Idk</li>
-    </ul>
-  </div>
-  
-  <!-- <div class="bottom-grid">
-    <div class="item-50p"><a>About</a></div>
-    <div class="item-50p"><a>Contact</a></div>
-    <div class="item-50p"><a>Legal</a></div>
-    <div class="item-50p"><a>FAQ</a></div>
-    <div class="item-50p"><a>Download</a></div>
-    <div class="item-50p"><a>Design Notes</a></div>
-  </div> -->
+
 </div>

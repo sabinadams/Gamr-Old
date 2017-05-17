@@ -11,13 +11,13 @@ $smoky-green: -webkit-radial-gradient(top center, ellipse cover, $emerald-transp
 //********************** Main Colors ************************//
 
 // $primary-background: rgb(32, 35, 53);
-// $primary-background: #1c1f23;
-$secondary-background: #292d3f;
+// $secondary-background: #292d3f;
 $primary-background-transparent: rgba(32, 35, 53, 0.8);
 // $secondary-background: #252a42;
 // $secondary-background:#2C2F33;
-// $secondary-background: #23272A;
-$primary-background: #232635;
+$secondary-background: #2e3136;
+$primary-background: #282c2f;
+// $primary-background: #232635;
 //************************ Borders **************************//
 
 $thicc-border-dark: 2px solid rgba(0,0,0,0.2);
@@ -172,8 +172,11 @@ $size: 120px;
   background-color: $primary-background;
   position: relative;
   &.gt-50 {
-    background-color: #81CE97;
+    background-color: #6bbf6b;
   }
+}
+.ppc-progress-fill {
+  transition: transform 350ms ease-in;
 }
 .ppc-progress {
   @include circle($size);
@@ -181,8 +184,8 @@ $size: 120px;
   .ppc-progress-fill {
     @include circle($size);
     clip: rect(0, #{$size/2}, $size, 0);
-    background: #81CE97;
-    transform: rotate(60deg);
+    background: #6bbf6b;
+    transform: rotate(60);
   }
   .gt-50 & {
     clip: rect(0, #{$size/2}, $size, 0);
@@ -208,7 +211,7 @@ $size: 120px;
 }
 
 .progress-pie-chart {
-  margin: 25px auto 0;
+  margin: 25px auto 10px;
 }
 
 //********************** Loading Bubbles ************************//
