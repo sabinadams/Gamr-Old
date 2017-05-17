@@ -51,7 +51,8 @@ export class TimelineComponent implements OnInit {
 
   mergeBuffer() {
     for(let post of this.post_buffer)
-        document.getElementById(`ngpost-${post.ID}`).remove();
+        if(document.getElementById(`ngpost-${post.ID}`)) 
+          document.getElementById(`ngpost-${post.ID}`).remove();
     this.posts.unshift(...this.post_buffer);
     this.post_buffer = [];
     this._eventService.emitUnread(this.post_buffer.length);
@@ -64,7 +65,7 @@ export class TimelineComponent implements OnInit {
 
   //Sends the image through a function whenever the file input is used
   imageHandler($event) : void {
-    if(this.new_post.images.length < 7){
+    if(this.new_post.images.length < 4 && $event.target.files[0] != undefined){
       this.uploading = true;
       this.saveImage($event.target);
     }
