@@ -226,3 +226,11 @@ $size: 150px;
     50% {width: 35px;}
     100% {width: 15px;}
 }
+
+//********************** HR ************************//
+
+hr.full-blue {
+  width: 100%;
+  border-color:$primary-background;
+  margin:10px 0;
+}

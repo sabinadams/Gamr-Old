@@ -23,10 +23,9 @@
 }
 
 .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-align: right;
+    position:absolute; 
+    top:0;
+    // text-align: right;
     filter: alpha(opacity=0);
     opacity: 0;
     outline: none;
@@ -35,11 +34,14 @@
     width:10px;
 }
 .btn-file {
+  margin:0 2px;
 	background: $primary-background;
 	border:0;
 	text-shadow:0;
 	color:$default-font-color;
 	border-radius:7px;
+  overflow:hidden;
+  font-size:19px;
 }
 
 .well.images {
@@ -61,4 +63,47 @@
 }
 .remove-upload:hover {
   color:#902323;
+}
+
+.action-grid {
+  margin-top:10px;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-item: center;
+  justify-content:flex-start; 
+}
+
+.action-buttons {
+  display:flex;
+  flex-direction:row;
+}
+
+.uploading {
+  float:left; 
+  margin:10px;
+}
+
+.uploaded-images {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-item:center;
+  justify-content:flex-start;
+}
+
+.uploaded-image {
+  max-height:50px;
+  width:auto;
+  border-radius:10px;
+}
+
+.image-container {
+  margin:5px 10px 0 5px;
+}
+
+.post-button {
+  margin-left:auto;
+  border-radius:5px;
+  width:75px;
 }
