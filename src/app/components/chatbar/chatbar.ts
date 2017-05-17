@@ -20,14 +20,12 @@ export class ChatbarComponent implements OnInit{
 
   openNav() {
     document.getElementById("mySidenav").style.width = "224px";
-    document.getElementById("main").style.marginRight = "224px";
     document.getElementById("toggler").style.marginRight = "224px";
     document.getElementById("wcontainer").style.right = "224px";
   }
 
   closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginRight= "0";
     document.getElementById("toggler").style.marginRight = "0";
     document.getElementById("wcontainer").style.right = "0";
   }
