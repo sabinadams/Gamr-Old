@@ -19,9 +19,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/lightbox2/dist/css/lightbox.min.css"
       ],
       "scripts": [
+        "../node_modules/lightbox2/dist/js/lightbox.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

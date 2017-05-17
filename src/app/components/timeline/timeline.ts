@@ -66,7 +66,7 @@ export class TimelineComponent implements OnInit {
 
   //Sends the image through a function whenever the file input is used
   imageHandler($event) : void {
-    if(this.new_post.images.length < 4 && $event.target.files[0] != undefined){
+    if(this.new_post.images.length < 7 && $event.target.files[0] != undefined){
       this.uploading = true;
       this.saveImage($event.target);
     }

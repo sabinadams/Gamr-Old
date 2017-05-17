@@ -18,7 +18,7 @@
 
           <!-- Upload Image Button -->
           <div class="action-buttons">
-            <div class="btn-file" *ngIf="new_post.images.length < 4">
+            <div class="btn-file" *ngIf="new_post.images.length < 7">
                 <button>
                   <i class="glyphicon glyphicon-camera"><input type="file" accept="image/*" (change)="imageHandler($event)"></i>
                 </button>
@@ -28,7 +28,7 @@
                   <i class="glyphicon glyphicon-film"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
                 </button>
             </div>
-            <div class="btn-file" *ngIf="new_post.images.length < 4">
+            <div class="btn-file" *ngIf="new_post.images.length < 7">
                 <button>
                   <i class="glyphicon glyphicon-screenshot"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
                 </button>

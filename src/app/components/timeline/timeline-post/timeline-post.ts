@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SocialService } from '../../../services/social-service';
-
+declare var lightbox: any;
 @Component({
   selector: 'timeline-post',
   templateUrl: './timeline-post.html',
@@ -9,7 +9,14 @@ import { SocialService } from '../../../services/social-service';
 export class TimelinePostComponent {
   user = JSON.parse( localStorage.getItem('user') );
 
-  constructor( private _socialService: SocialService ){}
+  constructor( private _socialService: SocialService ){
+    lightbox.option({
+      'resizeDuration': 300,
+      'wrapAround': true,
+      'disableScrolling': true,
+      'alwaysShowNavOnTouchDevices': true
+    })
+  }
 
   @Input() post: any;
 

@@ -20,14 +20,25 @@
 .image-grid {
 	margin-top:10px;
 	display:flex;
-	flex-direction:row;
+	flex-direction:column;
 	flex-wrap:wrap;
   	align-item:center;
-  	justify-content:space-around;
+  	justify-content:center;
+  	text-align:center;
+  	color:darken($primary-background, 10%);
+  	span.image-count-badge {
+  		color:$secondary-background;
+  		font-weight:bolder;
+  		width:45px;
+  		background:rgba(0,0,0,0.4);
+  		border-radius:7px;
+  		margin:auto;
+  	}
 }
 
 .grid-image {
-	max-height:250px;
-	border-radius:2px;
-	margin:3px;
+	max-height:300px;
+	border-radius:3px;
+	margin:10px auto 10px auto;
 }
+
