@@ -37,11 +37,9 @@
   background:transparent;
 }
 
-.options.navbar-collapse.collapse.in, .options.navbar-collapse.collapsing {
-  background:$secondary-background;
-}
 
 .profile {
+  // border-radius:7px;
   max-height:40px;
   border-radius:50%;
 }

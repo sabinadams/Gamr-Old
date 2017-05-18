@@ -18,6 +18,7 @@ export class ProfileSidePanelComponent {
 		    $ppc.addClass('gt-50');
 		  }
 		  $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
+		  
 		});
 	}
 }

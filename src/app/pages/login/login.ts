@@ -17,12 +17,12 @@ export class LoginPage implements OnInit {
 	}
 
 	login(){
-		if(this.login_form.email.trim() != '' && this.login_form.password.trim() != ''){
-			this._authService.login( this.login_form ).subscribe( res => {
+		if(this.login_form.email && this.login_form.password){
+			this._authService.login( this.login_form.email, this.login_form.password ).subscribe( res => {
 				if( res.logged_in ) this._router.navigate(['home']);
 			});
 		} else {
-			this.login_form = { email: '', password: '' }; //Should also signify the failure
+			[this.login_form.email, this.login_form.password] = ["",""]; //Should also signify the failure
 		}
 	}
 }
