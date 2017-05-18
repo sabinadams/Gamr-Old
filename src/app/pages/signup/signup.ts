@@ -11,8 +11,6 @@ export class SignupPage {
 
   constructor( private _authService: AuthService, private _router: Router ){}
 
-   view = 'login-info';
-
    form = {
    	email: '',
    	password: '',
@@ -23,12 +21,17 @@ export class SignupPage {
    	banner_picture: '',
       display_name: '',
    	token: this._authService._generateToken()
-   	//Connected Account Stuffs
    }
 
    ngOnInit(){}
 
    handleData($event){
+      // Merge changes in objects
+      /*
+         Obj1: {a: 1, b: 2, c: 3}
+         Obj2: {b: 4}
+         Object.assign( {}, Obj1, Obj2) = {a: 1, b: 4, c: 3}
+      */
    	this.form = Object.assign( {}, this.form, $event);
    }
    
@@ -42,8 +45,8 @@ export class SignupPage {
 			return true;
 		if(ivp.validateUsername(this.form.tag)!= ivp.valid_color)
 			return true;
-		
-	   	return false;
+	   return false;
+
    }
 
    createAccount(){
@@ -53,7 +56,6 @@ export class SignupPage {
    			localStorage.setItem( 'token', res.USER.token ); 
    			this._router.navigate(['home']);
    		} else {
-   			console.log(res);
    			alert(`Temporary Error Message: ${res.MESSAGE}`);
    		}
    	});

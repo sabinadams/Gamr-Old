@@ -2,7 +2,7 @@
 
 .widgets {
 	height:100%;
-	background:$primary-background;
+	background:$secondary-background;
 }
 
 .box {
@@ -17,7 +17,7 @@
   z-index: 1; /* Stay on top */
   top: 0;
   right: 0;
-  background-color:$secondary-background;
+  background-color:$primary-background;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -53,9 +53,16 @@
   font-size: 30px;
 }
 
+.box-module {
+  margin:0; 
+  padding:0;
+}
+
 .list-group-item {
   border:$thicc-border-dark;
-  background-color:$secondary-background;
+  background-color:$primary-background;
+  text-align:center;
 }
+
   
 

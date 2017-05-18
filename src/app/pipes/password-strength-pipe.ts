@@ -1,5 +1,3 @@
-//Will be pipe for password strength 
-
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({name: 'passwordStrength'})

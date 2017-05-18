@@ -26,7 +26,6 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
     this._socialService.getPosts( 0 ).subscribe( res => {
       this.posts = res;
-      console.log(res)
       setInterval( () => {
         this._socialService.postPull( this.convertTimestamp(this.post_buffer.length ? this.post_buffer[0].timestamp : this.posts[0].timestamp) ).subscribe( res => {
           if( res.length > 0 ){
