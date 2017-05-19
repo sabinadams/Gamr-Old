@@ -2,23 +2,7 @@
   
   <div class="top-grid">
      <div class="col-1">
-        <div class="progress-pie-chart" [attr.data-percent]="user.exp_count | calcExp: 'getPerc'">
-          <div class="ppc-progress">
-            <div class="ppc-progress-fill"></div>
-          </div>
-          <div class="ppc-percents">
-            <div class="pcc-percents-wrapper">
-              <img class="img-responsive" src="http://www.newsshare.in/wp-content/uploads/2017/04/Miniclip-8-Ball-Pool-Avatar-7.png">
-            </div>
-          </div>
-        </div>
-        <div class="stats text-center">
-          <p>
-          <span counto [step]="30" [countTo]="user.exp_count" [countFrom]="0" [duration]="1" (countoChange)="counto = $event">{{ counto | calcExp: "curr" }}</span>
-            /
-            {{ user.exp_count | calcExp: "next" }} exp</p>
-          <h4>{{'@' + user.tag || "No Tag"}} <small>Lvl. {{ user.exp_count | calcExp: "getLevel" }}</small></h4>
-        </div>
+        <exp-profile-pic [user]="user"></exp-profile-pic>
      </div>
      <div class="col-2">
         <div class="item">

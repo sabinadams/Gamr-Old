@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar';
 import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
 import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
+import { ExpProfilePic } from './components/exp-profile-pic/exp-profile-pic';
 
 //Service Imports
 import { HttpClient } from './services/http-interceptor-service';
@@ -45,7 +46,7 @@ import { routing, appRoutingProviders } from './app.routing';
   	AppComponent, LoginPage, SignupPage, HomePage, 
     ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, 
     ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe 
+    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 

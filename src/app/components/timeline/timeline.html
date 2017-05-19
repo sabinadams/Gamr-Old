@@ -62,12 +62,13 @@
           </div>
         </div>
 
-
       </div>
     </div>
   </div>
 
-  <div class="alert alert-success buffer-alert" *ngIf="post_buffer.length > 0" (click)="mergeBuffer()" role="alert">Show {{post_buffer.length}} new Posts</div>
+  <div class="alert alert-success buffer-alert" *ngIf="post_buffer.length > 0" (click)="mergeBuffer()" role="alert">
+    Show {{post_buffer.length}} new Posts
+  </div>
 
   <timeline-post id="ngpost-{{post.ID}}" *ngFor="let post of posts" [post]="post"></timeline-post>
 </div>
