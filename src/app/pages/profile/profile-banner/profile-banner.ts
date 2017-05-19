@@ -1,4 +1,4 @@
-import { Component, OnInit 	} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 declare var $: any;
 @Component({
   selector: 'profile-banner',
@@ -7,9 +7,9 @@ declare var $: any;
 })
 export class ProfileBannerComponent implements OnInit{
 	
-	user = JSON.parse(localStorage.getItem("user"));
-	
 	constructor(){}
+
+	@Input() user: any = [];
 
 	ngOnInit(){
 		$(function(){
