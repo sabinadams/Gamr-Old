@@ -5,9 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ExpCalcPipe implements PipeTransform {
 	
   transform( exp: number = 125, type: string = 'curr' ): string {
-		console.log(exp+" "+type);
 		switch( type ) {
-			case "curr": return exp.toLocaleString();
+			case "curr": return exp.toString();
 			case "next":
 				return exp == this.getNextXP( this.getLevel( exp ) ) 
 				? this.getNextXP( this.getLevel( exp ) + 1 ).toLocaleString()
@@ -28,7 +27,7 @@ export class ExpCalcPipe implements PipeTransform {
   }
   
   getLevel( xp: number ): number {
-	return Math.trunc( Math.cbrt( xp ) );
+	return Math.trunc( Math.pow( xp, 1/3 ) );
   }
 
 }
