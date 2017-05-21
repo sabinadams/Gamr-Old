@@ -18,7 +18,7 @@ $size: 120px;
   background-color: $primary-background;
   position: relative;
   &.gt-50 {
-    background-color: #6bbf6b;
+    background-color: rgba(149, 107, 185, 1);
   }
 }
 .ppc-progress-fill {
@@ -30,7 +30,7 @@ $size: 120px;
   .ppc-progress-fill {
     @include circle($size);
     clip: rect(0, #{$size/2}, $size, 0);
-    background: #6bbf6b;
+    background: rgba(149, 107, 185, 1);
     transform: rotate(60);
   }
   .gt-50 & {
@@ -48,7 +48,7 @@ $size: 120px;
   display: table;
   overflow: hidden;
   img {
-    width: $size/1.15;
+    height: $size/1.15;
   }
 }
 .pcc-percents-wrapper {
