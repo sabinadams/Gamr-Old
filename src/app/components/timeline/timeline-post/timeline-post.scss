@@ -1,5 +1,10 @@
 @import '../../../../styles.scss';
 
+.panel {
+  max-width:800px;
+  margin:auto;
+  margin-bottom:5px;
+}
 .author-image {
   max-height:50px;
   width:auto;
