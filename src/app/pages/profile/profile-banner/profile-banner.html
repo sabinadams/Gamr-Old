@@ -10,6 +10,16 @@
 		<div class="profile">
 			<div class="profile-container">
 				<div exp></div>
+				<div class="progress-pie-chart" [attr.data-percent]="user.exp_count | calcExp: 'getPerc'">
+				  <div class="ppc-progress">
+				    <div class="ppc-progress-fill"></div>
+				  </div>
+				  <div class="ppc-percents">
+				    <div class="pcc-percents-wrapper">
+				      <img class="img-responsive" src="http://www.newsshare.in/wp-content/uploads/2017/04/Miniclip-8-Ball-Pool-Avatar-7.png">
+				    </div>
+				  </div>
+				</div>
 				<small>
 					{{ user.exp_count | calcExp: "curr" }}
 					/
