@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { DomSanitizer } from "@angular/platform-browser";
 import { SocialService } from '../../../services/social-service';
 declare var lightbox: any;
 @Component({
@@ -10,7 +9,7 @@ declare var lightbox: any;
 export class TimelinePostComponent {
   user = JSON.parse( localStorage.getItem('user') );
 
-  constructor( private _socialService: SocialService, private domSanitizer:DomSanitizer ){
+  constructor( private _socialService: SocialService ){
     lightbox.option({
       'resizeDuration': 300,
       'wrapAround': true,
@@ -20,11 +19,6 @@ export class TimelinePostComponent {
   }
 
   @Input() post: any;
-  
-  getPostText() {
-    //return this.domSanitizer.bypassSecurityTrustHtml(this.post.text);
-    return this.post.text;
-  }
 
   likePost() {
   	this._socialService.likePost( this.post.ID ).subscribe( res => {

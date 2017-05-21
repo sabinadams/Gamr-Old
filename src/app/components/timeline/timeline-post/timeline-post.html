@@ -8,7 +8,7 @@
       </div>
       <div class="media-body">
         <p>{{post.display_name}} <small>{{ post.post_date | amTimeAgo }}</small><span class="author-stats">Lvl. 9</span> </p>
-        <p [innerHTML]="getPostText()"></p>
+        <p>{{post.text}}</p>
       </div>
       <div class="image-grid">
         <a href="{{image}}" *ngFor="let image of post.images; let i = index;" [attr.data-lightbox]="post.ID" >
