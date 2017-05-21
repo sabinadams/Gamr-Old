@@ -14,9 +14,10 @@ import { ProfilePage } from './pages/profile/profile';
 //App Routes....
 const appRoutes: Routes = [
 	{ path: '', component: LoginPage },
-	{ path: "signup", component: SignupPage },
+	{ path: 'signup', component: SignupPage },
 	{ path: 'home', component: HomePage, canActivate: [AuthGuard]},
-	{ path: 'profile', component: ProfilePage, canActivate: [AuthGuard]}
+	{ path: 'profile', component: ProfilePage, canActivate: [AuthGuard]},
+	{ path: 'user/:tag', component: ProfilePage, canActivate: [AuthGuard]}
 ]; 
 
 export const appRoutingProviders: any[] = [];

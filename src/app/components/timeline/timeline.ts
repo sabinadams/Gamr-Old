@@ -29,16 +29,24 @@ export class TimelineComponent implements OnInit {
       setInterval( () => {
         this._socialService.postPull( this.convertTimestamp(this.post_buffer.length ? this.post_buffer[0].timestamp : this.posts[0].timestamp) ).subscribe( res => {
           if( res.length > 0 ){
-            this.post_buffer.unshift(...res);
+            /* 
+              Had to make the buffer merge complicated like this to account for a very edge-case bug
+              where someone using two computers at the same time could sometimes cause a post
+              to show up twice in the timeline.
+              Previous code: 
+                this.post_buffer.unshift(...res);
+            */
+            for(let post of res) {
+              for(let i = 0; i < this.post_buffer.length; i++)
+                if(this.post_buffer[i].ID == post.ID) 
+                  this.post_buffer.splice(i, 1);
+              this.post_buffer.unshift(post);
+            }
             this._eventService.emitUnread(this.post_buffer.length);
           }
         });
       }, 20000)
     });
-  }
-
-  checkBlur(){
-    if(this.new_post.text.length < 1) this.rows = 1; 
   }
 
   savePost() {
@@ -64,17 +72,17 @@ export class TimelineComponent implements OnInit {
   }
 
   //Sends the image through a function whenever the file input is used
-  imageHandler($event) : void {
-    if(this.new_post.images.length < 7 && $event.target.files[0] != undefined){
-      this.uploading = true;
+  imageHandler($event): void {
+    if(this.new_post.images.length < 7 && $event.target.files[0] != undefined)
       this.saveImage($event.target);
-    }
   }
 
   //Converts file to base64
+  //Try to add this to the image service. Promises will probably need to be applied
   saveImage(inputValue: any): void {
-    var file:File = inputValue.files[0];
-    var myReader:FileReader = new FileReader();
+    this.uploading = true;
+    let file:File = inputValue.files[0];
+    let myReader:FileReader = new FileReader();
     myReader.readAsDataURL(file);
     myReader.onloadend = (e) => {
       let newimage = myReader.result;
@@ -85,7 +93,8 @@ export class TimelineComponent implements OnInit {
     }
   }
 
-  removeImage(i){
-    this.new_post.images.splice(i, 1);
-  }
+  removeImage(i){ this.new_post.images.splice(i, 1); }
+
+  checkBlur(){ if(this.new_post.text.length < 1) this.rows = 1; }
+
 }

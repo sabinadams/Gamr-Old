@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar';
 import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
 import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
+import { ExpProfilePic } from './components/exp-profile-pic/exp-profile-pic';
 
 //Service Imports
 import { HttpClient } from './services/http-interceptor-service';
@@ -27,6 +28,8 @@ import { SocialService } from './services/social-service';
 import { MomentModule } from 'angular2-moment';
 import { EventService } from './services/event-service';
 import { ImageService } from './services/image-service';
+import { CountoModule }  from 'angular2-counto';
+import { UserService }  from './services/user-service';
 
 //Imports Imports
 import { DragulaModule } from 'ng2-dragula';
@@ -44,15 +47,15 @@ import { routing, appRoutingProviders } from './app.routing';
   	AppComponent, LoginPage, SignupPage, HomePage, 
     ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, 
     ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe 
+    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
-    DragulaModule, MomentModule
+    DragulaModule, MomentModule, CountoModule
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard, 
-      SocialService, EventService, ImageService
+      SocialService, EventService, ImageService, UserService
   ],
   bootstrap: [AppComponent]
 })

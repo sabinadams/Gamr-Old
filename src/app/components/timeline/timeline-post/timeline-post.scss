@@ -1,5 +1,10 @@
 @import '../../../../styles.scss';
 
+.panel {
+  max-width:800px;
+  margin:auto;
+  margin-bottom:5px;
+}
 .author-image {
   max-height:50px;
   width:auto;
@@ -42,3 +47,11 @@
 	margin:10px auto 10px auto;
 }
 
+:host /deep/ #post-text > a {
+  color: rgba(149, 107, 185, 0.74);
+  font-weight:bolder;
+  &:hover {
+    text-decoration:none;
+    opacity:0.8;
+  }
+}

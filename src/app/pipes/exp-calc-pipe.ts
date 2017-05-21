@@ -6,7 +6,7 @@ export class ExpCalcPipe implements PipeTransform {
 	
   transform( exp: number = 125, type: string = 'curr' ): string {
 		switch( type ) {
-			case "curr": return exp.toString();
+			case "curr": return Math.round(exp).toString();
 			case "next":
 				return exp == this.getNextXP( this.getLevel( exp ) ) 
 				? this.getNextXP( this.getLevel( exp ) + 1 ).toLocaleString()

@@ -1,0 +1,61 @@
+@import '../../../styles.scss';
+
+@mixin circle($size) {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - #{$size/2});
+  top: calc(50% - #{$size/2});
+  width: $size;
+  height: $size;
+}
+
+$size: 120px;
+.progress-pie-chart {
+  width: $size - 2;
+  height: $size - 2;
+  border-radius: 50%;
+  background-color: $primary-background;
+  position: relative;
+  &.gt-50 {
+    background-color: rgba(149, 107, 185, 1);
+  }
+}
+.ppc-progress-fill {
+  transition: transform 350ms ease-in;
+}
+.ppc-progress {
+  @include circle($size);
+  clip: rect(0, $size, $size, #{$size/2});
+  .ppc-progress-fill {
+    @include circle($size);
+    clip: rect(0, #{$size/2}, $size, 0);
+    background: rgba(149, 107, 185, 1);
+    transform: rotate(60);
+  }
+  .gt-50 & {
+    clip: rect(0, #{$size/2}, $size, 0);
+    .ppc-progress-fill {
+      clip: rect(0, $size, $size, #{$size/2});
+      background: $primary-background;
+    }
+  }
+}
+.ppc-percents {
+  @include circle(#{$size/1.15});
+  background: #fff;
+  text-align: center;
+  display: table;
+  overflow: hidden;
+  img {
+    height: $size/1.15;
+  }
+}
+.pcc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.progress-pie-chart {
+  margin: 25px auto 10px;
+}

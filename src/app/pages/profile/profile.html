@@ -1,6 +1,6 @@
 <div id="profile-page">
 	<div class="container-fluid no-padding">
-		<profile-banner></profile-banner>
+		<profile-banner *ngIf="user" [user]="user"></profile-banner>
 	</div>
 	<div class="container-fluid" style="margin-top:20px;">
 		<!-- Timeline, Followers, Following, Likes, Games, etc... -->
