@@ -36,9 +36,6 @@ import { ExpCalcPipe } from "./pipes/exp-calc-pipe";
 import { PasswordStrengthPipe } from './pipes/password-strength-pipe';
 import { InputValidationPipe } from "./pipes/input-validation-pipe";
 
-//Directive Imports
-import { ExpDirective } from "./directives/exp-directive";
-
 //Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
 
@@ -47,8 +44,7 @@ import { routing, appRoutingProviders } from './app.routing';
   	AppComponent, LoginPage, SignupPage, HomePage, 
     ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, 
     ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe,
-    ExpDirective
+    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe 
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
