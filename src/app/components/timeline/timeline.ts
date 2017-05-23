@@ -26,33 +26,36 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
     this._socialService.getPosts( 0 ).subscribe( res => {
       this.posts = res;
-      setInterval( () => {
-        this._socialService.postPull( this.convertTimestamp(this.post_buffer.length ? this.post_buffer[0].timestamp : this.posts[0].timestamp) ).subscribe( res => {
-          if( res.length > 0 ){
-            /* 
-              Had to make the buffer merge complicated like this to account for a very edge-case bug
-              where someone using two computers at the same time could sometimes cause a post
-              to show up twice in the timeline.
-              Previous code: 
-                this.post_buffer.unshift(...res);
-            */
-            for(let post of res) {
-              for(let i = 0; i < this.post_buffer.length; i++)
-                if(this.post_buffer[i].ID == post.ID) 
-                  this.post_buffer.splice(i, 1);
-              this.post_buffer.unshift(post);
-            }
-            this._eventService.emitUnread(this.post_buffer.length);
-          }
-        });
-      }, 20000)
+      setInterval( () => { this.postPull(); }, 20000);
     });
   }
 
+  postPull() {
+    this._socialService.postPull( this.convertTimestamp(this.post_buffer.length ? this.post_buffer[0].timestamp : this.posts[0].timestamp) ).subscribe( res => {
+      if( res.length > 0 ){
+        /* 
+          Had to make the buffer merge complicated like this to account for a very edge-case bug
+          where someone using two computers at the same time could sometimes cause a post
+          to show up twice in the timeline.
+          Previous code: 
+            this.post_buffer.unshift(...res);
+        */
+        for(let post of res) {
+          for(let i = 0; i < this.post_buffer.length; i++)
+            if(this.post_buffer[i].ID == post.ID) 
+              this.post_buffer.splice(i, 1);
+          this.post_buffer.unshift(post);
+        }
+        this._eventService.emitUnread(this.post_buffer.length);
+      }
+    });
+  }
+  
   savePost() {
     if(this.new_post.text.length > 0 || this.new_post.images.length > 0 || this.new_post.video.length > 0){
       this._socialService.savePost( this.new_post ).subscribe( res => {
         this.new_post = { text: '', images: [], video: '' };
+        this.postPull();
       });
     }
   }
@@ -95,6 +98,6 @@ export class TimelineComponent implements OnInit {
 
   removeImage(i){ this.new_post.images.splice(i, 1); }
 
-  checkBlur(){ if(this.new_post.text.length < 1) this.rows = 1; }
+  checkBlur(){ if( this.new_post.text.length < 1 ) this.rows = 1; }
 
 }

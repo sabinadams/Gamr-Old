@@ -22,13 +22,16 @@ export class TimelinePostComponent implements OnInit{
   }
 
   @Input() post: any;
-  
+  regex: any;
   ngOnInit() {
+    this.regex = new RegExp(`${this.post.uuid}`, 'g')
     $('#post-text>a').click((evt) => {
           evt.preventDefault();
           this._router.navigate(['/user', evt.target.innerText.substring(1)]);
       });
   }
+
+
 
   likePost() {
   	this._socialService.likePost( this.post.ID ).subscribe( res => {
