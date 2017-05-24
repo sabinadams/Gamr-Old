@@ -17,7 +17,7 @@ const appRoutes: Routes = [
 	{ path: 'signup', component: SignupPage },
 	{ path: 'home', component: HomePage, canActivate: [AuthGuard]},
 	{ path: 'profile', component: ProfilePage, canActivate: [AuthGuard]},
-	{ path: 'user/:tag', component: ProfilePage, canActivate: [AuthGuard]}
+	{ path: 'u/:tag', component: ProfilePage, canActivate: [AuthGuard]},
 ]; 
 
 export const appRoutingProviders: any[] = [];

@@ -24,11 +24,11 @@ export class TimelinePostComponent implements OnInit{
   @Input() post: any;
   regex: any;
   ngOnInit() {
-    this.regex = new RegExp(`${this.post.uuid}`, 'g')
-    $('#post-text>a').click((evt) => {
-          evt.preventDefault();
-          this._router.navigate(['/user', evt.target.innerText.substring(1)]);
-      });
+    this.regex = new RegExp(`${this.post.uuid}`, 'g');
+    $('#post-text>span>a').click((evt) => {
+        evt.preventDefault();
+        this._router.navigate(['/u', evt.target.innerText.substring(1).trim()]);
+    });
   }
 
 
