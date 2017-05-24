@@ -4,13 +4,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'calcExp'})
 export class ExpCalcPipe implements PipeTransform {
 	
-  transform( exp: number = 125, type: string = 'curr' ): string {
+  transform( exp: number = 125, type: string = 'curr' ): any {
 		switch( type ) {
 			case "curr": return Math.round(exp).toString();
 			case "next":
 				return exp == this.getNextXP( this.getLevel( exp ) ) 
-				? this.getNextXP( this.getLevel( exp ) + 1 ).toLocaleString()
-				: this.getNextXP( this.getLevel( exp ) ).toLocaleString();
+				? this.getNextXP( this.getLevel( exp ) + 1 )
+				: this.getNextXP( this.getLevel( exp ) );
 			case "getLevel":	
 				return exp == this.getNextXP( this.getLevel( exp ) )
 				? ( this.getLevel( exp ) + 1 ).toLocaleString()

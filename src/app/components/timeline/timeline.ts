@@ -3,7 +3,6 @@ import { SocialService } from '../../services/social-service';
 import { EventService } from '../../services/event-service';
 import { ImageService } from '../../services/image-service';
 
-declare var $: any;
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',

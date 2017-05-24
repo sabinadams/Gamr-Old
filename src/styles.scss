@@ -182,15 +182,11 @@ hr.full-blue {
 
 //********************** Lightbox ************************//
 
-.lb-outerContainer {
-  background-color: rgba(0,0,0,0.6) !important;
+.lb-outerContainer.transition {
+  background:transparent !important;
 }
-
 .lb-image {
-  border:$thin-border-dark !important;
+  border:none !important;
 }
 
-.grid-image:hover {
-  transition: opacity 300ms ease-in;
-  opacity: 0.7;
-}
+

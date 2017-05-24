@@ -1,19 +1,28 @@
-import { Component, Input, OnInit } from '@angular/core';
-declare var $: any;
+import { Component, Input } from '@angular/core';
+
 @Component({
   selector: 'exp-profile-pic',
-  templateUrl: './exp-profile-pic.html',
-  styleUrls: ['./exp-profile-pic.scss'],
+  inputs: ['user'],
+  styles: [`
+  	.round-progress {
+  	     background-size: cover !important;
+  	     border-radius:50% !important;
+  	     margin-bottom:10px;
+  	 }
+  `],
+  template: `
+	<round-progress class="round-progress"
+	    [ngStyle]="{background: 'url(' + user.profile_pic + ')'}"
+	    [current]="user.exp_count" [max]="user.exp_count | calcExp: 'next' "
+	    [color]="'#956bb9'" [background]="'rgba(0,0,0,0.5)'"
+	    [radius]="65" [stroke]="5"
+	    [semicircle]="false" [rounded]="false" [clockwise]="true"
+	    [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="2">
+	</round-progress>
+	<p counto [step]="30" [duration]="1" [countTo]="user.exp_count" [countFrom]="0" (countoChange)="counto = $event">
+		{{ counto | calcExp: "curr" }} / {{ user.exp_count | calcExp: "next" }} exp
+	</p>
+	<h4>@{{user.tag}} <small>Lvl. {{ user.exp_count | calcExp: "getLevel" }}</small></h4>
+  `
 })
-export class ExpProfilePic {
-
-	@Input() user: any = 0;
-
-	ngOnInit(){
-		let $ppc = $('.progress-pie-chart');
-		let percent = parseInt($ppc.data('percent'));
-		let deg = 360*percent/100;
-		if (percent > 50) { $ppc.addClass('gt-50'); }
-		$('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
-	}
-}
+export class ExpProfilePic {}
