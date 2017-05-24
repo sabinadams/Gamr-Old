@@ -32,7 +32,7 @@ import { ImageService } from './services/image-service';
 import { CountoModule }  from 'angular2-counto';
 import { UserService }  from './services/user-service';
 import { LightboxModule } from 'angular2-lightbox';
-
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 //NGX-Bootstrap Imports
 import { AlertModule } from 'ngx-bootstrap';
@@ -56,11 +56,11 @@ import { routing, appRoutingProviders } from './app.routing';
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
     MomentModule, CountoModule, AlertModule.forRoot(), SortableModule.forRoot(),
-    LightboxModule
+    LightboxModule, RoundProgressModule
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard, 
-      SocialService, EventService, ImageService, UserService
+      SocialService, EventService, ImageService, UserService, ExpCalcPipe
   ],
   bootstrap: [AppComponent]
 })

@@ -1,23 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
-declare var $: any;
+import { ExpCalcPipe } from '../../pipes/exp-calc-pipe';
+
 @Component({
   selector: 'exp-profile-pic',
   templateUrl: './exp-profile-pic.html',
   styleUrls: ['./exp-profile-pic.scss'],
 })
-export class ExpProfilePic {
+export class ExpProfilePic implements OnInit{
 
 	@Input() user: any = 0;
+	constructor(){
+	}
 
 	ngOnInit(){
-		$(() => {
-		  var $ppc = $('.progress-pie-chart');
-		  var percent = parseInt($ppc.data('percent'));
-		  var deg = 360*percent/100;
-		  if (percent > 50) {
-		    $ppc.addClass('gt-50');
-		  }
-		  $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
-		});
+		let expCalcPipe = new ExpCalcPipe();
+		this.user.next_level_xp = expCalcPipe.transform(this.user.exp_count, 'next');
 	}
 }
