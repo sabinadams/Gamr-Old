@@ -31,6 +31,7 @@ import { EventService } from './services/event-service';
 import { ImageService } from './services/image-service';
 import { CountoModule }  from 'angular2-counto';
 import { UserService }  from './services/user-service';
+import { LightboxModule } from 'angular2-lightbox';
 
 
 //NGX-Bootstrap Imports
@@ -54,7 +55,8 @@ import { routing, appRoutingProviders } from './app.routing';
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
-    MomentModule, CountoModule, AlertModule.forRoot(), SortableModule.forRoot()
+    MomentModule, CountoModule, AlertModule.forRoot(), SortableModule.forRoot(),
+    LightboxModule
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard, 

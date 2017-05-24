@@ -19,9 +19,9 @@
 
       </div>
       <div class="image-grid">
-        <a href="{{image}}" *ngFor="let image of post.images; let i = index;" [attr.data-lightbox]="post.ID" >
-            <img [src]="image" *ngIf="i == 0" class="grid-image img-responsive">
-        </a>
+        <div *ngFor="let image of post.images; let i=index">
+          <img *ngIf="i == 0" class="grid-image img-responsive" [src]="image.src" (click)="open(i, $event)"/>
+        </div>
         <span class="badge image-count-badge" *ngIf="post.images.length > 1">1 of {{post.images.length}}</span>
       </div>
     </div>
