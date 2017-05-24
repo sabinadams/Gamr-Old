@@ -32,8 +32,10 @@ import { ImageService } from './services/image-service';
 import { CountoModule }  from 'angular2-counto';
 import { UserService }  from './services/user-service';
 
-//Imports Imports
-import { DragulaModule } from 'ng2-dragula';
+
+//NGX-Bootstrap Imports
+import { AlertModule } from 'ngx-bootstrap';
+import { SortableModule } from 'ngx-bootstrap/sortable';
 
 //Pipe Imports
 import { ExpCalcPipe } from "./pipes/exp-calc-pipe";
@@ -52,7 +54,7 @@ import { routing, appRoutingProviders } from './app.routing';
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
-    DragulaModule, MomentModule, CountoModule
+    MomentModule, CountoModule, AlertModule.forRoot(), SortableModule.forRoot()
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard, 

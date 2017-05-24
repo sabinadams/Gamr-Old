@@ -29,4 +29,16 @@ export class ChatbarComponent implements OnInit{
     document.getElementById("toggler").style.marginRight = "0";
     document.getElementById("wcontainer").style.right = "0";
   }
+
+  public itemStringsLeft: any[] = [
+    { id: 1, chat: 'test chat', name: 'Windstorm' },
+    { id: 2, chat: 'test chat', name: 'Bombasto' },
+    { id: 3, chat: 'test chat', name: 'Magneta' }
+  ];
+ 
+  public itemStringsRight: any[] = [
+    { id: 4, chat: 'test chat', name: 'Tornado' },
+    { id: 5, chat: 'test chat', name: 'Mr. O' },
+    { id: 6, chat: 'test chat', name: 'Tomato' }
+  ];
 }
