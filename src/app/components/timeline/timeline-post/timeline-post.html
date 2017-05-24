@@ -11,8 +11,8 @@
         <p>
           <span class="text-container" *ngFor="let chunk of post.text">
              <span id="post-text" class="text-element" [ngSwitch]="chunk.indexOf(post.uuid) == 0">
-               <span *ngSwitchCase="true" [innerHtml]="chunk.replace(regex, '')"></span>
-               <span *ngSwitchCase="false">{{chunk}}</span>
+                <a *ngSwitchCase="true" [routerLink]="['/u', chunk.replace(regex, '') ]">@{{chunk.replace(regex, '')}}</a>
+                <span *ngSwitchCase="false">{{chunk}}</span>
              </span>
           </span>
         </p>

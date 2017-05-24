@@ -4,7 +4,6 @@ import { AuthService } from '../../../services/auth-service';
 import { Router } from '@angular/router';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 
-declare var $: any;
 @Component({
   selector: 'timeline-post',
   templateUrl: './timeline-post.html',
@@ -20,14 +19,7 @@ export class TimelinePostComponent implements OnInit{
   ngOnInit() {
     this._lightboxConfig.wrapAround = true
     this._lightboxConfig.fitImageInViewPort = true
-
-
-    console.log(this.post)
     this.regex = new RegExp(`${this.post.uuid}`, 'g');
-    $('#post-text>span>a').click((evt) => {
-        evt.preventDefault();
-        this._router.navigate(['/u', evt.target.innerText.substring(1).trim()]);
-    });
   }
 
   likePost() {

@@ -47,7 +47,7 @@
 	margin:10px auto 10px auto;
 }
 
-:host /deep/ #post-text > span > a {
+#post-text >  a {
   color: rgba(149, 107, 185, 0.74);
   font-weight:bolder;
   &:hover {
