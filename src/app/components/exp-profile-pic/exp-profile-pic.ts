@@ -5,9 +5,9 @@ import { Component, Input } from '@angular/core';
   inputs: ['user'],
   styles: [`
   	.round-progress {
-  	     background-size: cover !important;
-  	     border-radius:50% !important;
-  	     margin-bottom:10px;
+  	    background-size: cover !important;
+  	    border-radius:50% !important;
+  	    margin-bottom:10px;
   	 }
   `],
   template: `
@@ -22,7 +22,7 @@ import { Component, Input } from '@angular/core';
 	<p counto [step]="30" [duration]="1" [countTo]="user.exp_count" [countFrom]="0" (countoChange)="counto = $event">
 		{{ counto | calcExp: "curr" }} / {{ user.exp_count | calcExp: "next" }} exp
 	</p>
-	<h4>@{{user.tag}} <small>Lvl. {{ user.exp_count | calcExp: "getLevel" }}</small></h4>
+	<h4> @{{user.tag}} <small>Lvl. {{ user.exp_count | calcExp: "getLevel" }}</small> </h4>
   `
 })
 export class ExpProfilePic {}

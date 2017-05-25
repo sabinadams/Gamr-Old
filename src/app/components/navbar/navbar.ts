@@ -17,6 +17,7 @@ export class NavbarComponent {
   }
   user = JSON.parse(localStorage.getItem('user'));
   unread_count: number;
+  profileToggle = false;
   @Input() Authorized: any;
   isCollapsed: boolean = true;
 
@@ -35,4 +36,5 @@ export class NavbarComponent {
   toggleCollapse(): void {
     this.isCollapsed = !this.isCollapsed;
   }
+  
 }
