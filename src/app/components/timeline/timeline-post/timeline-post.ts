@@ -1,6 +1,5 @@
-import { Component, Input, OnInit,  ElementRef } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SocialService } from '../../../services/social-service';
-import { AuthService } from '../../../services/auth-service';
 import { Router } from '@angular/router';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 
@@ -11,11 +10,11 @@ import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 })
 export class TimelinePostComponent implements OnInit{
   user = JSON.parse( localStorage.getItem('user') );
-
-  constructor( private _el: ElementRef, private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox, private _router: Router, private _socialService: SocialService, private _authService: AuthService ){  }
+  constructor( private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox, private _socialService: SocialService ){}
 
   @Input() post: any;
   regex: any;
+  
   ngOnInit() {
     this._lightboxConfig.wrapAround = true
     this._lightboxConfig.fitImageInViewPort = true

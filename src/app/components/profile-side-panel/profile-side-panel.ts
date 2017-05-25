@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 declare var $: any;
 @Component({
   selector: 'profile-side-panel',
@@ -6,9 +6,5 @@ declare var $: any;
   styleUrls: ['./profile-side-panel.scss'],
 })
 export class ProfileSidePanelComponent {
-
 	user = JSON.parse( localStorage.getItem( 'user' ) );
-
-	ngOnInit(){
-	}
 }

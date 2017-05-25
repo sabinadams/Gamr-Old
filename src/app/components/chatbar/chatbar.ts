@@ -1,14 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 @Component({
   selector: 'chatbar',
   templateUrl: './chatbar.html',
   styleUrls: ['./chatbar.scss'],
 })
-export class ChatbarComponent implements OnInit{
-
-  constructor(){}
-
-  ngOnInit() {}
+export class ChatbarComponent {
 
   toggleNav(){
   	if(document.getElementById("mySidenav").style.width == "224px"){

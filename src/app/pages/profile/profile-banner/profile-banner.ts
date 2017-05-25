@@ -1,18 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-declare var $: any;
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'profile-banner',
   templateUrl: './profile-banner.html',
   styleUrls: ['./profile-banner.scss'],
 })
-export class ProfileBannerComponent implements OnInit{
-	
-	constructor(){}
-
+export class ProfileBannerComponent {
 	@Input() user: any = [];
-
-	ngOnInit(){
-		
-	}
-	
 }
