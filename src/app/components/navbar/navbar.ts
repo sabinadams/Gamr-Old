@@ -21,14 +21,6 @@ export class NavbarComponent {
   @Input() Authorized: any;
   isCollapsed: boolean = true;
 
-  homeClick(){
-    if( this._router.url === '/home' ) {
-      //Smoothe scroll to top
-      window.scrollTo(0, 0);
-      this._eventService.emitUnreadMerger('Merge Unread Timeline Posts');
-    }
-  }
-
   logout() {
     this._authService.logout();
   }
@@ -36,5 +28,4 @@ export class NavbarComponent {
   toggleCollapse(): void {
     this.isCollapsed = !this.isCollapsed;
   }
-  
 }

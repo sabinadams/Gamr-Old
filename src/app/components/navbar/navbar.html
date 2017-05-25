@@ -42,7 +42,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-middle" *ngIf="Authorized">
         <li id="home" [routerLinkActive]="['active']">
-          <a (click)="homeClick()" routerLink="home" >
+          <a pageScroll [pageScrollDuration]="300" routerLink="home" href="#home-page">
             Home {{unread_count > 0 ? '(' + unread_count + ')' : ''}}
           </a>
         </li>

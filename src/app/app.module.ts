@@ -33,6 +33,7 @@ import { CountoModule }  from 'angular2-counto';
 import { UserService }  from './services/user-service';
 import { LightboxModule } from 'angular2-lightbox';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 //NGX-Bootstrap Imports
 import { AlertModule } from 'ngx-bootstrap';
@@ -56,7 +57,7 @@ import { routing, appRoutingProviders } from './app.routing';
   imports: [
     BrowserModule, FormsModule, HttpModule, routing, 
     MomentModule, CountoModule, AlertModule.forRoot(), SortableModule.forRoot(),
-    LightboxModule, RoundProgressModule
+    LightboxModule, RoundProgressModule, Ng2PageScrollModule.forRoot()
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard, 
