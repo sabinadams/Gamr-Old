@@ -15,8 +15,10 @@ export class NavbarComponent {
       this.unread_count = count;
     });
   }
+  user = JSON.parse(localStorage.getItem('user'));
   unread_count: number;
   @Input() Authorized: any;
+  isCollapsed: boolean = true;
 
   homeClick(){
     if( this._router.url === '/home' ) {
@@ -28,5 +30,9 @@ export class NavbarComponent {
 
   logout() {
     this._authService.logout();
+  }
+
+  toggleCollapse(): void {
+    this.isCollapsed = !this.isCollapsed;
   }
 }

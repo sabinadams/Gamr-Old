@@ -23,7 +23,7 @@ export class ExpCalcPipe implements PipeTransform {
   }
   
   getNextXP( lvl: number ): number {
-	return Math.trunc( Math.pow( lvl + 1, 3 ) );
+	return Math.trunc( Math.pow( lvl + 1, 3 ) + Math.pow( lvl/2, 3) );
   }
   
   getLevel( xp: number ): number {
