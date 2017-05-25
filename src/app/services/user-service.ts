@@ -10,9 +10,8 @@ export class UserService {
   constructor( private _secureHttp: HttpClient, private _router: Router ) {}
 
   getUserDetails( tag ) {
-    return this._secureHttp.get(`http://api.gamr.co/user/${tag}/`).map((res:Response) => {
+    return this._secureHttp.get(`http://api.gamr.co/user/${tag}/`).map(( res: Response ) => {
       return res.json();
-    }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
   }
-  
 }

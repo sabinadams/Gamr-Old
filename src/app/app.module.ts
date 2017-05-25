@@ -1,17 +1,17 @@
-//Core Imports
+// Core Imports
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
-//Page Imports
+// Page Imports
 import { LoginPage } from './pages/login/login';
-import { SignupPage } from "./pages/signup/signup";
+import { SignupPage } from './pages/signup/signup';
 import { HomePage } from './pages/home/home';
 import { ProfilePage } from './pages/profile/profile';
 
-//Component Imports
+// Component Imports
 import { TimelineComponent } from './components/timeline/timeline';
 import { ProfileSidePanelComponent } from './components/profile-side-panel/profile-side-panel';
 import { TimelinePostComponent } from './components/timeline/timeline-post/timeline-post';
@@ -21,7 +21,7 @@ import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-b
 import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
 import { ExpProfilePic } from './components/exp-profile-pic/exp-profile-pic';
 
-//Service Imports
+// Service Imports
 import { HttpClient } from './services/http-interceptor-service';
 import { AuthService } from './services/auth-service';
 import { AuthGuard } from './services/auth-guard';
@@ -29,38 +29,38 @@ import { SocialService } from './services/social-service';
 import { MomentModule } from 'angular2-moment';
 import { EventService } from './services/event-service';
 import { ImageService } from './services/image-service';
-import { CountoModule }  from 'angular2-counto';
-import { UserService }  from './services/user-service';
+import { CountoModule } from 'angular2-counto';
+import { UserService } from './services/user-service';
 import { LightboxModule } from 'angular2-lightbox';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
-//NGX-Bootstrap Imports
+// NGX-Bootstrap Imports
 import { AlertModule } from 'ngx-bootstrap';
 import { SortableModule } from 'ngx-bootstrap/sortable';
 
-//Pipe Imports
-import { ExpCalcPipe } from "./pipes/exp-calc-pipe";
+// Pipe Imports
+import { ExpCalcPipe } from './pipes/exp-calc-pipe';
 import { PasswordStrengthPipe } from './pipes/password-strength-pipe';
-import { InputValidationPipe } from "./pipes/input-validation-pipe";
+import { InputValidationPipe } from './pipes/input-validation-pipe';
 
-//Routing Imports
+// Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
-  	AppComponent, LoginPage, SignupPage, HomePage, 
-    ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent, 
-    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic
+   AppComponent, LoginPage, SignupPage, HomePage,
+   ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent,
+   ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
+   PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, routing, 
+    BrowserModule, FormsModule, HttpModule, routing,
     MomentModule, CountoModule, AlertModule.forRoot(), SortableModule.forRoot(),
     LightboxModule, RoundProgressModule, Ng2PageScrollModule.forRoot()
   ],
   providers: [
-      appRoutingProviders, HttpClient, AuthService, AuthGuard, 
+      appRoutingProviders, HttpClient, AuthService, AuthGuard,
       SocialService, EventService, ImageService, UserService, ExpCalcPipe
   ],
   bootstrap: [AppComponent]

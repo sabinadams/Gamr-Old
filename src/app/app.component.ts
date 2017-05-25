@@ -7,11 +7,8 @@ import { AuthService } from './services/auth-service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-  constructor( private _authService: AuthService ) {}
 
-  userCheck(){
-  	return this._authService.isLoggedIn();
-  }
+  constructor( private _authService: AuthService ) {}
+  userCheck(){ return this._authService.isLoggedIn(); }
 
 }

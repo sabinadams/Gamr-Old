@@ -1,78 +1,78 @@
 <style>
-	.banner {
-		background: linear-gradient(to bottom, rgba(38, 42, 53, 0.25) 0%,#1e2335 90%), url('http://www.chungcugoldenland.info/data/out/332/47114902-ultra-hd-gaming-wallpapers.jpg') center no-repeat;
-		background-size: cover;
-		height:400px;
-	}
+    .banner {
+        background: linear-gradient(to bottom, rgba(38, 42, 53, 0.25) 0%, #1e2335 90%), url('http://www.chungcugoldenland.info/data/out/332/47114902-ultra-hd-gaming-wallpapers.jpg') center no-repeat;
+        background-size: cover;
+        height: 400px;
+    }
 </style>
 <div class="banner">
-	<div class="flex-grid">
-		<div class="profile">
-			<div class="profile-container">
-				<exp-profile-pic [user]="user"></exp-profile-pic>
-				<p class="description">{{ user.description || "No Description." }}</p>
-			</div>
-			<div class="stats">
-				<h3>99</h3>
-				<p>Followers</p>
-				<h3>99</h3>
-				<p>Following</p>
-				<h3>99</h3>
-				<p>Posts</p>
-				<h3>{{ user.exp | calcExp: "getLevel" }}</h3>
-				<p>Level</p>
-			</div>
-		</div>
+    <div class="flex-grid">
+        <div class="profile">
+            <div class="profile-container">
+                <exp-profile-pic [user]="user"></exp-profile-pic>
+                <p class="description">{{ user.description || "No Description." }}</p>
+            </div>
+            <div class="stats">
+                <h3>99</h3>
+                <p>Followers</p>
+                <h3>99</h3>
+                <p>Following</p>
+                <h3>99</h3>
+                <p>Posts</p>
+                <h3>{{ user.exp | calcExp: "getLevel" }}</h3>
+                <p>Level</p>
+            </div>
+        </div>
 
-	</div>
-	<ul class="navigation">
-	  <li>
-	  	<a href="#">
-	  		<span class="glyphicon glyphicon-nav glyphicon-th-list" aria-hidden="true"></span><br>
-	  		<span class="hidden-xs">
+    </div>
+    <ul class="navigation">
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-nav glyphicon-th-list" aria-hidden="true"></span><br>
+                <span class="hidden-xs">
 	  			Posts	
 	  		</span>
-	  	</a>
-	  </li>
-	  <li>
-	  	<a href="#">
-	  		<span class="glyphicon glyphicon-nav glyphicon-blackboard" aria-hidden="true"></span><br>
-	  		<span class="hidden-xs">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-nav glyphicon-blackboard" aria-hidden="true"></span><br>
+                <span class="hidden-xs">
 	  			Media	
 	  		</span>
-	  	</a>
-	  </li>
-	  <li>
-	  	<a href="#">
-	  		<span class="glyphicon glyphicon-nav glyphicon-tasks" aria-hidden="true"></span><br>
-	  		<span class="hidden-xs">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-nav glyphicon-tasks" aria-hidden="true"></span><br>
+                <span class="hidden-xs">
 	  			Stats	
 	  		</span>
-	  	</a>
-	  </li>
-	  <li>
-	  	<a href="#">
-	  		<span class="glyphicon glyphicon-nav glyphicon-tower" aria-hidden="true"></span><br>
-	  		<span class="hidden-xs">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-nav glyphicon-tower" aria-hidden="true"></span><br>
+                <span class="hidden-xs">
 	  			Games	
 	  		</span>
-	  	</a>
-	  </li>
-	  <li>
-	  	<a href="#">
-	  		<span class="glyphicon glyphicon-nav glyphicon-asterisk" aria-hidden="true"></span><br>
-	  		<span class="hidden-xs">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-nav glyphicon-asterisk" aria-hidden="true"></span><br>
+                <span class="hidden-xs">
 	  			Badges	
 	  		</span>
-	  	</a>
-	  </li>
-	  <li>
-	  	<a href="#">
-	  		<span class="glyphicon glyphicon-nav glyphicon-signal" aria-hidden="true"></span><br>
-	  		<span class="hidden-xs">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-nav glyphicon-signal" aria-hidden="true"></span><br>
+                <span class="hidden-xs">
 	  			Analytics	
 	  		</span>
-	  	</a>
-	  </li>
-	</ul>
+            </a>
+        </li>
+    </ul>
 </div>

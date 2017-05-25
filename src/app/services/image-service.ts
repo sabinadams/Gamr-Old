@@ -8,13 +8,12 @@ import 'rxjs/add/operator/map';
 export class ImageService {
   constructor( private _http: Http, private _router: Router ) {}
 
-	uploadImage(image){
-		let headers = new Headers({ 'Authorization': `Client-ID 6108a749981cd34` });
-		let options = new RequestOptions({ headers: headers });
-		return this._http.post('https://api.imgur.com/3/upload', {image: image.split(',')[1]}, options).map(res => {
-			return res.json();
-		});
-	}
-
+ uploadImage(image){
+  const headers = new Headers({ 'Authorization': `Client-ID 6108a749981cd34` });
+  const options = new RequestOptions({ headers: headers });
+  return this._http.post('https://api.imgur.com/3/upload', {image: image.split(',')[1]}, options).map(res => {
+   return res.json();
+  });
+ }
 
 }

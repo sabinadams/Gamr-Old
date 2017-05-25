@@ -10,21 +10,20 @@ import { Router } from '@angular/router';
 })
 
 export class NavbarComponent {
+  @Input() Authorized: any;
+  user = JSON.parse(localStorage.getItem('user'));
+  unread_count: number;
+  profileToggle = false;
+  isCollapsed = true;
   constructor( private _authService: AuthService, private _eventService: EventService, private _router: Router ){
     _eventService.unreadCount$.subscribe( count => {
       this.unread_count = count;
     });
   }
-  user = JSON.parse(localStorage.getItem('user'));
-  unread_count: number;
-  profileToggle = false;
-  isCollapsed: boolean = true;
-  @Input() Authorized: any;
 
-  emitMerger(){ this._eventService.emitUnreadMerger('Merge Unread Timeline Posts'); }
+  emitMerger() { this._eventService.emitUnreadMerger('Merge Unread Timeline Posts'); }
 
   logout() { this._authService.logout(); }
 
   toggleCollapse(): void { this.isCollapsed = !this.isCollapsed; }
-  
 }

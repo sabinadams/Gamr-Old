@@ -7,16 +7,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile.scss'],
 })
 export class ProfilePage implements OnInit{
-
-
-  constructor(private _userService: UserService, public _route: ActivatedRoute){}
   user: any;
+  constructor(private _userService: UserService, public _route: ActivatedRoute) {}
   ngOnInit() {
-  	this._route.params.subscribe(params => {
-        this._userService.getUserDetails( params['tag'] || JSON.parse(localStorage.getItem('user')).tag ).subscribe( res => {
-      		this.user = res;
-      	});
+    this._route.params.subscribe(params => {
+      this._userService.getUserDetails( params['tag'] || JSON.parse(localStorage.getItem('user')).tag ).subscribe( res => {
+        this.user = res;
+      });
     });
   }
-
 }
