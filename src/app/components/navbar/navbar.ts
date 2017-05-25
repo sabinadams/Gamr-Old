@@ -18,14 +18,13 @@ export class NavbarComponent {
   user = JSON.parse(localStorage.getItem('user'));
   unread_count: number;
   profileToggle = false;
-  @Input() Authorized: any;
   isCollapsed: boolean = true;
+  @Input() Authorized: any;
 
-  logout() {
-    this._authService.logout();
-  }
+  emitMerger(){ this._eventService.emitUnreadMerger('Merge Unread Timeline Posts'); }
 
-  toggleCollapse(): void {
-    this.isCollapsed = !this.isCollapsed;
-  }
+  logout() { this._authService.logout(); }
+
+  toggleCollapse(): void { this.isCollapsed = !this.isCollapsed; }
+  
 }
