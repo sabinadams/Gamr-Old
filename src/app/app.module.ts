@@ -39,6 +39,7 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { AlertModule } from 'ngx-bootstrap';
 import { SortableModule } from 'ngx-bootstrap/sortable';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // Pipe Imports
 import { ExpCalcPipe } from './pipes/exp-calc-pipe';
@@ -58,7 +59,8 @@ import { routing, appRoutingProviders } from './app.routing';
   imports: [
     BrowserModule, FormsModule, HttpModule, routing,
     MomentModule, CountoModule, AlertModule.forRoot(), SortableModule.forRoot(),
-    LightboxModule, RoundProgressModule, Ng2PageScrollModule.forRoot(), BsDropdownModule.forRoot()
+    LightboxModule, RoundProgressModule, Ng2PageScrollModule.forRoot(), BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 @Component({
   selector: 'chatbar',
   templateUrl: './chatbar.html',
@@ -45,4 +46,9 @@ export class ChatbarComponent {
     document.getElementById('mySidenav').style.width = '0';
     document.getElementById('wcontainer').style.right = '0';
   }
+
+  showChat( item ) {
+    console.log( item );
+  }
+
 }
