@@ -13,7 +13,6 @@ export class TimelinePostComponent implements OnInit{
   @Output() destroyObject = new EventEmitter();
   user = JSON.parse( localStorage.getItem('user') );
   regex: any;
-  postToggle = false;
   constructor( private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox, private _socialService: SocialService ) {}
 
   ngOnInit() {

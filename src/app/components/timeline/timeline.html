@@ -14,34 +14,30 @@
                         <textarea (blur)="checkBlur()" (focus)="rows = 4;" [(ngModel)]="new_post.text" class="form-control post-input" rows="{{rows}}" aria-describedby="basic-addon2" id="text-post" placeholder="What do you have to say?"></textarea>
                     </div>
                 </div>
-
                 <div class="action-grid">
-
                     <!-- Upload Image Button -->
                     <div class="action-buttons">
                         <div class="btn-file" *ngIf="new_post.images.length < 7">
                             <button>
-                    <i class="glyphicon glyphicon-camera"><input type="file" accept="image/*" (change)="imageHandler($event)"></i>
-                  </button>
+                                <i class="glyphicon glyphicon-camera"><input type="file" accept="image/*" (change)="imageHandler($event)"></i>
+                            </button>
                         </div>
                         <div class="btn-file" *ngIf="new_post.video.length == 0">
                             <button>
-                    <i class="glyphicon glyphicon-film"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
-                  </button>
+                                <i class="glyphicon glyphicon-film"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
+                            </button>
                         </div>
                         <div class="btn-file" *ngIf="new_post.images.length < 7">
                             <button>
-                    <i class="glyphicon glyphicon-screenshot"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
-                  </button>
+                                <i class="glyphicon glyphicon-screenshot"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
+                            </button>
                         </div>
                         <!-- Any other actions here... -->
                     </div>
-
                     <!-- Post Button -->
                     <button class="post-button" (click)="savePost()" *ngIf="new_post.text.length > 0 || new_post.images.length > 0 || new_post.video.length > 0 ">
-              Post
-            </button>
-
+                        Post
+                    </button>
                 </div>
 
                 <hr class="full-blue" *ngIf="new_post.images.length > 0 || new_post.video.length > 0 ">

@@ -13,7 +13,6 @@ export class NavbarComponent {
   @Input() Authorized: any;
   user = JSON.parse(localStorage.getItem('user'));
   unread_count: number;
-  profileToggle = false;
   isCollapsed = true;
   constructor( private _authService: AuthService, private _eventService: EventService, private _router: Router ){
     _eventService.unreadCount$.subscribe( count => {

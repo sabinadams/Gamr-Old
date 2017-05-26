@@ -7,24 +7,26 @@
                 </a>
             </div>
             <div class="media-body">
-                <li class="dropdown" [ngClass]="{'open': postToggle}">
-                    <a (click)="postToggle = !postToggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                <div class="dropdown" dropdown>
+                    <a dropdownToggle class="dropdown-toggle">
+                        <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
                     </a>
-                    <ul class="dropdown-menu pull-right">
-                        <li><a href="#">Copy Link</a></li>
-                        <li><a *ngIf="user.ID == post.user_ID" (click)="deletePost()">Delete</a></li>
-                        <li><a href=" # ">Share</a></li>
-                        <li><a href="# ">Report Post</a></li>
+                    <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
+                        <li role="menuitem"><a class="dropdown-item" href="#">Copy Link</a></li>
+                        <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == post.user_ID" (click)="deletePost()">Delete</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Share</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Report Post</a>
+                        </li>
                     </ul>
-                </li>
+                </div>
                 <p>
                     {{post.display_name}} <small>{{ post.post_date | amTimeAgo }} </small>
                 </p>
                 <p>
                     <span class="text-container " *ngFor="let chunk of post.text ">
-                        <span id="post-text " class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
-                            <a *ngSwitchCase="true " [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                        <span class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
+                            <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
                             <span *ngSwitchCase="false ">{{chunk}}</span>
                     </span>
                     </span>
@@ -70,6 +72,31 @@
                 </div>
                 <div class="media-body">
                     <input [(ngModel)]="postText" class="form-control input-box" aria-describedby="basic-addon2" id="text-post" placeholder="What do you have to say?" />
+                </div>
+                <div class="action-grid">
+                    <!-- Upload Image Button -->
+                    <div class="action-buttons">
+                        <div class="btn-file">
+                            <button>
+                                <i class="glyphicon glyphicon-camera"><input type="file" accept="image/*" (change)="imageHandler($event)"></i>
+                            </button>
+                        </div>
+                        <div class="btn-file">
+                            <button>
+                                <i class="glyphicon glyphicon-film"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
+                            </button>
+                        </div>
+                        <div class="btn-file">
+                            <button>
+                                <i class="glyphicon glyphicon-screenshot"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
+                            </button>
+                        </div>
+                        <!-- Any other actions here... -->
+                    </div>
+                    <!-- Post Button -->
+                    <button class="post-button">
+                        Comment
+                    </button>
                 </div>
             </div>
         </div>

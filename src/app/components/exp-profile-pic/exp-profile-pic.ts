@@ -11,7 +11,7 @@ import { Component, Input } from '@angular/core';
   `],
   template: `
 	<round-progress 
-        class="round-progress"
+		class="round-progress"
 	    [ngStyle]="{background: 'url(' + user.profile_pic + ')'}"
 	    [current]="user.exp_count" 
 	    [max]="user.exp_count | calcExp: 'next' "

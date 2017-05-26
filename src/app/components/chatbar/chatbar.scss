@@ -1,69 +1,71 @@
 @import '../../../styles.scss';
 
-.widgets {
-	height:100%;
-	background:$primary-background;
-}
-
-.box {
-  color:$default-font-color;
-  margin:10px;
-}
-
 /* The side navigation menu */
+
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0;
-  right: 0;
-  background-color:$primary-background;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: $primary-background;
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
 }
 
 
 /* Position and style the close button (top right corner) */
+
 .sidenav .closebtn {
-  position: absolute;
-  top: 50px;
-  font-size: 36px;
+    position: absolute;
+    top: 50px;
+    font-size: 36px;
 }
 
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 .open-btn {
-	position:fixed;
-	bottom:15px;
-	right:15px;
-	font-size:25px;
-  color:rgba(149, 107, 185, 1);
-  cursor:pointer;
-  transition: font-size 450ms ease-in;
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    font-size: 25px;
+    color: rgba(149, 107, 185, 1);
+    cursor: pointer;
+    transition: font-size 450ms ease-in;
 }
 
 .open-btn:hover {
-  transform: rotate( -180deg );            
-  transition: transform 450ms ease;
-  font-size: 30px;
+    transform: rotate( -180deg);
+    transition: transform 450ms ease;
+    font-size: 30px;
 }
 
-.box-module {
-  margin:0; 
-  padding:0;
+.chat-circle {
+    margin: 15px auto 15px auto;
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
 }
 
-.list-group-item {
-  border:$thicc-border-dark;
-  background-color:$primary-background;
-  text-align:center;
+.wrapper {
+    text-align: center !important;
 }
-
-  
-
