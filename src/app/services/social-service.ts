@@ -32,4 +32,10 @@ export class SocialService {
       return res.json();
     }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  deletePost( ID ) {
+    return this._secureHttp.post(`http://api.gamr.co/deletepost/`, {postID: ID}).map(( res: Response ) => {
+      return res.json();
+    }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

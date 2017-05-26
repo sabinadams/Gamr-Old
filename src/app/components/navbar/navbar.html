@@ -23,7 +23,6 @@
                         <span style="font-size:20px;" class="glyphicon glyphicon-record" aria-hidden="true"></span>
                     </a>
                 </li>
-                <!-- Will have to find a workaround to make this work because of ngx -->
                 <li class="dropdown" [ngClass]="{'open': profileToggle}" *ngIf="Authorized">
                     <a (click)="profileToggle = !profileToggle" class="dropdown-toggle img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img class="img-responsive profile" [src]="user.profile_pic" alt="">

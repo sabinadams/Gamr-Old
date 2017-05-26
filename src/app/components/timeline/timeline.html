@@ -70,5 +70,5 @@
         Show {{post_buffer.length}} new Posts
     </div>
 
-    <timeline-post id="ngpost-{{post.ID}}" *ngFor="let post of posts" [post]="post"></timeline-post>
+    <timeline-post (destroyObject)="handleDestroyObject($event)" id="ngpost-{{post.ID}}" *ngFor="let post of posts" [post]="post"></timeline-post>
 </div>

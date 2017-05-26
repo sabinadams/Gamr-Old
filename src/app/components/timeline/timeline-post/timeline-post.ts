@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { SocialService } from '../../../services/social-service';
 import { Router } from '@angular/router';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
@@ -9,9 +9,11 @@ import { Lightbox, LightboxConfig } from 'angular2-lightbox';
   styleUrls: ['./timeline-post.scss'],
 })
 export class TimelinePostComponent implements OnInit{
-  user = JSON.parse( localStorage.getItem('user') );
   @Input() post: any;
+  @Output() destroyObject = new EventEmitter();
+  user = JSON.parse( localStorage.getItem('user') );
   regex: any;
+  postToggle = false;
   constructor( private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox, private _socialService: SocialService ) {}
 
   ngOnInit() {
@@ -33,7 +35,13 @@ export class TimelinePostComponent implements OnInit{
     });
   }
 
-  open(index: number, event): void {
+  deletePost() {
+   this._socialService.deletePost( this.post.ID ).subscribe( res => {
+    this.destroyObject.emit(this.post.ID);
+   });
+  }
+
+  openImage(index: number, event): void {
     this._lightboxConfig.positionFromTop = event.pageY  - event.y + event.y / 4;
     this._lightbox.open(this.post.images, index);
   }

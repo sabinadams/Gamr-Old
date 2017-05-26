@@ -14,8 +14,25 @@
     border-bottom: $thin-border-dark;
 }
 
-.author-stats {
+.media,
+.media-body {
+    overflow: initial;
+}
+
+.author-stats,
+.dropdown {
     float: right;
+}
+
+li {
+    list-style-type: none;
+    text-align: center;
+    a {
+        color: $default-font-color;
+        font-weight: bold;
+        border: 0;
+        text-shadow: none;
+    }
 }
 
 .static-stat {

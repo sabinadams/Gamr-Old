@@ -30,29 +30,32 @@ export class TimelineComponent implements OnInit {
   }
 
   postPull() {
-    this._socialService.postPull(
-      this.convertTimestamp(this.post_buffer.length ? this.post_buffer[0].timestamp : this.posts[0].timestamp)
-    ).subscribe( res => {
-      if ( res.length > 0 ) {
-        /*
-          Had to make the buffer merge complicated like this to account for a very edge-case bug
-          where someone using two computers at the same time could sometimes cause a post
-          to show up twice in the timeline.
-          Previous code:
-            this.post_buffer.unshift(...res);
-        */
-
-        for (const post of res) {
-          for (let i = 0; i < this.post_buffer.length; i++) {
-            if (this.post_buffer[i].ID === post.ID) {
-              this.post_buffer.splice(i, 1);
+    if (this.posts.length){
+      this._socialService.postPull(
+        this.convertTimestamp(
+          this.post_buffer.length
+          ? this.post_buffer[0].timestamp
+          : this.posts[0].timestamp
+        )
+      ).subscribe( res => {
+        if ( res.length > 0 ) {
+          for (const post of res) {
+            for (let i = 0; i < this.post_buffer.length; i++) {
+              if (this.post_buffer[i].ID === post.ID) {
+                this.post_buffer.splice(i, 1);
+              }
             }
+            this.post_buffer.unshift(post);
           }
-          this.post_buffer.unshift(post);
+          this._eventService.emitUnread(this.post_buffer.length);
         }
-        this._eventService.emitUnread(this.post_buffer.length);
-      }
-    });
+      });
+    } else {
+      this._socialService.getPosts( 0 ).subscribe( res => {
+        this.post_buffer.unshift(...res);
+       this._eventService.emitUnread(this.post_buffer.length);
+      });
+    }
   }
 
   savePost() {
@@ -77,6 +80,7 @@ export class TimelineComponent implements OnInit {
 
   convertTimestamp(timestamp){
     const date = new Date(timestamp).toISOString();
+    console.log(date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', ''));
     return date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', '');
   }
 
@@ -100,6 +104,15 @@ export class TimelineComponent implements OnInit {
         this.new_post.images.push(res.data.link);
         this.uploading = false;
       });
+    }
+  }
+
+  handleDestroyObject($event) {
+    document.getElementById(`ngpost-${$event}`).remove();
+    for (let i = 0; i < this.posts.length; i++) {
+       if ( this.posts[i].ID === $event) {
+         this.posts.splice(i, 1);
+       }
     }
   }
 

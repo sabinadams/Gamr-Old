@@ -7,43 +7,55 @@
                 </a>
             </div>
             <div class="media-body">
-                <p>{{post.display_name}} <small>{{ post.post_date | amTimeAgo }}</small><span class="author-stats">Lvl. 9</span> </p>
+                <li class="dropdown" [ngClass]="{'open': postToggle}">
+                    <a (click)="postToggle = !postToggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="#">Copy Link</a></li>
+                        <li><a *ngIf="user.ID == post.user_ID" (click)="deletePost()">Delete</a></li>
+                        <li><a href=" # ">Share</a></li>
+                        <li><a href="# ">Report Post</a></li>
+                    </ul>
+                </li>
                 <p>
-                    <span class="text-container" *ngFor="let chunk of post.text">
-             <span id="post-text" class="text-element" [ngSwitch]="chunk.indexOf(post.uuid) == 0">
-                <a *ngSwitchCase="true" [routerLink]="['/u', chunk.replace(regex, '') ]">@{{chunk.replace(regex, '')}}</a>
-                <span *ngSwitchCase="false">{{chunk}}</span>
+                    {{post.display_name}} <small>{{ post.post_date | amTimeAgo }} </small>
+                </p>
+                <p>
+                    <span class="text-container " *ngFor="let chunk of post.text ">
+                        <span id="post-text " class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
+                            <a *ngSwitchCase="true " [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                            <span *ngSwitchCase="false ">{{chunk}}</span>
                     </span>
                     </span>
                 </p>
-
             </div>
-            <div class="image-grid">
-                <div *ngFor="let image of post.images; let i=index">
-                    <img *ngIf="i == 0" class="grid-image img-responsive" [src]="image.src" (click)="open(i, $event)" />
+            <div class="image-grid ">
+                <div *ngFor="let image of post.images; let i=index ">
+                    <img *ngIf="i==0 " class="grid-image img-responsive " [src]="image.src " (click)="openImage(i, $event) " />
                 </div>
-                <span class="badge image-count-badge" *ngIf="post.images.length > 1">1 of {{post.images.length}}</span>
+                <span class="badge image-count-badge " *ngIf="post.images.length> 1">1 of {{post.images.length}}</span>
             </div>
         </div>
 
         <div class="actions" [ngSwitch]="post.user_ID == user.ID">
             <!-- Switch Cases -->
             <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
-        <i class="fa fa-heart"></i><span class="action-text">{{post.likes}}</span> 
-      </button>
+                <i class="fa fa-heart"></i><span class="action-text">{{post.likes}}</span> 
+            </button>
             <button *ngSwitchCase="false" class="action-button" (click)="likePost()" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
-        <i class="fa fa-heart" ></i><span class="action-text">{{post.likes}}</span> 
-      </button>
+                <i class="fa fa-heart" ></i><span class="action-text">{{post.likes}}</span> 
+            </button>
             <!-- End Switch Cases  -->
             <button class="action-button static-stat">
-        <i class="fa fa-comment"></i> <span class="action-text">{{post.comment_count}}</span><!-- Comments -->
-      </button>
+                <i class="fa fa-comment"></i> <span class="action-text">{{post.comment_count}}</span><!-- Comments -->
+            </button>
             <button class="action-button static-stat">
-        <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
-      </button>
+                <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
+            </button>
             <button class="action-button" style="float:right;">
-        <i class="glyphicon glyphicon-signal"></i> <span class="action-text">{{post.exp_count}}</span>
-      </button>
+                <i class="glyphicon glyphicon-signal"></i> <span class="action-text">{{post.exp_count}}</span>
+            </button>
         </div>
 
     </div>
