@@ -1,10 +1,5 @@
-<!-- 
-  Don't bother with any of the chatbar stuff too much yet. Will be changed a lot once we get to the 
-  chatting functionality
- -->
-
 <ng-template #itemTemplate let-item="item" let-index="index">
-    <img class="chat-circle" src="http://placehold.it/100x100" alt="">
+    <div class="chat-circle" [ngStyle]="{'border-color': item.initData.online ? 'rgba(149, 107, 185, 1)' : '#2C2F33', 'background-image' : 'url(' + item.initData.image + ')' }"></div>
 </ng-template>
 
 <div class="widgets-page">
@@ -14,11 +9,12 @@
 </div>
 <div id="mySidenav" class="sidenav">
     <div class='wrapper'>
-        <!-- Item Template could be a different template for hidden chats. Like just the name of the chat or something -->
         <bs-sortable [(ngModel)]="itemStringsRight" [itemTemplate]="itemTemplate" itemClass="sortable-item" fieldName="name" itemActiveClass="sortable-item-active" placeholderItem="Drag here" placeholderClass="sortable-item" wrapperClass="sortable-wrapper"></bs-sortable>
     </div>
 </div>
-<!-- Use any element to open the sidenav -->
-<span id="toggler" class="open-btn" (click)="toggleNav()">
-      <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-</span>
+
+<div class="chat-menu">
+    <span id="toggler" class="open-btn" (click)="toggleNav()">
+        <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+    </span>
+</div>

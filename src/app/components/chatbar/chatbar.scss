@@ -16,37 +16,26 @@
     background-color: $primary-background;
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 60px;
+    padding-top: 53px;
     /* Place content 60px from the top */
     transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidenav */
 }
 
 
-/* Position and style the close button (top right corner) */
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 50px;
-    font-size: 36px;
-}
-
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
-    }
+.chat-menu {
+    position: fixed;
+    bottom: 0;
+    background: $secondary-background;
+    width: 80px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .open-btn {
-    position: fixed;
-    bottom: 15px;
-    right: 20px;
     font-size: 25px;
     color: rgba(149, 107, 185, 1);
     cursor: pointer;
@@ -54,18 +43,30 @@
 }
 
 .open-btn:hover {
+    display: inline-block;
     transform: rotate( -180deg);
     transition: transform 450ms ease;
     font-size: 30px;
 }
 
 .chat-circle {
-    margin: 15px auto 15px auto;
+    margin: 10px auto 10px auto;
+    height: 60px;
     width: 60px;
-    height: auto;
-    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    background-size: cover !important;
+    border-radius: 50% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center;
 }
 
 .wrapper {
     text-align: center !important;
+    padding: 0px 8px;
+    padding-bottom: 35px;
+}
+
+.online-status {
+    float: right;
 }
