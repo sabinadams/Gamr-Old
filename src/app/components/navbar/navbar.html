@@ -26,12 +26,11 @@
                         <img class="img-responsive profile" [src]="user.profile_pic" alt="">
                     </a>
                     <ul *dropdownMenu class="dropdown-menu" role="menu">
-                        <li role="menuitem"><a class="dropdown-item" href="#">Copy Link</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Copy Link</a> </li>
                         <li role="menuitem"><a class="dropdown-item">Delete</a></li>
-                        <li role="menuitem"><a class="dropdown-item" href="#">Settings</a></li>
+                        <li role="menuitem" [routerLinkActive]="['active']"><a class="dropdown-item" routerLink="settings" >Settings</a></li>
                         <li class="divider dropdown-divider"></li>
-                        <li role="menuitem"><a class="dropdown-item" (click)="logout()">Sign Out</a>
-                        </li>
+                        <li role="menuitem"><a class="dropdown-item" (click)="logout()">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>
