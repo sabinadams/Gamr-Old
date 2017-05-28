@@ -10,6 +10,7 @@ import { LoginPage } from './pages/login/login';
 import { SignupPage } from './pages/signup/signup';
 import { HomePage } from './pages/home/home';
 import { ProfilePage } from './pages/profile/profile';
+import { SettingsPage } from './pages/settings/settings';
 
 // Component Imports
 import { TimelineComponent } from './components/timeline/timeline';
@@ -54,7 +55,7 @@ import { routing, appRoutingProviders } from './app.routing';
    AppComponent, LoginPage, SignupPage, HomePage,
    ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent,
    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-   PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic
+   PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic, SettingsPage
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing,

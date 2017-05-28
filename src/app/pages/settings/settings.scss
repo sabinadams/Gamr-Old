@@ -1,0 +1,31 @@
+@import '../../../styles.scss';
+.panel-container {
+    height: 100%;
+    padding: 0;
+    padding-top: 48px;
+    margin: 0;
+    min-width: 170px;
+    max-width: 220px;
+    border-right: $thin-border-dark;
+}
+
+.timeline-container,
+.chatbar-container {
+    padding-top: 53px;
+    z-index: -1;
+}
+
+.timeline-container {
+    max-width: calc(100vw - 70px);
+}
+
+#wcontainer {
+    right: 0;
+    height: 100%;
+    overflow-y: scroll;
+    border: $thin-border-dark;
+    background: $secondary-background;
+}
+h1 {
+    padding-top: 40px;
+}

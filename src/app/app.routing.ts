@@ -8,6 +8,7 @@ import { LoginPage } from './pages/login/login';
 import { SignupPage } from './pages/signup/signup';
 import { HomePage } from './pages/home/home';
 import { ProfilePage } from './pages/profile/profile';
+import { SettingsPage } from './pages/settings/settings';
 
 
 // App Routes....
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
  { path: 'home', component: HomePage, canActivate: [AuthGuard]},
  { path: 'profile', component: ProfilePage, canActivate: [AuthGuard]},
  { path: 'u/:tag', component: ProfilePage, canActivate: [AuthGuard]},
+ {path: 'settings', component: SettingsPage, canActivate: [AuthGuard]},
 ];
 
 export const appRoutingProviders: any[] = [];
