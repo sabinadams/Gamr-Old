@@ -16,9 +16,13 @@ export class TimelineComponent implements OnInit {
   posts = [];
   post_buffer = [];
 
-  constructor( private _socialService: SocialService, private _eventService: EventService, private _imageService: ImageService ){
+  constructor(
+    private _socialService: SocialService,
+    private _eventService: EventService,
+    private _imageService: ImageService
+  ){
     _eventService.merger$.subscribe( trigger => {
-      if ( trigger ) {this.mergeBuffer()};
+      if ( trigger ) { this.mergeBuffer(); };
     });
   }
 
@@ -53,7 +57,7 @@ export class TimelineComponent implements OnInit {
     } else {
       this._socialService.getPosts( 0 ).subscribe( res => {
         this.post_buffer.unshift(...res);
-       this._eventService.emitUnread(this.post_buffer.length);
+        this._eventService.emitUnread(this.post_buffer.length);
       });
     }
   }
@@ -80,7 +84,6 @@ export class TimelineComponent implements OnInit {
 
   convertTimestamp(timestamp){
     const date = new Date(timestamp).toISOString();
-    console.log(date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', ''));
     return date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', '');
   }
 
@@ -104,20 +107,14 @@ export class TimelineComponent implements OnInit {
         this.new_post.images.push(res.data.link);
         this.uploading = false;
       });
-    }
+    };
   }
 
   handleDestroyObject($event) {
-    document.getElementById(`ngpost-${$event}`).remove();
-    for (let i = 0; i < this.posts.length; i++) {
-       if ( this.posts[i].ID === $event) {
-         this.posts.splice(i, 1);
-       }
-    }
+    this.posts = this.posts.filter(( post ) => { return post.ID !== $event; });
   }
 
   removeImage(i) { this.new_post.images.splice(i, 1); }
-
   checkBlur() { if ( this.new_post.text.length < 1 ) {this.rows = 1; } }
 
 }
