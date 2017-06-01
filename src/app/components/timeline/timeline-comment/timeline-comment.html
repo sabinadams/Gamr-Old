@@ -1,0 +1,53 @@
+<div class="panel">
+    <div class="panel-heading">
+        <div class="media">
+            <div class="media-left media-top">
+                <a href="#">
+                    <img class="media-object img-rounded author-image" [attr.src]="comment.profile_pic" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <div class="actions" style="float:right;" [ngSwitch]="comment.user_ID == user.ID">
+                    <!-- Switch Cases -->
+                    <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':comment.liked ? '#985E6D' : '' }">
+                        <i class="fa fa-heart"></i><span class="action-text">{{comment.likes}}</span> 
+                    </button>
+                    <button *ngSwitchCase="false" class="action-button" (click)="likePost()" [ngStyle]="{'background-color':comment.liked ? '#985E6D' : '' }">
+                        <i class="fa fa-heart" ></i><span class="action-text">{{comment.likes}}</span> 
+                    </button>
+                </div>
+                <div class="dropdown" dropdown>
+                    <a dropdownToggle class="dropdown-toggle">
+                        <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
+                    </a>
+                    <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
+                        <li role="menuitem"><a class="dropdown-item" href="#">Copy Link</a></li>
+                        <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == comment.user_ID" (click)="deletePost()">Delete</a></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Share</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a class="dropdown-item" href="#">Report Post</a>
+                        </li>
+                    </ul>
+                </div>
+                <p>
+                    {{comment.display_name}} <small>{{ comment.post_date | amTimeAgo }} </small>
+                </p>
+                <p>
+                    <span class="text-container " *ngFor="let chunk of comment.text ">
+                        <span class="text-element " [ngSwitch]="chunk.indexOf(comment.uuid)==0 ">
+                            <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                            <span *ngSwitchCase="false ">{{chunk}}</span>
+                    </span>
+                    </span>
+                </p>
+            </div>
+            <div class="image-grid ">
+                <div *ngFor="let image of comment.images; let i=index ">
+                    <img *ngIf="i==0 " class="grid-image img-responsive " [src]="image.src " (click)="openImage(i, $event) " />
+                </div>
+                <span class="badge image-count-badge " *ngIf="comment.images.length> 1">1 of {{comment.images.length}}</span>
+            </div>
+        </div>
+
+    </div>
+</div>

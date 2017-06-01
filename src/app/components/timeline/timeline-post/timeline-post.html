@@ -73,33 +73,11 @@
                 <div class="media-body">
                     <input [(ngModel)]="postText" class="form-control input-box" aria-describedby="basic-addon2" id="text-post" placeholder="What do you have to say?" />
                 </div>
-                <div class="action-grid">
-                    <!-- Upload Image Button -->
-                    <div class="action-buttons">
-                        <div class="btn-file">
-                            <button>
-                                <i class="glyphicon glyphicon-camera"><input type="file" accept="image/*" (change)="imageHandler($event)"></i>
-                            </button>
-                        </div>
-                        <div class="btn-file">
-                            <button>
-                                <i class="glyphicon glyphicon-film"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
-                            </button>
-                        </div>
-                        <div class="btn-file">
-                            <button>
-                                <i class="glyphicon glyphicon-screenshot"><!-- <input type="file" accept="image/*" (change)="imageHandler($event)"> --></i>
-                            </button>
-                        </div>
-                        <!-- Any other actions here... -->
-                    </div>
-                    <!-- Post Button -->
-                    <button class="post-button">
-                        Comment
-                    </button>
-                </div>
             </div>
         </div>
     </div>
 
+    <div class="comments">
+        <timeline-comment *ngFor=" let comment of post.comments " [comment]="comment "></timeline-comment>
+    </div>
 </div>

@@ -16,6 +16,7 @@ import { SettingsPage } from './pages/settings/settings';
 import { TimelineComponent } from './components/timeline/timeline';
 import { ProfileSidePanelComponent } from './components/profile-side-panel/profile-side-panel';
 import { TimelinePostComponent } from './components/timeline/timeline-post/timeline-post';
+import { TimelineCommentComponent } from './components/timeline/timeline-comment/timeline-comment';
 import { NavbarComponent } from './components/navbar/navbar';
 import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
@@ -55,7 +56,8 @@ import { routing, appRoutingProviders } from './app.routing';
    AppComponent, LoginPage, SignupPage, HomePage,
    ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent,
    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
-   PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic, SettingsPage
+   PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic,
+   SettingsPage, TimelineCommentComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing,
