@@ -1,8 +1,7 @@
 @import '../../../styles.scss';
 .navbar {
-    height: 45px;
+    height: 55px;
     padding: 0 10px 0 0;
-    border: 0;
     background: $primary-background;
     border-bottom: 2px solid rgba(0, 0, 0, 0.32);
 }
@@ -12,6 +11,19 @@
     font-weight: bold;
     border: 0;
     text-shadow: none;
+    overflow: hidden;
+    max-height: 55px;
+    text-align: center;
+    transition: padding-top 200ms ease-in;
+    transition: padding-top 300ms ease-out;
+}
+
+.navbar-middle>li>a:hover {
+    padding-top: 5px;
+    .title {
+        display: block;
+        margin-top: 0;
+    }
 }
 
 .navbar-brand {
@@ -50,7 +62,7 @@ a.dropdown-toggle:hover {
 }
 
 a.dropdown-toggle {
-    height: 50px;
+    height: 55px;
 }
 
 a.dropdown-toggle.img {
@@ -72,4 +84,11 @@ a.dropdown-toggle.img {
 .notifications {
     box-shadow: none !important;
     background-color: transparent !important;
+}
+
+.title {
+    font-size: 13px !important;
+    display: block;
+    margin-top: 60px;
+    transition: margin-top 200ms ease-in;
 }

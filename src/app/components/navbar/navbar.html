@@ -16,10 +16,13 @@
         <div class="options collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngClass]="{'in': !isCollapsed}">
 
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" class="notifications">
-                        <span style="font-size:20px;" class="glyphicon glyphicon-record" aria-hidden="true"></span>
+                <li class="dropdown" dropdown *ngIf="Authorized">
+                    <a dropdownToggle class="dropdown-toggle">
+                        <span style="font-size:25px;" class="glyphicon glyphicon-record" aria-hidden="true"></span>
                     </a>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                        <li role="menuitem"><a class="dropdown-item">No Notifications</a> </li>
+                    </ul>
                 </li>
                 <li class="dropdown" dropdown *ngIf="Authorized">
                     <a dropdownToggle class="dropdown-toggle img">
@@ -28,7 +31,7 @@
                     <ul *dropdownMenu class="dropdown-menu" role="menu">
                         <li role="menuitem"><a class="dropdown-item" href="#">Copy Link</a> </li>
                         <li role="menuitem"><a class="dropdown-item">Delete</a></li>
-                        <li role="menuitem" [routerLinkActive]="['active']"><a class="dropdown-item" routerLink="settings" >Settings</a></li>
+                        <li role="menuitem" [routerLinkActive]="['active']"><a class="dropdown-item" routerLink="settings">Settings</a></li>
                         <li class="divider dropdown-divider"></li>
                         <li role="menuitem"><a class="dropdown-item" (click)="logout()">Sign Out</a></li>
                     </ul>
@@ -37,13 +40,34 @@
             <ul class="nav navbar-nav navbar-middle" *ngIf="Authorized">
                 <li id="home" [routerLinkActive]="['active']">
                     <a pageScroll [pageScrollDuration]="300" (click)="emitMerger()" routerLink="home" href="#home-page">
-                        Home {{unread_count > 0 ? '(' + unread_count + ')' : ''}}
+                        <i style="font-size:25px;" class="fa fa-home" aria-hidden="true"></i>
+                        <span class="title"> {{unread_count > 0 ? '(' + unread_count + ')' : ''}} Home </span>
                     </a>
                 </li>
-                <li id="profile" [routerLinkActive]="['active']"><a routerLink="profile">Profile</a></li>
-                <li id="profile" [routerLinkActive]="['active']"><a routerLink="hub">Discover</a></li>
-                <li id="profile" [routerLinkActive]="['active']"><a routerLink="hub">Games</a></li>
-                <li id="profile" [routerLinkActive]="['active']"><a routerLink="hub">Hub</a></li>
+                <li id="profile" [routerLinkActive]="['active']">
+                    <a routerLink="profile">
+                        <i style="font-size:25px;" class="fa fa-user" aria-hidden="true"></i>
+                        <span class="title"> Profile </span>
+                    </a>
+                </li>
+                <li id="profile" [routerLinkActive]="['active']">
+                    <a routerLink="hub">
+                        <i style="font-size:25px;" class="fa fa-users" aria-hidden="true"></i>
+                        <span class="title"> Discover </span>
+                    </a>
+                </li>
+                <li id="profile" [routerLinkActive]="['active']">
+                    <a routerLink="hub">
+                        <i style="font-size:25px;" class="fa fa-gamepad" aria-hidden="true"></i>
+                        <span class="title"> Games </span>
+                    </a>
+                </li>
+                <li id="profile" [routerLinkActive]="['active']">
+                    <a routerLink="hub">
+                        <i style="font-size:25px;" class="fa fa-signal" aria-hidden="true"></i>
+                        <span class="title"> Hub </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
