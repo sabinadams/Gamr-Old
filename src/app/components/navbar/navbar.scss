@@ -22,7 +22,8 @@
 
 .navbar-middle>li>a:hover {
     height: 55px;
-    i {
+    i,
+    .icon-value {
         position: absolute;
         left: 0;
         right: 0;
