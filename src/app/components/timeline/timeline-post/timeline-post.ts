@@ -33,7 +33,10 @@ export class TimelinePostComponent implements OnInit{
       }
     });
   }
-
+  test(event){
+    console.log(event);
+    console.log(event.target.className.trim().indexOf('no-open'));
+  }
   deletePost() {
    this._socialService.deletePost( this.post.ID ).subscribe( res => {
     this.destroyObject.emit(this.post.ID);
