@@ -10,11 +10,11 @@ $smoky-green: -webkit-radial-gradient(top center, ellipse cover, $emerald-transp
 // $primary-background: rgb(32, 35, 53);
 // $secondary-background: #292d3f;
 $primary-background-transparent: rgba(32, 35, 53, 0.8);
-// $secondary-background: #252a42;
-$secondary-background:#2C2F33;
-// $secondary-background: #2e3136;
-$primary-background: #25292b;
-// $primary-background: #232635;
+// $primary-background: #25292b;
+// $secondary-background:#2C2F33;
+$secondary-background: #282c34;
+$primary-background: #21252b;
+$accent-background: lighten($primary-background, 1);
 //************************ Borders **************************//
 $thicc-border-dark: 2px solid rgba(0, 0, 0, 0.2);
 $thin-border-dark: 1px solid rgba(0, 0, 0, 0.2);
