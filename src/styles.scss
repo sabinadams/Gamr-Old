@@ -42,6 +42,14 @@ body {
     margin: auto;
 }
 
+.mention {
+    color: rgba(149, 107, 185, 0.74) !important;
+    &:hover {
+        text-decoration: none;
+        opacity: 0.8;
+    }
+}
+
 // Temp scrollbar solution (Change to individual elements eventually)
 ::-webkit-scrollbar {
     display: none;

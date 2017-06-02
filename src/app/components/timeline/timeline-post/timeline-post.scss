@@ -14,18 +14,15 @@
     background: darken($secondary-background, 1);
 }
 
-.panel-heading {
-    border-bottom: $thin-border-dark;
-}
-
-.media,
-.media-body {
-    overflow: initial;
-}
-
 .author-stats,
 .dropdown {
     float: right;
+}
+
+// Required for dropdown to show properly
+.media,
+.media-body {
+    overflow: initial;
 }
 
 li {
@@ -44,34 +41,18 @@ li {
 }
 
 .image-grid {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
     text-align: center;
-    color: darken($primary-background, 10%);
     span.image-count-badge {
         color: $secondary-background;
         font-weight: bolder;
         width: 45px;
         background: rgba(0, 0, 0, 0.4);
         border-radius: 7px;
-        margin: auto;
     }
-}
-
-.grid-image {
-    max-height: 300px;
-    border-radius: 3px;
-    margin: 10px auto 10px auto;
-}
-
-.mention {
-    color: rgba(149, 107, 185, 0.74) !important;
-    &:hover {
-        text-decoration: none;
-        opacity: 0.8;
+    img {
+        max-height: 300px;
+        border-radius: 3px;
+        margin: 10px auto 10px auto;
     }
 }
 
@@ -118,24 +99,9 @@ li {
     font-size: 9px;
     transition: color 300ms ease-in;
     cursor: pointer;
-}
-
-.remove-upload:hover {
-    color: #902323;
-}
-
-.action-grid {
-    margin-top: 10px;
-    margin-left: 38px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.action-buttons {
-    display: flex;
-    flex-direction: row;
+    &:hover {
+        color: #902323;
+    }
 }
 
 .uploading {
@@ -154,10 +120,6 @@ li {
     max-height: 50px;
     width: auto;
     border-radius: 10px;
-}
-
-.image-container {
-    margin: 5px 10px 0 5px;
 }
 
 .post-button {

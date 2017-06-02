@@ -15,11 +15,21 @@
     max-height: 55px;
     text-align: center;
     transition: padding-top 200ms ease-in;
-    transition: padding-top 300ms ease-out;
+    i {
+        transition: margin-top 200ms ease-in;
+    }
 }
 
 .navbar-middle>li>a:hover {
-    padding-top: 5px;
+    height: 55px;
+    i {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -40px;
+    }
     .title {
         display: block;
         margin-top: 0;
