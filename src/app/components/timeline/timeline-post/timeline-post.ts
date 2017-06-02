@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { SocialService } from '../../../services/social-service';
 import { Router } from '@angular/router';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
@@ -6,7 +6,7 @@ import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 @Component({
   selector: 'timeline-post',
   templateUrl: './timeline-post.html',
-  styleUrls: ['./timeline-post.scss'],
+  styleUrls: ['./timeline-post.scss']
 })
 export class TimelinePostComponent implements OnInit{
   @Input() post: any;

@@ -6,7 +6,7 @@
 }
 
 .author-image {
-    max-height: 40px;
+    max-height: 35px;
     width: auto;
 }
 
@@ -37,6 +37,7 @@ li {
 
 .static-stat {
     border: none !important;
+    padding: 0;
 }
 
 .image-grid {
@@ -122,7 +123,6 @@ li {
 
 .action-grid {
     margin-top: 10px;
-    margin-left: 38px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

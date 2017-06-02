@@ -2,12 +2,16 @@
 .panel {
     max-width: 800px;
     margin: auto;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .author-image {
     max-height: 50px;
     width: auto;
+}
+
+.post-panel:hover {
+    background: darken($secondary-background, 1);
 }
 
 .panel-heading {
@@ -165,8 +169,4 @@ li {
 .dropdown-icon {
     font-size: 18px;
     color: $default-font-color;
-}
-
-.comments {
-    margin-left: 20px;
 }

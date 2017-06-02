@@ -2,22 +2,15 @@
     <div class="panel-heading">
         <!-- Panel Heading -->
         <div class="media">
+
             <!--Author Image-->
             <div class="media-left media-top">
                 <a [routerLink]="[ '/u', comment.tag] ">
                     <img class="media-object img-rounded author-image" [attr.src]="comment.profile_pic" alt="...">
                 </a>
             </div>
+
             <div class="media-body">
-                <!--Likes-->
-                <div class="actions" style="float:right;" [ngSwitch]="comment.user_ID == user.ID">
-                    <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':comment.liked ? '#985E6D' : '' }">
-                        <i class="fa fa-heart"></i><span class="action-text">{{comment.likes}}</span> 
-                    </button>
-                    <button *ngSwitchCase="false" class="action-button" (click)="likePost()" [ngStyle]="{'background-color':comment.liked ? '#985E6D' : '' }">
-                        <i class="fa fa-heart" ></i><span class="action-text">{{comment.likes}}</span> 
-                    </button>
-                </div>
 
                 <!--Option Dropdown-->
                 <div class="dropdown" dropdown>
@@ -38,13 +31,25 @@
                 <p>
                     <a class="author-name" [routerLink]="[ '/u', comment.tag] ">{{comment.display_name}} </a> <small>{{ comment.post_date | amTimeAgo }} </small>
                 </p>
+
                 <!--Text-->
                 <p>
                     <span class="text-element " *ngFor="let chunk of comment.text " [ngSwitch]="chunk.indexOf(comment.uuid)==0 ">
                         <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
-                        <span *ngSwitchCase="false ">{{chunk}}</span>
+                        <span *ngSwitchCase="false">{{chunk}}</span>
                     </span>
                 </p>
+
+                <!--Likes-->
+                <div class="actions" [ngSwitch]="comment.user_ID == user.ID">
+                    <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':comment.liked ? '#985E6D' : '' }">
+                        <i class="fa fa-heart"></i><span class="action-text">{{comment.likes}}</span> 
+                    </button>
+                    <button *ngSwitchCase="false" class="action-button" (click)="likePost()" [ngStyle]="{'background-color':comment.liked ? '#985E6D' : '' }">
+                        <i class="fa fa-heart" ></i><span class="action-text">{{comment.likes}}</span> 
+                    </button>
+                </div>
+
             </div>
             <!-- End panel heading -->
 
@@ -55,7 +60,7 @@
                 </div>
                 <span class="badge image-count-badge " *ngIf="comment.images.length> 1">1 of {{comment.images.length}}</span>
             </div>
+
         </div>
     </div>
-
 </div>

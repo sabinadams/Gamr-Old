@@ -63,7 +63,7 @@ export class TimelineComponent implements OnInit {
   }
 
   savePost() {
-    if(this.new_post.text.length > 0 || this.new_post.images.length > 0 || this.new_post.video.length > 0){
+    if (this.new_post.text.length > 0 || this.new_post.images.length > 0 || this.new_post.video.length > 0){
       this._socialService.savePost( this.new_post ).subscribe( res => {
         this.new_post = { text: '', images: [], video: '' };
         this.postPull();
