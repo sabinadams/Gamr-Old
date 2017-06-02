@@ -65,11 +65,15 @@ li {
 
 .mention {
     color: rgba(149, 107, 185, 0.74) !important;
-    font-weight: bolder;
     &:hover {
         text-decoration: none;
         opacity: 0.8;
     }
+}
+
+.author-name {
+    font-weight: bolder;
+    color: $default-font-color;
 }
 
 .btn-file input[type=file] {

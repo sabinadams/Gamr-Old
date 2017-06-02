@@ -1,5 +1,4 @@
 //********************** Accent Colors ************************//
-
 $cloud: #98878F;
 $sunset: #985E6D;
 $evening: #192231;
@@ -7,9 +6,7 @@ $stormy: #494E6B;
 $emerald-transparent: rgba(94, 152, 133, 0.52);
 $emerald: rgb(94, 152, 133);
 $smoky-green: -webkit-radial-gradient(top center, ellipse cover, $emerald-transparent 0%, $stormy 100%);
-
 //********************** Main Colors ************************//
-
 // $primary-background: rgb(32, 35, 53);
 // $secondary-background: #292d3f;
 $primary-background-transparent: rgba(32, 35, 53, 0.8);
@@ -19,174 +16,174 @@ $secondary-background:#2C2F33;
 $primary-background: #25292b;
 // $primary-background: #232635;
 //************************ Borders **************************//
-
-$thicc-border-dark: 2px solid rgba(0,0,0,0.2);
-$thin-border-dark: 1px solid rgba(0,0,0,0.2);
+$thicc-border-dark: 2px solid rgba(0, 0, 0, 0.2);
+$thin-border-dark: 1px solid rgba(0, 0, 0, 0.2);
 $thicc-border-light: 2px solid rgba(197, 197, 197, 0.08);
 $thin-border-light: 1px solid rgba(197, 197, 197, 0.08);
-
 //********************** Font Colors ************************//
-
 $default-font-color: #c3c3c3;
-
 //********************** Other Styles ************************//
-
-button:focus,button:active {
-   outline: none !important;
+button:focus,
+button:active {
+    outline: none !important;
 }
 
 body {
-  background-color:$primary-background;
-  color:$default-font-color;
+    background-color: $primary-background;
+    color: $default-font-color;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .no-padding {
-  padding:0;
+    padding: 0;
 }
 
 .auto-margin {
-  margin:auto;
+    margin: auto;
 }
 
 // Temp scrollbar solution (Change to individual elements eventually)
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
 //********************** Buttons ************************//
-
 button {
-  background: transparent;
-  text-shadow:none;
-  border: $thicc-border-dark !important;
-  color:$default-font-color;
+    background: transparent;
+    text-shadow: none;
+    border: $thicc-border-dark !important;
+    color: $default-font-color;
 }
 
 //********************** Input Boxes ************************//
-
-input:-webkit-autofill{
-  -webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
-  -webkit-text-fill-color: #516b94 !important;
-  border:2px solid #0e0e0e !important;
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
+    -webkit-text-fill-color: #516b94 !important;
+    border: 2px solid #0e0e0e !important;
 }
 
- input:-webkit-autofill:hover {
-	-webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
-  -webkit-text-fill-color: #516b94 !important;
- }
+input:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0px 2000px #0e0e0e inset;
+    -webkit-text-fill-color: #516b94 !important;
+}
 
- input:-webkit-autofill:focus {
-	-webkit-box-shadow: 0 0 0px 2000px #000 inset;
-  -webkit-text-fill-color: #516b94 !important;
- }
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 2000px #000 inset;
+    -webkit-text-fill-color: #516b94 !important;
+}
 
 .input-box {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius:2px;
-  color:$default-font-color;
-  border:$thicc-border-light;
-  background-color:$primary-background;
-  width:100%;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    color: $default-font-color;
+    border: $thicc-border-light;
+    background-color: $primary-background;
+    width: 100%;
 }
 
 .form-input {
-  border-radius:2px;
-  color:$default-font-color;
-  border:$thicc-border-light;
-  background-color:$primary-background;
-  width:100%;
-  height:40px;
+    border-radius: 2px;
+    color: $default-font-color;
+    border: $thicc-border-light;
+    background-color: $primary-background;
+    width: 100%;
+    height: 40px;
 }
 
 //********************** Text Areas ************************//
-
 textarea {
-  resize: none;
+    resize: none;
 }
 
-.post-form> textarea{
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius:2px;
-  color:$default-font-color;
-  border: $thicc-border-light;
-  background-color:$primary-background;
-
+.post-form>textarea {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    color: $default-font-color;
+    border: $thicc-border-light;
+    background-color: $primary-background;
 }
 
 //********************** Action Buttons (Like, Comments, Shares) on posts ************************//
-
 .actions {
-  margin-top:5px;
+    margin-top: 5px;
 }
 
 .action-button {
-  background:transparent;
-  border:0;
+    background: transparent;
+    border: 0;
 }
 
-.action-button > i {
-  font-size:16px;
+.action-button>i {
+    font-size: 16px;
 }
 
 .action-text {
-  margin-left:5px;
+    margin-left: 5px;
 }
 
 .input-user-image {
-  max-height:30px;
-  width:auto;
+    max-height: 30px;
+    width: auto;
 }
 
 //********************** Panels ************************//
-
 .panel {
-  border-radius:0;
-  background-color:$secondary-background;
-  margin-bottom:5px;
+    border-radius: 0;
+    background-color: $secondary-background;
+    margin-bottom: 5px;
 }
 
 .panel-heading {
-  background-color:$secondary-background;
-  border-radius:0;
+    background-color: $secondary-background;
+    border-radius: 0;
 }
 
 //********************** Loading Bubbles ************************//
+.load-2 .line:nth-last-child(1) {
+    animation: loadingB 1.5s 1s infinite;
+}
 
-.load-2 .line:nth-last-child(1) {animation: loadingB 1.5s 1s infinite;}
-.load-2 .line:nth-last-child(2) {animation: loadingB 1.5s .5s infinite;}
-.load-2 .line:nth-last-child(3) {animation: loadingB 1.5s 0s infinite;}
+.load-2 .line:nth-last-child(2) {
+    animation: loadingB 1.5s .5s infinite;
+}
 
+.load-2 .line:nth-last-child(3) {
+    animation: loadingB 1.5s 0s infinite;
+}
 
 .line {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
 }
 
 @keyframes loadingB {
-  0 {width: 15px;}
-  50% {width: 35px;}
-  100% {width: 15px;}
+    0 {
+        width: 15px;
+    }
+    50% {
+        width: 35px;
+    }
+    100% {
+        width: 15px;
+    }
 }
 
 //********************** HR ************************//
-
 hr.full-blue {
-  width: 100%;
-  border-color:$primary-background;
-  margin:10px 0;
+    width: 100%;
+    border-color: $primary-background;
+    margin: 10px 0;
 }
 
 //********************** Lightbox ************************//
-
 .lb-outerContainer.transition {
-  background:transparent !important;
+    background: transparent !important;
 }
+
 .lb-image {
-  border:none !important;
+    border: none !important;
 }
-
-

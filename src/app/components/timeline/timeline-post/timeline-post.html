@@ -1,12 +1,16 @@
 <div class="panel">
     <div class="panel-heading">
+        <!--Panel Heading -->
         <div class="media">
+            <!--Image-->
             <div class="media-left media-top">
-                <a href="#">
+                <a [routerLink]="[ '/u', post.tag] ">
                     <img class="media-object img-rounded author-image" [attr.src]="post.profile_pic" alt="...">
                 </a>
             </div>
+
             <div class="media-body">
+                <!--Dropdown options-->
                 <div class="dropdown" dropdown>
                     <a dropdownToggle class="dropdown-toggle">
                         <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
@@ -20,26 +24,34 @@
                         </li>
                     </ul>
                 </div>
+
+                <!--Author and timestamp-->
                 <p>
-                    {{post.display_name}} <small>{{ post.post_date | amTimeAgo }} </small>
+                    <a class="author-name" [routerLink]="[ '/u', post.tag] "> {{post.display_name}} </a>
+                    <small>{{ post.post_date | amTimeAgo }} </small>
                 </p>
-                <p>
-                    <span class="text-container " *ngFor="let chunk of post.text ">
-                        <span class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
-                            <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
-                            <span *ngSwitchCase="false ">{{chunk}}</span>
-                    </span>
+
+                <!--Text -->
+                <p class="text-container ">
+                    <span *ngFor="let chunk of post.text" class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
+                        <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                        <span *ngSwitchCase="false ">{{chunk}}</span>
                     </span>
                 </p>
+
             </div>
+
+            <!--Images-->
             <div class="image-grid ">
                 <div *ngFor="let image of post.images; let i=index ">
                     <img *ngIf="i==0 " class="grid-image img-responsive " [src]="image.src " (click)="openImage(i, $event) " />
                 </div>
                 <span class="badge image-count-badge " *ngIf="post.images.length> 1">1 of {{post.images.length}}</span>
             </div>
+
         </div>
 
+        <!--Options/Stats-->
         <div class="actions" [ngSwitch]="post.user_ID == user.ID">
             <!-- Switch Cases -->
             <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
@@ -61,7 +73,14 @@
         </div>
 
     </div>
+    <!-- End Panel Heading -->
 
+    <!--Comments-->
+    <div class="comments">
+        <timeline-comment *ngFor=" let comment of post.comments " [comment]="comment "></timeline-comment>
+    </div>
+
+    <!--Comment Form-->
     <div class="panel-body">
         <div class="comment-form">
             <div class="media">
@@ -77,7 +96,4 @@
         </div>
     </div>
 
-    <div class="comments">
-        <timeline-comment *ngFor=" let comment of post.comments " [comment]="comment "></timeline-comment>
-    </div>
 </div>
