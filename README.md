@@ -20,19 +20,23 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## MVP (Minumum Viable Product)
 
-These are the requirements to the base-level product. This means it is what is required to make our site useable and useful. At this point we *could* release a beta version of the website:
+These are the requirements to the base-level product. This means it is what is required to make our site useable and useful. At this point we *could* release a beta version of the website but only most basic social media-related functions and a few Gamr specific functions are available:
 
 ### 1. Basic Register ✅
   * User Info
 ### 2. Login  ✅
   * Login with Email + Password
 ### 3. Timeline 🚧
-  * Posting
-  * Commenting
-  * Replying
-  * Liking Posts + Comments + Replies
+  * Posting 🚧
+  * Commenting 🚧
+  * Replying 🚧
+  * Liking Posts 🚧
+  * Liking Comments 🚧
+  * Liking Replies 🚧
+  * Comments 🚧
+  * Replies 🚧
   * Sharing Posts
-  * Mentioning users
+  * Mentioning users ✅
   * Specifying tags
   * Subscribe to tags and have posts with those tags show up in the news feed
 ### 4. Profile Page 🚧
