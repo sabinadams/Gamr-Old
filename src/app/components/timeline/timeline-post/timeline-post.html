@@ -29,7 +29,7 @@
     </div>
 </div>
 
-<div class="panel post-panel" (click)="$event.target.className.trim().indexOf('no-open') == -1 ? staticModal.show() : ''; test($event)">
+<div class="panel post-panel" (click)="$event.target.className.indexOf('no-open') == -1 ? staticModal.show() : ''; test($event)">
     <div class="panel-body post-panel">
         <div class="media">
             <!--Image-->
