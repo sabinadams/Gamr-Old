@@ -1,5 +1,4 @@
 # Gamr
-
 This project was generated with [Angular CLI]
 We are currently running on Angular4
 
