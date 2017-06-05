@@ -1,0 +1,26 @@
+<div class="media">
+    <div class="media-left media-top">
+        <a [routerLink]="[ '/u', reply.tag] ">
+            <img class="media-object img-rounded author-image" [attr.src]="reply.profile_pic" alt="...">
+        </a>
+    </div>
+    <div class="media-body">
+        <p>
+            <a class="author-name" [routerLink]="[ '/u', reply.tag] "> {{reply.display_name}} </a>
+            <small>{{ reply.timestamp | amTimeAgo }} </small>
+        </p>
+        <p class="text-container">
+            <span *ngFor="let chunk of reply.text" class="text-element " [ngSwitch]="chunk.indexOf(reply.uuid)==0 ">
+                <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                <span *ngSwitchCase="false ">{{chunk}}</span>
+            </span>
+        </p>
+    </div>
+
+    <div class="image-grid ">
+        <div *ngFor="let image of reply.images; let i=index ">
+            <img *ngIf="i==0 " class="grid-image img-responsive no-open " [src]="image.src" (click)="openImage(i, $event) " />
+        </div>
+        <span class="badge image-count-badge " *ngIf="reply.images.length> 1">1 of {{reply.images.length}}</span>
+    </div>
+</div>
