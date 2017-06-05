@@ -1,4 +1,4 @@
-<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg post-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -18,12 +18,16 @@
                             <small>{{ post.post_date | amTimeAgo }} </small>
                         </p>
                     </div>
+                    <p class="text-container">
+                        <span *ngFor="let chunk of post.text" class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
+                        <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                        <span *ngSwitchCase="false ">{{chunk}}</span>
+                        </span>
+                    </p>
                 </div>
             </div>
             <div class="modal-body">
-                This is static modal, backdrop click will not close it. Click <b>&times;</b> to close modal.
-                <!--This should contain a component-->
-                <!--Max Width + Margin: auto will work-->
+                <!--Other Stuff-->
             </div>
         </div>
     </div>
