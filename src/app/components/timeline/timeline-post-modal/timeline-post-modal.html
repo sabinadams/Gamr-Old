@@ -126,7 +126,12 @@
 
             </div>
             <hr class="full-secondary">
-            <timeline-comment *ngFor="let comment of post.comments" [comment]="comment"></timeline-comment>
+            <div class="post-responses" *ngFor="let comment of post.comments">
+                <timeline-comment [comment]="comment"></timeline-comment>
+                <div class="replies-container" style="margin-left:40px; margin-top:10px; margin-bottom:10px;">
+                    <timeline-comment *ngFor="let reply of comment.replies" [comment]="reply"></timeline-comment>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -33,10 +33,6 @@ export class TimelinePostPreviewComponent implements OnInit{
       }
     });
   }
-  test(event){
-    console.log(event);
-    console.log(event.target.className.trim().indexOf('no-open'));
-  }
 
   deletePost() {
    this._socialService.deletePost( this.post.ID ).subscribe( res => {

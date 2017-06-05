@@ -16,7 +16,7 @@ export class TimelinePostModal implements OnInit{
   new_post = { text: '', images: [], video: '' };
   regex: any;
   uploading = false;
-  constructor( 
+  constructor(
     private _imageService: ImageService,
     private _lightboxConfig: LightboxConfig,
     private _lightbox: Lightbox,
@@ -75,6 +75,7 @@ export class TimelinePostModal implements OnInit{
       });
     };
   }
+
   removeImage(i) { this.new_post.images.splice(i, 1); }
 
 }
