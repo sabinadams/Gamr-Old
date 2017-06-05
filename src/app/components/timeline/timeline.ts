@@ -110,7 +110,7 @@ export class TimelineComponent implements OnInit {
     };
   }
 
-  handleDestroyObject($event) {
+  handleDestroyPost($event) {
     this.posts = this.posts.filter(( post ) => { return post.ID !== $event; });
   }
 

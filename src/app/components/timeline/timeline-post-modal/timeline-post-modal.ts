@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 
 @Component({
-  selector: 'timeline-post',
-  templateUrl: './timeline-post.html',
-  styleUrls: ['./timeline-post.scss']
+  selector: 'timeline-post-modal',
+  templateUrl: './timeline-post-modal.html',
+  styleUrls: ['./timeline-post-modal.scss']
 })
-export class TimelinePostComponent implements OnInit{
+export class TimelinePostModal implements OnInit{
   @Input() post: any;
-  @Output() destroyObject = new EventEmitter();
+  @Output() destroyPost = new EventEmitter();
   user = JSON.parse( localStorage.getItem('user') );
   regex: any;
   constructor( private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox, private _socialService: SocialService ) {}
@@ -33,13 +33,10 @@ export class TimelinePostComponent implements OnInit{
       }
     });
   }
-  test(event){
-    console.log(event);
-    console.log(event.target.className.trim().indexOf('no-open'));
-  }
+
   deletePost() {
    this._socialService.deletePost( this.post.ID ).subscribe( res => {
-    this.destroyObject.emit(this.post.ID);
+    this.destroyPost.emit(this.post.ID);
    });
   }
 

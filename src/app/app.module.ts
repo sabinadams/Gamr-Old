@@ -15,7 +15,9 @@ import { SettingsPage } from './pages/settings/settings';
 // Component Imports
 import { TimelineComponent } from './components/timeline/timeline';
 import { ProfileSidePanelComponent } from './components/profile-side-panel/profile-side-panel';
-import { TimelinePostComponent } from './components/timeline/timeline-post/timeline-post';
+import { TimelinePostPreviewComponent } from './components/timeline/timeline-post-preview/timeline-post-preview';
+import { TimelinePostModal } from './components/timeline/timeline-post-modal/timeline-post-modal';
+
 import { TimelineCommentComponent } from './components/timeline/timeline-comment/timeline-comment';
 import { NavbarComponent } from './components/navbar/navbar';
 import { ChatbarComponent } from './components/chatbar/chatbar';
@@ -54,10 +56,10 @@ import { routing, appRoutingProviders } from './app.routing';
 @NgModule({
   declarations: [
    AppComponent, LoginPage, SignupPage, HomePage,
-   ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent,
+   ProfilePage, ProfileSidePanelComponent, TimelinePostPreviewComponent, NavbarComponent,
    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic,
-   SettingsPage, TimelineCommentComponent
+   SettingsPage, TimelineCommentComponent, TimelinePostModal
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing,

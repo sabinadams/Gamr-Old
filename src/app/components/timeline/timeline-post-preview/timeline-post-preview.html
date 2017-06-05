@@ -1,39 +1,8 @@
 <div class="modal fade" bsModal #staticModal="bs-modal" [config]="" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg post-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="media">
-                    <!--Image-->
-                    <div class="media-left media-top">
-                        <a [routerLink]="[ '/u', post.tag] ">
-                            <img class="media-object img-rounded author-image" [attr.src]="post.profile_pic" alt="...">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <p>
-                            <a class="author-name" [routerLink]="[ '/u', post.tag] "> {{post.display_name}} </a>
-                            <small>{{ post.post_date | amTimeAgo }} </small>
-                        </p>
-                    </div>
-                    <p class="text-container">
-                        <span *ngFor="let chunk of post.text" class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
-                        <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
-                        <span *ngSwitchCase="false ">{{chunk}}</span>
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <!--Other Stuff-->
-            </div>
-        </div>
-    </div>
+    <timeline-post-modal [post]="post" (destroyPost)="destroyPostHandler($event)"></timeline-post-modal>
 </div>
 
-<div class="panel post-panel" (click)="$event.target.className.indexOf('no-open') == -1 ? staticModal.show() : ''; test($event)">
+<div class="panel post-panel" (click)="$event.target.className.indexOf('no-open') == -1 ? staticModal.show() : '';">
     <div class="panel-body post-panel">
         <div class="media">
             <!--Image-->
@@ -51,7 +20,7 @@
                     </a>
                     <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
                         <li role="menuitem no-open"><a class="dropdown-item no-open">Copy Link</a></li>
-                        <li role="menuitem no-open"><a class="dropdown-item no-open" *ngIf="user.ID == post.user_ID" (click)="deletePost()">Delete</a></li>
+                        <li role="menuitem no-open"><a class="dropdown-item no-open" *ngIf="user.ID == post.user_ID" (click)="deletePost(); ">Delete</a></li>
                         <li role="menuitem no-open"><a class="dropdown-item no-open">Share</a></li>
                         <li class="divider dropdown-divider"></li>
                         <li role="menuitem no-open"><a class="dropdown-item no-open">Report Post</a>
