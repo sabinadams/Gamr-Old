@@ -23,8 +23,7 @@
         </div>
         <span class="badge image-count-badge " *ngIf="comment.images.length> 1">1 of {{comment.images.length}}</span>
     </div>
-
-    <div class="replies-container" style="margin-left:40px;">
+    <div class="replies-container" style="margin-left:40px; margin-top:10px; margin-bottom:10px;">
         <timeline-reply *ngFor="let reply of comment.replies" [reply]="reply"></timeline-reply>
     </div>
 </div>

@@ -75,6 +75,14 @@ li {
     margin-right: auto;
 }
 
+.modal-content {
+    background: $primary-background;
+}
+
+.modal-header {
+    border-color: $secondary-background;
+}
+
 .author-image {
     max-height: 40px;
     width: auto;

@@ -106,7 +106,7 @@
                     </button>
                 </div>
 
-                <hr class="full-blue" *ngIf="new_post.images.length > 0 || new_post.video.length > 0 ">
+                <hr class="full-secondary" *ngIf="new_post.images.length > 0 || new_post.video.length > 0 ">
 
                 <!-- Uploaded Images -->
                 <div class="uploaded-images text-center">
@@ -125,9 +125,8 @@
                 </div>
 
             </div>
-            <hr>
+            <hr class="full-secondary">
             <timeline-comment *ngFor="let comment of post.comments" [comment]="comment"></timeline-comment>
-
         </div>
     </div>
 </div>

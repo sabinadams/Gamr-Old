@@ -187,6 +187,10 @@ hr.full-blue {
     margin: 10px 0;
 }
 
+hr.full-secondary {
+    border-color: $secondary-background;
+}
+
 //********************** Lightbox ************************//
 .lb-outerContainer.transition {
     background: transparent !important;
