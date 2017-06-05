@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI]
 We are currently running on Angular4
+
+![alt text](https://johnpapa.gallerycdn.vsassets.io/extensions/johnpapa/angular2/2.3.2/1496112266388/Microsoft.VisualStudio.Services.Icons.Default "Angular")
+![alt text](http://blemoine.github.io/typescript-slides/images/typescript-logo.png "TypeScript")
+![alt text](https://chocolatey.org/content/packageimages/sass.1.0.0-alpha9.png "Sass")
+![alt text](http://www.slashen.com/img/portfolio/nodejs.png "NodeJS")
+![alt text](http://i.imgur.com/ZzxaPIf.png "NGX-Bootstrap")
+![alt text](https://bitbucket.org/lucee/lucee/avatar/128/?ts=1492765672 "Lucee")
+![alt text](http://aaronmelton.com/blog/wp-content/uploads/2014/03/mysql.png "MySQL")
+![alt text](http://rebelute.com/assets/main_site/images/technologies/Jasmine.png "Jasmine")
+![alt text](https://pullos.files.wordpress.com/2013/10/apache-icon.png?w=240 "Apache2")
+![alt text](https://blog.rackspace.com/wp-content/uploads/2014/06/docker-whale.png "Docker")
+![alt text](https://perlmaven.com/img/mongodb-logo.png "MongoDB")
+
 ## Prerequisites
 
 Make sure you have the latest versions of the Angular CLI and NodeJS installed.
