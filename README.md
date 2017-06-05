@@ -4,7 +4,7 @@ This project was generated with [Angular CLI]
 We are currently running on Angular4
 
 ![alt text](https://johnpapa.gallerycdn.vsassets.io/extensions/johnpapa/angular2/2.3.2/1496112266388/Microsoft.VisualStudio.Services.Icons.Default "Angular")
-![alt text](http://blemoine.github.io/typescript-slides/images/typescript-logo.png "TypeScript")
+![alt text](https://dynamicimagesmx-v2b.netdna-ssl.com/product_class_external_product/typescript.png "TypeScript")
 ![alt text](https://chocolatey.org/content/packageimages/sass.1.0.0-alpha9.png "Sass")
 ![alt text](http://www.slashen.com/img/portfolio/nodejs.png "NodeJS")
 ![alt text](http://i.imgur.com/ZzxaPIf.png "NGX-Bootstrap")
