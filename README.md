@@ -2,15 +2,6 @@
 
 This project was generated with [Angular CLI]
 We are currently running on Angular4
-
-![alt text](http://www.spiria.com/sites/default/files/blog/angular-typescript.png "Angular + TypeScript")
-
-![alt text](http://i.imgur.com/ZzxaPIf.png "NGX-Bootstrap")
-
-![alt text](http://www.lucee.nl/assets/content/lucee_logo1.png "Lucee")
-![alt text]( http://taffy.io/images/logo.png "Taffy")
-![alt text]( https://cdn2.iconfinder.com/data/icons/nodejs-1/512/nodejs-512.png "NodeJS")
-![alt text]( https://pbs.twimg.com/profile_images/474685934579879936/Jb2VMfbU.png "Sass")
 ## Prerequisites
 
 Make sure you have the latest versions of the Angular CLI and NodeJS installed.
