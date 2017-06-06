@@ -17,7 +17,7 @@ import { TimelineComponent } from './components/timeline/timeline';
 import { ProfileSidePanelComponent } from './components/profile-side-panel/profile-side-panel';
 import { TimelinePostPreviewComponent } from './components/timeline/timeline-post-preview/timeline-post-preview';
 import { TimelinePostModal } from './components/timeline/timeline-post-modal/timeline-post-modal';
-import { TimelineCommentComponent } from './components/timeline/timeline-comment/timeline-comment';
+import { TimelineResponseComponent } from './components/timeline/timeline-response/timeline-response';
 import { NavbarComponent } from './components/navbar/navbar';
 import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
@@ -58,7 +58,7 @@ import { routing, appRoutingProviders } from './app.routing';
    ProfilePage, ProfileSidePanelComponent, TimelinePostPreviewComponent, NavbarComponent,
    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic,
-   SettingsPage, TimelinePostModal, TimelineCommentComponent
+   SettingsPage, TimelinePostModal, TimelineResponseComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing,

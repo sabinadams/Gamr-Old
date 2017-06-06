@@ -1,4 +1,26 @@
 @import '../../../../styles.scss';
+.panel {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 2px;
+    border: $thin-border-dark;
+    background: $accent-background;
+}
+
+.author-image {
+    max-height: 50px;
+    width: auto;
+}
+
+.post-panel:hover {
+    background: $primary-background;
+}
+
+.author-stats,
+.dropdown {
+    float: right;
+}
+
 // Required for dropdown to show properly
 .media,
 .media-body {
@@ -72,6 +94,19 @@ li {
 
 .post-form.input-group {
     width: 100%;
+}
+
+.buffer-alert {
+    background: $secondary-background;
+    color: $default-font-color;
+    text-align: center;
+    margin: 8px 0;
+    border-radius: 2px;
+    cursor: pointer;
+    &:hover {
+        transition: background 150ms ease-in;
+        background: darken($secondary-background, 10%);
+    }
 }
 
 .btn-file input[type=file] {
