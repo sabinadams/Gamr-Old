@@ -26,10 +26,14 @@ export class SettingsPage {
   update(id:string) {
     switch(id)  {
       case "tag": {
-        // TODO: update the user's tag here.
         this._authService.changeTag(this.user.tag, this.newTag).subscribe(res=> {
           console.log(res);
-          this.newTag= "";
+          if(res.STATUS!= 200)
+            return;
+          
+          // TODO: change the user's tag on the database
+          this.user.tag=  this.newTag;
+          localStorage.setItem("user", JSON.stringify(this.user));
         });
       }break;
       case "display-name":  {

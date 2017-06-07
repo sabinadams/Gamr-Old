@@ -9,6 +9,7 @@
                 <span class="setting-id">Gamr Tag:</span>
                 <span class="setting-edit">
                     <a (click)="editID= 0;" *ngIf="editID== 1" (click)="update('tag');">Done</a>
+                    <a (click)="editID= 0;" *ngIf="editID== 1">Cancel</a>
                     <a (click)="editID= 1;" *ngIf="editID== 0">Edit</a>
                 </span>
                 <input
@@ -28,6 +29,7 @@
                 <span class="setting-id">Display Name:</span>
                 <span class="setting-edit">
                     <a (click)="editID= 0;" *ngIf="editID== 2" (click)="update('display-name');">Done</a>
+                    <a (click)="editID= 0;" *ngIf="editID== 2">Cancel</a>
                     <a (click)="editID= 2;" *ngIf="editID== 0">Edit</a>
                 </span>
                 <input
@@ -48,6 +50,7 @@
                 <span class="setting-id">First Name:</span>
                 <span class="setting-edit">
                     <a (click)="editID= 0;" *ngIf="editID== 3" (click)="update('first-name');">Done</a>
+                    <a (click)="editID= 0;" *ngIf="editID== 3">Cancel</a>
                     <a (click)="editID= 3;" *ngIf="editID== 0">Edit</a>
                 </span>
                 <input
@@ -66,6 +69,7 @@
                 <span class="setting-id">Last Name:</span>
                 <span class="setting-edit">
                     <a (click)="editID= 0;" *ngIf="editID== 4" (click)="update('last-name');">Done</a>
+                    <a (click)="editID= 0;" *ngIf="editID== 4">Cancel</a>
                     <a (click)="editID= 4;" *ngIf="editID== 0">Edit</a>
                 </span>
                 <input
@@ -86,6 +90,7 @@
                 <span class="setting-id">Description:</span>
                 <span class="setting-edit">
                     <a (click)="editID= 0;" *ngIf="editID== 5" (click)="update('description');">Done</a>
+                    <a (click)="editID= 0;" *ngIf="editID== 5">Cancel</a>
                     <a (click)="editID= 5;" *ngIf="editID== 0">Edit</a>
                 </span>
                 <input
