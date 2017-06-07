@@ -23,6 +23,7 @@ import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
 import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
 import { ExpProfilePic } from './components/exp-profile-pic/exp-profile-pic';
+import { TimelineFormComponent } from './components/timeline/timeline-form/timeline-form';
 
 // Service Imports
 import { HttpClient } from './services/http-interceptor-service';
@@ -58,7 +59,7 @@ import { routing, appRoutingProviders } from './app.routing';
    ProfilePage, ProfileSidePanelComponent, TimelinePostPreviewComponent, NavbarComponent,
    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic,
-   SettingsPage, TimelinePostModal, TimelineResponseComponent
+   SettingsPage, TimelinePostModal, TimelineResponseComponent, TimelineFormComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing,

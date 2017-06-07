@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialService } from '../../services/social-service';
 import { EventService } from '../../services/event-service';
-import { ImageService } from '../../services/image-service';
 
 @Component({
   selector: 'timeline',
@@ -10,16 +9,13 @@ import { ImageService } from '../../services/image-service';
 })
 export class TimelineComponent implements OnInit {
   user = JSON.parse( localStorage.getItem('user') );
-  rows = 1;
   new_post = { text: '', images: [], video: '' };
-  uploading = false;
   posts = [];
   post_buffer = [];
 
   constructor(
     private _socialService: SocialService,
     private _eventService: EventService,
-    private _imageService: ImageService
   ){
     _eventService.merger$.subscribe( trigger => {
       if ( trigger ) { this.mergeBuffer(); };
@@ -32,9 +28,7 @@ export class TimelineComponent implements OnInit {
       setInterval( () => { this.postPull(); }, 20000);
     });
   }
-test() {
-  console.log("TEST")
-}
+
   postPull() {
     if (this.posts.length){
       this._socialService.postPull(
@@ -89,34 +83,11 @@ test() {
     return date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', '');
   }
 
-  // Sends the image through a function whenever the file input is used
-  imageHandler($event): void {
-    if (this.new_post.images.length < 7 && $event.target.files[0] !== undefined) {
-      this.saveImage($event.target);
-    }
-  }
-
-  // Converts file to base64
-  // Try to add this to the image service. Promises will probably need to be applied
-  saveImage(inputValue: any): void {
-    this.uploading = true;
-    const file: File = inputValue.files[0];
-    const myReader: FileReader = new FileReader();
-    myReader.readAsDataURL(file);
-    myReader.onloadend = (e) => {
-      const newimage = myReader.result;
-      this._imageService.uploadImage(newimage).subscribe(res => {
-        this.new_post.images.push(res.data.link);
-        this.uploading = false;
-      });
-    };
-  }
 
   handleDestroyPost($event) {
     this.posts = this.posts.filter(( post ) => { return post.ID !== $event; });
   }
 
-  removeImage(i) { this.new_post.images.splice(i, 1); }
-  checkBlur() { if ( this.new_post.text.length < 1 ) {this.rows = 1; } }
+
 
 }
