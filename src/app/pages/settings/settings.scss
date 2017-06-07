@@ -1,4 +1,23 @@
 @import '../../../styles.scss';
-#settings {
-    margin-top: 55px;
+@import '../home/home.scss';
+
+.settings-container {
+    margin-top: 70px;
+}
+
+.setting-id {
+    float: left;
+}
+
+.setting-edit {
+    float: right;
+}
+
+.setting-edit a {
+    cursor: pointer;
+}
+
+.post-input:disabled {
+    background: dimgray;
+    color: white;
 }
