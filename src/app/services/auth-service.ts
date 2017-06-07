@@ -18,6 +18,12 @@ export class AuthService {
       return( c === 'x' ? r : ( r & 0x7 | 0x8 ) ).toString( 16 );
     });
   }
+  
+  changeTag(oldTag:string, newTag:string) {
+    return this._secureHttp.post(`http://api.gamr.co/changetag/`, {data: {tag: newTag, oldTag: oldTag}}).map((res: Response) => {
+      return res.json();
+    });
+  }
 
   checkTagAvailablity(tag){
     return this._http.post(`http://api.gamr.co/tagcheck/`, { tag: tag }).map(( res: Response ) => {

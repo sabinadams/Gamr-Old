@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from "../../services/auth-service";
 
 @Component({
   templateUrl: './settings.html',
@@ -7,7 +8,12 @@ import { Component } from '@angular/core';
 
 export class SettingsPage {
   user= JSON.parse(localStorage.getItem("user"));
+  newTag= "";
   editID= 0;
+  
+  constructor(private _authService:AuthService){
+    this.newTag=  this.user.tag;
+  };
   
   updateOnEnter(id:string, e) {
     if(e.keyCode!= 13)
@@ -18,10 +24,13 @@ export class SettingsPage {
   }
   
   update(id:string) {
-    console.log(this.user);
     switch(id)  {
       case "tag": {
         // TODO: update the user's tag here.
+        this._authService.changeTag(this.user.tag, this.newTag).subscribe(res=> {
+          console.log(res);
+          this.newTag= "";
+        });
       }break;
       case "display-name":  {
         // TODO: update the user's display name here
