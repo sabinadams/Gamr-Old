@@ -66,10 +66,12 @@ These are the requirements to the base-level product. This means it is what is r
     * Kick members
     * Posting security (see bottom of this list)
   * (Think along the lines of discord servers)
-### 6. User Settings
-  * Description
-  * Tag
-  * Display Name
+### 6. User Settings 🚧
+  * Description 🚧
+  * Tag 🚧
+  * Display Name 🚧
+  * First Name 🚧
+  * Last Name 🚧
   * Badges to show on your posts(max of 3)
   * Border to show around your profile pic on posts
   * Color for your name (must have earned the colors)
