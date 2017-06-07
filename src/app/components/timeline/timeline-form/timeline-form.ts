@@ -48,5 +48,5 @@ export class TimelineFormComponent {
   submit() { this.submitData.emit();}
   removeImage(i) { this.form.images.splice(i, 1); }
   checkBlur() { if ( this.form.text.length < 1 ) {this.rows = 1; } }
-  
+
 }

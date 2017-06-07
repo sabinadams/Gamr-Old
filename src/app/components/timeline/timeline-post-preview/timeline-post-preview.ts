@@ -6,7 +6,7 @@ import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 @Component({
   selector: 'timeline-post-preview',
   templateUrl: './timeline-post-preview.html',
-  styleUrls: ['./timeline-post-preview.scss']
+  styleUrls: ['../timeline-shared-styles.scss']
 })
 export class TimelinePostPreviewComponent implements OnInit{
   @Input() post: any;

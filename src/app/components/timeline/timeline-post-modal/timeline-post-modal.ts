@@ -6,7 +6,7 @@ import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 @Component({
   selector: 'timeline-post-modal',
   templateUrl: './timeline-post-modal.html',
-  styleUrls: ['./timeline-post-modal.scss']
+  styleUrls: ['../timeline-shared-styles.scss']
 })
 export class TimelinePostModal implements OnInit{
   @Input() post: any;

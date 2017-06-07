@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../styles.scss';
 .panel {
     max-width: 800px;
     margin: auto;
@@ -73,4 +73,16 @@ li {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.modal-content {
+    background: $primary-background;
+}
+
+.modal-header {
+    border-color: $secondary-background;
+}
+
+.panel-heading {
+    background: $accent-background;
 }

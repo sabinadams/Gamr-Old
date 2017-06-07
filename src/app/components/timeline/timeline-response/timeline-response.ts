@@ -6,7 +6,7 @@ import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 @Component({
   selector: 'timeline-response',
   templateUrl: './timeline-response.html',
-  styleUrls: ['./timeline-response.scss'],
+  styleUrls: ['../timeline-shared-styles.scss'],
 })
 export class TimelineResponseComponent implements OnInit{
   @Input() response: any;

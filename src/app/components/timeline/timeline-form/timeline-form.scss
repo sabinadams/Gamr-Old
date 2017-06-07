@@ -1,34 +1,16 @@
 @import '../../../../styles.scss';
-#timeline {
-    max-width: 800px;
-    margin: auto;
-    margin-top: 10px;
-}
-
 .author-image {
     max-height: 40px;
     width: auto;
 }
 
-.panel-heading {
-    background: $accent-background;
+.post-form {
+    display: flex;
+    flex-direction: row;
 }
 
 .post-form.input-group {
     width: 100%;
-}
-
-.buffer-alert {
-    background: $secondary-background;
-    color: $default-font-color;
-    text-align: center;
-    margin: 8px 0;
-    border-radius: 2px;
-    cursor: pointer;
-    &:hover {
-        transition: background 150ms ease-in;
-        background: darken($secondary-background, 10%);
-    }
 }
 
 .btn-file input[type=file] {
