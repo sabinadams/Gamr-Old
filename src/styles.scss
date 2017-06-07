@@ -105,6 +105,17 @@ textarea {
     resize: none;
 }
 
+.text-area {
+    height: auto;
+    display: inline-block;
+    border: $thicc-border-dark;
+    padding: 5px 10px;
+    margin: 5px;
+    max-height: 200px;
+    overflow: scroll;
+    width: 100%;
+}
+
 .post-form>textarea {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;

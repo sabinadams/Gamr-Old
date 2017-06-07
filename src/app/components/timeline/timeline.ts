@@ -32,7 +32,9 @@ export class TimelineComponent implements OnInit {
       setInterval( () => { this.postPull(); }, 20000);
     });
   }
-
+test() {
+  console.log("TEST")
+}
   postPull() {
     if (this.posts.length){
       this._socialService.postPull(
