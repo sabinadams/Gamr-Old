@@ -24,5 +24,5 @@
         <span class="badge image-count-badge " *ngIf="response.images.length> 1">1 of {{response.images.length}}</span>
     </div>
 </div>
-<timeline-form [(form)]="new_comment" (submitData)="saveComment()">
-    <timeline-form>
+
+<timeline-form [(form)]="new_comment" (submitData)="saveComment()"></timeline-form>

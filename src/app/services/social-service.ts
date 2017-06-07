@@ -39,5 +39,9 @@ export class SocialService {
     }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
   }
 
-
+  saveComment( data ) {
+    return this._secureHttp.post(`http://api.gamr.co/savecomment/`, {data: data}).map(res => {
+      return res.json();
+    });
+  }
 }

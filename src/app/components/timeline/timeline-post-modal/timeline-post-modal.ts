@@ -12,7 +12,7 @@ export class TimelinePostModal implements OnInit{
   @Input() post: any;
   @Output() destroyPost = new EventEmitter();
   user = JSON.parse( localStorage.getItem('user') );
-  new_comment = { text: '', images: [], video: '' };
+  new_comment = { text: '', images: [], video: ''};
   regex: any;
   constructor(
     private _lightboxConfig: LightboxConfig,
@@ -51,6 +51,9 @@ export class TimelinePostModal implements OnInit{
   }
 
   saveComment(){
-    console.log("Saving comment: " + JSON.stringify(this.new_comment))
+    this.new_comment['postID'] = this.post.ID;
+    this._socialService.saveComment( this.new_comment ).subscribe(res => {
+      this.new_comment = { text: '', images: [], video: ''};
+    });
   }
 }
