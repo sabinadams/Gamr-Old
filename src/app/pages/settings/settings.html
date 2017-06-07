@@ -15,6 +15,7 @@
                     type="text"
                     class="form-control post-input"
                     id="edit-user-tag"
+                    [(ngModel)]="newTag"
                     value="{{ user.tag }}"
                     [disabled]="editID!= 1"
                     (keyup)="updateOnEnter('tag', $event);"
