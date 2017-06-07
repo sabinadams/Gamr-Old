@@ -1,4 +1,4 @@
-<div class="modal fade" bsModal #staticModal="bs-modal" [config]="" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{ignoreBackdropClick: false}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <timeline-post-modal [post]="post" (destroyPost)="destroyPostHandler($event)"></timeline-post-modal>
 </div>
 

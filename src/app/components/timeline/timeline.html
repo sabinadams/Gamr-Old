@@ -1,4 +1,5 @@
 <div id="timeline">
+
     <div class="panel">
         <div class="panel-heading">
             <timeline-form [(form)]="new_post" (submitData)="savePost()"></timeline-form>
@@ -10,4 +11,5 @@
     </div>
 
     <timeline-post-preview (destroyPost)="handleDestroyPost($event)" id="ngpost-{{post.ID}}" *ngFor="let post of posts" [post]="post"></timeline-post-preview>
+
 </div>

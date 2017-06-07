@@ -70,9 +70,12 @@ li {
 
 // Modal Styles
 .post-modal {
+    position: absolute;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    right: 0;
+    left: 0;
 }
 
 .modal-content {

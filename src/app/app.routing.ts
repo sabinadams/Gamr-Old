@@ -18,7 +18,7 @@ const appRoutes: Routes = [
  { path: 'home', component: HomePage, canActivate: [AuthGuard]},
  { path: 'profile', component: ProfilePage, canActivate: [AuthGuard]},
  { path: 'u/:tag', component: ProfilePage, canActivate: [AuthGuard]},
- {path: 'settings', component: SettingsPage, canActivate: [AuthGuard]},
+ { path: 'settings', component: SettingsPage, canActivate: [AuthGuard]},
 ];
 
 export const appRoutingProviders: any[] = [];

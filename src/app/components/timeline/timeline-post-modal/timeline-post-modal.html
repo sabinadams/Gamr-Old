@@ -1,46 +1,46 @@
 <div class="modal-dialog modal-lg post-modal">
-    <div class="modal-content" style="padding-top:10px;">
-        <div class="modal-header">
-            <div class="media">
-                <div class="media-left media-top">
+    <div class=" modal-content " style="padding-top:10px; ">
+        <div class="modal-header ">
+            <div class="media ">
+                <div class="media-left media-top ">
                     <a [routerLink]="[ '/u', post.tag] ">
-                        <img class="media-object img-rounded author-image" [attr.src]="post.profile_pic" alt="...">
+                        <img class="media-object img-rounded author-image " [attr.src]="post.profile_pic " alt="... ">
                     </a>
                 </div>
-                <div class="media-body">
+                <div class="media-body ">
 
-                    <a class="author-name" [routerLink]="[ '/u', post.tag] "> {{post.display_name}} </a>
+                    <a class="author-name " [routerLink]="[ '/u', post.tag] "> {{post.display_name}} </a>
                     <small>{{ post.post_date | amTimeAgo }} </small>
 
-                    <div class="dropdown pull-right" dropdown>
-                        <a dropdownToggle class="dropdown-toggle">
-                            <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
+                    <div class="dropdown pull-right " dropdown>
+                        <a dropdownToggle class="dropdown-toggle ">
+                            <span class="glyphicon glyphicon-collapse-down dropdown-icon " aria-hidden="true "></span>
                         </a>
-                        <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
-                            <li role="menuitem"><a class="dropdown-item">Copy Link</a></li>
-                            <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == post.user_ID" (click)="deletePost()">Delete</a></li>
-                            <li role="menuitem"><a class="dropdown-item">Share</a></li>
-                            <li class="divider dropdown-divider"></li>
-                            <li role="menuitem"><a class="dropdown-item">Report Post</a>
+                        <ul *dropdownMenu class="dropdown-menu pull-right " role="menu ">
+                            <li role="menuitem "><a class="dropdown-item ">Copy Link</a></li>
+                            <li role="menuitem "><a class="dropdown-item " *ngIf="user.ID==post.user_ID " (click)="deletePost() ">Delete</a></li>
+                            <li role="menuitem "><a class="dropdown-item ">Share</a></li>
+                            <li class="divider dropdown-divider "></li>
+                            <li role="menuitem "><a class="dropdown-item ">Report Post</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="pull-right" style="margin-right:10px;">
-                        <button type="button" class="btn btn-sm btn-primary">
+                    <div class="pull-right " style="margin-right:10px; ">
+                        <button type="button " class="btn btn-sm btn-primary ">
                             Follow
                         </button>
                     </div>
                 </div>
                 <br>
-                <p class="text-container">
-                    <span *ngFor="let chunk of post.text" class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
-                        <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                <p class="text-container ">
+                    <span *ngFor="let chunk of post.text " class="text-element " [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
+                        <a *ngSwitchCase="true " class="mention " [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
                         <span *ngSwitchCase="false ">{{chunk}}</span>
                     </span>
                 </p>
                 <div class="image-grid ">
                     <div *ngFor="let image of post.images; let i=index ">
-                        <img *ngIf="i==0 " class="grid-image img-responsive no-open " [src]="image.src" (click)="openImage(i, $event) " />
+                        <img *ngIf="i==0 " class="grid-image img-responsive no-open " [src]="image.src " (click)="openImage(i, $event) " />
                     </div>
                     <span class="badge image-count-badge " *ngIf="post.images.length> 1">1 of {{post.images.length}}</span>
                 </div>
