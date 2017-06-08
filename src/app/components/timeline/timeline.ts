@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialService } from '../../services/social-service';
 import { EventService } from '../../services/event-service';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'timeline',
@@ -12,11 +13,33 @@ export class TimelineComponent implements OnInit {
   new_post = { text: '', images: [], video: '' };
   posts = [];
   post_buffer = [];
-
+  loading = false;
+  end = false;
   constructor(
     private _socialService: SocialService,
     private _eventService: EventService,
+    private lc: NgZone
   ){
+    window.onscroll = () => {
+      lc.run(() => {
+        const windowHeight = 'innerHeight' in window ? window.innerHeight
+             : document.documentElement.offsetHeight;
+         const body = document.body, html = document.documentElement;
+         const docHeight = Math.max(body.scrollHeight,
+             body.offsetHeight, html.clientHeight,
+             html.scrollHeight, html.offsetHeight);
+         const windowBottom = windowHeight + window.pageYOffset;
+         if (windowBottom >= docHeight && !this.loading) {
+           this.loading = true;
+           this.end = false;
+           this._socialService.getPosts( this.posts.length ).subscribe( res => {
+             this.end = res.length > 0 ? false : true;
+             this.loading = false;
+             this.posts.push(...res);
+           });
+         }
+      });
+    };
     _eventService.merger$.subscribe( trigger => {
       if ( trigger ) { this.mergeBuffer(); };
     });

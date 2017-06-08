@@ -11,5 +11,8 @@
     </div>
 
     <timeline-post-preview (destroyPost)="handleDestroyPost($event)" id="ngpost-{{post.ID}}" *ngFor="let post of posts" [post]="post"></timeline-post-preview>
-
+    <div class="alert alert-success buffer-alert" *ngIf="loading || end">
+        <span *ngIf="loading">Loading More...</span>
+        <span *ngIf="end">No More Posts! Make more friends...</span>
+    </div>
 </div>
