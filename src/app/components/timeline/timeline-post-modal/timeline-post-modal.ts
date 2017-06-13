@@ -2,7 +2,8 @@ import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } fro
 import { SocialService } from '../../../services/social-service';
 import { Router } from '@angular/router';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
-
+// Maybe when you open the modal it can create a websocket connection to the server 
+// so you can get live data
 @Component({
   selector: 'timeline-post-modal',
   templateUrl: './timeline-post-modal.html',
