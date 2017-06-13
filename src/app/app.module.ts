@@ -15,13 +15,15 @@ import { SettingsPage } from './pages/settings/settings';
 // Component Imports
 import { TimelineComponent } from './components/timeline/timeline';
 import { ProfileSidePanelComponent } from './components/profile-side-panel/profile-side-panel';
-import { TimelinePostComponent } from './components/timeline/timeline-post/timeline-post';
-import { TimelineCommentComponent } from './components/timeline/timeline-comment/timeline-comment';
+import { TimelinePostPreviewComponent } from './components/timeline/timeline-post-preview/timeline-post-preview';
+import { TimelinePostModal } from './components/timeline/timeline-post-modal/timeline-post-modal';
+import { TimelineResponseComponent } from './components/timeline/timeline-response/timeline-response';
 import { NavbarComponent } from './components/navbar/navbar';
 import { ChatbarComponent } from './components/chatbar/chatbar';
 import { ProfileBannerComponent } from './pages/profile/profile-banner/profile-banner';
 import { LoginInfoComponent } from './pages/signup/login-info-component/login-info-component';
 import { ExpProfilePic } from './components/exp-profile-pic/exp-profile-pic';
+import { TimelineFormComponent } from './components/timeline/timeline-form/timeline-form';
 
 // Service Imports
 import { HttpClient } from './services/http-interceptor-service';
@@ -54,10 +56,10 @@ import { routing, appRoutingProviders } from './app.routing';
 @NgModule({
   declarations: [
    AppComponent, LoginPage, SignupPage, HomePage,
-   ProfilePage, ProfileSidePanelComponent, TimelinePostComponent, NavbarComponent,
+   ProfilePage, ProfileSidePanelComponent, TimelinePostPreviewComponent, NavbarComponent,
    ChatbarComponent, ProfileBannerComponent, TimelineComponent, LoginInfoComponent,
    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic,
-   SettingsPage, TimelineCommentComponent
+   SettingsPage, TimelinePostModal, TimelineResponseComponent, TimelineFormComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, routing,

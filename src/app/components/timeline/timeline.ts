@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialService } from '../../services/social-service';
 import { EventService } from '../../services/event-service';
-import { ImageService } from '../../services/image-service';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'timeline',
@@ -10,17 +10,36 @@ import { ImageService } from '../../services/image-service';
 })
 export class TimelineComponent implements OnInit {
   user = JSON.parse( localStorage.getItem('user') );
-  rows = 1;
   new_post = { text: '', images: [], video: '' };
-  uploading = false;
   posts = [];
   post_buffer = [];
-
+  loading = false;
+  end = false;
   constructor(
     private _socialService: SocialService,
     private _eventService: EventService,
-    private _imageService: ImageService
+    private lc: NgZone
   ){
+    window.onscroll = () => {
+      lc.run(() => {
+        const windowHeight = 'innerHeight' in window ? window.innerHeight
+             : document.documentElement.offsetHeight;
+         const body = document.body, html = document.documentElement;
+         const docHeight = Math.max(body.scrollHeight,
+             body.offsetHeight, html.clientHeight,
+             html.scrollHeight, html.offsetHeight);
+         const windowBottom = windowHeight + window.pageYOffset;
+         if (windowBottom >= docHeight && !this.loading) {
+           this.loading = true;
+           this.end = false;
+           this._socialService.getPosts( this.posts.length ).subscribe( res => {
+             this.end = res.length > 0 ? false : true;
+             this.loading = false;
+             this.posts.push(...res);
+           });
+         }
+      });
+    };
     _eventService.merger$.subscribe( trigger => {
       if ( trigger ) { this.mergeBuffer(); };
     });
@@ -63,7 +82,7 @@ export class TimelineComponent implements OnInit {
   }
 
   savePost() {
-    if(this.new_post.text.length > 0 || this.new_post.images.length > 0 || this.new_post.video.length > 0){
+    if (this.new_post.text.length > 0 || this.new_post.images.length > 0 || this.new_post.video.length > 0){
       this._socialService.savePost( this.new_post ).subscribe( res => {
         this.new_post = { text: '', images: [], video: '' };
         this.postPull();
@@ -87,34 +106,11 @@ export class TimelineComponent implements OnInit {
     return date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', '');
   }
 
-  // Sends the image through a function whenever the file input is used
-  imageHandler($event): void {
-    if (this.new_post.images.length < 7 && $event.target.files[0] !== undefined) {
-      this.saveImage($event.target);
-    }
-  }
 
-  // Converts file to base64
-  // Try to add this to the image service. Promises will probably need to be applied
-  saveImage(inputValue: any): void {
-    this.uploading = true;
-    const file: File = inputValue.files[0];
-    const myReader: FileReader = new FileReader();
-    myReader.readAsDataURL(file);
-    myReader.onloadend = (e) => {
-      const newimage = myReader.result;
-      this._imageService.uploadImage(newimage).subscribe(res => {
-        this.new_post.images.push(res.data.link);
-        this.uploading = false;
-      });
-    };
-  }
-
-  handleDestroyObject($event) {
+  handleDestroyPost($event) {
     this.posts = this.posts.filter(( post ) => { return post.ID !== $event; });
   }
 
-  removeImage(i) { this.new_post.images.splice(i, 1); }
-  checkBlur() { if ( this.new_post.text.length < 1 ) {this.rows = 1; } }
+
 
 }

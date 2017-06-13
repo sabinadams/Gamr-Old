@@ -2,7 +2,7 @@
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs affix panel-container">
         <profile-side-panel></profile-side-panel>
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 settings-container">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 settings-container">
         <div class="row">
             <!-- Update the Gamr Tag -->
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -12,18 +12,10 @@
                     <a (click)="editID= 0;" *ngIf="editID== 1">Cancel</a>
                     <a (click)="editID= 1;" *ngIf="editID== 0">Edit</a>
                 </span>
-                <input
-                    type="text"
-                    class="form-control post-input"
-                    id="edit-user-tag"
-                    [(ngModel)]="newTag"
-                    value="{{ user.tag }}"
-                    [disabled]="editID!= 1"
-                    (keyup)="updateOnEnter('tag', $event);"
-                />
+                <input type="text" class="form-control post-input" id="edit-user-tag" [(ngModel)]="newTag" value="{{ user.tag }}" [disabled]="editID!= 1" (keyup)="updateOnEnter('tag', $event);" />
             </div>
             <!-- End of Gamr Tag Update -->
-            
+
             <!-- Update the Display Name -->
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <span class="setting-id">Display Name:</span>
@@ -32,14 +24,7 @@
                     <a (click)="editID= 0;" *ngIf="editID== 2">Cancel</a>
                     <a (click)="editID= 2;" *ngIf="editID== 0">Edit</a>
                 </span>
-                <input
-                    type="text"
-                    class="form-control post-input"
-                    id="edit-user-display-name"
-                    value="{{ user.display_name }}"
-                    [disabled]="editID!= 2"
-                    (keyup)="updateOnEnter('display-name', $event);"
-                />
+                <input type="text" class="form-control post-input" id="edit-user-display-name" value="{{ user.display_name }}" [disabled]="editID!= 2" (keyup)="updateOnEnter('display-name', $event);" />
             </div>
             <!-- End of Display Name Update -->
         </div>
@@ -53,17 +38,10 @@
                     <a (click)="editID= 0;" *ngIf="editID== 3">Cancel</a>
                     <a (click)="editID= 3;" *ngIf="editID== 0">Edit</a>
                 </span>
-                <input
-                    type="text"
-                    class="form-control post-input"
-                    id="edit-user-first-name"
-                    value="{{ user.first_name }}"
-                    [disabled]="editID!= 3"
-                    (keyup)="updateOnEnter('first-name', $event);"
-                />
+                <input type="text" class="form-control post-input" id="edit-user-first-name" value="{{ user.first_name }}" [disabled]="editID!= 3" (keyup)="updateOnEnter('first-name', $event);" />
             </div>
             <!-- End of the First Name Update -->
-            
+
             <!-- Update the Last Name -->
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <span class="setting-id">Last Name:</span>
@@ -72,14 +50,7 @@
                     <a (click)="editID= 0;" *ngIf="editID== 4">Cancel</a>
                     <a (click)="editID= 4;" *ngIf="editID== 0">Edit</a>
                 </span>
-                <input
-                    type="text"
-                    class="form-control post-input"
-                    id="edit-user-last-name"
-                    value="{{ user.last_name }}"
-                    [disabled]="editID!= 4"
-                    (keyup)="updateOnEnter('last-name', $event);"
-                />
+                <input type="text" class="form-control post-input" id="edit-user-last-name" value="{{ user.last_name }}" [disabled]="editID!= 4" (keyup)="updateOnEnter('last-name', $event);" />
             </div>
             <!-- End of the Last Name Update -->
         </div>
@@ -93,18 +64,11 @@
                     <a (click)="editID= 0;" *ngIf="editID== 5">Cancel</a>
                     <a (click)="editID= 5;" *ngIf="editID== 0">Edit</a>
                 </span>
-                <input
-                    type="text"
-                    class="form-control post-input"
-                    id="edit-user-description"
-                    value="{{ user.description }}"
-                    [disabled]="editID!= 5"
-                    (keyup)="updateOnEnter('description', $event);"
-                />
+                <input type="text" class="form-control post-input" id="edit-user-description" value="{{ user.description }}" [disabled]="editID!= 5" (keyup)="updateOnEnter('description', $event);" />
             </div>
             <!-- End of the Gamr Description Update -->
         </div>
-        
+
         <!-- TODO: Figure out how to do the password thing -->
     </div>
 </div>

@@ -1,75 +1,16 @@
 @import '../../../../styles.scss';
-.panel {
-    max-width: 800px;
-    margin: auto;
-    margin-bottom: 5px;
-}
-
 .author-image {
-    max-height: 50px;
+    max-height: 40px;
     width: auto;
 }
 
-.panel-heading {
-    border-bottom: $thin-border-dark;
-}
-
-.media,
-.media-body {
-    overflow: initial;
-}
-
-.author-stats,
-.dropdown {
-    float: right;
-}
-
-li {
-    list-style-type: none;
-    text-align: center;
-    a {
-        color: $default-font-color;
-        font-weight: bold;
-        border: 0;
-        text-shadow: none;
-    }
-}
-
-.static-stat {
-    border: none !important;
-}
-
-.image-grid {
-    margin-top: 10px;
+.post-form {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    color: darken($primary-background, 10%);
-    span.image-count-badge {
-        color: $secondary-background;
-        font-weight: bolder;
-        width: 45px;
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 7px;
-        margin: auto;
-    }
+    flex-direction: row;
 }
 
-.grid-image {
-    max-height: 300px;
-    border-radius: 3px;
-    margin: 10px auto 10px auto;
-}
-
-.mention {
-    color: rgba(149, 107, 185, 0.74) !important;
-    font-weight: bolder;
-    &:hover {
-        text-decoration: none;
-        opacity: 0.8;
-    }
+.post-form.input-group {
+    width: 100%;
 }
 
 .btn-file input[type=file] {
@@ -118,7 +59,7 @@ li {
 
 .action-grid {
     margin-top: 10px;
-    margin-left: 38px;
+    margin-left: 48px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -156,9 +97,4 @@ li {
     margin-left: auto;
     border-radius: 5px;
     width: 75px;
-}
-
-.dropdown-icon {
-    font-size: 18px;
-    color: $default-font-color;
 }

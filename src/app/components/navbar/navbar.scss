@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 .navbar {
     height: 55px;
-    padding: 0 10px 0 0;
+    padding: 0 0 0 0;
     background: $primary-background;
     border-bottom: 2px solid rgba(0, 0, 0, 0.32);
 }
@@ -12,14 +12,25 @@
     border: 0;
     text-shadow: none;
     overflow: hidden;
-    max-height: 55px;
+    max-height: 53px;
     text-align: center;
     transition: padding-top 200ms ease-in;
-    transition: padding-top 300ms ease-out;
+    i {
+        transition: margin-top 200ms ease-in;
+    }
 }
 
 .navbar-middle>li>a:hover {
-    padding-top: 5px;
+    height: 55px;
+    i,
+    .icon-value {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -40px;
+    }
     .title {
         display: block;
         margin-top: 0;
@@ -32,14 +43,14 @@
 
 .navbar-brand>img {
     height: 100%;
-    padding: 7px 15px;
     width: auto;
 }
 
 .sign-up-button,
 a.dropdown-toggle {
     background-color: transparent;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-right: $thin-border-dark;
+    border-left: $thin-border-dark;
     transition: box-shadow 300ms ease-in;
     color: #000;
 }
@@ -66,7 +77,7 @@ a.dropdown-toggle {
 }
 
 a.dropdown-toggle.img {
-    padding: 5px 10px 0 5px;
+    padding: 7px 10px 0 10px;
     box-shadow: none;
 }
 

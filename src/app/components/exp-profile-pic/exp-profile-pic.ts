@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   	.round-progress {
   	    background-size: cover !important;
   	    border-radius:50% !important;
-  	    margin-bottom:10px;
+		margin:auto auto 10px auto;
   	 }
   `],
   template: `

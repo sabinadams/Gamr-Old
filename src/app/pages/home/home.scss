@@ -5,14 +5,14 @@
     padding-top: 51px;
     margin: 0;
     min-width: 170px;
-    max-width: 220px;
+    max-width: 200px;
     border-right: $thin-border-dark;
 }
 
 .timeline-container,
 .chatbar-container {
     padding-top: 53px;
-    z-index: -1;
+    // z-index: -1;
 }
 
 .timeline-container {

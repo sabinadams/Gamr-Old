@@ -1,0 +1,28 @@
+<div class="media">
+    <div class="media-left media-top">
+        <a [routerLink]="[ '/u', response.tag] ">
+            <img class="media-object img-rounded author-image" [attr.src]="response.profile_pic" alt="...">
+        </a>
+    </div>
+    <div class="media-body">
+        <p>
+            <a class="author-name" [routerLink]="[ '/u', response.tag] "> {{response.display_name}} </a>
+            <small>{{ response.timestamp | amTimeAgo }} </small>
+        </p>
+        <p class="text-container">
+            <span *ngFor="let chunk of response.text" class="text-element " [ngSwitch]="chunk.indexOf(response.uuid)==0 ">
+                <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
+                <span *ngSwitchCase="false ">{{chunk}}</span>
+            </span>
+        </p>
+    </div>
+
+    <div class="image-grid ">
+        <div *ngFor="let image of response.images; let i=index ">
+            <img *ngIf="i==0 " class="response-image grid-image img-responsive no-open " [src]="image.src" (click)="openImage(i, $event) " />
+        </div>
+        <span class="badge image-count-badge " *ngIf="response.images.length> 1">1 of {{response.images.length}}</span>
+    </div>
+</div>
+
+<timeline-form [(form)]="new_comment" (submitData)="saveComment()"></timeline-form>

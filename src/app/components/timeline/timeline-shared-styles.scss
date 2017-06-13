@@ -1,0 +1,94 @@
+@import '../../../styles.scss';
+.panel {
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 2px;
+    border: $thin-border-dark;
+    background: $accent-background;
+}
+
+.author-image {
+    max-height: 50px;
+    width: auto;
+}
+
+.post-panel:hover {
+    background: $primary-background;
+}
+
+.author-stats,
+.dropdown {
+    float: right;
+}
+
+// Required for dropdown to show properly
+.media,
+.media-body {
+    overflow: initial;
+}
+
+li {
+    list-style-type: none;
+    text-align: center;
+    a {
+        color: $default-font-color;
+        font-weight: bold;
+        border: 0;
+        text-shadow: none;
+    }
+}
+
+.static-stat {
+    border: none !important;
+}
+
+.image-grid {
+    text-align: center;
+    span.image-count-badge {
+        color: $secondary-background;
+        font-weight: bolder;
+        width: 45px;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 7px;
+    }
+    img {
+        max-height: 300px;
+        border-radius: 3px;
+        margin: 10px auto 10px auto;
+    }
+    .response-image {
+        max-height: 200px;
+    }
+}
+
+.author-name {
+    font-weight: bolder;
+    color: $default-font-color;
+}
+
+.dropdown-icon {
+    font-size: 18px;
+    color: $default-font-color;
+}
+
+// Modal Styles
+.post-modal {
+    position: absolute;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+}
+
+.modal-content {
+    background: $primary-background;
+}
+
+.modal-header {
+    border-color: $secondary-background;
+}
+
+.panel-heading {
+    background: $accent-background;
+}
