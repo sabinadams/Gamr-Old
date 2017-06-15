@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SocialService } from '../../services/social-service';
 import { EventService } from '../../services/event-service';
 import { NgZone } from '@angular/core';
-
+// Break post grabbing/polling into a function called by the initiators
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',
@@ -24,7 +24,8 @@ export class TimelineComponent implements OnInit {
       lc.run(() => {
         const windowHeight = 'innerHeight' in window ? window.innerHeight
              : document.documentElement.offsetHeight;
-         const body = document.body, html = document.documentElement;
+         const body = document.body,
+               html = document.documentElement;
          const docHeight = Math.max(body.scrollHeight,
              body.offsetHeight, html.clientHeight,
              html.scrollHeight, html.offsetHeight);
@@ -32,11 +33,14 @@ export class TimelineComponent implements OnInit {
          if (windowBottom >= docHeight && !this.loading) {
            this.loading = true;
            this.end = false;
-           this._socialService.getPosts( this.posts.length ).subscribe( res => {
-             this.end = res.length > 0 ? false : true;
-             this.loading = false;
-             this.posts.push(...res);
-           });
+          this._socialService.getFeed(
+            this.convertTimestamp(this.posts[this.posts.length - 1].timestamp || 'start'),
+            false
+          ).subscribe( res => {
+            this.end = res.length > 0 ? false : true;
+            this.loading = false;
+            this.posts.push(...res);
+          });
          }
       });
     };
@@ -46,20 +50,21 @@ export class TimelineComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._socialService.getPosts( 0 ).subscribe( res => {
+    this._socialService.getFeed('start', false).subscribe( res => {
       this.posts = res;
       setInterval( () => { this.postPull(); }, 20000);
-    });
+    })
   }
 
   postPull() {
     if (this.posts.length){
-      this._socialService.postPull(
+      this._socialService.getFeed(
         this.convertTimestamp(
           this.post_buffer.length
           ? this.post_buffer[0].timestamp
           : this.posts[0].timestamp
-        )
+        ),
+        true
       ).subscribe( res => {
         if ( res.length > 0 ) {
           for (const post of res) {
@@ -74,7 +79,7 @@ export class TimelineComponent implements OnInit {
         }
       });
     } else {
-      this._socialService.getPosts( 0 ).subscribe( res => {
+      this._socialService.getFeed( 'start', false ).subscribe( res => {
         this.post_buffer.unshift(...res);
         this._eventService.emitUnread(this.post_buffer.length);
       });
@@ -110,7 +115,5 @@ export class TimelineComponent implements OnInit {
   handleDestroyPost($event) {
     this.posts = this.posts.filter(( post ) => { return post.ID !== $event; });
   }
-
-
 
 }

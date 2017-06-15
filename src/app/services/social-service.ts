@@ -9,22 +9,10 @@ import 'rxjs/add/operator/map';
 export class SocialService {
   constructor( private _secureHttp: HttpClient, private _router: Router ) {}
 
-  getPosts( index ) {
-    return this._secureHttp.get(`http://api.gamr.co/posts/${index}/`).map(( res: Response ) => {
-       return res.json();
-    }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
-  }
-
-  postPull( timestamp ) {
-    return this._secureHttp.get(`http://api.gamr.co/postpull/${timestamp}/`).map(( res: Response ) => {
-       return res.json();
-    }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
-  }
-
   savePost( data ) {
-    return this._secureHttp.post(`http://api.gamr.co/savepost/`, {data: data}).map(( res: Response ) => {
+    return this._secureHttp.post(`http://api.gamr.co/feed/save/`, {data: data}).map(( res: Response ) => {
       return res.json();
-    }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
+    });
   }
 
   likePost( ID ) {
@@ -34,13 +22,13 @@ export class SocialService {
   }
 
   deletePost( ID ) {
-    return this._secureHttp.post(`http://api.gamr.co/deletepost/`, {postID: ID}).map(( res: Response ) => {
+    return this._secureHttp.post(`http://api.gamr.co/feed/delete/`, {ID: ID}).map(( res: Response ) => {
       return res.json();
     }).catch(( error: any ) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  saveComment( data ) {
-    return this._secureHttp.post(`http://api.gamr.co/savecomment/`, {data: data}).map(res => {
+  getFeed( timestamp, polling) {
+    return this._secureHttp.get(`http://api.gamr.co/feed/${timestamp}/${polling}/`).map(res => {
       return res.json();
     });
   }
