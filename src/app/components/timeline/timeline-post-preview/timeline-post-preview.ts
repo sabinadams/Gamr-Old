@@ -36,11 +36,11 @@ export class TimelinePostPreviewComponent implements OnInit{
 
   deletePost() {
    this._socialService.deletePost( this.post.ID ).subscribe( res => {
-    this.busDestroyPostEvent( this.post.ID );
+    this.destroyPostHandler( this.post.ID );
    });
   }
 
-  busDestroyPostEvent(event) {
+  destroyPostHandler(event) {
     this.destroyPost.emit(event);
   }
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 // Maybe when you open the modal it can create a websocket connection to the server 
 // so you can get live data
+
 @Component({
   selector: 'timeline-post-modal',
   templateUrl: './timeline-post-modal.html',
@@ -13,7 +14,7 @@ export class TimelinePostModal implements OnInit{
   @Input() post: any;
   @Output() destroyPost = new EventEmitter();
   user = JSON.parse( localStorage.getItem('user') );
-  new_comment = { text: '', images: [], video: ''};
+  new_comment = { text: '', images: [], video: '', postID: null};
   regex: any;
   constructor(
     private _lightboxConfig: LightboxConfig,
@@ -25,6 +26,7 @@ export class TimelinePostModal implements OnInit{
     this._lightboxConfig.wrapAround = true;
     this._lightboxConfig.fitImageInViewPort = true;
     this.regex = new RegExp(`${this.post.uuid}`, 'g');
+    this.new_comment.postID = this.post.ID;
   }
 
   likePost() {
@@ -52,9 +54,8 @@ export class TimelinePostModal implements OnInit{
   }
 
   saveComment(){
-    this.new_comment['postID'] = this.post.ID;
-    this._socialService.saveComment( this.new_comment ).subscribe(res => {
-      this.new_comment = { text: '', images: [], video: ''};
+    this._socialService.savePost( this.new_comment ).subscribe(res => {
+      this.new_comment = { text: '', images: [], video: '', postID: this.post.ID };
     });
   }
 }
