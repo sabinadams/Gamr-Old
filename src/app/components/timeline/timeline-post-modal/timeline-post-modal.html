@@ -70,9 +70,9 @@
             <timeline-form [(form)]="new_comment" (submitData)="saveComment()"></timeline-form>
             <hr class="full-secondary">
             <div class="post-responses" *ngFor="let comment of post.comments">
-                <timeline-response [response]="comment"></timeline-response>
+                <timeline-response [response]="comment" [parentRelations]="{postID: post.ID, commentID: 0}"></timeline-response>
                 <div class="replies" style="margin-left:40px; margin-top:10px; margin-bottom:10px;">
-                    <timeline-response *ngFor="let reply of comment.replies" [response]="reply"></timeline-response>
+                    <timeline-response *ngFor="let reply of comment.replies" [response]="reply" [parentRelations]="{postID: post.ID, commentID: comment.ID}"></timeline-response>
                 </div>
             </div>
         </div>

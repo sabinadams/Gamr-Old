@@ -10,9 +10,10 @@ import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 })
 export class TimelineResponseComponent implements OnInit{
   @Input() response: any;
+  @Input() parentRelations = {postID: 0, commentID: 0};
   @Output() destroyObject = new EventEmitter();
   user = JSON.parse( localStorage.getItem('user') );
-  new_comment = { text: '', images: [], video: '' };
+  new_comment: any;
   regex: any;
   constructor(
     private _lightboxConfig: LightboxConfig,
@@ -24,6 +25,7 @@ export class TimelineResponseComponent implements OnInit{
     this._lightboxConfig.wrapAround = true;
     this._lightboxConfig.fitImageInViewPort = true;
     this.regex = new RegExp(`${this.response.uuid}`, 'g');
+    this.new_comment = { text: '', images: [], video: '', postID: this.parentRelations.postID, commentID: this.parentRelations.commentID };
   }
 
   openImage(index: number, event): void {
@@ -32,6 +34,12 @@ export class TimelineResponseComponent implements OnInit{
   }
 
   saveComment(){
-    console.log("Saving Comment: " + JSON.stringify(this.new_comment));
+   if (this.new_comment.text.length > 0 || this.new_comment.images.length > 0 || this.new_comment.video.length > 0){
+      this._socialService.savePost( this.new_comment ).subscribe( res => {
+        this.new_comment = { text: '', images: [], video: '' };
+        // this.postPull();
+      });
+    }
   }
+
 }

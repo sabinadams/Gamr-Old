@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media response-body">
     <div class="media-left media-top">
         <a [routerLink]="[ '/u', response.user.tag] ">
             <img class="media-object img-rounded author-image" [attr.src]="response.user.profile_pic" alt="...">
@@ -25,4 +25,4 @@
     </div>
 </div>
 
-<timeline-form [(form)]="new_comment" (submitData)="saveComment()"></timeline-form>
+<!--<timeline-form [(form)]="new_comment" (submitData)="saveComment()"></timeline-form>-->

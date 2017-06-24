@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ImageService } from '../../services/image-service';
 
 @Component({
@@ -6,4 +6,28 @@ import { ImageService } from '../../services/image-service';
   template: './profile-side-panel.html',
   styleUrls: ['./profile-side-panel.scss'],
 })
-export class ImageUploaderComponent {}
+export class ImageUploaderComponent {
+  @Input() form: any;
+  uploading = false;
+  constructor( private _imageService: ImageService ){}
+
+    // Sends the image through a function whenever the file input is used
+  imageHandler($event): void {
+    if (this.form.images.length < 7 && $event.target.files[0] !== undefined) { this.saveImage($event.target); }
+  }
+
+  // Converts file to base64
+  // Try to add this to the image service. Promises will probably need to be applied
+  saveImage(inputValue: any): void {
+    this.uploading = true;
+    const myReader = new FileReader();
+    myReader.readAsDataURL(inputValue.files[0]);
+    myReader.onloadend = (e) => {
+      this._imageService.uploadImage(myReader.result).subscribe(res => {
+        this.form.images.push(res.data.link);
+        // this.change( this.form.images, 'images' );
+        this.uploading = false;
+      });
+    };
+  }
+}
