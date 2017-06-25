@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ImageService } from '../../../services/image-service';
+import { CheatCodesService } from "../../../services/cheat-codes";
 
 @Component({
   selector: 'timeline-form',
@@ -14,11 +15,15 @@ export class TimelineFormComponent {
   user = JSON.parse( localStorage.getItem('user') );
   uploading = false;
   rows = 1;
-  constructor(private _imageService: ImageService){}
+  constructor(private _imageService: ImageService, private _cheatService:CheatCodesService){}
 
   change( data, key: string ) {
     this.form[key] = data;
     this.update.emit(this.form);
+  }
+  
+  appendKeyToCode(args:Event) {
+    this._cheatService.performAction(0);
   }
 
     // Sends the image through a function whenever the file input is used

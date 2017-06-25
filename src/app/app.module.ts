@@ -49,6 +49,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ExpCalcPipe } from './pipes/exp-calc-pipe';
 import { PasswordStrengthPipe } from './pipes/password-strength-pipe';
 import { InputValidationPipe } from './pipes/input-validation-pipe';
+import { CheatCodesService } from "./services/cheat-codes";
 
 // Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
@@ -68,7 +69,7 @@ import { routing, appRoutingProviders } from './app.routing';
     ModalModule.forRoot()
   ],
   providers: [
-      appRoutingProviders, HttpClient, AuthService, AuthGuard,
+      appRoutingProviders, HttpClient, AuthService, AuthGuard, CheatCodesService,
       SocialService, EventService, ImageService, UserService, ExpCalcPipe
   ],
   bootstrap: [AppComponent]
