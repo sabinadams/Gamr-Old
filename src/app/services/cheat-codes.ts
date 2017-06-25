@@ -10,7 +10,7 @@ export class CheatCodesService {
 	];
 	currCode=	JSON.parse(localStorage.getItem("currCode")) || [];
 	
-	transform(args:Event)	{
+	appendKeyToCode(args:Event)	{
 		// Variables
 		let	key=	args["key"] || "";
 		let	found=	false;
@@ -25,7 +25,7 @@ export class CheatCodesService {
 			
 			// Finds a match and they are both the same size
 			if(this.arrayEquals(temp, this.currCode))	{
-				console.log(JSON.stringify(temp));
+				//console.log(JSON.stringify(temp));
 				if(this.cheatCodes[i].length=== this.currCode.length)	{
 					this.performAction(i);
 				}

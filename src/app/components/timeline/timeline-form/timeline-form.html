@@ -8,7 +8,7 @@
 
     <div class="media-body">
         <div class="post-form input-group">
-            <textarea (focus)="rows = 4" (blur)="checkBlur()" (keydown)="_cheatService.transform($event)" [ngModel]="form.text" (ngModelChange)="change($event, 'text')" class="form-control post-input" rows="{{rows}}" placeholder="What do you have to say?"></textarea>
+            <textarea (focus)="rows = 4" (blur)="checkBlur()" [ngModel]="form.text" (ngModelChange)="change($event, 'text')" class="form-control post-input" rows="{{rows}}" placeholder="What do you have to say?"></textarea>
         </div>
         <p class="length-indicator" [ngStyle]="{color: form.text.length > 600 ? 'red' : ''}" *ngIf="form.text.length">{{600-form.text.length}}</p>
     </div>
