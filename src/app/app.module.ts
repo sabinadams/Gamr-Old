@@ -40,6 +40,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ExpCalcPipe } from './pipes/exp-calc-pipe';
 import { PasswordStrengthPipe } from './pipes/password-strength-pipe';
 import { InputValidationPipe } from './pipes/input-validation-pipe';
+import { CheatCodesService } from "./services/cheat-codes";
 
 // Routing Imports
 import { routing, appRoutingProviders } from './app.routing';
@@ -62,6 +63,8 @@ import { TimelineModule } from './components/timeline/timeline.module';
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard,
+      EventService, ImageService, UserService, ExpCalcPipe
+      appRoutingProviders, HttpClient, AuthService, AuthGuard, CheatCodesService,
       EventService, ImageService, UserService, ExpCalcPipe
   ],
   bootstrap: [AppComponent]
