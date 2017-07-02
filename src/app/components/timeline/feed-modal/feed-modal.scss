@@ -1,0 +1,61 @@
+@import '../../../../styles.scss';
+.header-grid {
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    .author-profile-pic {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    .comment-pic {
+        height: 35px;
+        width: 35px;
+    }
+    .post-data {
+        margin-top: 2px;
+        margin-left: 10px;
+        width: 100%;
+    }
+}
+
+.modal-content {
+    background: $primary-background;
+    position: absolute;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+}
+
+.modal-header {
+    border-bottom: $thin-border-light;
+}
+
+.action-button {
+    border: 0 !important;
+}
+
+.feed-item-actions {
+    margin-top: 20px;
+}
+
+.action-dropdown {
+    float: right;
+    &.main-dropdown {
+        margin: 10px;
+    }
+}
+
+.post-data {
+    display: flex;
+    flex-direction: column;
+    .post-info {
+        margin-bottom: 5px;
+    }
+    .text-container {
+        max-width: 500px;
+    }
+}
