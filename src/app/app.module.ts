@@ -63,9 +63,8 @@ import { TimelineModule } from './components/timeline/timeline.module';
   ],
   providers: [
       appRoutingProviders, HttpClient, AuthService, AuthGuard,
-      EventService, ImageService, UserService, ExpCalcPipe
-      appRoutingProviders, HttpClient, AuthService, AuthGuard, CheatCodesService,
-      EventService, ImageService, UserService, ExpCalcPipe
+      EventService, ImageService, UserService, ExpCalcPipe,
+      CheatCodesService
   ],
   bootstrap: [AppComponent]
 })
