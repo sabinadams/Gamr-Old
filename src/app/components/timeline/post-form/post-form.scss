@@ -1,11 +1,19 @@
+@import '../../../../styles.scss';
 .post-input {
     width: 100%;
-    border-radius: 7px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
     min-height: 60px;
+    max-height: 200px;
     padding: 10px;
+    background: $primary-background;
+    border: none;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.7);
 }
 
-.form-panel {
+.inline-form {
     padding: 10px;
     display: flex;
     flex-direction: row;

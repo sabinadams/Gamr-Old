@@ -1,16 +1,16 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-// import { NgZone } from '@angular/core';
-import { TimelineService } from '../shared/timeline-service';
-import * as _ from 'lodash';
+import { Component, Input, HostListener, Output, EventEmitter } from '@angular/core';
 
-// Break post grabbing/polling into a function called by the initiators
 @Component({
     selector: 'post-form',
     templateUrl: './post-form.html',
     styleUrls: ['./post-form.scss'],
 })
-export class PostFormComponent implements OnInit {
+export class PostFormComponent {
+    @Output() onSave = new EventEmitter();
+    @Input() post: any = { text: '', attachments: [] };
+    @Output() dataSync = new EventEmitter();
     user = JSON.parse(localStorage.getItem('user'));
+
     @HostListener('keyup', ['$event']) onKeyup(event) {
         const textArea = document.getElementById('post-form-input');
         textArea.style.overflow = 'hidden';
@@ -18,7 +18,10 @@ export class PostFormComponent implements OnInit {
         textArea.style.height = textArea.scrollHeight + 'px';
     }
 
-    constructor( private _timelineService: TimelineService ){}
-    ngOnInit() {}
+    constructor(){}
 
+    save() {
+        this.onSave.emit(this.post);
+        this.post = { text: '', attachments: [] };
+    }
 }

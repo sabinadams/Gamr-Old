@@ -1,4 +1,5 @@
 <div id="timeline">
-    <post-form></post-form>
+    <unread-alert *ngIf="postBuffer.length" (click)="mergeBuffer()" [bufferCount]="postBuffer.length"></unread-alert>
+    <post-form (onSave)="save($event)"></post-form>
     <feed-item *ngFor="let post of posts" [post]="post"></feed-item>
 </div>

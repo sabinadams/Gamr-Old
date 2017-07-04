@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { NgZone } from '@angular/core';
 import { TimelineService } from './shared/timeline-service';
+import { EventService } from '../../services/event-service';
+
 import * as _ from 'lodash';
 
 // Break post grabbing/polling into a function called by the initiators
@@ -11,11 +12,13 @@ import * as _ from 'lodash';
 })
 export class TimelineComponent implements OnInit {
   posts: any;
-  constructor( private _timelineService: TimelineService ){}
+  postBuffer: any = [];
+  constructor( private _timelineService: TimelineService, private _eventService: EventService ){}
 
   ngOnInit() {
-    this._timelineService.populateFeed('start', false).subscribe( res => { this.posts = res; });
-    this._timelineService.$feedDestroyer.subscribe( data => { this.removeFeedItem(data); });
+    this._timelineService.populateFeed('start', false).subscribe( res => this.posts = res );
+    this._timelineService.$feedDestroyer.subscribe( data => this.removeFeedItem(data) );
+    this._eventService.merger$.subscribe( trigger => this.mergeBuffer() );
   }
 
   removeFeedItem(data) {
@@ -40,5 +43,19 @@ export class TimelineComponent implements OnInit {
           break;
       }
   }
-  
+
+  save(event) {
+    this._timelineService.saveItem(event.text, event.attachments).subscribe( res => {
+      if ( res.status === 200 ) {
+        this.postBuffer.unshift(res.post);
+        this._eventService.emitUnread(this.postBuffer.length);
+      }
+    });
+  }
+
+  mergeBuffer() {
+    this.posts.unshift(...this.postBuffer);
+    this.postBuffer = [];
+    this._eventService.emitUnread(0);
+  }
 }

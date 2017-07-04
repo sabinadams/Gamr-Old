@@ -40,9 +40,13 @@ export class TimelineService extends BaseService {
     });
   }
 
-  // saveItem( text: string, attachments: Array<any> ): Observable<any> {
-  //   // return
-  // }
+  saveItem( text: string, attachments: Array<any> ): Observable<any> {
+    return this._http.post(this.baseURL + `/feed/save/`, {data: {text: text, attachments: attachments}}).map( res => {
+      return res.json();
+    }).catch( err => {
+      return Observable.throw(err || 'Server Error');
+    });
+  }
 
   // Handles the destroy item command and passes along what needs to be removed from the page to the timeline component
   emitDestroyItem(type: string, postID: number, commentID: number, replyID: number) {

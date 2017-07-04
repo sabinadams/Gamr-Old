@@ -1,4 +1,7 @@
 <div class="panel form-panel">
-    <img class="author-image" [src]="user.profile_pic" alt="">
-    <textarea class="post-input" id="post-form-input" #postInput></textarea>
+    <div class="inline-form">
+        <img class="author-image" [src]="user.profile_pic" alt="">
+        <textarea class="post-input" id="post-form-input" [(ngModel)]="post.text" #postInput></textarea>
+    </div>
+    <button class="btn save-button" (click)="save()"> Save</button>
 </div>
