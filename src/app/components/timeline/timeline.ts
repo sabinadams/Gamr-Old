@@ -34,7 +34,7 @@ export class TimelineComponent implements OnInit {
           postIndex = _.findKey(this.posts, { 'ID': data.postID });
           const post = this.posts[postIndex];
           const commentIndex = _.findKey(post.comments, {'ID': data.commentID});
-          this.posts[postIndex].comments[commentIndex].replies = this.posts[postIndex].comments[commentIndex].replies.filter( 
+          this.posts[postIndex].comments[commentIndex].replies = this.posts[postIndex].comments[commentIndex].replies.filter(
             reply => { return reply.ID !== data.targetID; }
           );
           break;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth-service';
-import { CheatCodesService } from "./services/cheat-codes";
+import { CheatCodesService } from './services/cheat-codes';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,8 @@ import { CheatCodesService } from "./services/cheat-codes";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  constructor( private _authService: AuthService, private _cheatService:CheatCodesService ) {
-    window.addEventListener("keydown", function(args) {
+  constructor( private _authService: AuthService, private _cheatService: CheatCodesService ) {
+    window.addEventListener('keydown', (args) => {
       _cheatService.appendKeyToCode(args);
     });
   }
