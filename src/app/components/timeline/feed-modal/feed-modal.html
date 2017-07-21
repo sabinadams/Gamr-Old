@@ -52,6 +52,7 @@
                 </div>
             </div>
         </div>
+        <post-form (onSave)="saveComment($event)"></post-form>
         <div class="modal-body">
             <!--Comments-->
             <div class="header-grid" *ngFor="let comment of post.comments">
@@ -82,6 +83,7 @@
                         <span *ngSwitchCase="false ">{{chunk}}</span>
                         </span>
                     </p>
+                    <post-form (onSave)="saveReply($event, comment.ID)"></post-form>
                     <!--Replies-->
                     <div class="header-grid" *ngFor="let reply of comment.replies">
                         <div class="author-image">

@@ -45,8 +45,11 @@ export class TimelineService extends BaseService {
     });
   }
 
-  saveItem( text: string, attachments: Array<any> ): Observable<any> {
-    return this._http.post(this.baseURL + `/feed/save/`, {data: {text: text, attachments: attachments}}).map( res => {
+  saveItem( text: string, attachments: Array<any>, post_ID?: number, comment_ID?: number ): Observable<any> {
+    let post = {text: text, attachments: attachments};
+    if ( post_ID ) { post['postID'] = post_ID; };
+    if ( comment_ID ) { post['commentID'] = comment_ID; };
+    return this._http.post(this.baseURL + `/feed/save/`, {data: post}).map( res => {
       return res.json();
     }).catch( err => {
       return Observable.throw(err || 'Server Error');
@@ -77,11 +80,12 @@ export class TimelineService extends BaseService {
     setInterval(() => {
       this.populateFeed( timeIndex, true).subscribe( res => {
         if (res.length){
-          console.log('More Found');
           timeIndex = this.convertTimestamp(res[0].timestamp);
           this.timelineUpdate.next(res);
         }
       });
-    }, 10000);
+    }, 20000);
   }
+
+
 }

@@ -14,14 +14,18 @@ export class TimelineComponent implements OnInit {
   posts: any;
   postBuffer: any = [];
   loadingMore = false;
+  endOfTime = false;
   @HostListener('window:scroll', ['$event']) checkPosition(event) {
     if ((window.innerHeight + window.scrollY) >= event.target.scrollingElement.scrollHeight) {
-        if ( this.loadingMore ) { return;  }
+        if ( this.loadingMore || this.endOfTime ) { return;  }
         this.loadingMore = true;
         this._timelineService.populateFeed(
           this._timelineService.convertTimestamp(this.posts[this.posts.length - 1].timestamp), false
         ).subscribe( res => {
           this.zone.run(() => {
+            if ( res.length === 0 ) {
+              this.endOfTime = true;
+            }
             this.loadingMore = false;
             this.posts.push(...res);
           });
@@ -39,7 +43,6 @@ export class TimelineComponent implements OnInit {
     this._timelineService.$feedDestroyer.subscribe( data => this.removeFeedItem(data) );
     this._eventService.merger$.subscribe( trigger => this.mergeBuffer() );
     this._timelineService.timelineUpdate.subscribe( update => {
-      console.log(update);
       this.postBuffer.unshift(...update);
       this._eventService.emitUnread(this.postBuffer.length);
     });
