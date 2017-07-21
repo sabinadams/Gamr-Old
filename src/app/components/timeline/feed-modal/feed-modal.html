@@ -1,3 +1,7 @@
+<!-- 
+    Comment form should always be available.
+    Reply form should only be available if you click to reply. When you do it'll pop up, upon submission it'll go away (or if you remove the text from it and unfocus)
+-->
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="dropdown action-dropdown main-dropdown" dropdown>
@@ -55,11 +59,11 @@
         <post-form (onSave)="saveComment($event)"></post-form>
         <div class="modal-body">
             <!--Comments-->
-            <div class="header-grid" *ngFor="let comment of post.comments">
+            <div class="header-grid border-grid" *ngFor="let comment of post.comments">
                 <div class="author-image">
                     <img class="author-profile-pic comment-pic" [src]="comment.user.profile_pic" alt="">
                 </div>
-                <div class="post-data">
+                <div class="post-data comment-box">
                     <div class="post-info">
                         {{comment.user.display_name}}
                         <small>{{comment.creation_date | amTimeAgo}}</small>

@@ -1,10 +1,11 @@
 @import '../../../../styles.scss';
 .header-grid {
-    padding: 10px 10px;
+    padding: 0 10px 0 10px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     .author-profile-pic {
+        margin-top: 10px;
         height: 50px;
         width: 50px;
         border-radius: 50%;
@@ -58,4 +59,14 @@
     .text-container {
         max-width: 500px;
     }
+}
+
+.border-grid {
+    // border-bottom: $thin-border-light;
+}
+
+.comment-box {
+    // border-left: $thin-border-light;
+    padding-left: 10px;
+    padding-bottom: 5px;
 }
