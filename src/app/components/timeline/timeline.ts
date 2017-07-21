@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, NgZone } from '@angular/core';
 import { TimelineService } from './shared/timeline-service';
 import { EventService } from '../../services/event-service';
 
@@ -13,13 +13,38 @@ import * as _ from 'lodash';
 export class TimelineComponent implements OnInit {
   posts: any;
   postBuffer: any = [];
-  constructor( private _timelineService: TimelineService, private _eventService: EventService ){}
+  loadingMore = false;
+  @HostListener('window:scroll', ['$event']) checkPosition(event) {
+    if ((window.innerHeight + window.scrollY) >= event.target.scrollingElement.scrollHeight) {
+        if ( this.loadingMore ) { return;  }
+        this.loadingMore = true;
+        this._timelineService.populateFeed(
+          this._timelineService.convertTimestamp(this.posts[this.posts.length - 1].timestamp), false
+        ).subscribe( res => {
+          this.zone.run(() => {
+            this.loadingMore = false;
+            this.posts.push(...res);
+          });
+        });
+    }
+  }
+
+  constructor( private _timelineService: TimelineService, private _eventService: EventService, private zone: NgZone ){}
 
   ngOnInit() {
-    this._timelineService.populateFeed('start', false).subscribe( res => this.posts = res );
+    this._timelineService.populateFeed('start', false).subscribe( res => {
+      this.posts = res ;
+      this._timelineService.pollProcess(this._timelineService.convertTimestamp(res[0].timestamp));
+    });
     this._timelineService.$feedDestroyer.subscribe( data => this.removeFeedItem(data) );
     this._eventService.merger$.subscribe( trigger => this.mergeBuffer() );
+    this._timelineService.timelineUpdate.subscribe( update => {
+      console.log(update);
+      this.postBuffer.unshift(...update);
+      this._eventService.emitUnread(this.postBuffer.length);
+    });
   }
+
 
   removeFeedItem(data) {
       let postIndex = null;
