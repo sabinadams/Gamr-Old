@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CheatCodesService {
 	// Variables
-	cheatCodes=	JSON.parse(localStorage.getItem("cheatCodes")) || [
+	cheatCodes=	[
 		["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"],
-		["[", "]", "ArrowDown", "l", "2", "ArrowUp", "l", "1", "o", "ArrowUp", "x", "ArrowLeft"]
+		["[", "]", "ArrowDown", "l", "2", "ArrowUp", "l", "1", "o", "ArrowUp", "x", "ArrowLeft"],
+		["ArrowUp", "b", "Escape"]
 	];
 	currCode=	JSON.parse(localStorage.getItem("currCode")) || [];
 	
@@ -36,7 +37,7 @@ export class CheatCodesService {
 		
 		if(!found)	this.currCode=	[];
 		localStorage.setItem("currCode", JSON.stringify(this.currCode));
-		localStorage.setItem("cheatCodes", JSON.stringify(this.cheatCodes));
+		//localStorage.setItem("cheatCodes", JSON.stringify(this.cheatCodes));
 	}
 	
 	arrayEquals(temp, curr)	{
@@ -91,7 +92,29 @@ export class CheatCodesService {
 				temp.appendChild(scripts[2]);
 				
 				document.body.appendChild(temp);
-				console.log("derp");
+			}break;
+			case 2:	{
+				// Variables
+				let	temp=	document.createElement("div");
+				let	cvs=	document.createElement("canvas");
+				let	scripts=	[
+					document.createElement("script"),
+					document.createElement("script"),
+					document.createElement("script")
+				];
+				temp.id=	"gx";
+				cvs.id=	"cvs";
+				scripts[0].src=	"assets/pkds/pkds.js";
+				scripts[1].src=	"assets/timer.min.js";
+				scripts[2].innerHTML=	"setTimeout(function(){pkds.run();}, 500);";
+				
+				temp.appendChild(cvs);
+				temp.appendChild(scripts[0]);
+				temp.appendChild(scripts[1]);
+				temp.appendChild(scripts[2]);
+				
+				document.body.appendChild(temp);
+				//localStorage.clear(); // TODO: Appropriate?
 			}break;
 		}
 	}
