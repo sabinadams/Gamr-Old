@@ -33,7 +33,11 @@ export class TimelineComponent implements OnInit {
     }
   }
 
-  constructor( private _timelineService: TimelineService, private _eventService: EventService, private zone: NgZone ){}
+  constructor(
+    private _timelineService: TimelineService,
+    private _eventService: EventService,
+    private zone: NgZone
+  ){}
 
   ngOnInit() {
     this._timelineService.populateFeed('start', false).subscribe( res => {

@@ -32,6 +32,7 @@ import { LightboxModule } from 'angular2-lightbox';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { BaseService } from './services/base-service';
+
 // NGX-Bootstrap Imports
 import { SortableModule } from 'ngx-bootstrap/sortable';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';

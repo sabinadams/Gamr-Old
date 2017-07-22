@@ -22,9 +22,9 @@ export class TimelineService extends BaseService {
     super();
   }
 
-    public convertTimestamp(timestamp){
-      const date = new Date(timestamp).toISOString();
-      return date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', '');
+  public convertTimestamp( timestamp ): string {
+    const date = new Date(timestamp).toISOString();
+    return date.substring(0, date.indexOf('.')).replace('T', ' ').replace('Z', '');
   }
 
   // Grabs posts, loads more posts, and handles post polling
@@ -46,7 +46,7 @@ export class TimelineService extends BaseService {
   }
 
   saveItem( text: string, attachments: Array<any>, post_ID?: number, comment_ID?: number ): Observable<any> {
-    let post = {text: text, attachments: attachments};
+    const post = {text: text, attachments: attachments};
     if ( post_ID ) { post['postID'] = post_ID; };
     if ( comment_ID ) { post['commentID'] = comment_ID; };
     return this._http.post(this.baseURL + `/feed/save/`, {data: post}).map( res => {
@@ -77,7 +77,7 @@ export class TimelineService extends BaseService {
 
   public pollProcess( timestamp ) {
     let timeIndex = timestamp;
-    setInterval(() => {
+    setInterval( () => {
       this.populateFeed( timeIndex, true).subscribe( res => {
         if (res.length){
           timeIndex = this.convertTimestamp(res[0].timestamp);
@@ -86,6 +86,4 @@ export class TimelineService extends BaseService {
       });
     }, 20000);
   }
-
-
 }
