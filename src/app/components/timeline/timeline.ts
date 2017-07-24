@@ -9,9 +9,10 @@ import * as _ from 'lodash';
   Loads it multiple times.
   Need to use Queue timestamp in that case.
   Probably just need to find a way to give the poller the updated timestamp
+
+  Replying doesn't populate a reply. Gives some undefined error
 */
 
-// Break post grabbing/polling into a function called by the initiators
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',
@@ -68,6 +69,7 @@ export class TimelineComponent implements OnInit {
           break;
         case 'comment':
           postIndex = _.findKey(this.posts, { 'ID': data.postID });
+          this.posts[postIndex].response_count--;
           this.posts[postIndex].comments = this.posts[postIndex].comments.filter(
             comment => { return comment.ID !== data.targetID; }
           );
@@ -75,6 +77,7 @@ export class TimelineComponent implements OnInit {
         case 'reply':
           postIndex = _.findKey(this.posts, { 'ID': data.postID });
           const post = this.posts[postIndex];
+          this.posts[postIndex].response_count--;
           const commentIndex = _.findKey(post.comments, {'ID': data.commentID});
           this.posts[postIndex].comments[commentIndex].replies = this.posts[postIndex].comments[commentIndex].replies.filter(
             reply => { return reply.ID !== data.targetID; }

@@ -10,9 +10,11 @@
     <div class="modal-content">
         <feed-item [post]="post" (deleteItem)="deleteItem($event, null, null, 'post')"></feed-item>
         <feed-item-actions [post]="post"></feed-item-actions>
+        <post-form (onSave)="saveComment($event)"></post-form>
         <div class="modal-body">
             <div class="header-grid" *ngFor="let comment of post.comments; let index =index; let isOdd=odd; let isEven=even" [ngClass]="{'even-comment': isEven, 'odd-comment': isOdd}">
                 <feed-item [post]="comment" (deleteItem)="deleteItem(post.ID, $event, null, 'comment')"></feed-item>
+                <post-form (onSave)="saveReply($event, comment.ID)"></post-form>
                 <div class="header-grid" *ngFor="let reply of comment.replies">
                     <feed-item [post]="reply" (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply')"></feed-item>
                 </div>
