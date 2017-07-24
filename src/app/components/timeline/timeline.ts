@@ -64,19 +64,15 @@ export class TimelineComponent implements OnInit {
       let postIndex = null;
       switch ( data.type ) {
         case 'post':
-          console.log("Deleting post")
           this.posts = this.posts.filter( post => { return post.ID !== data.targetID; });
           break;
         case 'comment':
-          console.log("Deleting comment")
           postIndex = _.findKey(this.posts, { 'ID': data.postID });
           this.posts[postIndex].comments = this.posts[postIndex].comments.filter(
-            comment => { return comment.ID !== data.targetID;}
+            comment => { return comment.ID !== data.targetID; }
           );
           break;
         case 'reply':
-          console.log(data)
-          console.log("Deleting reply")
           postIndex = _.findKey(this.posts, { 'ID': data.postID });
           const post = this.posts[postIndex];
           const commentIndex = _.findKey(post.comments, {'ID': data.commentID});
