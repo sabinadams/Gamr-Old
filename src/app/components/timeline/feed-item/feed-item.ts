@@ -11,6 +11,7 @@ import { TimelineService } from '../shared/timeline-service';
 export class FeedItemComponent implements OnInit {
     @Input() post: any;
     @Output() modalOpener = new EventEmitter();
+    @Output() deleteItem = new EventEmitter();
     regex: any;
     user = JSON.parse(localStorage.getItem('user'));
     constructor(
@@ -20,16 +21,8 @@ export class FeedItemComponent implements OnInit {
         this.regex = new RegExp(`${this.post.uuid}`, 'g');
     }
 
-    deleteItem(postID, commentID = null, replyID = null) {
-        console.log(this.post)
-    //    let type = 'post';
-    //    if ( commentID ) {
-    //         type = 'comment';
-    //         if ( replyID ) { type = 'reply'; }
-    //    }
-
-    //    console.log(type, postID, commentID, replyID)
-    //    this._timelineService.emitDestroyItem(type, postID, commentID || null, replyID || null);
+    sendDeleteCommand() {
+        this.deleteItem.emit(this.post.ID);
     }
 
     showModal() {

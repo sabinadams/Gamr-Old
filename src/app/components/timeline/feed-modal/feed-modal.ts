@@ -21,7 +21,7 @@ export class FeedModalComponent implements OnInit {
         this.regex = new RegExp(`${this.post.uuid}`, 'g');
     }
 
-    deleteItem(type, postID, commentID = null, replyID = null) {
+    deleteItem(postID, commentID, replyID, type) {
         this._timelineService.emitDestroyItem(type, postID, commentID, replyID);
     }
 

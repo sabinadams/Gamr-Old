@@ -75,6 +75,7 @@ export class TimelineComponent implements OnInit {
           );
           break;
         case 'reply':
+          console.log(data)
           console.log("Deleting reply")
           postIndex = _.findKey(this.posts, { 'ID': data.postID });
           const post = this.posts[postIndex];

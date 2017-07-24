@@ -8,13 +8,13 @@
 -->
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <feed-item [post]="post"></feed-item>
+        <feed-item [post]="post" (deleteItem)="deleteItem($event, null, null, 'post')"></feed-item>
         <feed-item-actions [post]="post"></feed-item-actions>
         <div class="modal-body">
             <div class="header-grid" *ngFor="let comment of post.comments; let index =index; let isOdd=odd; let isEven=even" [ngClass]="{'even-comment': isEven, 'odd-comment': isOdd}">
-                <feed-item [post]="comment"></feed-item>
+                <feed-item [post]="comment" (deleteItem)="deleteItem($event, post.ID, null, 'comment')"></feed-item>
                 <div class="header-grid" *ngFor="let reply of comment.replies">
-                    <feed-item [post]="reply"></feed-item>
+                    <feed-item [post]="reply" (deleteItem)="deleteItem($event, post.ID, comment.ID, 'reply')"></feed-item>
                 </div>
             </div>
         </div>

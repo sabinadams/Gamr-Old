@@ -4,7 +4,7 @@
     </a>
     <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
         <li role="menuitem"><a class="dropdown-item">Copy Link</a></li>
-        <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == post.user.ID" (click)="deleteItem(post.ID, post.comment_ID, post.reply_ID)">Delete</a></li>
+        <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == post.user.ID" (click)="sendDeleteCommand()">Delete</a></li>
         <li role="menuitem"><a class="dropdown-item">Share</a></li>
         <li class="divider dropdown-divider"></li>
         <li role="menuitem"><a class="dropdown-item">Report Post</a>
