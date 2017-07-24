@@ -1,9 +1,11 @@
 <!--Large modal-->
-
+<!--Would be in a container  -->
 <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <feed-modal [post]="post"></feed-modal>
 </div>
 
+<!--Maybe take all the post stuff out of this and break it to feed item. The rest can be in a container  -->
+<!--This whole .box div would be <feed-item></feed-item> The container would be <feed-item-container></feed-item-container> -->
 <div class="box">
     <div class="dropdown action-dropdown" dropdown>
         <a dropdownToggle class="dropdown-toggle">
@@ -40,6 +42,7 @@
         </div>
     </div>
 
+    <!--Would be in a container  -->
     <!--<hr class="full-blue">-->
     <div class="feed-item-actions" (click)="lgModal.show()">
         <div class="actions" [ngSwitch]="post.user_ID == user.ID">

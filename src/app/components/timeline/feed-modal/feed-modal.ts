@@ -17,6 +17,7 @@ export class FeedModalComponent implements OnInit {
     ){}
 
     ngOnInit(){
+        // Not working for comments/replies because they have their own UUIDs. Maybe need to break them out.
         this.regex = new RegExp(`${this.post.uuid}`, 'g');
     }
 

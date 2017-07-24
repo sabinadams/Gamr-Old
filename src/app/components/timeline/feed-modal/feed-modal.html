@@ -59,7 +59,9 @@
         <post-form (onSave)="saveComment($event)"></post-form>
         <div class="modal-body">
             <!--Comments-->
-            <div class="header-grid border-grid" *ngFor="let comment of post.comments">
+            <div class="header-grid border-grid" *ngFor="let comment of post.comments; let index =index;
+             let isOdd=odd;
+             let isEven=even" [ngClass]="{'even-comment': isEven, 'odd-comment': isOdd}">
                 <div class="author-image">
                     <img class="author-profile-pic comment-pic" [src]="comment.user.profile_pic" alt="">
                 </div>

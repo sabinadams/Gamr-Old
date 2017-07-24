@@ -1,6 +1,6 @@
 @import '../../../../styles.scss';
 .header-grid {
-    padding: 0 10px 0 10px;
+    padding: 5px 10px 5px 10px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -29,6 +29,14 @@
     margin-right: auto;
     right: 0;
     left: 0;
+}
+
+.even-comment {
+    background: $secondary-background;
+}
+
+.odd-comment {
+    background: $primary-background;
 }
 
 .modal-header {
@@ -69,4 +77,8 @@
     // border-left: $thin-border-light;
     padding-left: 10px;
     padding-bottom: 5px;
+}
+
+.modal-body {
+    padding: 10px 0;
 }

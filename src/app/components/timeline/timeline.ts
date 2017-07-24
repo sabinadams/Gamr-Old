@@ -4,6 +4,13 @@ import { EventService } from '../../services/event-service';
 
 import * as _ from 'lodash';
 
+/*
+  Polling kinda breaks when you post and don't reveal your post right away.
+  Loads it multiple times.
+  Need to use Queue timestamp in that case.
+  Probably just need to find a way to give the poller the updated timestamp
+*/
+
 // Break post grabbing/polling into a function called by the initiators
 @Component({
   selector: 'timeline',
