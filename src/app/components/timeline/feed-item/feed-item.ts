@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { TimelineService } from '../shared/timeline-service';
 // Break post grabbing/polling into a function called by the initiators
@@ -10,6 +10,7 @@ import { TimelineService } from '../shared/timeline-service';
 })
 export class FeedItemComponent implements OnInit {
     @Input() post: any;
+    @Output() modalOpener = new EventEmitter();
     regex: any;
     user = JSON.parse(localStorage.getItem('user'));
     constructor(
@@ -19,7 +20,19 @@ export class FeedItemComponent implements OnInit {
         this.regex = new RegExp(`${this.post.uuid}`, 'g');
     }
 
-    deleteItem(postID) {
-       this._timelineService.emitDestroyItem('post', postID, null, null);
+    deleteItem(postID, commentID = null, replyID = null) {
+        console.log(this.post)
+    //    let type = 'post';
+    //    if ( commentID ) {
+    //         type = 'comment';
+    //         if ( replyID ) { type = 'reply'; }
+    //    }
+
+    //    console.log(type, postID, commentID, replyID)
+    //    this._timelineService.emitDestroyItem(type, postID, commentID || null, replyID || null);
+    }
+
+    showModal() {
+        this.modalOpener.emit(true);
     }
 }

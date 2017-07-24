@@ -1,0 +1,21 @@
+<div class="feed-item-actions" (click)="lgModal.show()">
+    <div class="actions" [ngSwitch]="post.user_ID == user.ID">
+        <!-- Switch Cases -->
+        <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
+                <i class="fa fa-heart"></i><span class="action-text">{{post.likes.length}}</span> 
+            </button>
+        <button *ngSwitchCase="false" class="action-button" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
+                <i class="fa fa-heart" ></i><span class="action-text">{{post.likes.length}}</span> 
+            </button>
+        <!-- End Switch Cases  -->
+        <button class="action-button static-stat">
+                <i class="fa fa-comment"></i> <span class="action-text">{{post.response_count || 0}}</span><!-- Comments -->
+            </button>
+        <button class="action-button static-stat">
+                <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
+            </button>
+        <button class="action-button" style="float:right;">
+                <i class="glyphicon glyphicon-signal"></i> <span class="action-text">{{post.exp_count || 0}}</span>
+            </button>
+    </div>
+</div>

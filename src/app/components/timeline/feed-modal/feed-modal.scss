@@ -1,9 +1,13 @@
 @import '../../../../styles.scss';
-.header-grid {
-    padding: 5px 10px 5px 10px;
+.main-post {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+}
+
+.header-grid {
+    padding: 5px 10px 5px 10px;
+    width: 100%;
     .author-profile-pic {
         margin-top: 10px;
         height: 50px;
@@ -67,10 +71,6 @@
     .text-container {
         max-width: 500px;
     }
-}
-
-.border-grid {
-    // border-bottom: $thin-border-light;
 }
 
 .comment-box {

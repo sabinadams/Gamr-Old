@@ -11,7 +11,8 @@ import { FeedItemComponent } from './feed-item/feed-item';
 import { FeedModalComponent } from './feed-modal/feed-modal';
 import { PostFormComponent } from './post-form/post-form';
 import { UnreadAlertComponent } from './shared/unread-alert-component';
-
+import { FeedItemContainerComponent } from './feed-item-container/feed-item-container';
+import { FeedItemActionsComponent } from './feed-item-actions/feed-item-actions';
 // Module Imports
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -23,7 +24,10 @@ import { MomentModule } from 'angular2-moment';
 import { BaseService } from '../../services/base-service';
 
 @NgModule({
-  declarations: [ TimelineComponent, FeedItemComponent, FeedModalComponent, PostFormComponent, UnreadAlertComponent ],
+  declarations: [
+    TimelineComponent, FeedItemComponent, FeedModalComponent, PostFormComponent,
+    UnreadAlertComponent, FeedItemContainerComponent, FeedItemActionsComponent
+  ],
   imports: [ BrowserModule, FormsModule, HttpModule, MomentModule, BsDropdownModule.forRoot(), ModalModule.forRoot(), RouterModule ],
   providers: [ HttpClient, TimelineService, BaseService ],
   exports: [ TimelineComponent ],
