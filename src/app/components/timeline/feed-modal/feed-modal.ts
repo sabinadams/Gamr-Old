@@ -16,10 +16,7 @@ export class FeedModalComponent implements OnInit {
         private _timelineService: TimelineService
     ){}
 
-    ngOnInit(){
-        // Not working for comments/replies because they have their own UUIDs. Maybe need to break them out.
-        this.regex = new RegExp(`${this.post.uuid}`, 'g');
-    }
+    ngOnInit(){}
 
     deleteItem(postID, commentID, replyID, type) {
         this._timelineService.emitDestroyItem(type, postID, commentID, replyID);

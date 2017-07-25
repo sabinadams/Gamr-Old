@@ -1,12 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { TimelineService } from '../shared/timeline-service';
 // Break post grabbing/polling into a function called by the initiators
 @Component({
   selector: 'feed-item-actions',
   templateUrl: './feed-item-actions.html',
-  styleUrls: ['./feed-item-actions.scss'],
-  providers: [{provide: BsDropdownConfig, useValue: {autoClose: false}}]
+  styleUrls: ['./feed-item-actions.scss']
 })
 export class FeedItemActionsComponent implements OnInit {
     @Input() post: any;
