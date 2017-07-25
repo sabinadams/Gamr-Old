@@ -9,8 +9,6 @@ import * as _ from 'lodash';
   Loads it multiple times.
   Need to use Queue timestamp in that case.
   Probably just need to find a way to give the poller the updated timestamp
-
-  Replying doesn't populate a reply. Gives some undefined error
 */
 
 @Component({

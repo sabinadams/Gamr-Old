@@ -15,20 +15,18 @@
     <div class="feed-item-header">
         <div class="header-grid">
             <div class="author-image">
-                <img class="author-profile-pic" [src]="post.user.profile_pic" alt="">
+                <img class="author-profile-pic" [ngClass]="{'primary-pic': type == 'primary', 'sub-pic': type == 'sub'}" [src]="post.user.profile_pic" alt="">
             </div>
             <div class="post-data">
                 {{post.user.display_name}}
                 <small>{{post.creation_date | amTimeAgo}}</small>
-            </div>
-        </div>
-    </div>
-    <div class="feed-item-body">
-        <p class="text-container ">
-            <span *ngFor="let chunk of post.text " class="text-element" [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
+                <p class="text-container">
+                    <span *ngFor="let chunk of post.text " class="text-element" [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
                     <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
                     <span *ngSwitchCase="false ">{{chunk}}</span>
-            </span>
-        </p>
+                    </span>
+                </p>
+            </div>
+        </div>
     </div>
 </div>

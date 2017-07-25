@@ -35,11 +35,11 @@ body {
     font-size: 14px;
 }
 
-#gx	{
-	position:	absolute;
-	top:	16px;
-	left:	16px;
-	z-index:	314159;
+#gx {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 314159;
 }
 
 .no-padding {
@@ -62,6 +62,7 @@ body {
 // Temp scrollbar solution (Change to individual elements eventually)
 ::-webkit-scrollbar {
     display: none;
+    padding-left: 2000px;
 }
 
 //********************** Buttons ************************//

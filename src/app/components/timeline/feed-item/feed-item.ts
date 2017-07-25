@@ -8,6 +8,7 @@ import { TimelineService } from '../shared/timeline-service';
 })
 export class FeedItemComponent implements OnInit {
     @Input() post: any;
+    @Input() type: any;
     @Output() modalOpener = new EventEmitter();
     @Output() deleteItem = new EventEmitter();
     regex: any;

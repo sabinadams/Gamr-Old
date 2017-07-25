@@ -5,14 +5,14 @@ import { Component, Input } from '@angular/core';
   styles: [`
   	.round-progress {
   	    background-size: cover !important;
-  	    border-radius:50% !important;
+		border-radius:50% !important;
 		margin:auto auto 10px auto;
   	 }
   `],
   template: `
 	<round-progress 
 		class="round-progress"
-	    [ngStyle]="{background: 'url(' + user.profile_pic + ')'}"
+	    [ngStyle]="{background: 'url(' + user.profile_pic + ') center center no-repeat'}"
 	    [current]="user.exp_count" 
 	    [max]="user.exp_count | calcExp: 'next' "
 	    [color]="'#956bb9'" 
