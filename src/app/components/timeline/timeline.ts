@@ -4,13 +4,6 @@ import { EventService } from '../../services/event-service';
 
 import * as _ from 'lodash';
 
-/*
-  Polling kinda breaks when you post and don't reveal your post right away.
-  Loads it multiple times.
-  Need to use Queue timestamp in that case.
-  Probably just need to find a way to give the poller the updated timestamp
-*/
-
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',
@@ -22,7 +15,7 @@ export class TimelineComponent implements OnInit {
   loadingMore = false;
   endOfTime = false;
   @HostListener('window:scroll', ['$event']) checkPosition(event) {
-    if ((window.innerHeight + window.scrollY) >= event.target.scrollingElement.scrollHeight) {
+    if ((window.innerHeight + window.scrollY) >= event.target.scrollingElement.scrollHeight - 100) {
         if ( this.loadingMore || this.endOfTime ) { return;  }
         this.loadingMore = true;
         this._timelineService.populateFeed(
@@ -48,12 +41,14 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
     this._timelineService.populateFeed('start', false).subscribe( res => {
       this.posts = res ;
-      this._timelineService.pollProcess(this._timelineService.convertTimestamp(res[0].timestamp));
+      this._timelineService.updatePollTimestamp(res[0].timestamp);
+      this._timelineService.pollProcess();
     });
     this._timelineService.$feedDestroyer.subscribe( data => this.removeFeedItem(data) );
     this._eventService.merger$.subscribe( trigger => this.mergeBuffer() );
     this._timelineService.timelineUpdate.subscribe( update => {
       this.postBuffer.unshift(...update);
+      this._timelineService.updatePollTimestamp( this.postBuffer[0].timestamp );
       this._eventService.emitUnread(this.postBuffer.length);
     });
   }
@@ -89,6 +84,7 @@ export class TimelineComponent implements OnInit {
       if ( res.status === 200 ) {
         this.postBuffer.unshift(res.post);
         this._eventService.emitUnread(this.postBuffer.length);
+        this._timelineService.updatePollTimestamp( this.postBuffer[0].timestamp );
       }
     });
   }

@@ -28,7 +28,10 @@ import { BaseService } from '../../services/base-service';
     TimelineComponent, FeedItemComponent, FeedModalComponent, PostFormComponent,
     UnreadAlertComponent, FeedItemContainerComponent, FeedItemActionsComponent
   ],
-  imports: [ BrowserModule, FormsModule, HttpModule, MomentModule, BsDropdownModule.forRoot(), ModalModule.forRoot(), RouterModule ],
+  imports: [ 
+    BrowserModule, FormsModule, HttpModule, MomentModule,
+    BsDropdownModule.forRoot(), ModalModule.forRoot(), RouterModule
+  ],
   providers: [ HttpClient, TimelineService, BaseService ],
   exports: [ TimelineComponent ],
   bootstrap: [TimelineComponent]

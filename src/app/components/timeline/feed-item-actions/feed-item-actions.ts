@@ -11,4 +11,10 @@ export class FeedItemActionsComponent implements OnInit {
     user = JSON.parse(localStorage.getItem('user'));
     constructor( private _timelineService: TimelineService ){}
     ngOnInit() {}
+
+    likePost() {
+      this._timelineService.likeFeedItem( this.post.ID ).subscribe( res => {
+        // If it worked, update the "liked" status of the post on the timeline.ts file
+      });
+    }
 }
