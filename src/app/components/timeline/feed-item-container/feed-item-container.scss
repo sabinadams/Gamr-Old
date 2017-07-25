@@ -19,17 +19,11 @@
     padding: 10px 10px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     .author-profile-pic {
-        border-radius: 50%;
-    }
-    .primary-pic {
         height: 50px;
         width: 50px;
-    }
-    .sub-pic {
-        height: 40px;
-        width: 40px;
+        border-radius: 50%;
     }
     .post-data {
         margin-top: 2px;
@@ -43,14 +37,15 @@
     margin: 10px;
 }
 
+.feed-item-body {
+    padding: 0 10px 5px 10px;
+    margin-top: 15px;
+}
+
 .action-button {
     border: 0 !important;
 }
 
 .feed-item-actions {
     padding: 5px 10px;
-}
-
-.text-container {
-    margin-top: 10px;
 }

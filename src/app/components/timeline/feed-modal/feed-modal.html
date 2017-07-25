@@ -1,130 +1,22 @@
-<!-- 
-    Comment form should always be available.
-    Reply form should only be available if you click to reply. When you do it'll pop up, upon submission it'll go away (or if you remove the text from it and unfocus)
+<!--
+    Maybe make feed-item-actions be able to optionally show actions based on input
+    That way we can only show the like option for comments and replies
 -->
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <div class="dropdown action-dropdown main-dropdown" dropdown>
-            <a dropdownToggle class="dropdown-toggle">
-                <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
-            </a>
-            <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
-                <li role="menuitem"><a class="dropdown-item">Copy Link</a></li>
-                <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == post.user.ID" (click)="deleteItem('post', post.ID)">Delete</a></li>
-                <li role="menuitem"><a class="dropdown-item">Share</a></li>
-                <li class="divider dropdown-divider"></li>
-                <li role="menuitem"><a class="dropdown-item">Report Post</a>
-                </li>
-            </ul>
-        </div>
-        <div class="modal-header">
-            <div class="header-grid">
-                <div class="author-image">
-                    <img class="author-profile-pic" [src]="post.user.profile_pic" alt="">
-                </div>
-                <div class="post-data">
-                    {{post.user.display_name}}
-                    <small>{{post.creation_date | amTimeAgo}}</small>
-                </div>
-            </div>
-            <p class="text-container ">
-                <span *ngFor="let chunk of post.text " class="text-element" [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
-                    <p *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</p>
-                    <span *ngSwitchCase="false ">{{chunk}}</span>
-                </span>
-            </p>
-
-            <div class="feed-item-actions">
-                <div class="actions" [ngSwitch]="post.user_ID == user.ID">
-                    <!-- Switch Cases -->
-                    <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
-                        <i class="fa fa-heart"></i><span class="action-text">{{post.likes.length}}</span> 
-                    </button>
-                    <button *ngSwitchCase="false" class="action-button" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
-                        <i class="fa fa-heart" ></i><span class="action-text">{{post.likes.length}}</span> 
-                    </button>
-                    <!-- End Switch Cases  -->
-                    <button class="action-button static-stat">
-                        <i class="fa fa-comment"></i> <span class="action-text">{{post.response_count || 0}}</span><!-- Comments -->
-                    </button>
-                    <button class="action-button static-stat">
-                        <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
-                    </button>
-                    <button class="action-button" style="float:right;">
-                        <i class="glyphicon glyphicon-signal"></i> <span class="action-text">{{post.exp_count || 0}}</span>
-                    </button>
-                </div>
-            </div>
-        </div>
+        <feed-item type="primary" [post]="post" (deleteItem)="deleteItem($event, null, null, 'post')"></feed-item>
+        <feed-item-actions [post]="post"></feed-item-actions>
         <post-form (onSave)="saveComment($event)"></post-form>
         <div class="modal-body">
-            <!--Comments-->
-            <div class="header-grid border-grid" *ngFor="let comment of post.comments; let index =index;
-             let isOdd=odd;
-             let isEven=even" [ngClass]="{'even-comment': isEven, 'odd-comment': isOdd}">
-                <div class="author-image">
-                    <img class="author-profile-pic comment-pic" [src]="comment.user.profile_pic" alt="">
-                </div>
-                <div class="post-data comment-box">
-                    <div class="post-info">
-                        {{comment.user.display_name}}
-                        <small>{{comment.creation_date | amTimeAgo}}</small>
-                        <div class="dropdown action-dropdown" dropdown>
-                            <a dropdownToggle class="dropdown-toggle">
-                                <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
-                            </a>
-                            <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
-                                <li role="menuitem"><a class="dropdown-item">Copy Link</a></li>
-                                <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == comment.user.ID" (click)="deleteItem('comment', post.ID, comment.ID)">Delete</a></li>
-                                <li role="menuitem"><a class="dropdown-item">Share</a></li>
-                                <li class="divider dropdown-divider"></li>
-                                <li role="menuitem"><a class="dropdown-item">Report Post</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="text-container">
-                        <span *ngFor="let chunk of comment?.text " class="text-element" [ngSwitch]="chunk.indexOf(comment.uuid)==0 ">
-                        <p *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</p>
-                        <span *ngSwitchCase="false ">{{chunk}}</span>
-                        </span>
-                    </p>
-                    <post-form (onSave)="saveReply($event, comment.ID)"></post-form>
-                    <!--Replies-->
-                    <div class="header-grid" *ngFor="let reply of comment.replies">
-                        <div class="author-image">
-                            <img class="author-profile-pic comment-pic" [src]="reply.user.profile_pic" alt="">
-                        </div>
-                        <div class="post-data">
-                            <div class="post-info">
-                                {{reply.user.display_name}}
-                                <small>{{reply.creation_date | amTimeAgo}}</small>
-                                <div class="dropdown action-dropdown" dropdown>
-                                    <a dropdownToggle class="dropdown-toggle">
-                                        <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
-                                    </a>
-                                    <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
-                                        <li role="menuitem"><a class="dropdown-item">Copy Link</a></li>
-                                        <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == reply.user.ID" (click)="deleteItem('reply', post.ID, comment.ID, reply.ID)">Delete</a></li>
-                                        <li role="menuitem"><a class="dropdown-item">Share</a></li>
-                                        <li class="divider dropdown-divider"></li>
-                                        <li role="menuitem"><a class="dropdown-item">Report Post</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="text-container">
-                                <span *ngFor="let chunk of reply?.text " class="text-element" [ngSwitch]="chunk.indexOf(comment.uuid)==0 ">
-                                    <p *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</p>
-                                    <span *ngSwitchCase="false ">{{chunk}}</span>
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                    <!--End Repleies-->
+            <div class="header-grid comments-block" *ngFor="let comment of post.comments; let index =index; let isOdd=odd; let isEven=even" [ngClass]="{'even-comment': isEven, 'odd-comment': isOdd}">
+                <feed-item type="sub" [post]="comment" (deleteItem)="deleteItem(post.ID, $event, null, 'comment')"></feed-item>
+                <feed-item-actions [post]="comment"></feed-item-actions>
+                <post-form (onSave)="saveReply($event, comment.ID)"></post-form>
+                <div class="header-grid comments-block" *ngFor="let reply of comment.replies">
+                    <feed-item type="sub" [post]="reply" (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply')"></feed-item>
+                    <feed-item-actions [post]="reply"></feed-item-actions>
                 </div>
             </div>
-            <!--End Comments-->
         </div>
     </div>
 </div>

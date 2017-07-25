@@ -16,12 +16,9 @@ export class FeedModalComponent implements OnInit {
         private _timelineService: TimelineService
     ){}
 
-    ngOnInit(){
-        // Not working for comments/replies because they have their own UUIDs. Maybe need to break them out.
-        this.regex = new RegExp(`${this.post.uuid}`, 'g');
-    }
+    ngOnInit(){}
 
-    deleteItem(type, postID, commentID = null, replyID = null) {
+    deleteItem(postID, commentID, replyID, type) {
         this._timelineService.emitDestroyItem(type, postID, commentID, replyID);
     }
 
@@ -37,9 +34,10 @@ export class FeedModalComponent implements OnInit {
     saveReply( event, commentID ) {
         this._timelineService.saveItem(event.text, event.attachments, this.post.ID, commentID).subscribe( res => {
           if ( res.status === 200 ) {
-            // Find a way to automatically update the record on the timeline page
             const commentIndex = _.findKey(this.post.comments, { 'ID': commentID });
-            this.post.comments[commentIndex].replies.unshift(res.post);
+            this.post.comments[commentIndex].replies
+            ? this.post.comments[commentIndex].replies.unshift(res.post)
+            : this.post.comments[commentIndex]['replies'] = [res.post];
           }
         });
     }

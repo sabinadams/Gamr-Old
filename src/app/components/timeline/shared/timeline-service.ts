@@ -16,7 +16,7 @@ export class TimelineService extends BaseService {
   // Creates an observable stream used for passing along commands to add feed items from the page/db
   // private creatorEvent = new Subject<any>();
   // $feedCreator = this.creatorEvent.asObservable();
-
+  private pollTimestamp;
   // super() allows us to use BaseService's instance variables
   constructor( private _http: HttpClient ) {
     super();
@@ -56,6 +56,13 @@ export class TimelineService extends BaseService {
     });
   }
 
+  likeFeedItem( itemID ) {
+    return this._http.post(this.baseURL + `/feed/like/`, {itemID: itemID}).map((res: Response) => {
+      return res.json();
+    }).catch( err => {
+      return Observable.throw(err || 'Server Error');
+    });
+  }
   // Handles the destroy item command and passes along what needs to be removed from the page to the timeline component
   emitDestroyItem(type: string, postID: number, commentID: number, replyID: number): void {
     const targets = {postID: postID, commentID: commentID, replyID: replyID};
@@ -75,15 +82,18 @@ export class TimelineService extends BaseService {
     });
   }
 
-  public pollProcess( timestamp ) {
-    let timeIndex = timestamp;
+  public pollProcess() {
     setInterval( () => {
-      this.populateFeed( timeIndex, true).subscribe( res => {
+      this.populateFeed( this.pollTimestamp, true).subscribe( res => {
         if (res.length){
-          timeIndex = this.convertTimestamp(res[0].timestamp);
-          this.timelineUpdate.next(res);
+          this.pollTimestamp = this.convertTimestamp(res[0].timestamp);
+          this.timelineUpdate.next({type: 'many', data: res});
         }
       });
     }, 20000);
+  }
+
+  updatePollTimestamp( timestamp: string ): void {
+    this.pollTimestamp = this.convertTimestamp(timestamp);
   }
 }
