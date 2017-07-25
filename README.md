@@ -42,9 +42,9 @@ These are the requirements to the base-level product. This means it is what is r
   * Posting 🚧
   * Commenting 🚧
   * Replying 🚧
-  * Liking Posts 🚧
-  * Liking Comments 🚧
-  * Liking Replies 🚧
+  * Liking Posts ✅
+  * Liking Comments ✅
+  * Liking Replies ✅
   * Comments 🚧
   * Replies 🚧
   * Sharing Posts
