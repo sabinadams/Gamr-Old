@@ -1,10 +1,10 @@
 <div class="feed-item-actions">
-    <div class="actions" [ngSwitch]="post.user.ID == user.ID">
+    <div class="actions" [ngSwitch]="post.user.ID == user.ID" style="padding:10px;">
         <!-- Switch Cases -->
-        <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
+        <button style="cursor: default;" *ngSwitchCase="true" class="static-stat action-button" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">   
             <i class="fa fa-heart"></i><span class="action-text">{{post.likes.length}}</span> 
         </button>
-        <button *ngSwitchCase="false" (click)="likePost()" class="action-button" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
+        <button *ngSwitchCase="false" (click)="likePost()" class="" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">
             <i class="fa fa-heart" ></i><span class="action-text">{{post.likes.length}}</span> 
         </button>
         <!-- End Switch Cases  -->
@@ -14,7 +14,7 @@
         <button class="action-button static-stat">
             <i class="fa fa-mail-reply"></i> <span class="action-text">0</span><!-- Shares -->
         </button>
-        <button class="action-button">
+        <button class="action-button" style="float:right;">
             <i class="glyphicon glyphicon-signal"></i> <span class="action-text">{{post.exp_count || 0}}</span>
         </button>
     </div>
