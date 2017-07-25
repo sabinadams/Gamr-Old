@@ -47,9 +47,13 @@ export class TimelineComponent implements OnInit {
     this._timelineService.$feedDestroyer.subscribe( data => this.removeFeedItem(data) );
     this._eventService.merger$.subscribe( trigger => this.mergeBuffer() );
     this._timelineService.timelineUpdate.subscribe( update => {
-      this.postBuffer.unshift(...update);
-      this._timelineService.updatePollTimestamp( this.postBuffer[0].timestamp );
-      this._eventService.emitUnread(this.postBuffer.length);
+      if ( update.type === 'many' ) {
+        this.postBuffer.unshift(...update.data);
+        this._timelineService.updatePollTimestamp( this.postBuffer[0].timestamp );
+        this._eventService.emitUnread(this.postBuffer.length);
+      } else if ( update.type === 'single' ) {
+        this.posts[_.findKey(this.posts, { 'ID': update.data.ID})] = update.data;
+      }
     });
   }
 

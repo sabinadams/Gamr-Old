@@ -87,7 +87,7 @@ export class TimelineService extends BaseService {
       this.populateFeed( this.pollTimestamp, true).subscribe( res => {
         if (res.length){
           this.pollTimestamp = this.convertTimestamp(res[0].timestamp);
-          this.timelineUpdate.next(res);
+          this.timelineUpdate.next({type: 'many', data: res});
         }
       });
     }, 20000);

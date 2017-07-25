@@ -1,4 +1,4 @@
-<div class="feed-item-actions" (click)="lgModal.show()">
+<div class="feed-item-actions">
     <div class="actions" [ngSwitch]="post.user.ID == user.ID">
         <!-- Switch Cases -->
         <button *ngSwitchCase="true" class="static-stat" [ngStyle]="{'background-color':post.liked ? '#985E6D' : '' }">

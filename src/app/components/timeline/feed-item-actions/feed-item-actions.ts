@@ -14,7 +14,17 @@ export class FeedItemActionsComponent implements OnInit {
 
     likePost() {
       this._timelineService.likeFeedItem( this.post.ID ).subscribe( res => {
-        // If it worked, update the "liked" status of the post on the timeline.ts file
+        if ( res.status === 200 ) {
+          this.post.liked = !this.post.liked;
+          if ( !this.post.liked ) {
+            this.post.likes = this.post.likes.filter(like => {
+              return like !== this.user.ID;
+            });
+          } else {
+            this.post.likes.push( this.user.ID );
+          }
+        }
+        this._timelineService.timelineUpdate.next( {type: 'single', data: this.post} );
       });
     }
 }
