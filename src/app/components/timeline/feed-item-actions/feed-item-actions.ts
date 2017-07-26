@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TimelineService } from '../shared/timeline-service';
 // Break post grabbing/polling into a function called by the initiators
 @Component({
@@ -8,6 +8,7 @@ import { TimelineService } from '../shared/timeline-service';
 })
 export class FeedItemActionsComponent implements OnInit {
     @Input() post: any;
+    @Output() startCommenting = new EventEmitter();
     user = JSON.parse(localStorage.getItem('user'));
     constructor( private _timelineService: TimelineService ){}
     ngOnInit() {}
@@ -26,5 +27,10 @@ export class FeedItemActionsComponent implements OnInit {
         }
         this._timelineService.timelineUpdate.next( {type: 'single', data: this.post} );
       });
+    }
+
+    openInput() {
+      console.log('Sending command from actions to item')
+      this.startCommenting.emit(true);
     }
 }

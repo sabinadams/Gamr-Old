@@ -11,7 +11,6 @@ export class FeedModalComponent implements OnInit {
     @Input() post: any;
     regex: any;
     user = JSON.parse(localStorage.getItem('user'));
-
     constructor(
         private _timelineService: TimelineService
     ){}
@@ -41,4 +40,5 @@ export class FeedModalComponent implements OnInit {
           }
         });
     }
+
 }

@@ -26,6 +26,7 @@
                     <span *ngSwitchCase="false ">{{chunk}}</span>
                     </span>
                 </p>
+                <feed-item-actions (startCommenting)="sendShowInput()" [post]="post"></feed-item-actions>
             </div>
         </div>
     </div>

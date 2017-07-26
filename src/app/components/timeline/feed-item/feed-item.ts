@@ -11,6 +11,7 @@ export class FeedItemComponent implements OnInit {
     @Input() type: any;
     @Output() modalOpener = new EventEmitter();
     @Output() deleteItem = new EventEmitter();
+    @Output() showInput = new EventEmitter();
     regex: any;
     user = JSON.parse(localStorage.getItem('user'));
     constructor(
@@ -26,5 +27,10 @@ export class FeedItemComponent implements OnInit {
 
     showModal() {
         this.modalOpener.emit(true);
+    }
+
+    sendShowInput(){
+        console.log('sending command from item to page')
+        this.showInput.emit(true);
     }
 }

@@ -5,17 +5,14 @@ import { EventService } from '../../services/event-service';
 import * as _ from 'lodash';
 
 /*
-
-  Still need to fix inputs so they look nice and can be changed based on whether it's for the 
-  timeline, or for the modals
-
-  Hide/Show input and stuff based on whether comments/replies are showing
+  Auto populate @mention when opening reply input
+  Kill modal when closed so the inputs will refresh and loading will refresh
+  HR on odd posts in modal aren't visible because they're the same color as background
   Load more comments/replies
   Post Images
   Open/View images
-
-
 */
+
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',

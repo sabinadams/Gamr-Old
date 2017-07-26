@@ -8,6 +8,7 @@ import { AuthService } from '../../../services/auth-service';
 })
 export class PostFormComponent {
     @Output() onSave = new EventEmitter();
+    @Output() closeMe = new EventEmitter();
     @Input() post: any = { text: '', attachments: [] };
     @Output() dataSync = new EventEmitter();
     user = JSON.parse(localStorage.getItem('user'));
@@ -24,5 +25,12 @@ export class PostFormComponent {
     save() {
         this.onSave.emit(this.post);
         this.post = { text: '', attachments: [] };
+    }
+    close() {
+        this.closeMe.emit(false);
+    }
+
+    populateForm( text ) {
+        this.post.text = text;
     }
 }
