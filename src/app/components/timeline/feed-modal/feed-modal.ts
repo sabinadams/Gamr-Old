@@ -11,9 +11,7 @@ export class FeedModalComponent implements OnInit {
     @Input() post: any;
     regex: any;
     user = JSON.parse(localStorage.getItem('user'));
-    constructor(
-        private _timelineService: TimelineService
-    ){}
+    constructor( private _timelineService: TimelineService ){}
 
     ngOnInit(){}
 
@@ -23,10 +21,7 @@ export class FeedModalComponent implements OnInit {
 
     saveComment( event ) {
         this._timelineService.saveItem(event.text, event.attachments, this.post.ID).subscribe( res => {
-          if ( res.status === 200 ) {
-            // Find a way to automatically update the record on the timeline page
-            this.post.comments.unshift(res.post);
-          }
+          if ( res.status === 200 ) { this.post.comments.unshift(res.post); }
         });
     }
 

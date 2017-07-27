@@ -103,6 +103,11 @@ export class TimelineComponent implements OnInit {
   }
 
   mergeBuffer() {
+    for ( const newPost of this.postBuffer ) {
+        _.remove(this.posts, {
+            ID: newPost.ID
+        });
+    }
     this.posts.unshift(...this.postBuffer);
     this.postBuffer = [];
     this._eventService.emitUnread(0);
