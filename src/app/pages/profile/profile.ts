@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit{
     this._route.params.subscribe(params => {
       this._userService.getUserDetails( params['tag'] || JSON.parse(localStorage.getItem('user')).tag ).subscribe( res => {
         this.user = res;
+        console.log(this.user);
       });
     });
   }
