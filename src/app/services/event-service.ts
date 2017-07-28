@@ -13,8 +13,17 @@ export class EventService {
     private mergeUnread = new Subject<any>();
     merger$ = this.mergeUnread.asObservable();
 
+    private postCount = new Subject<any>();
+    postCountStream$ = this.postCount.asObservable();
     // Service message commands
     emitUnread(change: any) { this.unread.next(change); }
 
     emitUnreadMerger(message: any) { this.mergeUnread.next(message); }
+
+    emitPostCount( count: number ) {
+        const localUser = JSON.parse(localStorage.getItem('user'));
+        localUser.post_count = count;
+        localStorage.setItem('user', JSON.stringify(localUser));
+        this.postCount.next( count );
+    }
 }

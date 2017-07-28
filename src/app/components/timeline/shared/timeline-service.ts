@@ -4,6 +4,8 @@ import { HttpClient } from '../../../services/http-interceptor-service';
 import { BaseService } from '../../../services/base-service';
 import { Observable } from 'rxjs/Rx';
 import { Subject } from 'rxjs/Subject';
+import { EventService } from '../../../services/event-service';
+
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -18,7 +20,7 @@ export class TimelineService extends BaseService {
   // $feedCreator = this.creatorEvent.asObservable();
   private pollTimestamp;
   // super() allows us to use BaseService's instance variables
-  constructor( private _http: HttpClient ) {
+  constructor( private _http: HttpClient, private _eventService: EventService ) {
     super();
   }
 
@@ -39,6 +41,7 @@ export class TimelineService extends BaseService {
   // Deletes feed item from the db
   deleteFeedItem( itemID: number ): Observable<any> {
     return this._http.post(this.baseURL + `/feed/delete/`, {ID: itemID}).map((res: Response) => {
+      if ( res.json().status === 200 ) { this._eventService.emitPostCount( res.json().post_count ); }
       return res.json();
     }).catch( err => {
       return Observable.throw(err || 'Server Error');
@@ -50,6 +53,7 @@ export class TimelineService extends BaseService {
     if ( post_ID ) { post['postID'] = post_ID; };
     if ( comment_ID ) { post['commentID'] = comment_ID; };
     return this._http.post(this.baseURL + `/feed/save/`, {data: post}).map( res => {
+      if ( res.json().status === 200 ) { this._eventService.emitPostCount( res.json().post_count ); }
       return res.json();
     }).catch( err => {
       return Observable.throw(err || 'Server Error');
