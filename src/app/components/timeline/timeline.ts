@@ -4,13 +4,35 @@ import { EventService } from '../../services/event-service';
 
 import * as _ from 'lodash';
 
-/*
-  Auto populate @mention when opening reply input
-  Kill modal when closed so the inputs will refresh and loading will refresh
-  HR on odd posts in modal aren't visible because they're the same color as background
-  Load more comments/replies
-  Post Images
-  Open/View images
+/* Timeline Stuff
+
+  1. )  Auto populate @mention when opening reply input                                       *****
+  2. )  Kill modal when closed so the inputs will refresh and loading will refresh            *****
+  3. )  HR on odd posts in modal aren't visible because they're the same color as background  *
+  4. )  Load more comments/replies                                                            ***
+         - When a post modal is open, add a flag to a universal polling event that tells it   ****
+           to grab updates for that post
+  5. )  Post Images                                                                           ***
+  6. )  Open/View images                                                                      ***
+  7. )  Maybe make deleting posts turn all comments into posts with a "was_comment" tag       **
+         - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag       **
+          - This would be one to keep better track of actual post counts
+  8. )  Sharing Posts/Comments/Replies                                                        *****
+  9. )  Posting Links                                                                         ****
+  10.)  Auto-color @inputs as you type                                                        *****
+         - Should include dropdown of potential mentions                                      *****
+  11.)  #tags                                                                                 *****
+         - The same functionality as 11, but for the tags
+  12.)  Posting videos/viewing videos                                                         *****
+*/
+
+
+
+
+/* Other Stuff
+
+  1.)  Universal Polling that handles different things (notifications, indiv. post updates,
+       timeline updates, etc...)
 */
 
 @Component({
@@ -103,11 +125,11 @@ export class TimelineComponent implements OnInit {
   }
 
   mergeBuffer() {
-    for ( const newPost of this.postBuffer.reverse() ) { 
-      _.remove(this.posts, { ID: newPost.ID}); 
+    for ( const newPost of this.postBuffer.reverse() ) {
+      _.remove(this.posts, { ID: newPost.ID});
       this.posts.unshift(newPost);
     }
     this.postBuffer = [];
-    this._eventService.emitUnread(0);
+    this._eventService.emitUnread( 0 );
   }
 }
