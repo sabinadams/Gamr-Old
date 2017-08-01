@@ -21,7 +21,7 @@
                 {{post.user.display_name}}
                 <small>{{post.creation_date | amTimeAgo}}</small>
                 <p class="text-container">
-                    <span *ngFor="let chunk of post.text " class="text-element" [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
+                    <span *ngFor="let chunk of post.text" class="text-element" [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
                     <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
                     <span *ngSwitchCase="false ">{{chunk}}</span>
                     </span>

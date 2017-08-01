@@ -2,20 +2,34 @@
     Maybe make feed-item-actions be able to optionally show actions based on input
     That way we can only show the like option for comments and replies
 -->
+
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <feed-item type="primary" [post]="post" (deleteItem)="deleteItem($event, null, null, 'post')"></feed-item>
-        <post-form (onSave)="saveComment($event)"></post-form>
-        <div class="modal-body">
-            <div class="header-grid comments-block" *ngFor="let comment of post.comments; let index =index; let isOdd=odd; let isEven=even" [ngClass]="{'even-comment': isEven, 'odd-comment': isOdd}">
-                <feed-item (showInput)="comment['commenting']=$event;" type="sub" [post]="comment" (deleteItem)="deleteItem(post.ID, $event, null, 'comment')"></feed-item>
-                <post-form *ngIf="comment.commenting" type="small" (closeMe)="comment.commenting = $event" (onSave)="saveReply($event, comment.ID); comment.commenting = false;"></post-form>
-                <hr class="full-blue">
-                <div class="header-grid comments-block replies-block" *ngFor="let reply of comment.replies">
-                    <feed-item type="sub" [post]="reply" (showInput)="comment['commenting']=$event;" (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply')"></feed-item>
-                    <hr class="full-blue">
-                </div>
+        <div class="container timeline-cont">
+            <div class="page-header">
+                <feed-item type="primary" [post]="post" (deleteItem)="deleteItem($event, null, null, 'post')"></feed-item>
+                <post-form (onSave)="saveComment($event);"></post-form>
             </div>
+            <ul class="timeline" *ngIf="post.comments.length">
+                <li *ngFor="let comment of post.comments; let isOdd=odd;" [ngClass]="{'timeline-inverted': isOdd}">
+                    <div class="timeline-badge">
+                        <img style="max-height:55px; max-width: 55px; border-radius:50%;" [src]="comment.user.profile_pic" alt="">
+                    </div>
+                    <div class="timeline-panel" style="background:rgba(0,0,0,0.1)">
+                        <div class="timeline-heading" style="background:rgba(0,0,0,0.2)">
+                            <feed-item (showInput)="comment['commenting']=$event;" type="sub" [post]="comment" (deleteItem)="deleteItem(post.ID, $event, null, 'comment')"></feed-item>
+                            <hr class="full-blue" *ngIf="comment.replies && comment.replies.length">
+                        </div>
+                        <post-form *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event"></post-form>
+                        <div class="timeline-body" *ngIf="comment.replies && comment.replies.length ">
+                            <div class="header-grid" *ngFor="let reply of comment.replies ">
+                                <feed-item type="sub" [post]="reply" (showInput)="comment['commenting']=$event; " (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') "></feed-item>
+                                <hr class="full-blue">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

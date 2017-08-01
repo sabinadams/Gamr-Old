@@ -33,4 +33,5 @@ export class FeedItemComponent implements OnInit {
         console.log('sending command from item to page')
         this.showInput.emit(true);
     }
+
 }
