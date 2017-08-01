@@ -48,7 +48,14 @@
 🔈 when adding logging
 🔇 when reducing logging
 🐛 when fixing a bug
+<<<<<<< HEAD
 🔒 when dealing with security
 ⬆️ when upgrading dependencies
 ⬇️ when downgrading dependencies
 ✅ when complete
+=======
+✅ when adding tests
+🔒 when dealing with security
+⬆️ when upgrading dependencies
+⬇️ when downgrading dependencies
+>>>>>>> master
