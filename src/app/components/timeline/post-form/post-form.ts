@@ -10,6 +10,7 @@ export class PostFormComponent {
     @Output() onSave = new EventEmitter();
     @Output() closeMe = new EventEmitter();
     @Input() post: any = { text: '', attachments: [] };
+    @Input() type = '';
     @Output() dataSync = new EventEmitter();
     user = JSON.parse(localStorage.getItem('user'));
     randID = this._authService._generateToken();

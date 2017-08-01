@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CountoModule } from 'angular2-counto';
 
 @Component({
   selector: 'exp-profile-pic',
@@ -41,4 +42,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ExpProfilePic {
  @Input() user: any;
+ constructor(public counto: CountoModule){}
 }

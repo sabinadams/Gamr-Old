@@ -17,13 +17,16 @@
                     </div>
                     <div class="timeline-panel" style="background:rgba(0,0,0,0.1)">
                         <div class="timeline-heading" style="background:rgba(0,0,0,0.2)">
-                            <feed-item (showInput)="comment['commenting']=$event;" type="sub" [post]="comment" (deleteItem)="deleteItem(post.ID, $event, null, 'comment')"></feed-item>
+                            <feed-item (showInput)="comment['commenting']=$event;" type="sub" [post]="comment" (deleteItem)="deleteItem(post.ID, $event, null, 'comment')">
+                            </feed-item>
                             <hr class="full-blue" *ngIf="comment.replies && comment.replies.length">
                         </div>
-                        <post-form *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event"></post-form>
+                        <post-form *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event">
+                        </post-form>
                         <div class="timeline-body" *ngIf="comment.replies && comment.replies.length ">
                             <div class="header-grid" *ngFor="let reply of comment.replies ">
-                                <feed-item type="sub" [post]="reply" (showInput)="comment['commenting']=$event; " (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') "></feed-item>
+                                <feed-item type="sub" [post]="reply" (showInput)="comment['commenting']=$event; " (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') ">
+                                </feed-item>
                                 <hr class="full-blue">
                             </div>
                         </div>

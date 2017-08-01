@@ -1,38 +1,35 @@
 import { Component, OnInit, HostListener, NgZone } from '@angular/core';
 import { TimelineService } from './shared/timeline-service';
 import { EventService } from '../../services/event-service';
-
 import * as _ from 'lodash';
 
-/* Timeline Stuff
-
-  1. )  Auto populate @mention when opening reply input                                       *****
-  2. )  Kill modal when closed so the inputs will refresh and loading will refresh            *****
-  3. )  HR on odd posts in modal aren't visible because they're the same color as background  *
-  4. )  Load more comments/replies                                                            ***
-         - When a post modal is open, add a flag to a universal polling event that tells it   ****
-           to grab updates for that post
-  5. )  Post Images                                                                           ***
-  6. )  Open/View images                                                                      ***
-  7. )  Maybe make deleting posts turn all comments into posts with a "was_comment" tag       **
-         - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag       **
-          - This would be one to keep better track of actual post counts
-  8. )  Sharing Posts/Comments/Replies                                                        *****
-  9. )  Posting Links                                                                         ****
-  10.)  Auto-color @inputs as you type                                                        *****
-         - Should include dropdown of potential mentions                                      *****
-  11.)  #tags                                                                                 *****
-         - The same functionality as 11, but for the tags
-  12.)  Posting videos/viewing videos                                                         *****
-*/
-
-
-
+/*---|--Timeline Stuff ----------------------------------------------------------------------- Pts -- Progress -- Complete --
+| 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     💡     | --/--/---- |
+| 2  |  Load more comments/replies                                                           |  ***|     💡     | --/--/---- |
+| 3  |  When a post modal is open, poll for updates via universal poll                       | ****|     🚧     | --/--/---- |
+| 4  |  Post/View Images (Imgur)                                                             |  ***|     💡     | --/--/---- |
+| 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|     💡     | --/--/---- |
+|    |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |  a  |     💡     | --/--/---- |
+|    |    - This would be one to keep better track of actual post counts                     |  b  |     💡     | --/--/---- |
+| 6  |  Sharing Posts/Comments/Replies                                                       | ****|     💡     | --/--/---- |
+| 7  |  Posting Links                                                                        | ****|     💡     | --/--/---- |
+| 8  |  #tags                                                                                |*****|     💡     | --/--/---- |
+| 9  |  Auto-color @inputs as you type                                                       |*****|     🚧     | --/--/---- |
+|    |    - Should include dropdown of potential mentions                                    |  a  |     🚧     | --/--/---- |
+|    |    - Change to contenteditable div and stuff                                          |  b  |     🚧     | --/--/---- |
+|    |    - Auto populate @mention when opening reply input                                  |  c  |     🚧     | --/--/---- |
+|    |   - The same functionality as 9, but for the tags                                     |  d  |     🚧     | --/--/---- |
+| 10 |  Posting videos/viewing videos                                                        |*****|     💡     | --/--/---- |
+---------------------------------------------------------------------------------------------------------------------------*/
 
 /* Other Stuff
-
   1.)  Universal Polling that handles different things (notifications, indiv. post updates,
        timeline updates, etc...)
+*/
+
+/* Future Stuff
+    The whole timeline is a vertical timeline and when you click a post it "zooms" in on
+    a branch that holds comments/replies and stuff
 */
 
 @Component({
@@ -126,7 +123,7 @@ export class TimelineComponent implements OnInit {
 
   mergeBuffer() {
     for ( const newPost of this.postBuffer.reverse() ) {
-      _.remove(this.posts, { ID: newPost.ID});
+      _.remove(this.posts, { ID: newPost.ID });
       this.posts.unshift(newPost);
     }
     this.postBuffer = [];
