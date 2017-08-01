@@ -1,0 +1,54 @@
+
+
+/*---|-- Timeline Stuff ---------------------------------------------------------------------- Pts -- Progress -- Complete --
+| 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     💡     | --/--/---- |
+| 2  |  Load more comments/replies                                                           |  ***|     💡     | --/--/---- |
+| 3  |  When a post modal is open, poll for updates via universal poll                       | ****|     🚧     | --/--/---- |
+| 4  |  Post/View Images (Imgur)                                                             |  ***|     💡     | --/--/---- |
+| 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|     💡     | --/--/---- |
+|    |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |  a  |     💡     | --/--/---- |
+|    |    - This would be one to keep better track of actual post counts                     |  b  |     💡     | --/--/---- |
+| 6  |  Sharing Posts/Comments/Replies                                                       | ****|     💡     | --/--/---- |
+| 7  |  Posting Links                                                                        | ****|     💡     | --/--/---- |
+| 8  |  #tags                                                                                |*****|     💡     | --/--/---- |
+| 9  |  Auto-color @inputs as you type                                                       |*****|     🚧     | --/--/---- |
+|    |    - Should include dropdown of potential mentions                                    |  a  |     🚧     | --/--/---- |
+|    |    - Change to contenteditable div and stuff                                          |  b  |     🚧     | --/--/---- |
+|    |    - Auto populate @mention when opening reply input                                  |  c  |     🚧     | --/--/---- |
+|    |   - The same functionality as 9, but for the tags                                     |  d  |     🚧     | --/--/---- |
+| 10 |  Posting videos/viewing videos                                                        |*****|     💡     | --/--/---- |
+---------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/*---|-- Other Stuff ------------------------------------------------------------------------- Pts -- Progress -- Complete --
+| 1  |  Universal Polling that handles different things (notifs, post updates, timeline)     |-----|     💡     | --/--/---- |
+---------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/*---|-- Future Stuff ------------------------------------------------------------------------ Pts -- Progress -- Complete --
+| 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|     💡     | --/--/---- |
+----------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+🎨 when improving readablitiy
+🚀 when improving performance
+✏️ when writing docs
+💡 new idea
+🚧 work in progress
+➕ when adding feature
+➖ when removing feature
+🔈 when adding logging
+🔇 when reducing logging
+🐛 when fixing a bug
+🔒 when dealing with security
+⬆️ when upgrading dependencies
+⬇️ when downgrading dependencies
+✅ when complete
