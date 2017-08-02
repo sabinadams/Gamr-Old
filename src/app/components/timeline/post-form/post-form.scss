@@ -44,3 +44,17 @@
         margin-bottom: 5px;
     }
 }
+
+.form-container {
+    padding: 10px;
+    border-radius: 10px;
+    border: $thicc-border-dark;
+    &:focus {
+        outline-width: 0 !important;
+    }
+}
+
+.form-box {
+    padding: 20px;
+    border-radius: 10px
+}
