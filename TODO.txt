@@ -1,34 +1,34 @@
 
 
-/*---|-- Timeline Stuff ---------------------------------------------------------------------- Pts -- Progress -- Complete --- Credit -
-| 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     💡     | --/--/---- |         |
-| 2  |  Load more comments/replies                                                           |  ***|     💡     | --/--/---- |         |          
-| 3  |  When a post modal is open, poll for updates via universal poll                       | ****|     🚧     | --/--/---- |         |
-| 4  |  Post/View Images (Imgur)                                                             |  ***|     💡     | --/--/---- |         |
-| 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|     💡     | --/--/---- |         |
-|    |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |   **|     💡     | --/--/---- |         |
-| 6  |  Sharing Posts/Comments/Replies                                                       | ****|     💡     | --/--/---- |         |
-| 7  |  Posting Links                                                                        | ****|     💡     | --/--/---- |         |
-| 8  |  #tags                                                                                |*****|     💡     | --/--/---- |         |
-| 9  |  Auto-color @inputs as you type                                                       |*****|     ✅     | 08/01/2017 |  Sabin  |
-|    |    - Should include dropdown of potential mentions                                    |  ***|     🚧     | --/--/---- |         |
-|    |    - Change to contenteditable div and stuff                                          |*****|     ✅     | 08/01/2017 |  Sabin  |
-|    |    - Auto populate @mention when opening reply input                                  |    *|     🚧     | --/--/---- |         |
-|    |   - The same functionality as 9, but for the tags                                     | ****|     🚧     | --/--/---- |         |
-| 10 |  Posting videos/viewing videos                                                        |*****|     💡     | --/--/---- |         |
---------------------------------------------------------------------------------------------------------------------------------------*/
+/*------ Timeline Stuff ------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
+|💡 | 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****| ****| --/--/---- |         |
+|💡 | 2  |  Load more comments/replies                                                           |  ***|  ***| --/--/---- |         |          
+|🚧 | 3  |  When a post modal is open, poll for updates via universal poll                       | ****| ****| --/--/---- |         |
+|💡 | 4  |  Post/View Images (Imgur)                                                             |  ***|  ***| --/--/---- |         |
+|💡 | 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|   **| --/--/---- |         |
+|💡 | 5a |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |   **|   **| --/--/---- |         |
+|💡 | 6  |  Sharing Posts/Comments/Replies                                                       | ****| ****| --/--/---- |         |
+|💡 | 7  |  Posting Links                                                                        | ****| ****| --/--/---- |         |
+|💡 | 8  |  #tags                                                                                |*****|*****| --/--/---- |         |
+|✅ | 9  |  Auto-color @inputs as you type                                                       |*****|     | 08/01/2017 |  Sabin  |
+|🚧 | 9a |    - Should include dropdown of potential mentions                                    | ****|  ***| --/--/---- |         |
+|✅ | 9b |    - Change to contenteditable div and stuff                                          |*****|     | 08/01/2017 |  Sabin  |
+|🚧 | 9c |    - Auto populate @mention when opening reply input                                  |  ***|    *| --/--/---- |         |
+|🚧 | 9d |    - The same functionality as 9, but for the tags                                    |*****|   **| --/--/---- |         |
+|💡 | 10 |  Posting videos/viewing videos                                                        |*****|*****| --/--/---- |         |
+-----------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
-/*---|-- Other Stuff ------------------------------------------------------------------------- Pts -- Progress -- Complete --- Credit -
-| 1  |  Universal Polling that handles different things (notifs, post updates, timeline)     |-----|     💡     | --/--/---- |         |
---------------------------------------------------------------------------------------------------------------------------------------*/
+/*------ Other Stuff ----------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
+|💡 | 1  |  Universal Polling that handles different things (notifs, post updates, timeline      |-----|-----| --/--/---- |          |
+------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
-/*---|-- Future Stuff ------------------------------------------------------------------------ Pts -- Progress -- Complete --- Credit -
-| 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|     💡     | --/--/---- |         |
---------------------------------------------------------------------------------------------------------------------------------------*/
+/*------ Future Stuff --------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
+|💡 | 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|-----| --/--/---- |         |
+-----------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
