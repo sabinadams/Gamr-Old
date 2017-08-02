@@ -6,20 +6,17 @@
 | 3  |  When a post modal is open, poll for updates via universal poll                       | ****|     🚧     | --/--/---- |
 | 4  |  Post/View Images (Imgur)                                                             |  ***|     💡     | --/--/---- |
 | 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|     💡     | --/--/---- |
-|    |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |  a  |     💡     | --/--/---- |
-|    |    - This would be one to keep better track of actual post counts                     |  b  |     💡     | --/--/---- |
+|    |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |   **|     💡     | --/--/---- |
 | 6  |  Sharing Posts/Comments/Replies                                                       | ****|     💡     | --/--/---- |
 | 7  |  Posting Links                                                                        | ****|     💡     | --/--/---- |
 | 8  |  #tags                                                                                |*****|     💡     | --/--/---- |
-| 9  |  Auto-color @inputs as you type                                                       |*****|     ✅     | --/--/---- |
-|    |    - Should include dropdown of potential mentions                                    |  a  |     🚧     | --/--/---- |
-|    |    - Change to contenteditable div and stuff                                          |  b  |     ✅     | --/--/---- |
-|    |    - Auto populate @mention when opening reply input                                  |  c  |     🚧     | --/--/---- |
-|    |   - The same functionality as 9, but for the tags                                     |  d  |     🚧     | --/--/---- |
+| 9  |  Auto-color @inputs as you type                                                       |*****|     ✅     | 08/01/2017 |
+|    |    - Should include dropdown of potential mentions                                    |  ***|     🚧     | --/--/---- |
+|    |    - Change to contenteditable div and stuff                                          |*****|     ✅     | 08/01/2017 |
+|    |    - Auto populate @mention when opening reply input                                  |    *|     🚧     | --/--/---- |
+|    |   - The same functionality as 9, but for the tags                                     | ****|     🚧     | --/--/---- |
 | 10 |  Posting videos/viewing videos                                                        |*****|     💡     | --/--/---- |
 ---------------------------------------------------------------------------------------------------------------------------*/
-
-
 
 
 
@@ -29,12 +26,9 @@
 
 
 
-
-
 /*---|-- Future Stuff ------------------------------------------------------------------------ Pts -- Progress -- Complete --
 | 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|     💡     | --/--/---- |
 ----------------------------------------------------------------------------------------------------------------------------*/
-
 
 
 
