@@ -21,11 +21,11 @@
                             </feed-item>
                             <hr class="full-blue" *ngIf="comment.replies && comment.replies.length">
                         </div>
-                        <post-form *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event">
+                        <post-form type="small" *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event">
                         </post-form>
                         <div class="timeline-body" *ngIf="comment.replies && comment.replies.length ">
                             <div class="header-grid" *ngFor="let reply of comment.replies ">
-                                <feed-item type="sub" [post]="reply" (showInput)="comment['commenting']=$event; " (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') ">
+                                <feed-item type="sub" [post]="reply" (showInput)="comment['commenting']=$event;" (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') ">
                                 </feed-item>
                                 <hr class="full-blue">
                             </div>

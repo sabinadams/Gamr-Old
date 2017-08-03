@@ -54,7 +54,9 @@ export class PostFormComponent {
     }
 
     populateForm( text ) {
+        console.log(text);
         this.post.text = text;
+        this.postForm.nativeElement.innerText = text;
     }
 
     test(e) {
