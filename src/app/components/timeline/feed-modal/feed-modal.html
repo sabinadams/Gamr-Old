@@ -30,8 +30,14 @@
                                 <hr class="full-blue">
                             </div>
                         </div>
+                        <div class="text-center" *ngIf="comment.replies.length < comment.response_count">
+                            <button (click)="getMoreResponses(comment.replies.length, comment.ID, true)"> Load More</button>
+                        </div>
                     </div>
                 </li>
+                <div class="text-center" *ngIf="post.comments.length < post.comment_count">
+                    <button class="text-center" (click)="getMoreResponses(post.comments.length, null, false)">Load More</button>
+                </div>
             </ul>
         </div>
     </div>

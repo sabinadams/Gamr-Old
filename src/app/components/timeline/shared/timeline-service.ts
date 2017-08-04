@@ -86,6 +86,15 @@ export class TimelineService extends BaseService {
     });
   }
 
+  //     /feed/responses/{index}/{postID}/{commentID}/{responseType}/
+  getFeedResponses( index, postID, commentID, isReplies) {
+    return this._http.get(this.baseURL + `/feed/responses/${index}/${postID}/${commentID}/${isReplies}/`).map((res: Response) => {
+      return res.json();
+    }).catch( err => {
+      return Observable.throw(err || 'Server Error');
+    });
+  }
+
   public pollProcess() {
     setInterval( () => {
       this.populateFeed( this.pollTimestamp, true).subscribe( res => {

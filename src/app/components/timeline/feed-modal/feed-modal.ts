@@ -15,7 +15,9 @@ export class FeedModalComponent implements OnInit {
     private formPopulate = new Subject<any>();
     constructor( private _timelineService: TimelineService ){}
 
-    ngOnInit(){}
+    ngOnInit(){
+      console.log(this.post);
+    }
 
     deleteItem(postID, commentID, replyID, type) {
         this._timelineService.emitDestroyItem(type, postID, commentID, replyID);
@@ -43,5 +45,19 @@ export class FeedModalComponent implements OnInit {
         setTimeout(() => {
           this.formPopulate.next({UUID: UUID, text: `@${text}`});
         }, 200);
+    }
+
+    getMoreResponses( index, itemID, isReplies ) {
+      this._timelineService.getFeedResponses(index, this.post.ID, itemID, isReplies ).subscribe( res => {
+        console.log(res)
+        if ( !isReplies ) {
+          console.log('Adding Comments')
+          this.post.comments.push(...res);
+        } else {
+          console.log('Adding replies')
+          const commentIndex = _.findKey(this.post.comments, { 'ID': itemID });
+          this.post.comments[commentIndex].replies.push(...res);
+        }
+      });
     }
 }
