@@ -2,7 +2,7 @@
 
 /*------ Timeline Stuff ------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
 |✅ | 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     | 08/02/2017 |  Sabin  |
-|💡 |-2--|  Load more comments/replies                                                           |  ***|  ***| --/--/---- |         |          
+|💡 |-2--|  Load more comments/replies                                                           |   **|   **| --/--/---- |         |          
 |🚧 | 3  |  When a post modal is open, poll for updates via universal poll                       | ****| ****| --/--/---- |         |
 |💡 |-4--|  Post/View Images (Imgur)                                                             |  ***|  ***| --/--/---- |         |
 |💡 | 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|   **| --/--/---- |         |

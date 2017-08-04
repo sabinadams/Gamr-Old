@@ -10,14 +10,26 @@ export class PostFormComponent implements OnInit {
     // Can add logic inside the regex check to only turn it into a link if it's a valid User
     @Output() onSave = new EventEmitter();
     @Output() closeMe = new EventEmitter();
-    @Input() post: any = { text: '', attachments: [] };
     @Input() postUUID: any;
     @Input() populateEvent: Subject<any>;
     @Input() type = '';
-    @Output() dataSync = new EventEmitter();
     @ViewChild('postForm') public postForm: any;
+    post: any = { text: '', attachments: [] };
     user = JSON.parse(localStorage.getItem('user'));
     randID = this._authService._generateToken();
+
+    constructor( private _authService: AuthService ){}
+
+    ngOnInit() {
+        if ( this.populateEvent ) {
+            this.populateEvent.subscribe( update => {
+                if ( update.UUID === this.postUUID ) {
+                 this.populateForm(update.text);
+                }
+            });
+        }
+    }
+
     @HostListener('keyup', ['$event']) onKeyup(event) {
         // Currently assumes anything matching the description of a tag is a valid tag
         if ( !(event.which <= 90 && event.which >= 48)) { return; }
@@ -31,6 +43,7 @@ export class PostFormComponent implements OnInit {
             this.post.text = el.innerText.trim();
         }
     }
+
     setEndOfContenteditable(contentEditableElement) {
         let range;
         let selection;
@@ -43,22 +56,14 @@ export class PostFormComponent implements OnInit {
             selection.addRange(range);//make the range you have just created the visible selection
         }
     }
-    constructor( private _authService: AuthService ){}
-    ngOnInit() {
-        if ( this.populateEvent ) {
-            this.populateEvent.subscribe( update => {
-                if ( update.UUID === this.postUUID ) {
-                 this.populateForm(update.text);
-                }
-            });
-        }
-    }
+
     save() {
         this.onSave.emit(this.post);
         this.post = { text: '', attachments: [] };
         this.postForm.nativeElement.innerText = '';
         this.postForm.nativeElement.innerHTML = '<span></span>';
     }
+
     close() {
         this.closeMe.emit(false);
     }
@@ -67,8 +72,7 @@ export class PostFormComponent implements OnInit {
         this.post.text = text;
         this.postForm.nativeElement.innerText = text;
         this.postForm.nativeElement.innerHTML = `<a class="mention">${text}</a>`;
-        const el = document.getElementById(this.randID);
-        this.setEndOfContenteditable(el);
+        this.setEndOfContenteditable(document.getElementById(this.randID));
     }
 
 }
