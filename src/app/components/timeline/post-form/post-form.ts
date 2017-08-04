@@ -1,16 +1,18 @@
-import { Component, Input, HostListener, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, HostListener, Output, EventEmitter, ViewChild } from '@angular/core';
 import { AuthService } from '../../../services/auth-service';
-
+import { Subject } from 'rxjs/Subject';
 @Component({
     selector: 'post-form',
     templateUrl: './post-form.html',
     styleUrls: ['./post-form.scss'],
 })
-export class PostFormComponent {
+export class PostFormComponent implements OnInit {
     // Can add logic inside the regex check to only turn it into a link if it's a valid User
     @Output() onSave = new EventEmitter();
     @Output() closeMe = new EventEmitter();
     @Input() post: any = { text: '', attachments: [] };
+    @Input() postUUID: any;
+    @Input() populateEvent: Subject<any>;
     @Input() type = '';
     @Output() dataSync = new EventEmitter();
     @ViewChild('postForm') public postForm: any;
@@ -42,7 +44,15 @@ export class PostFormComponent {
         }
     }
     constructor( private _authService: AuthService ){}
-
+    ngOnInit() {
+        if ( this.populateEvent ) {
+            this.populateEvent.subscribe( update => {
+                if ( update.UUID === this.postUUID ) {
+                 this.populateForm(update.text);
+                }
+            });
+        }
+    }
     save() {
         this.onSave.emit(this.post);
         this.post = { text: '', attachments: [] };
@@ -54,12 +64,11 @@ export class PostFormComponent {
     }
 
     populateForm( text ) {
-        console.log(text);
         this.post.text = text;
         this.postForm.nativeElement.innerText = text;
+        this.postForm.nativeElement.innerHTML = `<a class="mention">${text}</a>`;
+        const el = document.getElementById(this.randID);
+        this.setEndOfContenteditable(el);
     }
 
-    test(e) {
-        console.log(e);
-    }
 }

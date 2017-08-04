@@ -11,7 +11,7 @@
                 <post-form (onSave)="saveComment($event);"></post-form>
             </div>
             <ul class="timeline" *ngIf="post.comments.length">
-                <li *ngFor="let comment of post.comments; let isOdd=odd;" [ngClass]="{'timeline-inverted': isOdd}">
+                <li *ngFor="let comment of post.comments; let isOdd=odd; let i = index" [ngClass]="{'timeline-inverted': isOdd}">
                     <div class="timeline-badge">
                         <img style="max-height:55px; max-width: 55px; border-radius:50%;" [src]="comment.user.profile_pic" alt="">
                     </div>
@@ -21,11 +21,11 @@
                             </feed-item>
                             <hr class="full-blue" *ngIf="comment.replies && comment.replies.length">
                         </div>
-                        <post-form type="small" *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event">
+                        <post-form [postUUID]="comment.UUID" [populateEvent]="formPopulate" type="small" *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event">
                         </post-form>
                         <div class="timeline-body" *ngIf="comment.replies && comment.replies.length ">
                             <div class="header-grid" *ngFor="let reply of comment.replies ">
-                                <feed-item type="sub" [post]="reply" (showInput)="comment['commenting']=$event;" (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') ">
+                                <feed-item type="sub" [post]="reply" (showInput)="populateForm(i, $event, comment.UUID, comment.user.tag);" (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') ">
                                 </feed-item>
                                 <hr class="full-blue">
                             </div>

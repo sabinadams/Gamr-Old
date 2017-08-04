@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TimelineService } from '../shared/timeline-service';
 import * as _ from 'lodash';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'feed-modal',
@@ -11,6 +12,7 @@ export class FeedModalComponent implements OnInit {
     @Input() post: any;
     regex: any;
     user = JSON.parse(localStorage.getItem('user'));
+    private formPopulate = new Subject<any>();
     constructor( private _timelineService: TimelineService ){}
 
     ngOnInit(){}
@@ -36,4 +38,10 @@ export class FeedModalComponent implements OnInit {
         });
     }
 
+    populateForm(i, event, UUID, text) {
+        this.post.comments[i].commenting = event;
+        setTimeout(() => {
+          this.formPopulate.next({UUID: UUID, text: `@${text}`});
+        }, 200);
+    }
 }
