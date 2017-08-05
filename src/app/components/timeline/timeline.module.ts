@@ -13,6 +13,7 @@ import { PostFormComponent } from './post-form/post-form';
 import { UnreadAlertComponent } from './shared/unread-alert-component';
 import { FeedItemContainerComponent } from './feed-item-container/feed-item-container';
 import { FeedItemActionsComponent } from './feed-item-actions/feed-item-actions';
+import { ImageUploaderComponent } from '../image-uploader/image-uploader';
 // Module Imports
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -26,9 +27,10 @@ import { BaseService } from '../../services/base-service';
 @NgModule({
   declarations: [
     TimelineComponent, FeedItemComponent, FeedModalComponent, PostFormComponent,
-    UnreadAlertComponent, FeedItemContainerComponent, FeedItemActionsComponent
+    UnreadAlertComponent, FeedItemContainerComponent, FeedItemActionsComponent,
+    ImageUploaderComponent
   ],
-  imports: [ 
+  imports: [
     BrowserModule, FormsModule, HttpModule, MomentModule,
     BsDropdownModule.forRoot(), ModalModule.forRoot(), RouterModule
   ],

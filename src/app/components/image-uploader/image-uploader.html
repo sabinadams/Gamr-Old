@@ -1,7 +1,35 @@
-<!-- <div class="btn-file" *ngIf="form.images.length < 7">
+<!-- <div class="btn-file" *ngIf="images.length < 7">
     <button>
         <i class="glyphicon glyphicon-camera">
             <input type="file" accept="image/*" (change)="imageHandler($event)">
         </i>
     </button>
 </div> -->
+<div class="action-grid">
+
+    <!-- Upload Image Button -->
+    <div class="action-buttons">
+        <div class="btn-file" *ngIf="images.length < 4">
+            <button>
+                  <i class="glyphicon glyphicon-camera"><input type="file" accept="image/*" (change)="imageHandler($event)"></i>
+                </button>
+        </div>
+        <!-- Any other actions here... -->
+    </div>
+
+    <!-- Uploaded Images -->
+    <div class="uploaded-images text-center">
+        <div class="image-container" *ngFor="let image of images; let i = index;">
+            <img class="uploaded-image" src="{{image}}" alt=""><br>
+            <span class="remove-upload" aria-hidden="true" (click)="removeImage(i)">Remove</span>
+        </div>
+        <!-- Image Upload Status Indicator -->
+        <div class="uploading" *ngIf="uploading">
+            <div class="load-2">
+                <div class="line" style="background-color:#8961ab;"></div>
+                <div class="line" style="background-color:#a74040;"></div>
+                <div class="line" style="background-color:#0b428f;"></div>
+            </div>
+        </div>
+    </div>
+</div>
