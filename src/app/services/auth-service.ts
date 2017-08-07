@@ -18,8 +18,8 @@ export class AuthService {
       return( c === 'x' ? r : ( r & 0x7 | 0x8 ) ).toString( 16 );
     });
   }
-  
-  changeTag(oldTag:string, newTag:string) {
+
+  changeTag(oldTag: string, newTag: string) {
     return this._secureHttp.post(`http://api.gamr.co/changetag/`, {data: {tag: newTag, oldTag: oldTag}}).map((res: Response) => {
       return res.json();
     });
@@ -45,7 +45,7 @@ export class AuthService {
     data['token'] = localStorage.getItem('token') || this._generateToken();
     return this._http.post('http://api.gamr.co/login/', data).map(( res: Response ) => {
        const res_data = res.json();
-       if( res_data.logged_in ) {
+       if ( res_data.logged_in ) {
          localStorage.setItem( 'user', JSON.stringify( res_data ) );
          localStorage.setItem( 'token', res_data.token );
        }

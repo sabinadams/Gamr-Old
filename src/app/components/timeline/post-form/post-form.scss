@@ -13,13 +13,6 @@
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.7);
 }
 
-.inline-form {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
 .author-image {
     width: 50px;
     height: 50px;
@@ -33,21 +26,24 @@
     height: 30px;
 }
 
-.small-input {
-    height: 40px;
-}
-
 .save-button-container {
     text-align: right;
     button {
         margin-right: 10px;
-        margin-bottom: 5px;
+        margin-top: 5px;
     }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .form-container {
     padding: 10px;
     border-radius: 10px;
+    width: 100%;
     border: $thicc-border-dark;
     &:focus {
         outline-width: 0 !important;
@@ -56,5 +52,5 @@
 
 .form-box {
     padding: 20px;
-    border-radius: 10px
+    border-radius: 10px;
 }

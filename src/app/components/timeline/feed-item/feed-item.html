@@ -26,6 +26,9 @@
                     <span *ngSwitchCase="false ">{{chunk}}</span>
                     </span>
                 </p>
+                <div class="image-container">
+                    <img *ngFor="let image of post.attachments.images" [src]="image.URL" alt="" style="max-height:150px;">
+                </div>
                 <feed-item-actions (startCommenting)="sendShowInput()" [post]="post"></feed-item-actions>
             </div>
         </div>

@@ -3,21 +3,23 @@
 /*------ Timeline Stuff ------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
 |✅ | 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     | 08/02/2017 |  Sabin  |
 |✅ | 2  |  Load more comments/replies                                                           |   **|     | 08/04/2017 |  Sabin  |          
-|🚧 | 3  |  When a post modal is open, poll for updates via universal poll                       | ****| ****| --/--/---- |         |
-|💡 |-4--|  Post/View Images (Imgur)                                                             |  ***|  ***| --/--/---- |         |
+|💡 | 3  |  When a post modal is open, poll for updates via universal poll                       | ****| ****| --/--/---- |         |
+|✅ | 4  |  Post/View Images (Imgur)                                                             |  ***|     | 08/07/2017 |  Sabin  |
 |💡 | 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|   **| --/--/---- |         |
 |💡 | 5a |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |   **|   **| --/--/---- |         |
 |💡 | 6  |  Sharing Posts/Comments/Replies                                                       | ****| ****| --/--/---- |         |
 |💡 | 7  |  Posting Links                                                                        | ****| ****| --/--/---- |         |
 |💡 | 8  |  #tags                                                                                |*****|*****| --/--/---- |         |
 |✅ | 9  |  Auto-color @inputs as you type                                                       |*****|     | 08/01/2017 |  Sabin  |
-|🚧 | 9a |    - Should include dropdown of potential mentions                                    | ****|  ***| --/--/---- |         |
+|💡 | 9a |    - Should include dropdown of potential mentions                                    | ****|  ***| --/--/---- |         |
 |✅ | 9b |    - Change to contenteditable div and stuff                                          |*****|     | 08/01/2017 |  Sabin  |
 |✅ | 9c |    - Auto populate @mention when opening reply input                                  |  ***|     | 08/03/2017 |  Sabin  |
-|🚧 | 9d |    - The same functionality as 9, but for the tags                                    |*****|   **| --/--/---- |         |
 |💡 | 10 |  Posting videos/viewing videos                                                        |*****|*****| --/--/---- |         |
-|🚧 | 11 |  Update Response Count when Posting a Comment or Reply                                |   **|   **| --/--/---- |         |
+|🚧 |-11-|  Update Response Count when Posting a Comment or Reply                                |   **|   **| --/--/---- |         |
 |✅ | 12 |  Show/Hide Load More Button Based On CommentCount and ReplyCount                      |   **|     | 08/04/2017 |  Sabin  |
+|💡 | 13 |  Hashtag functionality (not mentions)                                                 | ****| ****| --/--/---- |         |
+|💡 | 13a|    - The same functionality as 9, but for the tags                                    |    *|    *| --/--/---- |         |
+|💡 | 14 |  Lightbox For Images                                                                  |   **|   **| --/--/---- |         |
 -----------------------------------------------------------------------------------------------------------------------------------*/
 
 

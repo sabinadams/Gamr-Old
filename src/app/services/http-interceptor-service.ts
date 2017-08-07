@@ -17,10 +17,10 @@ export class HttpClient {
     headers.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
   }
 
-  // We don't necessarily want to log a user out and send them to login screen if something doesn't load correctly. 
-  killSession(){
+  // We don't necessarily want to log a user out and send them to login screen if something doesn't load correctly.
+  killSession(error){
     // Send you home
-    console.log( 'Session Killed' );
+    console.log( 'Session Killed', error );
   }
 
   // Changes GET requests to always require the device token and Authorization headers
@@ -28,7 +28,7 @@ export class HttpClient {
     const headers = new Headers({ 'Accept': 'application/json' });
     this.createAuthorizationHeader(headers);
     return this.http.get(url, { headers: headers }).catch(( error: any ) => {
-        this.killSession();
+        this.killSession(error);
     });
   }
 
@@ -37,7 +37,7 @@ export class HttpClient {
     const headers = new Headers();
     this.createAuthorizationHeader(headers);
     return this.http.post(url, data, { headers: headers }).catch(( error: any ) => {
-        this.killSession();
+        this.killSession(error);
     });
   }
 

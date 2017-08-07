@@ -14,9 +14,7 @@ export class PostFormComponent implements OnInit {
     @Input() populateEvent: Subject<any>;
     @Input() type = '';
     @ViewChild('postForm') public postForm: any;
-    post: any = { text: '', attachments: {
-        images: []
-    } };
+    post: any = { text: '', attachments: []};
     user = JSON.parse(localStorage.getItem('user'));
     randID = this._authService._generateToken();
 

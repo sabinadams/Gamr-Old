@@ -9,10 +9,11 @@
 
 <div class="form-box">
     <div #postForm [id]="randID" class="form-container" contenteditable="true" (change)="test($event)"></div>
-</div>
-
-<div class="save-button-container">
-    <button *ngIf="type === 'small'" class="btn save-button" (click)="close()">Close</button>
-    <button *ngIf="post.text.length" class="btn save-button" (click)="save()"> Save</button>
-    <image-uploader (onUpload)="this.post.attachments.images = $event;"></image-uploader>
+    <div class="buttons">
+        <image-uploader (onUpload)="post.attachments = $event;"></image-uploader>
+        <div class="save-button-container">
+            <button *ngIf="type === 'small'" class="btn save-button" (click)="close()">Close</button>
+            <button *ngIf="post.text.length" class="btn save-button" (click)="save()"> Save</button>
+        </div>
+    </div>
 </div>
