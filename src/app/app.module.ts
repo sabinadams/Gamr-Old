@@ -53,7 +53,7 @@ import { TimelineModule } from './components/timeline/timeline.module';
   declarations: [
    AppComponent, LoginPage, SignupPage, HomePage,
    ProfilePage, ProfileSidePanelComponent, NavbarComponent,
-   ChatbarComponent, ProfileBannerComponent,LoginInfoComponent,
+   ChatbarComponent, ProfileBannerComponent, LoginInfoComponent,
    PasswordStrengthPipe, InputValidationPipe, ExpCalcPipe, ExpProfilePic,
    SettingsPage
   ],

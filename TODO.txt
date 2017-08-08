@@ -2,7 +2,7 @@
 
 /*------ Timeline Stuff ------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
 |✅ | 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     | 08/02/2017 |  Sabin  |
-|✅ | 2  |  Load more comments/replies                                                           |   **|     | 08/04/2017 |  Sabin  |          
+|✅ | 2  |  Load more comments/replies                                                           |   **|     | 08/04/2017 |  Sabin  |
 |💡 | 3  |  When a post modal is open, poll for updates via universal poll                       | ****| ****| --/--/---- |         |
 |✅ | 4  |  Post/View Images (Imgur)                                                             |  ***|     | 08/07/2017 |  Sabin  |
 |💡 | 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|   **| --/--/---- |         |
@@ -19,7 +19,8 @@
 |✅ | 12 |  Show/Hide Load More Button Based On CommentCount and ReplyCount                      |   **|     | 08/04/2017 |  Sabin  |
 |💡 | 13 |  Hashtag functionality (not mentions)                                                 | ****| ****| --/--/---- |         |
 |💡 | 13a|    - The same functionality as 9, but for the tags                                    |    *|    *| --/--/---- |         |
-|💡 | 14 |  Lightbox For Images                                                                  |   **|   **| --/--/---- |         |
+|✅ | 14 |  Lightbox For Images                                                                  |   **|     | 08/08/2017 |  Sabin  |
+|💡 | 15 |  Better posting method frontend + backend (Posting should require text OR attachments)|   **|   **| --/--/---- |         |
 -----------------------------------------------------------------------------------------------------------------------------------*/
 
 

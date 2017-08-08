@@ -8,7 +8,7 @@
 </div> -->
 
 <div class="form-box">
-    <div #postForm [id]="randID" class="form-container" contenteditable="true" (change)="test($event)"></div>
+    <div #postForm [id]="randID" class="form-container" contenteditable="true"></div>
     <div class="buttons">
         <image-uploader (onUpload)="post.attachments = $event;"></image-uploader>
         <div class="save-button-container">
