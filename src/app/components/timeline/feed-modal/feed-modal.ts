@@ -25,6 +25,7 @@ export class FeedModalComponent implements OnInit {
 
     saveComment( event ) {
         this._timelineService.saveItem(event.text, event.attachments, this.post.ID).subscribe( res => {
+          console.log(res.post);
           if ( res.status === 200 ) { this.post.comments.unshift(res.post); }
         });
     }
