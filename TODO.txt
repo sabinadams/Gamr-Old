@@ -1,54 +1,52 @@
 
 
-/*------ Timeline Stuff ------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
-|✅ | 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     | 08/02/2017 |  Sabin  |
-|✅ | 2  |  Load more comments/replies                                                           |   **|     | 08/04/2017 |  Sabin  |
-|💡 | 3  |  When a post modal is open, poll for updates via universal poll                       | ****| ****| --/--/---- |         |
-|✅ | 4  |  Post/View Images (Imgur)                                                             |  ***|     | 08/07/2017 |  Sabin  |
-|💡 | 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|   **| --/--/---- |         |
-|💡 | 5a |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |   **|   **| --/--/---- |         |
-|💡 | 6  |  Sharing Posts/Comments/Replies                                                       | ****| ****| --/--/---- |         |
-|💡 | 7  |  Posting Links                                                                        | ****| ****| --/--/---- |         |
-|💡 | 8  |  #tags                                                                                |*****|*****| --/--/---- |         |
-|✅ | 9  |  Auto-color @inputs as you type                                                       |*****|     | 08/01/2017 |  Sabin  |
-|💡 | 9a |    - Should include dropdown of potential mentions                                    | ****|  ***| --/--/---- |         |
-|✅ | 9b |    - Change to contenteditable div and stuff                                          |*****|     | 08/01/2017 |  Sabin  |
-|✅ | 9c |    - Auto populate @mention when opening reply input                                  |  ***|     | 08/03/2017 |  Sabin  |
-|💡 | 10 |  Posting videos/viewing videos                                                        |*****|*****| --/--/---- |         |
-|🚧 |-11-|  Update Response Count when Posting a Comment or Reply                                |   **|   **| --/--/---- |         |
-|✅ | 12 |  Show/Hide Load More Button Based On CommentCount and ReplyCount                      |   **|     | 08/04/2017 |  Sabin  |
-|💡 | 13 |  Hashtag functionality (not mentions)                                                 | ****| ****| --/--/---- |         |
-|💡 | 13a|    - The same functionality as 9, but for the tags                                    |    *|    *| --/--/---- |         |
-|✅ | 14 |  Lightbox For Images                                                                  |   **|     | 08/08/2017 |  Sabin  |
-|💡 | 15 |  Better posting method frontend + backend (Posting should require text OR attachments)|   **|   **| --/--/---- |         |
------------------------------------------------------------------------------------------------------------------------------------*/
+/*------ Timeline Stuff -------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
+|✅✅| 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     | 08/02/2017 |  Sabin  |
+|✅✅| 2  |  Load more comments/replies                                                           |   **|     | 08/04/2017 |  Sabin  |
+|💡🚀| 3  |  When a post modal is open, poll for updates via universal poll                       | ****| ****| --/--/---- |         |
+|✅✅| 4  |  Post/View Images (Imgur)                                                             |  ***|     | 08/07/2017 |  Sabin  |
+|➕🚀| 5  |  Maybe make deleting posts turn all comments into posts with a "was_comment" tag      |   **|   **| --/--/---- |         |
+|➕🚀| 5a |    - Do the same for replies if a comment was deleted. It'll be a "was_reply" tag     |   **|   **| --/--/---- |         |
+|➕🔒| 6  |  Sharing Posts/Comments/Replies                                                       | ****| ****| --/--/---- |         |
+|➕🎨| 7  |  Posting Links                                                                        | ****| ****| --/--/---- |         |
+|✅✅| 8  |  Auto-color @inputs as you type                                                       |*****|     | 08/01/2017 |  Sabin  |
+|💡🎨| 8a |    - Should include dropdown of potential mentions                                    | ****|  ***| --/--/---- |         |
+|✅✅| 8b |    - Change to contenteditable div and stuff                                          |*****|     | 08/01/2017 |  Sabin  |
+|✅✅| 8c |    - Auto populate @mention when opening reply input                                  |  ***|     | 08/03/2017 |  Sabin  |
+|🎨🔒| 9  |  Posting videos/viewing videos                                                        |*****|*****| --/--/---- |         |
+|🎨🚀|-10-|  Update Response Count when Posting a Comment or Reply                                |   **|   **| --/--/---- |         |
+|✅✅| 11 |  Show/Hide Load More Button Based On CommentCount and ReplyCount                      |   **|     | 08/04/2017 |  Sabin  |
+|➕🚀| 12 |  Hashtag functionality (not mentions)                                                 | ****| ****| --/--/---- |         |
+|🎨🔒| 12a|    - The same functionality as 9, but for the tags                                    |    *|    *| --/--/---- |         |
+|✅✅| 13 |  Lightbox For Images                                                                  |   **|     | 08/08/2017 |  Sabin  |
+|🔒🎨| 14 |  Better posting method frontend + backend (Posting should require text OR attachments)|   **|   **| --/--/---- |         |
+------------------------------------------------------------------------------------------------------------------------------------*/
 
 
+/*------ Profile Page Stuff ---------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
+|🎨🎨| 1  |  Plan UI                                                                              |   **|   **| --/--/---- |         |
+------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*------ Other Stuff ---------------------------------------------------------------------------- Pts - Curr - Complete --- Credit --
-|💡 | 1  |  Universal Polling that handles different things (notifs, post updates, timeline)     |-----|-----| --/--/---- |          |
+
+/*------ Future Stuff ---------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
+|🎨🎨| 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|-----| --/--/---- |         |
+|🎨🎨| 2  |  Timeline Profile Pics not Stretch/Squish                                             |-----|-----| --/--/---- |         |
+|🎨🚀| 3  |  Universal Polling that handles different things (notifs, post updates, timeline)     |-----|-----| --/--/---- |         |
 ------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
-/*------ Future Stuff --------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
-|💡 | 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|-----| --/--/---- |         |
-|💡 | 2  |  Timeline Profile Pics not Stretch/Squish                                             |-----|-----| --/--/---- |         |
------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
-🎨 when improving readablitiy
-🚀 when improving performance
-✏️ when writing docs
-💡 new idea
-🚧 work in progress
-➕ when adding feature
-➖ when removing feature
-🔈 when adding logging
-🔇 when reducing logging
-🐛 when fixing a bug
-🔒 when dealing with security
-⬆️ when upgrading dependencies
-⬇️ when downgrading dependencies
-✅ when complete
+🎨 When Improving UI
+🚀 When Improving Performance
+✏️ When Writing Docs
+💡 Idea/Not Worked On Yet
+🚧 Work In Progress
+➕ When Adding Feature
+➖ When Removing Feature
+🔈 When Adding Logging
+🔇 When Reducing Logging
+🐛 When Fixing A Bug
+🔒 When Dealing With Security
+⬆️ When Upgrading Dependencies
+⬇️ When Downgrading Dependencies
+✅ When Complete
