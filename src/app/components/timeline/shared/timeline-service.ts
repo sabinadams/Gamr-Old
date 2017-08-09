@@ -31,7 +31,7 @@ export class TimelineService extends BaseService {
 
   // Grabs posts, loads more posts, and handles post polling
   populateFeed( timestamp: string, polling: boolean ): Observable<any> {
-    return this._http.get(this.baseURL + `/feed/${timestamp}/${polling}/`).map((res: Response) => {
+    return this._http.get(this.env.api + `/feed/${timestamp}/${polling}/`).map((res: Response) => {
       return res.json();
     }).catch( err => {
       return Observable.throw(err || 'Server Error');
@@ -40,7 +40,7 @@ export class TimelineService extends BaseService {
 
   // Deletes feed item from the db
   deleteFeedItem( itemID: number ): Observable<any> {
-    return this._http.post(this.baseURL + `/feed/delete/`, {ID: itemID}).map((res: Response) => {
+    return this._http.post(this.env.api + `/feed/delete/`, {ID: itemID}).map((res: Response) => {
       if ( res.json().status === 200 ) { this._eventService.emitPostCount( res.json().post_count ); }
       return res.json();
     }).catch( err => {
@@ -52,7 +52,7 @@ export class TimelineService extends BaseService {
     const post = {text: text, attachments: attachments};
     if ( post_ID ) { post['postID'] = post_ID; };
     if ( comment_ID ) { post['commentID'] = comment_ID; };
-    return this._http.post(this.baseURL + `/feed/save/`, {data: post}).map( res => {
+    return this._http.post(this.env.api + `/feed/save/`, {data: post}).map( res => {
       if ( res.json().status === 200 ) { this._eventService.emitPostCount( res.json().post_count ); }
       return res.json();
     }).catch( err => {
@@ -61,7 +61,7 @@ export class TimelineService extends BaseService {
   }
 
   likeFeedItem( itemID ) {
-    return this._http.post(this.baseURL + `/feed/like/`, {itemID: itemID}).map((res: Response) => {
+    return this._http.post(this.env.api + `/feed/like/`, {itemID: itemID}).map((res: Response) => {
       return res.json();
     }).catch( err => {
       return Observable.throw(err || 'Server Error');
@@ -88,7 +88,7 @@ export class TimelineService extends BaseService {
 
   //     /feed/responses/{index}/{postID}/{commentID}/{responseType}/
   getFeedResponses( index, postID, commentID, isReplies) {
-    return this._http.get(this.baseURL + `/feed/responses/${index}/${postID}/${commentID}/${isReplies}/`).map((res: Response) => {
+    return this._http.get(this.env.api + `/feed/responses/${index}/${postID}/${commentID}/${isReplies}/`).map((res: Response) => {
       return res.json();
     }).catch( err => {
       return Observable.throw(err || 'Server Error');
