@@ -1,7 +1,5 @@
 # Gamr
 
-https://rawgit.com/sabinadams/Gamr/master/TODO.html  
-
 This project was generated with [Angular CLI]
 We are currently running on Angular4
 
