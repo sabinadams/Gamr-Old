@@ -1,36 +1,48 @@
+<!--Dropdown Button  -->
 <div class="dropdown action-dropdown" dropdown>
-    <a dropdownToggle class="dropdown-toggle">
-        <span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span>
-    </a>
+    <!-- Toggler  -->
+    <a dropdownToggle class="dropdown-toggle"><span class="glyphicon glyphicon-collapse-down dropdown-icon" aria-hidden="true"></span></a>
     <ul *dropdownMenu class="dropdown-menu pull-right" role="menu">
+        <!-- Will copy link to post to clipboard  -->
         <li role="menuitem"><a class="dropdown-item">Copy Link</a></li>
+        <!-- Deletes post ( only shows post belongs to you )  -->
         <li role="menuitem"><a class="dropdown-item" *ngIf="user.ID == post.user.ID" (click)="sendDeleteCommand()">Delete</a></li>
+        <!-- Will share post  -->
         <li role="menuitem"><a class="dropdown-item">Share</a></li>
         <li class="divider dropdown-divider"></li>
+        <!-- Poster was a bad bad hooman  -->
         <li role="menuitem"><a class="dropdown-item">Report Post</a>
         </li>
     </ul>
 </div>
+<!-- Main Post  -->
 <div class="box-top" (click)="showModal()">
     <div class="feed-item-header">
         <div class="header-grid">
+            <!-- Author profile pic  -->
             <div class="author-image">
+                <!-- Change image size depending on type (post or comment/reply)  -->
                 <img class="author-profile-pic" [ngClass]="{'primary-pic': type == 'primary', 'sub-pic': type == 'sub'}" [src]="post.user.profile_pic" alt="">
             </div>
+            <!--   -->
             <div class="post-data">
+                <!--Post Info  -->
                 {{post.user.display_name}}
                 <small>{{post.creation_date | amTimeAgo}}</small>
+                <!-- Compilation of the text array so that <a> tags can be split from the text  -->
                 <p class="text-container">
                     <span *ngFor="let chunk of post.text" class="text-element" [ngSwitch]="chunk.indexOf(post.uuid)==0 ">
                     <a *ngSwitchCase="true " class="mention" [routerLink]="[ '/u', chunk.replace(regex, '') ] ">@{{chunk.replace(regex, '')}}</a>
-                    <span *ngSwitchCase="false ">{{chunk}}</span>
-                    </span>
+                    <span *ngSwitchCase="false ">{{chunk}}</span></span>
                 </p>
+                <!-- Shows the images (Will also show videos/link previews)  -->
                 <div class="image-grid">
                     <div *ngFor="let image of album; let i=index">
-                        <img *ngIf="i == 0" class="grid-image img-responsive" [src]="image.src" (click)="open(i, $event)" /> </div>
+                        <img *ngIf="i == 0" class="grid-image img-responsive" [src]="image.src" (click)="open(i, $event)" />
+                    </div>
                     <span class="badge image-count-badge" *ngIf="album.length > 1">1 of {{album.length}}</span>
                 </div>
+                <!-- Likes, Comment Count, Share Count, etc..  -->
                 <feed-item-actions (startCommenting)="sendShowInput()" [post]="post"></feed-item-actions>
             </div>
         </div>

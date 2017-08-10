@@ -1,13 +1,16 @@
 <div id="timeline">
+    <!-- Shows the Unread Posts alert when there are posts in the postBuffer  -->
     <unread-alert *ngIf="postBuffer.length" (click)="mergeBuffer()" [bufferCount]="postBuffer.length"></unread-alert>
+    <!-- Form for posting  -->
     <div class="panel form-panel">
         <post-form (onSave)="save($event)"></post-form>
     </div>
+    <!-- Contains the feed items  -->
     <feed-item-container *ngFor="let post of posts" [post]="post"></feed-item-container>
-    <div class="alert" *ngIf="loadingMore">
-        Loading More Posts
-    </div>
-    <div class="alert" *ngIf="endOfTime">
-        No more posts. Go make more friends!
+
+    <!--  Shows the loading messages when you're scrolling through timeline-->
+    <div class="alert" *ngIf="loadingMore || endOfTime">
+        <span *ngIf="loadingMore && !endOfTime">Loading More Posts</span>
+        <span *ngIf="endOfTime">No more posts. Go make more friends!</span>
     </div>
 </div>
