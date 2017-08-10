@@ -1,7 +1,8 @@
+<!-- Modal to hold the open post  -->
 <div bsModal (onHidden)="modalShow = false;" #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <feed-modal *ngIf="modalShow" [post]="post"></feed-modal>
 </div>
-
+<!-- The record that shows on the timeline  -->
 <div class="box">
     <feed-item type="primary" (deleteItem)="deleteItem($event)" [post]="post" (modalOpener)="openModal()"></feed-item>
 </div>

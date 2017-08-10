@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TimelineService } from '../shared/timeline-service';
 import * as _ from 'lodash';
 import { Subject } from 'rxjs/Subject';
@@ -8,28 +8,24 @@ import { Subject } from 'rxjs/Subject';
   templateUrl: './feed-modal.html',
   styleUrls: ['./feed-modal.scss'],
 })
-export class FeedModalComponent implements OnInit {
+export class FeedModalComponent {
     @Input() post: any;
-    regex: any;
-    user = JSON.parse(localStorage.getItem('user'));
     private formPopulate = new Subject<any>();
     constructor( private _timelineService: TimelineService ){}
 
-    ngOnInit(){
-      console.log(this.post);
-    }
-
+    // Sends event that will remove the specified feed-item
     deleteItem(postID, commentID, replyID, type) {
         this._timelineService.emitDestroyItem(type, postID, commentID, replyID);
     }
-
+  
+    // Comments on post
     saveComment( event ) {
         this._timelineService.saveItem(event.text, event.attachments, this.post.ID).subscribe( res => {
-          console.log(res.post);
           if ( res.status === 200 ) { this.post.comments.unshift(res.post); }
         });
     }
 
+    // Replies to comment
     saveReply( event, commentID ) {
         this._timelineService.saveItem(event.text, event.attachments, this.post.ID, commentID).subscribe( res => {
           if ( res.status === 200 ) {
@@ -40,7 +36,8 @@ export class FeedModalComponent implements OnInit {
           }
         });
     }
-
+  
+    // Opens the specified form, then populates the form. Waits 200ms just in case it took a little bit to open the form
     populateForm(i, event, UUID, text) {
         this.post.comments[i].commenting = event;
         setTimeout(() => {
@@ -48,14 +45,13 @@ export class FeedModalComponent implements OnInit {
         }, 200);
     }
 
+    // Loads more responses for desired item of desired type, then appends it to its appropriate list of feed items
     getMoreResponses( index, itemID, isReplies ) {
       this._timelineService.getFeedResponses(index, this.post.ID, itemID, isReplies ).subscribe( res => {
         console.log(res)
         if ( !isReplies ) {
-          console.log('Adding Comments')
           this.post.comments.push(...res);
         } else {
-          console.log('Adding replies')
           const commentIndex = _.findKey(this.post.comments, { 'ID': itemID });
           this.post.comments[commentIndex].replies.push(...res);
         }

@@ -1,31 +1,27 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { Component, Input, ViewChild } from '@angular/core';
 import { TimelineService } from '../shared/timeline-service';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
-// Break post grabbing/polling into a function called by the initiators
 @Component({
   selector: 'feed-item-container',
   templateUrl: './feed-item-container.html',
-  styleUrls: ['./feed-item-container.scss'],
-  providers: [{provide: BsDropdownConfig, useValue: {autoClose: false}}]
+  styleUrls: ['./feed-item-container.scss']
 })
-export class FeedItemContainerComponent implements OnInit {
+export class FeedItemContainerComponent {
     @Input() post: any;
-    regex: any;
+    // When toggled from true to false, it kills DOM processes related to modal
     modalShow = false;
-    user = JSON.parse(localStorage.getItem('user'));
+    // Reference to modal
     @ViewChild('lgModal') public lgModal: ModalDirective;
-    constructor(
-        private _timelineService: TimelineService
-    ){}
-    ngOnInit() {
-        this.regex = new RegExp(`${this.post.uuid}`, 'g');
-    }
+    constructor( private _timelineService: TimelineService ){}
+    
+    // Opens modal and allows DOM rendering
     openModal() {
         this.modalShow = true;
         this.lgModal.show();
     }
+    
+    // Sends destroy item event to remove timeline item
     deleteItem(postID) {
        this._timelineService.emitDestroyItem('post', postID, null, null);
     }

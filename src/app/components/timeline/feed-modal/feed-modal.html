@@ -1,43 +1,57 @@
-<!--
-    Maybe make feed-item-actions be able to optionally show actions based on input
-    That way we can only show the like option for comments and replies
--->
-
+<!-- Modal Content  -->
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="container timeline-cont">
+            <!-- Main Post  -->
             <div class="page-header">
+                <!-- Main Feed Item  -->
                 <feed-item type="primary" [post]="post" (deleteItem)="deleteItem($event, null, null, 'post')"></feed-item>
+                <!-- Comment Form  -->
                 <post-form (onSave)="saveComment($event);"></post-form>
             </div>
+            <!-- Vertical Timeline of Comments/Replies  -->
             <ul class="timeline" *ngIf="post.comments.length">
+                <!-- Comments  -->
                 <li *ngFor="let comment of post.comments; let isOdd=odd; let i = index" [ngClass]="{'timeline-inverted': isOdd}">
+                    <!-- Comment Profile Pic  -->
                     <div class="timeline-badge">
                         <img style="max-height:55px; max-width: 55px; border-radius:50%;" [src]="comment.user.profile_pic" alt="">
                     </div>
+                    <!-- Comment Body  -->
                     <div class="timeline-panel" style="background:rgba(0,0,0,0.1)">
+                        <!-- Feed Item (Text, Actions, etc...)  -->
                         <div class="timeline-heading" style="background:rgba(0,0,0,0.2)">
                             <feed-item (showInput)="comment['commenting']=$event;" type="sub" [post]="comment" (deleteItem)="deleteItem(post.ID, $event, null, 'comment')">
                             </feed-item>
+                            <!-- Split the box if it has replies  -->
                             <hr class="full-blue" *ngIf="comment.replies && comment.replies.length">
                         </div>
+                        <!-- Reply Form  -->
                         <post-form [postUUID]="comment.UUID" [populateEvent]="formPopulate" type="small" *ngIf="comment.commenting" (onSave)="saveReply($event, comment.ID);" (closeMe)="comment.commenting = $event">
                         </post-form>
+                        <!-- Section that shows if there are replies  -->
                         <div class="timeline-body" *ngIf="comment.replies && comment.replies.length ">
-                            <div class="header-grid" *ngFor="let reply of comment.replies ">
+                            <!--Replies  -->
+                            <div class="header-grid" *ngFor="let reply of comment.replies;">
+                                <!-- Reply Body  -->
                                 <feed-item type="sub" [post]="reply" (showInput)="populateForm(i, $event, comment.UUID, comment.user.tag);" (deleteItem)="deleteItem(post.ID, comment.ID, $event, 'reply') ">
                                 </feed-item>
+                                <!--Splits replies from loadmore button  -->
                                 <hr class="full-blue">
                             </div>
                         </div>
+                        <!-- Triggers a load more replies for this comment  -->
                         <div class="text-center" *ngIf="comment.replies && comment.replies.length < comment.response_count">
                             <button (click)="getMoreResponses(comment.replies.length, comment.ID, true)"> Load More</button>
                         </div>
+                        <!-- End Replies  -->
                     </div>
                 </li>
+                <!--Triggers a load more comments for this post  -->
                 <div class="text-center" *ngIf="post.comments.length < post.comment_count">
                     <button class="text-center" (click)="getMoreResponses(post.comments.length, null, false)">Load More</button>
                 </div>
+                <!--End Comments  -->
             </ul>
         </div>
     </div>
