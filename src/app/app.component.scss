@@ -1,0 +1,58 @@
+@import '../styles.scss';
+.site-grid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 55px;
+}
+
+.col {
+    display: table-cell;
+}
+
+.outside {
+    position: fixed;
+    height: 100%;
+}
+
+.left {
+    flex: 1;
+    left: 0;
+    float: left;
+    width: 250px;
+    border-right: $thin-border-dark;
+}
+
+.right {
+    flex: 1;
+    right: 0;
+    float: right;
+    width: 84px;
+    border-left: $thin-border-dark;
+}
+
+.custom-width {
+    margin-left: 250px;
+    width: calc(100% - 335px);
+}
+
+@media only screen and (max-width: 1300px) {
+    .left {
+        display: none;
+    }
+    .custom-width {
+        margin: auto;
+        margin-right: 85px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .right {
+        display: none;
+    }
+    .custom-width {
+        width: 100%;
+        margin: 0;
+    }
+}

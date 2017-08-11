@@ -1,22 +1,9 @@
 <div id="profile-page">
-	<div class="container-fluid no-padding">
-		<profile-banner *ngIf="user" [user]="user"></profile-banner>
-	</div>
-	<div class="container-fluid" style="margin-top:20px;">
-		<!-- Timeline, Followers, Following, Likes, Games, etc... -->
-		<div class="col-lg-3 hidden-xs text-center">
-			<!-- <chatbar></chatbar> -->
-			<div class="panel">
-				<h3>Stuff</h3>
-			</div>
-		</div>
-		<div class="col-lg-6">
-			<timeline></timeline>
-		</div>
-		<div class="col-lg-3 hidden-xs">
-			<chatbar></chatbar>
-		</div>
-	</div>
+    <div class="container-fluid no-padding banner">
+        <profile-banner *ngIf="user" [user]="user"></profile-banner>
+    </div>
+    <div class="container-fluid profile-content">
+        <!-- Timeline, Followers, Following, Likes, Games, etc... -->
+        <timeline></timeline>
+    </div>
 </div>
-
-

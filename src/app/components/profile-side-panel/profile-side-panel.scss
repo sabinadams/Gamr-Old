@@ -2,7 +2,7 @@
 #profile-side-panel {
     overflow-y: scroll;
     height: 100%;
-    background: $secondary-background;
+    background: $primary-background;
 }
 
 .top-grid {
@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
     width: 100%;
     h3 {
         margin-bottom: 4px;
@@ -34,13 +34,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    background: $secondary-background;
+    background: $primary-background;
     position: absolute;
-    bottom: 0;
+    bottom: 55px;
     width: 100%;
     .list-group {
         width: 100%;
-        background: $primary-background;
+        background: $secondary-background;
         border-top: $thin-border-dark;
         display: flex;
         flex-direction: row;

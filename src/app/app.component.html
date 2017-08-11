@@ -1,2 +1,17 @@
 <navbar [Authorized]="userCheck()"></navbar>
-<router-outlet></router-outlet>
+
+<div class="site-grid">
+
+    <div class="col col-1 outside left">
+        <profile-side-panel class="profile-panel"></profile-side-panel>
+    </div>
+    <div class="col col-2 custom-width">
+        <router-outlet class="content"></router-outlet>
+    </div>
+    <div class="col col-3 outside right" id="wcontainer">
+        <div>
+            <chatbar class="chatbar"></chatbar>
+        </div>
+        <!-- <profile-side-panel class="profile-panel"></profile-side-panel> -->
+    </div>
+</div>
