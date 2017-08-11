@@ -44,11 +44,13 @@
 |🎨🎨| 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|-----| --/--/---- |         |
 |🎨🎨| 2  |  Timeline Profile Pics not Stretch/Squish                                             |-----|-----| --/--/---- |         |
 |🎨🚀| 3  |  Universal Polling that handles different things (notifs, post updates, timeline)     |-----|-----| --/--/---- |         |
+|♻️♻️| 1  |  Restructure Layout Of Files / Split to modules                                       |-----|-----| --/--/---- |         |
 ------------------------------------------------------------------------------------------------------------------------------------*/
 
 🎨 When Improving UI
 🚀 When Improving Performance
 ✏️ When Writing Docs
+♻️ When Refactoring
 💡 Idea/Not Worked On Yet
 🚧 Work In Progress
 ➕ When Adding Feature
