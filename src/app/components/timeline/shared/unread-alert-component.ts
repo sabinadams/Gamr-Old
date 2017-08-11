@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-
 import * as _ from 'lodash';
 
-// Break post grabbing/polling into a function called by the initiators
+
 @Component({
   selector: 'unread-alert',
   template: `<div class="alert buffer-alert">{{bufferCount}} new posts</div>`,

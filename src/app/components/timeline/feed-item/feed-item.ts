@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TimelineService } from '../shared/timeline-service';
 import { Lightbox, LightboxConfig } from 'angular2-lightbox';
 
-// Break post grabbing/polling into a function called by the initiators
+
 @Component({
   selector: 'feed-item',
   templateUrl: './feed-item.html',

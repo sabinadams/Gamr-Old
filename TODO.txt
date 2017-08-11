@@ -1,5 +1,3 @@
-
-
 /*------ Timeline Stuff -------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
 |✅✅| 1  |  Kill modal when closed so the inputs will refresh and loading will refresh           | ****|     | 08/02/2017 |  Sabin  |
 |✅✅| 2  |  Load more comments/replies                                                           |   **|     | 08/04/2017 |  Sabin  |
@@ -14,27 +12,39 @@
 |✅✅| 8b |    - Change to contenteditable div and stuff                                          |*****|     | 08/01/2017 |  Sabin  |
 |✅✅| 8c |    - Auto populate @mention when opening reply input                                  |  ***|     | 08/03/2017 |  Sabin  |
 |🎨🔒| 9  |  Posting videos/viewing videos                                                        |*****|*****| --/--/---- |         |
-|🎨🚀|-10-|  Update Response Count when Posting a Comment or Reply                                |   **|   **| --/--/---- |         |
+|🎨🚀| 10 |  Update Response Count when Posting a Comment or Reply                                |   **|   **| --/--/---- |         |
 |✅✅| 11 |  Show/Hide Load More Button Based On CommentCount and ReplyCount                      |   **|     | 08/04/2017 |  Sabin  |
 |➕🚀| 12 |  Hashtag functionality (not mentions)                                                 | ****| ****| --/--/---- |         |
 |🎨🔒| 12a|    - The same functionality as 9, but for the tags                                    |    *|    *| --/--/---- |         |
 |✅✅| 13 |  Lightbox For Images                                                                  |   **|     | 08/08/2017 |  Sabin  |
 |🔒🎨| 14 |  Better posting method frontend + backend (Posting should require text OR attachments)|   **|   **| --/--/---- |         |
-|🚀🚀| 15 |  Store posts in timeline-service.ts and re-use globally so you don't have to relod    |    *|    *| --/--/---- |         |
+|🚀🚀| 15 |  Store posts in timeline-service.ts and re-use globally so you don't have to reload   |   **|   **| --/--/---- |         |
+|🚀🎨| 16 |  Post Form better non-alpha/numeric checking on keyup update                          |    *|    *| --/--/---- |         |
+|🚀🚀| 17 |  Subscription model/refreshData for timeline rather than the current poll process     |  ***|  ***| --/--/---- |         |
+|🚀🎨| 18 |  Move post-form populate to constructor to maybe avoid time conflicts                 |    *|    *| --/--/---- |         |
 ------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*------ Profile Page Stuff ---------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
 |🎨🎨| 1  |  Plan UI                                                                              |   **|   **| --/--/---- |         |
+              - Banner Pics
+              - Profile Pics
+              - Posts
+              - Media
+              - Followers
+              - Following
+              - Place for user stats (level, rank, guild name, badges, etc...)
+              - Description
+              - Options to modify info ( if you are on your own profile page )
+              - Section for connected accounts
+              - Section for games you play
+              - Section for analytics ( if you are on your own profile page )
 ------------------------------------------------------------------------------------------------------------------------------------*/
-
 
 /*------ Future Stuff ---------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
 |🎨🎨| 1  |  Whole Timeline Vertical. Click post zooms in on a "branch" kinda (think circuits)    |-----|-----| --/--/---- |         |
 |🎨🎨| 2  |  Timeline Profile Pics not Stretch/Squish                                             |-----|-----| --/--/---- |         |
 |🎨🚀| 3  |  Universal Polling that handles different things (notifs, post updates, timeline)     |-----|-----| --/--/---- |         |
 ------------------------------------------------------------------------------------------------------------------------------------*/
-
-
 
 🎨 When Improving UI
 🚀 When Improving Performance
@@ -50,5 +60,3 @@
 ⬆️ When Upgrading Dependencies
 ⬇️ When Downgrading Dependencies
 ✅ When Complete
-
-

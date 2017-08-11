@@ -2,6 +2,9 @@ import { Component, OnInit, HostListener, NgZone } from '@angular/core';
 import { TimelineService } from './shared/timeline-service';
 import { EventService } from '../../services/event-service';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Rx';
+
+// Use subscription models/refresh data models to update timeline with polling (http://beyondscheme.com/2016/angular2-discussion-portal)
 
 @Component({
   selector: 'timeline',
@@ -17,7 +20,7 @@ export class TimelineComponent implements OnInit {
   loadingMore = false;
   // Toggled when there are no more posts to load to prevent unnecessary calls to server
   endOfTime = false;
-
+  
   // Checks if you've scrolled to the bottom of the page so it can load more posts
   @HostListener('window:scroll', ['$event']) checkPosition(event) {
     // Checks if you're at bottom
@@ -71,7 +74,6 @@ export class TimelineComponent implements OnInit {
       }
     });
   }
-
 
   removeFeedItem( data ) {
       let postIndex = null;

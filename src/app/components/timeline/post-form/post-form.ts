@@ -8,19 +8,18 @@ import { Subject } from 'rxjs/Subject';
     styleUrls: ['./post-form.scss'],
 })
 export class PostFormComponent implements OnInit {
-    // ************Can add logic inside the regex check to only turn it into a link if it's a valid User
+
     @Output() onSave = new EventEmitter(); // Passes the data to the parent to save
     @Output() closeMe = new EventEmitter();// Tells the parent to close the form
     @Input() postUUID: any; // UUID is used to make sure only the specified form gets populated  
     @Input() populateEvent: Subject<any>; // The event that populates the form automatically. Auto populate will basically tell all of the forms to populate with the given text. 
     @Input() type = ''; // If small, it will show a "Close button", otherwise it won't. Only main timeline input won't have that button
     @ViewChild('postForm') public postForm: any; // Reference to the postForm (  element with #postForm )
-    post: any = { text: '', attachments: []}; // Model of post ( ***************to be added to eventually )
+    post: any = { text: '', attachments: []}; 
     randID = this._authService._generateToken(); // Random ID used to ensure unique ID attribute on element
 
     constructor( private _authService: AuthService ){}
 
-    //************** Maybe move this stuff to Constructor
     ngOnInit() {
         // If this was created with a populate event
         if ( this.populateEvent ) {
@@ -37,7 +36,7 @@ export class PostFormComponent implements OnInit {
     // Fires every key event
     @HostListener('keyup', ['$event']) onKeyup(event) {
         // ************Currently assumes anything matching the description of a tag is a valid tag. Need to add validation of tags so it highlights valid users only
-        if ( !(event.which <= 90 && event.which >= 48)) { return; } // If not number/letter return (****doesn't check all non-num/letter stuff yet)
+        if ( !(event.which <= 90 && event.which >= 48)) { return; }
         // Splits the current contents of postForm at each @mention
         const values = this.postForm.nativeElement.innerText.split(/(\B@[a-z0-9_-]+)/gi);
         let fullText = ``;
