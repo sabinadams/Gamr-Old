@@ -2,7 +2,7 @@
     <!-- Shows the Unread Posts alert when there are posts in the postBuffer  -->
     <unread-alert *ngIf="postBuffer.length" (click)="mergeBuffer()" [bufferCount]="postBuffer.length"></unread-alert>
     <!-- Form for posting  -->
-    <div class="panel form-panel">
+    <div class="panel form-panel" *ngIf="showForm">
         <post-form (onSave)="save($event)"></post-form>
     </div>
     <!-- Contains the feed items  -->

@@ -38,6 +38,7 @@
               - Section for connected accounts
               - Section for games you play
               - Section for analytics ( if you are on your own profile page )
+              - Toggler on banner photo that overlays it with transparent grey and adds statistics like exp, graph of history, etc... Think like graphs in screenshots purple
 ------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*------ Future Stuff ---------------------------------------------------------------------------- Pts - Curr - Complete --- Credit -
@@ -46,6 +47,7 @@
 |🎨🚀| 3  |  Universal Polling that handles different things (notifs, post updates, timeline)     |-----|-----| --/--/---- |         |
 |♻️♻️| 1  |  Restructure Layout Of Files / Split to modules                                       |-----|-----| --/--/---- |         |
 ------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 🎨 When Improving UI
 🚀 When Improving Performance

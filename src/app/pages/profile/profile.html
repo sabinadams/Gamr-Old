@@ -2,8 +2,8 @@
     <div class="container-fluid no-padding banner">
         <profile-banner *ngIf="user" [user]="user"></profile-banner>
     </div>
-    <div class="container-fluid profile-content">
+    <div class="container-fluid profile-content" style="padding: 10px 100px;">
         <!-- Timeline, Followers, Following, Likes, Games, etc... -->
-        <timeline></timeline>
+        <timeline [showForm]="false"></timeline>
     </div>
 </div>
