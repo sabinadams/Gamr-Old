@@ -12,13 +12,13 @@ export class ImageUploaderComponent {
   @Output() onUpload = new EventEmitter();
   constructor( private _imageService: ImageService ){}
 
-    // Sends the image through a function whenever the file input is used
+  // Sends the image through a function whenever the file input is used
   imageHandler($event): void {
     if (this.images.length < 7 && $event.target.files[0] !== undefined) { this.saveImage($event.target); }
   }
 
   removeImage(i) {
-      this.images.splice(i, 1);
+    this.images.splice(i, 1);
   }
   // Converts file to base64
   // Try to add this to the image service. Promises will probably need to be applied

@@ -36,18 +36,18 @@
     width: calc(100% - 335px);
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 700px) {
     .left {
         display: none;
     }
     .custom-width {
         margin: auto;
         margin-right: 85px;
-        width: 100%;
+        flex: 1;
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 400px) {
     .right {
         display: none;
     }
